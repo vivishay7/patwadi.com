@@ -1,0 +1,154 @@
+contact.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Patwadi</title>
+  <meta name="description" content="Contact Patwadi support, sales, or partnerships. WhatsApp, form, or visit our offices.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .whatsapp-btn { background: #25D366; }
+    .whatsapp-btn:hover { background: #128C7E; }
+    .offices { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="hero" style="min-height: 60vh;">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>Support, partnerships, or inquiries. Response within 2 hours.</p>
+      <a href="https://wa.me/919876543210?text=Hi Patwadi team" target="_blank" class="btn whatsapp-btn" style="margin-right: var(--spacing-md);">WhatsApp Support</a>
+      <a href="#form" class="btn btn-secondary">Send Message</a>
+    </div>
+  </section>
+
+  <!-- Support Form -->
+  <section class="section" id="form">
+    <div class="container">
+      <h2 class="section-title">Send a Message</h2>
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select required>
+            <option>Get a Quote</option>
+            <option>Enterprise Partnership</option>
+            <option>Sales Inquiry</option>
+            <option>Support Query</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Offices -->
+  <section class="section" style="background: var(--neutral-100);">
+    <div class="container">
+      <h2 class="section-title">Our Locations</h2>
+      <div class="grid offices">
+        <div class="card">
+          <h3>🏢 Chandigarh HQ</h3>
+          <p>Sector 17, Chandigarh<br>+91 9876 543 210<br>hq@patwadi.com</p>
+        </div>
+        <div class="card">
+          <h3>📍 Delhi Hub</h3>
+          <p>Kashmere Gate<br>Mon-Sun 24/7<br>North Belt Gateway</p>
+        </div>
+        <div class="card">
+          <h3>📍 Manali Node</h3>
+          <p>Mall Road Ops<br>Daily Dispatch<br>High-Altitude Logistics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title">Follow Us</h2>
+      <div style="display: flex; gap: var(--spacing-lg); justify-content: center; flex-wrap: wrap;">
+        <a href="#" style="color: var(--neutral-700); font-size: 1.5rem;">📘</a>
+        <a href="#" style="color: var(--neutral-700); font-size: 1.5rem;">📱</a>
+        <a href="#" style="color: var(--neutral-700); font-size: 1.5rem;">🐦</a>
+        <a href="#" style="color: var(--neutral-700); font-size: 1.5rem;">💼</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Bus Operators</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

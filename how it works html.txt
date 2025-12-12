@@ -1,0 +1,124 @@
+how-it-works.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .step-number { font-size: 2rem !important; background: transparent !important; color: var(--neutral-900) !important; width: auto !important; height: auto !important; margin-bottom: 0.5rem !important; }
+    .step { min-width: 150px; padding: var(--spacing-sm) !important; }
+    .step h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .step p { font-size: 0.9rem; color: var(--neutral-500); }
+  </style>
+  <title>How It Works - Patwadi</title>
+  <meta name="description" content="Step-by-step guide: From booking to delivery using Patwadi's intercity corridor network, buffer hubs, and riders.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- How Hero -->
+  <section class="hero" style="min-height: 60vh; background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
+    <div class="hero-content">
+      <h1>5 Steps to Seamless Delivery</h1>
+      <p>Your parcel crosses our intercity corridor network with AI orchestration, corridor nodes, and high-earning riders tracking every milestone.</p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section">
+    <div class="container">
+      <div class="steps" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg);">
+        <div class="step">
+          <div class="step-number">📱</div>
+          <h3>Book</h3>
+          <p>Request pickup via App/WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">🚚</div>
+          <h3>Pickup</h3>
+          <p>Rider collects within 30 mins.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">🛣️</div>
+          <h3>Corridor</h3>
+          <p>Secure intercity batch transit.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">📦</div>
+          <h3>Buffer</h3>
+          <p>Sort & dispatch at hub.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">🏠</div>
+          <h3>Deliver</h3>
+          <p>Doorstep drop within SLA.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <a href="tracking.html" class="btn">Track Your Parcel</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Corridor Partners</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

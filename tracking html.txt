@@ -1,0 +1,127 @@
+tracking.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Parcel - Patwadi</title>
+  <meta name="description" content="Track your Patwadi parcel in real-time with live updates and WhatsApp notifications.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Tracking Hero (Demo Sandbox) -->
+  <section style="padding: var(--spacing-3xl) 0; background: var(--neutral-900); color: white; text-align: center;">
+    <div class="container tracking-container">
+      <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--spacing-md);">Tracking Sandbox</h1>
+      <p style="max-width: 500px; margin: 0 auto var(--spacing-xl);">Experience our real-time visibility engine. Enter a demo ID to see the granular events our API returns.</p>
+      <div style="background: rgba(255,255,255,0.1); padding: var(--spacing-lg); border-radius: var(--border-radius); border: 1px solid var(--neutral-700);">
+        <input type="text" class="tracking-input" placeholder="Enter Tracking ID (Try: DEMO123)" value="" style="background: white; color: var(--neutral-900); border: none;">
+        <button type="button" class="btn tracking-submit" style="margin-top: var(--spacing-md); width: 100%; max-width: 220px;">Enter</button>
+        <p style="color: var(--neutral-400); font-size: 0.875rem; margin-top: var(--spacing-sm);">NOTE: For live production shipments, please use the link sent to your WhatsApp/Email.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status Timeline -->
+  <section class="section">
+    <div class="container tracking-container">
+      <h2>Your Parcel Journey</h2>
+      <div class="status-timeline">
+        <p>Enter a Tracking ID (try "DEMO123") to see journey.</p>
+      </div>
+      <div class="card" style="margin-top: var(--spacing-xl); padding: var(--spacing-lg);">
+        <h3 style="margin-bottom: var(--spacing-sm);">Sample Parcel Details</h3>
+        <p><strong>ID:</strong> PW-EXAMPLE-001</p>
+        <p><strong>From:</strong> Delhi | <strong>To:</strong> Manali</p>
+        <p><strong>Dims:</strong> 30x20x10 cm | <strong>Weight:</strong> 2kg</p>
+        <p><strong>Status:</strong> In Transit (Intercity Corridor)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="section" style="background: var(--neutral-100);">
+    <div class="container">
+      <h2 class="section-title">Track Tips</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">📱</div>
+          <h3>WhatsApp Alerts</h3>
+          <p>Opt-in for instant updates on pickup, transit, and delivery.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🗺️</div>
+          <h3>Live Map</h3>
+          <p>View exact corridor/rider location on integrated map (coming soon).</p>
+        </div>
+        <div class="card">
+          <div class="icon">📞</div>
+          <h3>Support</h3>
+          <p>Issues? WhatsApp +91-22-PATWADI or email support@patwadi.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Intercity Corridor Operators</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

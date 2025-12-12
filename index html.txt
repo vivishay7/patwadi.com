@@ -1,0 +1,269 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patwadi - Intercity Corridor Network</title>
+  <meta name="description" content="Patwadi operates an intercity corridor network with <24hr dispatch, metro–Tier 2 reach, AI orchestration, corridor buffer hubs, and SLA-backed logistics for consumers, SMBs, and enterprises.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Intercity Corridor Network<br>Built for <span style="color: var(--primary-blue-light);">&lt;24hr Delivery</span></h1>
+      <p>Patwadi orchestrates a corridor-integrated logistics mesh across metro and Tier 2 cities. AI dimensioning, corridor buffer hubs, QR lockers, and live rider assignment keep every parcel within SLA.</p>
+      <div style="display: flex; gap: var(--spacing-sm); justify-content: center; flex-wrap: wrap;">
+        <a href="#quote" class="btn" style="background: white; color: var(--primary-blue);">Get a Corridor Quote</a>
+        <a href="#corridors" class="btn btn-secondary">View Active Corridors</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Indicators -->
+  <section style="background: var(--neutral-900); color: white; padding: var(--spacing-md) 0; border-bottom: 1px solid var(--neutral-700);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: var(--spacing-md); text-align: center;">
+        <div>
+          <span style="display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent-green);">96.7%</span>
+          <small style="color: var(--neutral-500);">OTIF (On-Time In-Full)</small>
+        </div>
+        <div>
+          <span style="display: block; font-size: 1.5rem; font-weight: 700; color: var(--primary-blue-light);">0 in 1,100</span>
+          <small style="color: var(--neutral-500);">Lost Parcels (Last 30 Days)</small>
+        </div>
+        <div>
+          <span style="display: block; font-size: 1.5rem; font-weight: 700; color: var(--white);">120+</span>
+          <small style="color: var(--neutral-500);">Active Intercity Corridors</small>
+        </div>
+        <div>
+          <span style="display: block; font-size: 1.5rem; font-weight: 700; color: var(--white);">< 24 hrs</span>
+          <small style="color: var(--neutral-500);">Average Dispatch Band</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Flow -->
+  <section class="section" id="quote">
+    <div class="container">
+      <h2 class="section-title">Instant Corridor Check</h2>
+      <div class="card" style="max-width: 720px; margin: 0 auto;">
+        <form class="quote-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--spacing-md);">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>From City</label>
+            <select required name="from">
+              <option value="Delhi">Delhi</option>
+              <option value="Chandigarh">Chandigarh</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>To City</label>
+            <select required name="to">
+              <option value="Manali">Manali</option>
+              <option value="Shimla">Shimla</option>
+              <option value="Dharamshala">Dharamshala</option>
+              <option value="Mandi">Mandi</option>
+              <option value="Rampur">Rampur</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Parcel Weight</label>
+            <select required name="weight">
+              <option value="Upto 5kg">Up to 5 kg</option>
+              <option value="5-15kg">5 - 15 kg</option>
+              <option value="15-30kg">15 - 30 kg</option>
+              <option value=">30kg">Above 30 kg</option>
+            </select>
+          </div>
+          <button type="submit" class="btn" style="width: 100%; grid-column: 1 / -1;">Check Availability</button>
+        </form>
+        <div class="quote-result" style="margin-top: var(--spacing-md); font-weight: 600; color: var(--primary-blue); text-align: center;">Select cities to verify corridor capacity.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Pillars -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Core Strengths</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Speed</h3>
+          <p>Real-time rider assignment, AI dimension estimation, and corridor batching keep the stack under a 24-hour turnaround.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌐</div>
+          <h3>Reach</h3>
+          <p>Metro–Tier 2 connectivity powered by corridor buffer hubs, QR lockers, and coordinated first/last-mile riders.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>Intelligence</h3>
+          <p>Predictive dispatch, WhatsApp notifications, and a corridor control tower eliminate fail rates and surface live decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corridor Coverage -->
+  <section class="section" style="background: var(--neutral-100);" id="corridors">
+    <div class="container">
+      <h2 class="section-title">Corridor Connectivity</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-bottom: var(--spacing-lg);">Live Corridors</h3>
+          <div style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: var(--neutral-50); border-radius: var(--border-radius);">
+              <div>
+                <strong>Delhi ↔ Manali</strong>
+                <div style="font-size: 0.875rem; color: var(--accent-green);">Corridor status: Stable • SLA 12 hrs</div>
+              </div>
+              <a href="contact.html" class="btn btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Book via this corridor</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: var(--neutral-50); border-radius: var(--border-radius);">
+              <div>
+                <strong>Chandigarh ↔ Shimla</strong>
+                <div style="font-size: 0.875rem; color: var(--accent-green);">Corridor status: Prime • SLA 6 hrs</div>
+              </div>
+              <a href="contact.html" class="btn btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Book via this corridor</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: var(--neutral-50); border-radius: var(--border-radius);">
+              <div>
+                <strong>Delhi ↔ Dharamshala</strong>
+                <div style="font-size: 0.875rem; color: var(--accent-green);">Corridor status: Active • SLA 14 hrs</div>
+              </div>
+              <a href="contact.html" class="btn btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Book via this corridor</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-sm); background: var(--neutral-50); border-radius: var(--border-radius);">
+              <div>
+                <strong>Chandigarh ↔ Mandi</strong>
+                <div style="font-size: 0.875rem; color: var(--accent-green);">Corridor status: Active • SLA 5 hrs</div>
+              </div>
+              <a href="contact.html" class="btn btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Book via this corridor</a>
+            </div>
+            <div style="text-align: center; margin-top: var(--spacing-sm);">
+              <a href="services.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">View all 120+ corridors →</a>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder" style="margin: 0; height: 100%; min-height: 320px; background: var(--neutral-900); position: relative; overflow: hidden;">
+          <div style="position: absolute; inset: 0; opacity: 0.15; background-image: radial-gradient(#444 1px, transparent 1px); background-size: 24px 24px;"></div>
+          <div style="position: relative; z-index: 1; text-align: center; color: var(--neutral-100); padding: var(--spacing-md);">
+            <p style="color: white; margin-bottom: var(--spacing-sm);">Network Status: <strong>OPTIMAL</strong></p>
+            <div class="corridor-info" style="background: rgba(255,255,255,0.1); padding: var(--spacing-sm); border-radius: var(--border-radius); margin-bottom: var(--spacing-md); min-height: 72px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem;">
+              Hover or tap a node to view ETA bands.
+            </div>
+            <div style="position: relative; height: 200px;">
+              <button class="corridor-node" title="Delhi ↔ Manali" style="position: absolute; top: 20px; left: 45%; width: 18px; height: 18px; border-radius: 50%; border: none; background: var(--accent-green); box-shadow: 0 0 12px rgba(16,185,129,0.8); cursor: pointer;"></button>
+              <button class="corridor-node" title="Chandigarh ↔ Shimla" style="position: absolute; top: 45%; left: 40%; width: 18px; height: 18px; border-radius: 50%; border: none; background: var(--primary-blue-light); box-shadow: 0 0 12px rgba(96,165,250,0.8); cursor: pointer;"></button>
+              <button class="corridor-node" title="Chandigarh ↔ Rampur" style="position: absolute; top: 40%; left: 55%; width: 18px; height: 18px; border-radius: 50%; border: none; background: var(--accent-green); box-shadow: 0 0 12px rgba(16,185,129,0.8); cursor: pointer;"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Patwadi -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Patwadi?</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Consumers</h3>
+          <p>Locker, doorstep, or rider handoff with live WhatsApp notifications and proofs of delivery.</p>
+        </div>
+        <div class="card">
+          <h3>SMBs</h3>
+          <p>Daily shipment batching, subscription tiers, and shared corridorship reducing loss rates to near-zero.</p>
+        </div>
+        <div class="card">
+          <h3>Enterprises</h3>
+          <p>SLA-backed, compliance-ready corridor stack with visibility APIs and fail-safe micro-holds.</p>
+        </div>
+        <div class="card">
+          <h3>Corridor Partners</h3>
+          <p>Monetize idle capacity by plugging into Patwadi’s closed-loop control tower with transparent payouts.</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: var(--spacing-xl); font-weight: 600; color: var(--neutral-900);">Run your city-to-storefront dispatch via our closed-loop corridor stack.</p>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="section" style="background: var (--neutral-100);">
+    <div class="container">
+      <h2 class="section-title" style="opacity: 0.8;">Trusted Partners</h2>
+      <div class="partners">
+        <div class="partner-logo" style="background: var(--neutral-200); width: 120px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius);">MSRTC</div>
+        <div class="partner-logo" style="background: var(--neutral-200); width: 120px; height: 60px; display: flex; alignments: center; justify-content: center; border-radius: var(--border-radius);">KSRTC</div>
+        <div class="partner-logo" style="background: var(--neutral-200); width: 120px; height: 60px; display: flex; alignments: center; justify-content: center; border-radius: var(--border-radius);">UPSRTC</div>
+        <div class="partner-logo" style="background: var(--neutral-200); width: 120px; height: 60px; display: flex; alignments: center; justify-content: center; border-radius: var(--border-radius);">SMB Network</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Corridor Operators</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+partner-onboarding.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Onboarding - Patwadi</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+    </nav>
+  </header>
+  <section class="section" style="padding-top: 7rem;">
+    <div class="container">
+      <h1 class="section-title" style="text-align: center; margin-bottom: 2rem;">Partner Onboarding</h1>
+      <p style="max-width: 640px; margin: 0 auto 2rem; text-align: center; color: var(--neutral-500);">This secure form is shared only via unique SMS/WhatsApp links. Use it to complete KYC, asset, and payout details for your Patwadi partnership.</p>
+      <form style="max-width: 720px; margin: 0 auto;" class="onboarding-form">
+        <div class="form-group">
+          <label>Full Legal Name / Entity Name</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Registered Phone</label>
+          <input type="tel" required>
+        </div>
+        <div class="form-group">
+          <label>Registered Email</label>
+          <input type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Partner Role</label>
+          <select required>
+            <option value="" disabled selected>Select role</option>
+            <option value="rider">Individual Rider</option>
+            <option value="fleet">Fleet / Capacity Provider</option>
+            <option value="smb">SMB / Brand</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Government ID (Aadhaar / GST / CIN)</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Primary Operating Cities / Corridors</label>
+          <input type="text" placeholder="e.g., Delhi ↔ Manali, Chandigarh ↔ Shimla" required>
+        </div>
+        <div class="form-group">
+          <label>Asset & Capacity Details</label>
+          <textarea rows="4" placeholder="Number of vehicles, type, daily capacity, shift preferences" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Payout Preference</label>
+          <select required>
+            <option value="" disabled selected>Select payout mode</option>
+            <option value="upi">UPI</option>
+            <option value="bank">Bank Transfer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Compliance & Declarations</label>
+          <textarea rows="3" placeholder="Any licenses, permits, or compliance notes." required></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Submit Onboarding Details</button>
+      </form>
+      <p style="max-width: 640px; margin: 1.5rem auto 0; text-align: center; font-size: 0.9rem; color: var(--neutral-500);">Our team validates submissions within 24 hours and activates routes only after verification. For questions, reply directly to your onboarding message.</p>
+    </div>
+  </section>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

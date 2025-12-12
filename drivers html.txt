@@ -1,0 +1,139 @@
+drivers.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drive with Patwadi - Partner Network</title>
+  <meta name="description" content="Join Patwadi's intercity corridor network. High earnings, flexible routes, and daily payouts for riders and fleet partners.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Partner Hero -->
+  <section class="hero" style="min-height: 60vh; background: linear-gradient(135deg, var(--neutral-900), var(--neutral-700));">
+    <div class="hero-content">
+      <h1>Partner with the Network</h1>
+      <p>Join India's fastest intercity corridor mesh. High earning potential for riders, fleets, and corridor operators.</p>
+      <a href="#join" class="btn">Start Earning</a>
+    </div>
+  </section>
+
+  <!-- Why Partner -->
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3>High Earnings</h3>
+          <p>Competitive payouts per pickup/drop. Bonuses for peak corridor hours.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⏱️</div>
+          <h3>Flexible Shifts</h3>
+          <p>Log in when you want. Smart routing keeps you in your preferred zone.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📱</div>
+          <h3>Tech-First</h3>
+          <p>Live app dispatch, digital PODs, and instant wallet transfers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simple Interest Form -->
+  <section class="section" id="join" style="background: var(--neutral-100);">
+    <div class="container">
+      <h2 class="section-title">Express Interest</h2>
+      <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <form>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" required placeholder="10-digit mobile number">
+          </div>
+          <div class="form-group">
+            <label>Role Interested In <span class="info-icon" data-tooltip="Last-Mile Rider – city pickups and deliveries. Fleet Owner – provide vehicles and drivers on fixed corridors. Corridor Operator – run buffer hubs and intercity corridor legs.">ⓘ</span></label>
+            <select required>
+              <option value="" disabled selected>Select Role</option>
+              <option value="rider">Last-Mile Rider</option>
+              <option value="fleet">Fleet Owner</option>
+              <option value="corridor">Corridor Operator</option>
+            </select>
+          </div>
+          <button type="submit" class="btn" style="width: 100%;">Request Call Back</button>
+        </form>
+        <p style="text-align: center; margin-top: var(--spacing-md); font-size: 0.875rem; color: var(--neutral-500);">
+          Our onboarding team will contact you within 24 hours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Corridor Operators</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="position: relative;">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+      <!-- Secret Onboarding Button -->
+      <a href="partner-onboarding.html" style="position: absolute; bottom: 20px; right: 0; width: 10px; height: 10px; background: var(--primary-blue); border-radius: 50%; opacity: 0.3; cursor: default;" title="Internal Onboarding" aria-hidden="true"></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+services.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Patwadi</title>
+  <meta name="description" content="Discover Patwadi's intercity corridor services: pickup, lockers, linehaul control, tracking, and B2B plans.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Services Hero -->
+  <section class="hero" style="min-height: 40vh; background: linear-gradient(135deg, var(--primary-blue-light), var(--primary-blue));">
+    <div class="hero-content">
+      <h1>End-to-End Micro-Logistics</h1>
+      <p>From first-mile pickup to last-mile delivery via a corridor-integrated control tower and AI.</p>
+      <a href="tracking.html" class="btn">Send Now</a>
+    </div>
+  </section>
+
+  <!-- Service Sections -->
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🚪</div>
+          <h3>Door-to-Door Fulfillment</h3>
+          <p>First-mile pickup within 30 mins and last-mile delivery within 2 hours. Live assignment and digital proofs at both ends.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>Depot Dropoff</h3>
+          <p>Drop at corridor buffer hubs or scan QR lockers. 24/7 access, no queues.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛣️</div>
+          <h3>Intercity Linehaul</h3>
+          <p>Secure batch consolidation on our intercity corridor network. Micro-holds stabilize every transfer.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📝</div>
+          <h3>Contract Verification (B2B)</h3>
+          <p>Physical document verification and secure return logistics for banking, telecom, and legal contracts.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>Batch Dispatching</h3>
+          <p>AI-optimized grouping by route, dimensions, and SLA band. Maximum efficiency, minimum cost.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📱</div>
+          <h3>Tracking & Notifications</h3>
+          <p>Real-time telemetry + WhatsApp alerts at every handoff. Corridor control tower visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Solutions Layer -->
+  <section class="section" style="background: var(--neutral-900); color: white;">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: var(--spacing-2xl);">
+        <h2 class="section-title" style="color: white;">Enterprise SLA Guarantee</h2>
+        <p style="max-width: 700px; opacity: 0.9; font-size: 1.125rem;">For pharma, automotive, and FMCG partners requiring strict compliance and dedicated throughput. Run your city-to-storefront dispatch via our closed-loop corridor stack.</p>
+      </div>
+      
+      <div class="grid">
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="icon" style="background: var(--accent-green);">🛡️</div>
+          <h3 style="color: white;">Reliability</h3>
+          <p style="color: var(--neutral-300);">99.9% Network Uptime<br>96.7% OTIF Performance</p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="icon" style="background: var(--primary-blue-light);">🔐</div>
+          <h3 style="color: white;">Security</h3>
+          <p style="color: var(--neutral-300);">Tamper-proof seals<br>Real-time geo-fencing alerts</p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="icon" style="background: var(--white); color: var(--neutral-900);">🤝</div>
+          <h3 style="color: white;">Support</h3>
+          <p style="color: var(--neutral-300);">Dedicated Key Account Manager<br>24/7 Control Tower Access</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B Plans (Quote Based) -->
+  <section class="section" style="background: var(--neutral-50);">
+    <div class="container">
+      <h2 class="section-title">Partnership Tiers</h2>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto var(--spacing-2xl); font-size: 1.125rem;">Flexible contracts designed for scale.</p>
+      <div class="grid">
+        <div class="card" style="border-top: 4px solid var(--primary-blue);">
+          <h3>SME Growth</h3>
+          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">For growing businesses shipping 50-500 parcels/mo.</p>
+          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+            <li>Consolidated billing</li>
+            <li>Priority pickup slots</li>
+            <li>Basic API access</li>
+            <li>Standard Insurance</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Request Quote</a>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--accent-green); background: var(--white); position: relative;">
+          <div style="position: absolute; top: 0; right: 0; background: var(--accent-green); color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: 700; border-bottom-left-radius: 8px;">POPULAR</div>
+          <h3>Corporate</h3>
+          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">High-volume optimization for 500+ parcels/mo.</p>
+          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+            <li>Volume discounts</li>
+            <li>Custom corridor planning</li>
+            <li>Full API & Webhooks</li>
+            <li>Dedicated support line</li>
+          </ul>
+          <a href="contact.html" class="btn" style="width: 100%; text-align: center;">Talk to Sales</a>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--neutral-900);">
+          <h3>Enterprise</h3>
+          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">Tailored logistics infrastructure.</p>
+          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+            <li>Private corridor buffer hubs</li>
+            <li>White-label rider app</li>
+            <li>SLA-backed guarantees</li>
+            <li>Quarterly business reviews</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Strategy Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="#">Corridor Operators</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
