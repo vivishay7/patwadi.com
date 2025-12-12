@@ -9,9 +9,6 @@ README.md
 
 A production-quality, mobile-responsive corporate website for **Patwadi Logistics**, modeled on the visual clarity and professional standards of enterprise logistics companies like CEVA Logistics.
 
-## 🌐 Live Demo
-[View the live site](https://your-username.github.io/patwadi-website/)
-
 ## 📁 Project Structure
 ```
 patwadi-website/
