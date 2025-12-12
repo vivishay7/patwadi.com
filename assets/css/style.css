@@ -1,4 +1,4 @@
-assets/css/style.css
+##assets/css/style.css
 
 
 
@@ -500,4 +500,5 @@ img {
 .info-icon:hover::after {
   opacity: 1;
   transform: translate(-50%, -4px);
+
 }
