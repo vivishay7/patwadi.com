@@ -1,7 +1,3 @@
-##assets/css/style.css
-
-
-
 :root {
   --primary-blue: #1d4ed8;
   --primary-blue-dark: #1e3a8a;
@@ -500,5 +496,4 @@ img {
 .info-icon:hover::after {
   opacity: 1;
   transform: translate(-50%, -4px);
-
 }
