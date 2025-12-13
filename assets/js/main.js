@@ -1,7 +1,3 @@
-assets/js/main.js
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   // Mobile nav toggle
   const toggle = document.querySelector('.mobile-toggle');
