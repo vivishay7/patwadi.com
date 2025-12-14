@@ -114,3 +114,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+const joinForm = document.querySelector('form');
+
+if (joinForm) {
+  joinForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = joinForm.querySelector('input[name="name"]').value;
+    const phone = joinForm.querySelector('input[name="phone"]').value;
+    const role = joinForm.querySelector('select[name="role"]').value;
+
+    fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, phone, role }),
+    });
+
+    alert('Thanks! Our team will contact you within 24 hours.');
+    joinForm.reset();
+  });
+}
