@@ -49,15 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
-  // Form handling (fake submit)
-  document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you! Your submission has been received. We\'ll get back to you soon.');
-      form.reset();
-    });
-  });
-
   // Tracking demo
   const trackingInput = document.querySelector('.tracking-input');
   const timeline = document.querySelector('.status-timeline');
@@ -113,28 +104,29 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }
-});
 
-const joinForm = document.querySelector('form');
+  // 👇 Join Us Form – Google Apps Script webhook submission
+  const joinForm = document.querySelector('form');
+  if (joinForm) {
+    joinForm.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-if (joinForm) {
-  joinForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+      const name = joinForm.querySelector('input[name="name"]').value;
+      const phone = joinForm.querySelector('input[name="phone"]').value;
+      const role = joinForm.querySelector('select[name="role"]').value;
 
-    const name = joinForm.querySelector('input[name="name"]').value;
-    const phone = joinForm.querySelector('input[name="phone"]').value;
-    const role = joinForm.querySelector('select[name="role"]').value;
+      // Send to Google Apps Script
+      fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, phone, role }),
+      });
 
-    fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, phone, role }),
+      alert('Thanks! Our team will contact you within 24 hours.');
+      joinForm.reset();
     });
-
-    alert('Thanks! Our team will contact you within 24 hours.');
-    joinForm.reset();
-  });
-}
+  }
+});
