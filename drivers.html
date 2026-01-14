@@ -132,37 +132,51 @@
   </footer>
 
   <script>
-    document.getElementById('joinForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  document.getElementById('joinForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const role = document.getElementById('role').value;
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const role = document.getElementById('role').value;
 
-      if (!/^\d{10}$/.test(phone)) {
-        alert('Please enter a valid 10-digit Indian mobile number.');
-        return;
-      }
+    // Manually enforce 10-digit validation
+    const phonePattern = /^[6-9]\d{9}$/; // Starts with 6-9 and has 10 digits
+    if (!phonePattern.test(phone)) {
+      alert('Please enter a valid 10-digit Indian mobile number starting with 6-9.');
+      return;
+    }
 
-      fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name,
-          phone: '+91' + phone,
-          role: role
-        })
-      }).then(() => {
-        alert('Thanks! Our team will contact you within 24 hours.');
-        document.getElementById('joinForm').reset();
-      }).catch(() => {
-        alert('There was an error submitting the form. Please try again later.');
-      });
+    const payload = {
+      name: name,
+      phone: '+91' + phone,
+      role: role
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      mode: 'no-cors', // Required for Google Apps Script
+      body: JSON.stringify(payload)
+    }).then(() => {
+      // Show a pop-up even though response isn't received in no-cors
+      alert('✅ Thanks! Our team will contact you within 24 hours.');
+      document.getElementById('joinForm').reset();
+    }).catch((error) => {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting the form. Please try again later.');
     });
-  </script>
+  });
+
+  // Optional: restrict to 10 digits as user types
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10); // Only digits, max 10
+  });
+</script>
+
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
