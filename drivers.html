@@ -1,6 +1,3 @@
-#drivers.html
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,23 +64,23 @@
     </div>
   </section>
 
-  <!-- Simple Interest Form -->
+  <!-- Express Interest Section -->
   <section class="section" id="join" style="background: var(--neutral-100);">
     <div class="container">
       <h2 class="section-title">Express Interest</h2>
       <div class="card" style="max-width: 600px; margin: 0 auto;">
-        <form>
+        <form id="joinForm">
           <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" required placeholder="Your Name">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
           </div>
           <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel" required placeholder="10-digit mobile number">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" pattern="[6-9]{1}[0-9]{9}" maxlength="10" title="Enter a 10-digit Indian mobile number">
           </div>
           <div class="form-group">
-            <label>Role Interested In <span class="info-icon" data-tooltip="Last-Mile Rider – city pickups and deliveries. Fleet Owner – provide vehicles and drivers on fixed corridors. Corridor Operator – run buffer hubs and intercity corridor legs.">ⓘ</span></label>
-            <select required>
+            <label for="role">Role Interested In <span class="info-icon" data-tooltip="Last-Mile Rider – city pickups and deliveries. Fleet Owner – provide vehicles and drivers on fixed corridors. Corridor Operator – run buffer hubs and intercity corridor legs.">ⓘ</span></label>
+            <select id="role" name="role" required>
               <option value="" disabled selected>Select Role</option>
               <option value="rider">Last-Mile Rider</option>
               <option value="fleet">Fleet Owner</option>
@@ -129,12 +126,55 @@
     </div>
     <div class="footer-bottom" style="position: relative;">
       <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
-      <!-- Secret Onboarding Button -->
       <a href="partner-onboarding.html" style="position: absolute; bottom: 20px; right: 0; width: 10px; height: 10px; background: var(--primary-blue); border-radius: 50%; opacity: 0.3; cursor: default;" title="Internal Onboarding" aria-hidden="true"></a>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
-</body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('joinForm');
+      if (!form) return;
 
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = form.querySelector('#name').value.trim();
+        let phone = form.querySelector('#phone').value.trim();
+        const role = form.querySelector('#role').value;
+
+        if (!name || !role) {
+          alert('Please fill all required fields.');
+          return;
+        }
+
+        if (!/^[6-9]\d{9}$/.test(phone)) {
+          alert('Enter a valid 10-digit Indian mobile number.');
+          return;
+        }
+
+        phone = '+91' + phone;
+
+        fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            role: role
+          })
+        })
+        .then(() => {
+          alert('Thanks! Our onboarding team will contact you within 24 hours.');
+          form.reset();
+        })
+        .catch(() => {
+          alert('Something went wrong. Please try again.');
+        });
+      });
+    });
+  </script>
+</body>
 </html>
