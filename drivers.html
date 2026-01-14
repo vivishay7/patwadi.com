@@ -76,7 +76,7 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" pattern="[6-9]{1}[0-9]{9}" maxlength="10" title="Enter a 10-digit Indian mobile number">
+            <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" title="Enter a 10-digit Indian mobile number">
           </div>
           <div class="form-group">
             <label for="role">Role Interested In <span class="info-icon" data-tooltip="Last-Mile Rider – city pickups and deliveries. Fleet Owner – provide vehicles and drivers on fixed corridors. Corridor Operator – run buffer hubs and intercity corridor legs.">ⓘ</span></label>
@@ -126,55 +126,43 @@
     </div>
     <div class="footer-bottom" style="position: relative;">
       <p>© 2024 Patwadi Logistics Pvt Ltd. All rights reserved. | Chandigarh, India</p>
+      <!-- Secret Onboarding Button -->
       <a href="partner-onboarding.html" style="position: absolute; bottom: 20px; right: 0; width: 10px; height: 10px; background: var(--primary-blue); border-radius: 50%; opacity: 0.3; cursor: default;" title="Internal Onboarding" aria-hidden="true"></a>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.getElementById('joinForm');
-      if (!form) return;
+    document.getElementById('joinForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const role = document.getElementById('role').value;
 
-        const name = form.querySelector('#name').value.trim();
-        let phone = form.querySelector('#phone').value.trim();
-        const role = form.querySelector('#role').value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid 10-digit Indian mobile number.');
+        return;
+      }
 
-        if (!name || !role) {
-          alert('Please fill all required fields.');
-          return;
-        }
-
-        if (!/^[6-9]\d{9}$/.test(phone)) {
-          alert('Enter a valid 10-digit Indian mobile number.');
-          return;
-        }
-
-        phone = '+91' + phone;
-
-        fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            phone: phone,
-            role: role
-          })
+      fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          phone: '+91' + phone,
+          role: role
         })
-        .then(() => {
-          alert('Thanks! Our onboarding team will contact you within 24 hours.');
-          form.reset();
-        })
-        .catch(() => {
-          alert('Something went wrong. Please try again.');
-        });
+      }).then(() => {
+        alert('Thanks! Our team will contact you within 24 hours.');
+        document.getElementById('joinForm').reset();
+      }).catch(() => {
+        alert('There was an error submitting the form. Please try again later.');
       });
     });
   </script>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
