@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Logistics - Patwadi</title>
+  <meta name="description" content="Patwadi enterprise corridor logistics — dedicated planning, SLA-backed dispatch, and key account management for high-volume intercity shippers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+
+    /* ── PILLARS ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--neutral-200);
+      border: 1px solid var(--neutral-200);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: var(--spacing-2xl);
+    }
+    .pillar {
+      background: #fff;
+      padding: 32px 28px;
+    }
+    .pillar-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--neutral-400);
+      margin-bottom: 16px;
+    }
+    .pillar h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .pillar p {
+      font-size: 0.875rem;
+      color: var(--neutral-500);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .pillar ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .pillar ul li {
+      font-size: 0.82rem;
+      color: var(--neutral-600, #4b5563);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .pillar ul li::before {
+      content: '→';
+      color: var(--primary-blue);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: var(--spacing-2xl);
+    }
+    .fit-card {
+      background: var(--neutral-50, #f9fafb);
+      border: 1px solid var(--neutral-200);
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 0.875rem;
+    }
+    .fit-card-icon { font-size: 1.4rem; margin-bottom: 10px; line-height: 1; }
+    .fit-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 4px; }
+    .fit-card p  { color: var(--neutral-500); line-height: 1.6; font-size: 0.82rem; }
+
+    /* ── FORM ── */
+    .b2b-form-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-md);
+    }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* ── QUOTE BAND ── */
+    .quote-band {
+      background: var(--neutral-900);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+    .quote-band h2 { color: #fff; margin-bottom: 8px; }
+    .quote-band p  { color: var(--neutral-400); margin-bottom: 0; max-width: 500px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Patwadi</a>
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="drivers.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle">
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+        <span class="hamburger"></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 44vh;">
+    <div class="hero-content">
+      <h1>Enterprise corridor logistics</h1>
+      <p>Dedicated planning, written SLAs, and a single point of contact — for organisations that ship intercity on a regular basis.</p>
+      <a href="#contact-sales" class="btn">Talk to our team</a>
+    </div>
+  </section>
+
+  <!-- Three pillars -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What enterprise includes</h2>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <h3>Dedicated corridor planning</h3>
+          <p>We map your routes, lock in dispatch windows that fit your operations, and maintain reserved capacity so your shipments are never displaced by ad-hoc bookings.</p>
+          <ul>
+            <li>Origin–destination mapping for all active corridors</li>
+            <li>Fixed dispatch windows aligned to your schedule</li>
+            <li>Reserved capacity on primary routes</li>
+            <li>Route performance reporting monthly</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <h3>SLA-backed dispatch</h3>
+          <p>Agreed timelines per corridor, in writing. Every shipment is tracked at each handoff. If a milestone is missed, your account manager is notified automatically — not you.</p>
+          <ul>
+            <li>Written SLA per corridor agreed upfront</li>
+            <li>Milestone tracking: collected → in transit → arrived</li>
+            <li>Automatic escalation on SLA breach</li>
+            <li>Monthly OTIF reporting</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <h3>Key account manager</h3>
+          <p>One person who knows your corridors, your team, and your priorities. Direct WhatsApp access — no ticket queues, no call centres, no re-explaining context every time.</p>
+          <ul>
+            <li>Single named contact for your account</li>
+            <li>Direct WhatsApp and phone access</li>
+            <li>Monthly volume and performance review</li>
+            <li>Consolidated monthly billing and reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Who it's for -->
+      <h2 class="section-title">Who this is for</h2>
+      <div class="fit-grid">
+        <div class="fit-card">
+          <div class="fit-card-icon">🏭</div>
+          <h4>Manufacturers &amp; distributors</h4>
+          <p>Regular intercity restocking between production sites, warehouses, and retail points.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-card-icon">🏫</div>
+          <h4>Educational institutions</h4>
+          <p>Bulk student moves at semester start and end, coordinated pickups and deliveries.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-card-icon">🛒</div>
+          <h4>Retail chains</h4>
+          <p>Stock replenishment across store locations in different cities on a predictable schedule.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-card-icon">🏥</div>
+          <h4>Healthcare &amp; pharma</h4>
+          <p>Non-cold-chain medical supplies, samples, and documents moved between facilities.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-card-icon">🚌</div>
+          <h4>Transport operators</h4>
+          <p>Bus and fleet operators looking to monetise idle cargo capacity through Patwadi's network.</p>
+        </div>
+      </div>
+
+      <!-- Pricing note -->
+      <div class="quote-band">
+        <h2>No standard pricing — every account is quoted</h2>
+        <p>Enterprise pricing depends on your corridors, volume, frequency, and SLA requirements. We don't publish tiers because the right rate for you isn't the same as for someone else.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact sales form -->
+  <section class="section" style="background: var(--neutral-50, #f9fafb);" id="contact-sales">
+    <div class="container">
+      <h2 class="section-title">Talk to our team</h2>
+      <p style="text-align:center; color:var(--neutral-500); margin-bottom: var(--spacing-2xl); max-width:520px; margin-left:auto; margin-right:auto;">Tell us about your corridors and volume. We'll get back within 1 business day with a tailored proposal.</p>
+
+      <div class="b2b-form-wrap">
+        <form id="b2bForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your name</label>
+              <input type="text" required placeholder="Rahul Sharma">
+            </div>
+            <div class="form-group">
+              <label>Company name</label>
+              <input type="text" required placeholder="Acme Distributors">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" required placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required placeholder="rahul@acme.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Primary corridors (origin → destination)</label>
+            <input type="text" placeholder="e.g. Chandigarh → Mandi, Delhi → Shimla">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Estimated monthly volume</label>
+              <select>
+                <option value="">Select range</option>
+                <option>10 – 50 shipments / month</option>
+                <option>50 – 200 shipments / month</option>
+                <option>200 – 500 shipments / month</option>
+                <option>500+ shipments / month</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Typical item type</label>
+              <select>
+                <option value="">Select type</option>
+                <option>Cartons / boxes</option>
+                <option>Documents</option>
+                <option>Mixed goods</option>
+                <option>Garments / fabric</option>
+                <option>Electronics</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Anything else we should know?</label>
+            <textarea rows="4" placeholder="Special requirements, current logistics setup, SLA expectations..."></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width:100%;">Submit enquiry</button>
+          <p style="text-align:center; font-size:0.78rem; color:var(--neutral-400); margin-top:12px;">We respond within 1 business day. Prefer WhatsApp? <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20discuss%20an%20enterprise%20account." target="_blank" style="color:var(--primary-blue); font-weight:600;">Message us directly →</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content container">
+      <div class="footer-section">
+        <h3>Product</h3>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="tracking.html">Track Parcel</a>
+      </div>
+      <div class="footer-section">
+        <h3>Partners</h3>
+        <a href="drivers.html">Drive with Us</a>
+        <a href="b2b.html">Enterprise</a>
+        <a href="#">API for SMBs</a>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <a href="contact.html">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Compliance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('b2bForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.innerHTML = `<div style="text-align:center; padding:40px 0;">
+        <div style="font-size:2rem; margin-bottom:16px;">✅</div>
+        <h3 style="margin-bottom:8px;">Enquiry received</h3>
+        <p style="color:var(--neutral-500);">We'll be in touch within 1 business day. You can also reach us directly on WhatsApp at <a href="https://wa.me/918091889969" target="_blank" style="color:var(--primary-blue); font-weight:600;">+91 80918 89969</a>.</p>
+      </div>`;
+    });
+  </script>
+</body>
+</html>
