@@ -1,27 +1,232 @@
 #how-it-works.html
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .step-number { font-size: 2rem !important; background: transparent !important; color: var(--neutral-900) !important; width: auto !important; height: auto !important; margin-bottom: 0.5rem !important; }
-    .step { min-width: 150px; padding: var(--spacing-sm) !important; }
-    .step h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
-    .step p { font-size: 0.9rem; color: var(--neutral-500); }
-  </style>
   <title>How It Works - Patwadi</title>
-  <meta name="description" content="Step-by-step guide: From booking to delivery using Patwadi's intercity corridor network, buffer hubs, and riders.">
+  <meta name="description" content="Step-by-step guide to sending a parcel with Patwadi — booking, pickup, transit, tracking, and delivery across North India.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  
+  <style>
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    /* vertical spine */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 40px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--neutral-200);
+    }
+
+    .tl-step {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding-bottom: 48px;
+      position: relative;
+    }
+    .tl-step:last-child { padding-bottom: 0; }
+
+    /* circle on the spine */
+    .tl-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--neutral-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--neutral-100);
+      box-shadow: 0 0 0 2px var(--neutral-900);
+    }
+    .tl-icon.active {
+      background: var(--primary-blue);
+      box-shadow: 0 0 0 2px var(--primary-blue);
+    }
+
+    .tl-content {
+      padding-top: 14px;
+      flex: 1;
+    }
+    .tl-step-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--neutral-400);
+      margin-bottom: 4px;
+    }
+    .tl-step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .tl-step-body {
+      font-size: 0.9rem;
+      color: var(--neutral-600, #4b5563);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    /* inline detail chips inside timeline */
+    .tl-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tl-chip {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--neutral-100);
+      color: var(--neutral-700, #374151);
+      border: 1px solid var(--neutral-200);
+    }
+    .tl-chip.green { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+    .tl-chip.blue  { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+    .tl-chip.amber { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+
+    /* dispatch bands callout box */
+    .dispatch-box {
+      background: var(--neutral-50, #f9fafb);
+      border: 1px solid var(--neutral-200);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    .dispatch-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .dispatch-row:last-child { border-bottom: none; }
+    .dispatch-route { font-weight: 500; color: var(--neutral-700, #374151); }
+    .dispatch-time  { font-weight: 700; color: var(--neutral-900); font-size: 0.8rem; }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--neutral-200);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--neutral-200); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--neutral-900);
+      text-align: left;
+      gap: 16px;
+    }
+    .faq-question:hover { color: var(--primary-blue); }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      color: var(--neutral-400);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease, padding 0.2s;
+      font-size: 0.9rem;
+      color: var(--neutral-600, #4b5563);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 600px;
+      padding-bottom: 20px;
+    }
+    .faq-answer ul {
+      margin: 8px 0 0 20px;
+    }
+    .faq-answer li { margin-bottom: 4px; }
+
+    /* ── SIZE TABLE ── */
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-top: 10px;
+    }
+    .size-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--neutral-400);
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--neutral-200);
+      background: var(--neutral-50, #f9fafb);
+    }
+    .size-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--neutral-200);
+      color: var(--neutral-700, #374151);
+    }
+    .size-table tr:last-child td { border-bottom: none; }
+    .size-table td:first-child { font-weight: 600; color: var(--neutral-900); }
+    .mono { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--primary-blue); }
+
+    /* CTA band */
+    .cta-band {
+      background: var(--neutral-900);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin-top: var(--spacing-2xl);
+    }
+    .cta-band h2 { color: white; margin-bottom: 8px; }
+    .cta-band p  { color: var(--neutral-400); margin-bottom: 24px; }
+
+    @media (max-width: 600px) {
+      .timeline::before { left: 28px; }
+      .tl-icon { width: 56px; height: 56px; font-size: 1.2rem; }
+      .tl-step { gap: 20px; }
+      .dispatch-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+    }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <header class="header">
     <nav class="nav">
@@ -42,46 +247,280 @@
     </nav>
   </header>
 
-  <!-- How Hero -->
-  <section class="hero" style="min-height: 60vh; background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
+  <!-- Hero -->
+  <section class="hero" style="min-height: 50vh;">
     <div class="hero-content">
-      <h1>5 Steps to Seamless Delivery</h1>
-      <p>Your parcel crosses our intercity corridor network with AI orchestration, corridor nodes, and high-earning riders tracking every milestone.</p>
+      <h1>How Patwadi Works</h1>
+      <p>Book in minutes. We pick up, transit, and deliver — you just track it on WhatsApp.</p>
     </div>
   </section>
 
-  <!-- Steps -->
+  <!-- Visual Timeline -->
   <section class="section">
     <div class="container">
-      <div class="steps" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-lg);">
-        <div class="step">
-          <div class="step-number">📱</div>
-          <h3>Book</h3>
-          <p>Request pickup via App/WhatsApp.</p>
+      <h2 class="section-title">Your shipment, step by step</h2>
+
+      <div class="timeline">
+
+        <!-- Step 1 -->
+        <div class="tl-step">
+          <div class="tl-icon active">📱</div>
+          <div class="tl-content">
+            <div class="tl-step-label">Step 1</div>
+            <div class="tl-step-title">Book on WhatsApp</div>
+            <div class="tl-step-body">
+              Send us a message on WhatsApp with three things: where you're sending from, where it's going, and your preferred pickup date. That's it. No app download, no account registration, no forms to fill.<br><br>
+              We'll confirm your booking within 1 business day and send you a collection window — a 2–4 hour slot when your items will be picked up or when to drop them at the nearest collection point.
+            </div>
+            <div class="tl-chips">
+              <span class="tl-chip blue">WhatsApp only</span>
+              <span class="tl-chip green">Confirmed within 1 day</span>
+              <span class="tl-chip">No app required</span>
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">🚚</div>
-          <h3>Pickup</h3>
-          <p>Rider collects within 30 mins.</p>
+
+        <!-- Step 2 -->
+        <div class="tl-step">
+          <div class="tl-icon">📦</div>
+          <div class="tl-content">
+            <div class="tl-step-label">Step 2</div>
+            <div class="tl-step-title">Pack &amp; pay</div>
+            <div class="tl-step-body">
+              Pack your items securely in a carton, bag, or suitcase. Fragile items must be bubble-wrapped — confirm this at booking and we'll remind you. Once packed, pay via UPI (GPay, PhonePe, Paytm) before pickup. We do not accept cash or COD.<br><br>
+              Label your parcel clearly with the recipient's name, phone number, and city. We'll add a Patwadi tracking label at pickup.
+            </div>
+            <div class="tl-chips">
+              <span class="tl-chip amber">UPI payment only — no cash</span>
+              <span class="tl-chip">Pay before pickup</span>
+              <span class="tl-chip">Label with recipient details</span>
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">🛣️</div>
-          <h3>Corridor</h3>
-          <p>Secure intercity batch transit.</p>
+
+        <!-- Step 3 -->
+        <div class="tl-step">
+          <div class="tl-icon">🚌</div>
+          <div class="tl-content">
+            <div class="tl-step-label">Step 3</div>
+            <div class="tl-step-title">Collection &amp; transit</div>
+            <div class="tl-step-body">
+              Our agent collects your parcel from the agreed point and loads it onto the intercity transport on your selected date. Patwadi uses scheduled intercity services — not individual couriers — which means your parcel travels in batches with other verified shipments, keeping costs low and reliability high.<br><br>
+              Transit time depends on your route:
+            </div>
+            <div class="dispatch-box">
+              <div class="dispatch-row">
+                <span class="dispatch-route">Delhi ↔ Chandigarh, Punjab routes</span>
+                <span class="dispatch-time">24hr dispatch</span>
+              </div>
+              <div class="dispatch-row">
+                <span class="dispatch-route">Himachal Pradesh routes (Mandi, Shimla, Manali, Dharamshala)</span>
+                <span class="dispatch-time">48hr dispatch</span>
+              </div>
+              <div class="dispatch-row">
+                <span class="dispatch-route">Uttarakhand (Dehradun)</span>
+                <span class="dispatch-time">48hr dispatch</span>
+              </div>
+              <div class="dispatch-row">
+                <span class="dispatch-route">Jammu &amp; Kashmir routes</span>
+                <span class="dispatch-time">72hr dispatch</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">📦</div>
-          <h3>Buffer</h3>
-          <p>Sort & dispatch at hub.</p>
+
+        <!-- Step 4 -->
+        <div class="tl-step">
+          <div class="tl-icon">💬</div>
+          <div class="tl-content">
+            <div class="tl-step-label">Step 4</div>
+            <div class="tl-step-title">Live WhatsApp tracking</div>
+            <div class="tl-step-body">
+              You'll receive three automatic WhatsApp updates during your shipment:
+            </div>
+            <div class="tl-chips" style="flex-direction:column; gap:8px;">
+              <div style="display:flex; align-items:center; gap:10px; font-size:0.875rem;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span>
+                <span><strong>Collected</strong> — your parcel has been picked up and loaded</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; font-size:0.875rem;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#3b82f6; flex-shrink:0;"></span>
+                <span><strong>In transit</strong> — en route to destination city</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; font-size:0.875rem;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#8b5cf6; flex-shrink:0;"></span>
+                <span><strong>Arrived</strong> — at destination, ready for collection</span>
+              </div>
+            </div>
+            <div class="tl-step-body" style="margin-top:12px;">
+              No tracking number to remember. All updates go to the sender's WhatsApp number by default. Reply to any update message to reach our team directly.
+            </div>
+          </div>
         </div>
-        <div class="step">
-          <div class="step-number">🏠</div>
-          <h3>Deliver</h3>
-          <p>Doorstep drop within SLA.</p>
+
+        <!-- Step 5 -->
+        <div class="tl-step">
+          <div class="tl-icon">🏠</div>
+          <div class="tl-content">
+            <div class="tl-step-label">Step 5</div>
+            <div class="tl-step-title">Schedule your pickup</div>
+            <div class="tl-step-body">
+              Once your parcel arrives, our destination agent holds it securely. You'll get the "Arrived" WhatsApp message with the agent's contact and location. Reply to schedule your preferred pickup time — no rush, no extra charge for holding up to 48 hours after arrival.<br><br>
+              For businesses requiring doorstep delivery, contact us at booking to discuss dedicated last-mile options.
+            </div>
+            <div class="tl-chips">
+              <span class="tl-chip green">Held for up to 48hrs at no extra charge</span>
+              <span class="tl-chip">Agent contact shared on arrival</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="text-align: center; margin-top: var(--spacing-2xl);">
-        <a href="tracking.html" class="btn">Track Your Parcel</a>
+
+      </div><!-- /timeline -->
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section" style="background: var(--neutral-100);">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What items can I not send with Patwadi?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            The following are strictly prohibited on all Patwadi shipments:
+            <ul>
+              <li><strong>Dangerous goods</strong> — flammables, explosives, fireworks, compressed gas cylinders, lighter fuel, matches</li>
+              <li><strong>Weapons &amp; ammunition</strong> — firearms, airguns, knives, blades, tasers, or any part thereof</li>
+              <li><strong>Hazardous chemicals</strong> — acids, corrosives, pesticides, bleach, industrial solvents</li>
+              <li><strong>Lithium batteries</strong> — loose or uninstalled batteries above 100Wh; power banks above 20,000mAh</li>
+              <li><strong>Narcotics &amp; controlled substances</strong> — any item illegal under Indian law</li>
+              <li><strong>Liquids</strong> — including beverages, oils, perfumes, and liquid food items unless hermetically sealed and declared</li>
+              <li><strong>Perishables</strong> — fresh food, dairy, meat, items requiring refrigeration or cold chain</li>
+              <li><strong>Live animals or plants</strong></li>
+              <li><strong>Cash, gold, jewellery</strong>, and high-value negotiable instruments</li>
+              <li><strong>Original legal documents</strong> — property deeds, passports, wills (use a registered courier for these)</li>
+              <li><strong>Pornographic material</strong> or any content illegal under Indian law</li>
+              <li><strong>Fragile items without declaration</strong> — glassware, crockery, monitors, frames must be declared at booking and packed with bubble wrap; damage to undeclared fragile items is not covered</li>
+              <li><strong>Oversized items</strong> exceeding our dimension limits without prior approval</li>
+            </ul>
+            When in doubt, WhatsApp us before packing. Prohibited items discovered in transit will be held and the sender notified — return shipping charges apply.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What are the size and weight limits?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <table class="size-table">
+              <thead>
+                <tr><th>Item type</th><th>Max dimensions (L×W×H)</th><th>Max weight</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Carton / semester box</td><td class="mono">60 × 45 × 40 cm</td><td>20 kg</td></tr>
+                <tr><td>Large suitcase / trolley</td><td class="mono">75 × 50 × 30 cm</td><td>25 kg</td></tr>
+                <tr><td>Duffel / sports bag</td><td class="mono">65 × 35 × 35 cm</td><td>20 kg</td></tr>
+                <tr><td>Trek / gear bag</td><td class="mono">80 × 40 × 30 cm</td><td>18 kg</td></tr>
+              </tbody>
+            </table>
+            Cycles, mattresses, and oversized items require a custom quote — WhatsApp us before booking.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I pay? Is Cash on Delivery (COD) available?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            We accept UPI only — GPay, PhonePe, Paytm, or any UPI-enabled app. Payment must be completed before your parcel is collected. We do not accept cash, card, or COD. Once payment is confirmed, you'll receive a WhatsApp receipt.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How far in advance do I need to book?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Book at least <strong>48 hours before your preferred pickup date</strong>. During peak periods — semester end in May and November, festival breaks — slots fill up fast. We recommend booking 3–5 days in advance during these windows. Same-day or next-day bookings are not guaranteed and subject to capacity.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you deliver to my door, or do I collect?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Our standard service is <strong>agent-hold at destination</strong> — your parcel arrives at our local agent's location and you collect at your convenience. The agent's address and contact are shared via WhatsApp when your parcel arrives.<br><br>
+            Doorstep delivery to specific addresses is available for businesses on dedicated routes. Contact us at booking to check availability for your corridor.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens if my parcel is damaged or lost?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            In the unlikely event of damage or loss, contact us via WhatsApp within <strong>24 hours of the scheduled delivery date</strong> with:
+            <ul>
+              <li>Your booking details</li>
+              <li>A photo of the damaged item and packaging (if applicable)</li>
+              <li>A brief description of the contents and their value</li>
+            </ul>
+            We investigate all claims and respond within 3 business days. Note: damage to undeclared fragile items or items packed without adequate protection is not covered under our standard terms.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I reschedule or cancel my booking?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            Cancellations are only accepted <strong>before a pickup agent has been dispatched</strong> to collect your parcel. Here's how it works:
+            <ul>
+              <li><strong>Before pickup is initiated</strong> — free cancellation, full refund.</li>
+              <li><strong>After pickup has been initiated</strong> (agent en route or parcel collected but not yet dispatched) — cancellation is accepted but a <strong>30% reverse delivery charge</strong> applies to cover collection and return costs.</li>
+              <li><strong>Once dispatched to the transit operator</strong> — no cancellations accepted. The shipment will proceed to the destination and must be collected by the recipient.</li>
+            </ul>
+            To cancel, WhatsApp us immediately with your booking reference. We'll confirm the status and applicable charges within a few hours.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I track my parcel?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            No tracking number needed. You'll receive automatic WhatsApp updates at three milestones: Collected, In Transit, and Arrived. If you want a status update at any time between those milestones, simply reply to your booking confirmation message on WhatsApp and our team will respond within a few hours.<br><br>
+            You can also use our <a href="tracking.html" style="color:var(--primary-blue); font-weight:600;">online tracking page</a> if you have your booking reference.
+          </div>
+        </div>
+
+      </div><!-- /faq-list -->
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Ready to send something?</h2>
+        <p>Book takes 2 minutes on WhatsApp. We handle the rest.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20book%20a%20shipment!" target="_blank"
+             class="btn" style="background:#25D366; border-color:#25D366;">💬 Book on WhatsApp</a>
+          <a href="index.html#quote" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:white;">Check your route →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -120,7 +559,18 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // close all
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        // toggle clicked
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
 </body>
-
 </html>
-
