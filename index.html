@@ -182,55 +182,71 @@
   <section class="section" id="quote">
     <div class="container">
       <h2 class="section-title">Check Your Route</h2>
-      <div class="card" style="max-width: 720px; margin: 0 auto;">
-        <form class="quote-form" id="quoteForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--spacing-md);">
-          <div class="form-group" style="margin-bottom: 0;">
-            <label>From</label>
-            <select required name="from" id="fromCity">
-              <option value="">Select city</option>
-              <option>Delhi</option>
-              <option>Chandigarh</option>
-              <option>Ludhiana</option>
-              <option>Amritsar</option>
-              <option>Dehradun</option>
-              <option>Mandi</option>
-              <option>Shimla</option>
-              <option>Manali</option>
-              <option>Dharamshala</option>
-              <option>Pathankot</option>
-              <option>Jammu</option>
-            </select>
+      <div class="card" style="max-width: 800px; margin: 0 auto;">
+        <form class="quote-form" id="quoteForm">
+
+          <!-- ROW 1: From State + From City -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>From — State / Region</label>
+              <select id="fromState" required>
+                <option value="">Select state</option>
+                <option value="Delhi">Delhi (NCR)</option>
+                <option value="Chandigarh">Chandigarh (UT)</option>
+                <option value="Punjab">Punjab</option>
+                <option value="HP">Himachal Pradesh</option>
+                <option value="JK">Jammu &amp; Kashmir</option>
+                <option value="UK">Uttarakhand</option>
+                <option value="MH">Maharashtra</option>
+                <option value="KA">Karnataka</option>
+                <option value="TN">Tamil Nadu</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>From — City</label>
+              <select id="fromCity" required disabled>
+                <option value="">Select state first</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group" style="margin-bottom: 0;">
-            <label>To</label>
-            <select required name="to" id="toCity">
-              <option value="">Select city</option>
-              <option>Delhi</option>
-              <option>Chandigarh</option>
-              <option>Ludhiana</option>
-              <option>Amritsar</option>
-              <option>Dehradun</option>
-              <option>Mandi</option>
-              <option>Shimla</option>
-              <option>Manali</option>
-              <option>Dharamshala</option>
-              <option>Pathankot</option>
-              <option>Jammu</option>
-            </select>
+
+          <!-- ROW 2: To State + To City -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>To — State / Region</label>
+              <select id="toState" required disabled>
+                <option value="">Select origin first</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>To — City</label>
+              <select id="toCity" required disabled>
+                <option value="">Select state first</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group" style="margin-bottom: 0;">
-            <label>Parcel Weight</label>
-            <select required name="weight" id="weight">
-              <option value="">Select weight</option>
-              <option value="5">Up to 5 kg</option>
-              <option value="15">5 – 15 kg</option>
-              <option value="30">15 – 30 kg</option>
-              <option value="30+">Above 30 kg</option>
-            </select>
+
+          <!-- ROW 3: Weight + Submit -->
+          <div style="display:grid; grid-template-columns:1fr 2fr; gap:var(--spacing-md);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Parcel Weight</label>
+              <select id="weight" required>
+                <option value="">Select weight</option>
+                <option value="5">Up to 5 kg</option>
+                <option value="15">5 – 15 kg</option>
+                <option value="30">15 – 30 kg</option>
+                <option value="30+">Above 30 kg</option>
+              </select>
+            </div>
+            <div style="display:flex; align-items:flex-end;">
+              <button type="submit" class="btn" style="width:100%;">Check Availability</button>
+            </div>
           </div>
-          <button type="submit" class="btn" style="width: 100%; grid-column: 1 / -1;">Check Availability</button>
+
         </form>
-        <div class="quote-result" id="quoteResult">Select cities and weight to check your route.</div>
+        <div class="quote-result" id="quoteResult" style="margin-top:var(--spacing-md); font-weight:600; text-align:center; min-height:28px; color:var(--primary-blue);">
+          Select your origin and destination to check availability.
+        </div>
       </div>
     </div>
   </section>
@@ -295,93 +311,97 @@
           <!-- Delhi - Jammu (long) -->
           <line x1="200" y1="320" x2="130" y2="130" stroke="rgba(96,165,250,0.12)" stroke-width="1" stroke-dasharray="4 4"/>
 
-          <!-- NODES -->
-          <!-- Delhi -->
+          <!-- NODES — color = route category -->
+          <!-- PLAINS (blue #60a5fa) : Delhi, Chandigarh, Ludhiana, Amritsar, Pathankot, Jammu -->
+
+          <!-- Delhi — large hub -->
           <g class="map-node" data-city="Delhi" data-distances="Chandigarh:250km · 4.5hr | Ludhiana:310km · 5.5hr | Amritsar:450km · 7hr | Mandi:480km · 8hr | Shimla:370km · 7hr | Manali:560km · 10hr | Dharamshala:480km · 9hr | Pathankot:470km · 8hr | Jammu:600km · 10hr | Dehradun:320km · 6hr">
-            <circle cx="200" cy="320" r="18" fill="rgba(232,64,12,0.15)"/>
-            <circle class="node-ring" cx="200" cy="320" r="18" fill="none" stroke="#E8400C" stroke-width="2"/>
-            <circle cx="200" cy="320" r="9" fill="#E8400C"/>
-            <text x="200" y="348" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.9">Delhi</text>
+            <circle cx="200" cy="320" r="18" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="200" cy="320" r="18" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="200" cy="320" r="9" fill="#60a5fa"/>
+            <text x="200" y="348" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="700" opacity="0.95">Delhi</text>
           </g>
 
-          <!-- Chandigarh -->
+          <!-- Chandigarh — large hub -->
           <g class="map-node" data-city="Chandigarh" data-distances="Delhi:250km · 4.5hr | Ludhiana:100km · 1.5hr | Amritsar:230km · 4hr | Mandi:210km · 4hr | Shimla:115km · 3hr | Manali:310km · 6hr | Dharamshala:230km · 5hr | Pathankot:190km · 3.5hr | Jammu:300km · 5.5hr | Dehradun:175km · 3.5hr">
-            <circle cx="310" cy="250" r="18" fill="rgba(2,132,199,0.15)"/>
-            <circle class="node-ring" cx="310" cy="250" r="18" fill="none" stroke="#0284C7" stroke-width="2"/>
-            <circle cx="310" cy="250" r="9" fill="#0284C7"/>
-            <text x="310" y="278" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.9">Chandigarh</text>
+            <circle cx="310" cy="250" r="18" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="310" cy="250" r="18" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="310" cy="250" r="9" fill="#60a5fa"/>
+            <text x="310" y="278" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="700" opacity="0.95">Chandigarh</text>
           </g>
 
           <!-- Ludhiana -->
           <g class="map-node" data-city="Ludhiana" data-distances="Delhi:310km · 5.5hr | Chandigarh:100km · 1.5hr | Amritsar:130km · 2hr | Mandi:310km · 6hr | Shimla:220km · 5hr | Pathankot:220km · 4hr | Jammu:330km · 6hr | Dehradun:260km · 5hr">
-            <circle cx="220" cy="230" r="14" fill="rgba(5,150,105,0.15)"/>
-            <circle class="node-ring" cx="220" cy="230" r="14" fill="none" stroke="#059669" stroke-width="2"/>
-            <circle cx="220" cy="230" r="7" fill="#059669"/>
-            <text x="220" y="254" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Ludhiana</text>
+            <circle cx="220" cy="230" r="13" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="220" cy="230" r="13" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="220" cy="230" r="7" fill="#60a5fa"/>
+            <text x="220" y="253" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Ludhiana</text>
           </g>
 
           <!-- Amritsar -->
           <g class="map-node" data-city="Amritsar" data-distances="Delhi:450km · 7hr | Chandigarh:230km · 4hr | Ludhiana:130km · 2hr | Pathankot:100km · 2hr | Jammu:210km · 4hr | Mandi:400km · 7.5hr">
-            <circle cx="120" cy="210" r="14" fill="rgba(219,39,119,0.15)"/>
-            <circle class="node-ring" cx="120" cy="210" r="14" fill="none" stroke="#DB2777" stroke-width="2"/>
-            <circle cx="120" cy="210" r="7" fill="#DB2777"/>
-            <text x="120" y="234" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Amritsar</text>
+            <circle cx="120" cy="210" r="13" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="120" cy="210" r="13" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="120" cy="210" r="7" fill="#60a5fa"/>
+            <text x="120" y="233" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Amritsar</text>
           </g>
 
           <!-- Pathankot -->
           <g class="map-node" data-city="Pathankot" data-distances="Delhi:470km · 8hr | Chandigarh:190km · 3.5hr | Amritsar:100km · 2hr | Ludhiana:220km · 4hr | Jammu:115km · 2.5hr | Dharamshala:90km · 2hr | Mandi:230km · 5hr">
-            <circle cx="200" cy="170" r="14" fill="rgba(109,40,217,0.15)"/>
-            <circle class="node-ring" cx="200" cy="170" r="14" fill="none" stroke="#6D28D9" stroke-width="2"/>
-            <circle cx="200" cy="170" r="7" fill="#6D28D9"/>
+            <circle cx="200" cy="170" r="13" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="200" cy="170" r="13" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="200" cy="170" r="7" fill="#60a5fa"/>
             <text x="200" y="155" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Pathankot</text>
           </g>
 
           <!-- Jammu -->
           <g class="map-node" data-city="Jammu" data-distances="Delhi:600km · 10hr | Chandigarh:300km · 5.5hr | Pathankot:115km · 2.5hr | Amritsar:210km · 4hr | Ludhiana:330km · 6hr | Dharamshala:200km · 4hr">
-            <circle cx="130" cy="130" r="14" fill="rgba(8,145,178,0.15)"/>
-            <circle class="node-ring" cx="130" cy="130" r="14" fill="none" stroke="#0891B2" stroke-width="2"/>
-            <circle cx="130" cy="130" r="7" fill="#0891B2"/>
+            <circle cx="130" cy="130" r="13" fill="rgba(96,165,250,0.15)"/>
+            <circle class="node-ring" cx="130" cy="130" r="13" fill="none" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="130" cy="130" r="7" fill="#60a5fa"/>
             <text x="130" y="115" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Jammu</text>
           </g>
 
-          <!-- Dharamshala -->
-          <g class="map-node" data-city="Dharamshala" data-distances="Delhi:480km · 9hr | Chandigarh:230km · 5hr | Pathankot:90km · 2hr | Mandi:160km · 3.5hr | Shimla:250km · 5.5hr | Manali:250km · 5.5hr | Jammu:200km · 4hr">
-            <circle cx="350" cy="155" r="14" fill="rgba(217,119,6,0.15)"/>
-            <circle class="node-ring" cx="350" cy="155" r="14" fill="none" stroke="#D97706" stroke-width="2"/>
-            <circle cx="350" cy="155" r="7" fill="#D97706"/>
-            <text x="350" y="140" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Dharamshala</text>
+          <!-- HP HILLS (green #34d399) : Mandi, Shimla, Manali, Dharamshala -->
+
+          <!-- Mandi — HP hub, slightly larger -->
+          <g class="map-node" data-city="Mandi" data-distances="Delhi:480km · 8hr | Chandigarh:210km · 4hr | Shimla:155km · 3.5hr | Manali:110km · 2.5hr | Dharamshala:160km · 3.5hr | Dehradun:330km · 6.5hr | Pathankot:230km · 5hr">
+            <circle cx="460" cy="220" r="16" fill="rgba(52,211,153,0.15)"/>
+            <circle class="node-ring" cx="460" cy="220" r="16" fill="none" stroke="#34d399" stroke-width="2"/>
+            <circle cx="460" cy="220" r="8" fill="#34d399"/>
+            <text x="460" y="246" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="700" opacity="0.95">Mandi</text>
           </g>
 
           <!-- Shimla -->
           <g class="map-node" data-city="Shimla" data-distances="Delhi:370km · 7hr | Chandigarh:115km · 3hr | Mandi:155km · 3.5hr | Manali:270km · 6hr | Dehradun:230km · 5hr | Dharamshala:250km · 5.5hr">
-            <circle cx="390" cy="200" r="14" fill="rgba(124,58,237,0.15)"/>
-            <circle class="node-ring" cx="390" cy="200" r="14" fill="none" stroke="#7C3AED" stroke-width="2"/>
-            <circle cx="390" cy="200" r="7" fill="#7C3AED"/>
-            <text x="405" y="198" text-anchor="start" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Shimla</text>
-          </g>
-
-          <!-- Mandi -->
-          <g class="map-node" data-city="Mandi" data-distances="Delhi:480km · 8hr | Chandigarh:210km · 4hr | Shimla:155km · 3.5hr | Manali:110km · 2.5hr | Dharamshala:160km · 3.5hr | Dehradun:330km · 6.5hr | Pathankot:230km · 5hr">
-            <circle cx="460" cy="220" r="16" fill="rgba(201,160,40,0.15)"/>
-            <circle class="node-ring" cx="460" cy="220" r="16" fill="none" stroke="#C9A028" stroke-width="2"/>
-            <circle cx="460" cy="220" r="8" fill="#C9A028"/>
-            <text x="460" y="246" text-anchor="middle" fill="white" font-size="11" font-family="Inter,sans-serif" font-weight="600" opacity="0.9">Mandi</text>
+            <circle cx="390" cy="200" r="13" fill="rgba(52,211,153,0.15)"/>
+            <circle class="node-ring" cx="390" cy="200" r="13" fill="none" stroke="#34d399" stroke-width="2"/>
+            <circle cx="390" cy="200" r="7" fill="#34d399"/>
+            <text x="408" y="198" text-anchor="start" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Shimla</text>
           </g>
 
           <!-- Manali -->
           <g class="map-node" data-city="Manali" data-distances="Delhi:560km · 10hr | Chandigarh:310km · 6hr | Mandi:110km · 2.5hr | Shimla:270km · 6hr | Dharamshala:250km · 5.5hr">
-            <circle cx="500" cy="140" r="14" fill="rgba(16,185,129,0.15)"/>
-            <circle class="node-ring" cx="500" cy="140" r="14" fill="none" stroke="#10B981" stroke-width="2"/>
-            <circle cx="500" cy="140" r="7" fill="#10B981"/>
+            <circle cx="500" cy="140" r="13" fill="rgba(52,211,153,0.15)"/>
+            <circle class="node-ring" cx="500" cy="140" r="13" fill="none" stroke="#34d399" stroke-width="2"/>
+            <circle cx="500" cy="140" r="7" fill="#34d399"/>
             <text x="500" y="124" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Manali</text>
           </g>
 
-          <!-- Dehradun -->
-          <g class="map-node" data-city="Dehradun" data-distances="Delhi:320km · 6hr | Chandigarh:175km · 3.5hr | Shimla:230km · 5hr | Mandi:330km · 6.5hr | Haridwar:55km · 1hr">
-            <circle cx="340" cy="290" r="14" fill="rgba(239,68,68,0.15)"/>
-            <circle class="node-ring" cx="340" cy="290" r="14" fill="none" stroke="#EF4444" stroke-width="2"/>
-            <circle cx="340" cy="290" r="7" fill="#EF4444"/>
-            <text x="340" y="314" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Dehradun</text>
+          <!-- Dharamshala -->
+          <g class="map-node" data-city="Dharamshala" data-distances="Delhi:480km · 9hr | Chandigarh:230km · 5hr | Pathankot:90km · 2hr | Mandi:160km · 3.5hr | Shimla:250km · 5.5hr | Manali:250km · 5.5hr | Jammu:200km · 4hr">
+            <circle cx="350" cy="155" r="13" fill="rgba(52,211,153,0.15)"/>
+            <circle class="node-ring" cx="350" cy="155" r="13" fill="none" stroke="#34d399" stroke-width="2"/>
+            <circle cx="350" cy="155" r="7" fill="#34d399"/>
+            <text x="350" y="140" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Dharamshala</text>
+          </g>
+
+          <!-- UTTARAKHAND (amber #fbbf24) : Dehradun -->
+          <g class="map-node" data-city="Dehradun" data-distances="Delhi:320km · 6hr | Chandigarh:175km · 3.5hr | Shimla:230km · 5hr | Mandi:330km · 6.5hr">
+            <circle cx="340" cy="290" r="13" fill="rgba(251,191,36,0.15)"/>
+            <circle class="node-ring" cx="340" cy="290" r="13" fill="none" stroke="#fbbf24" stroke-width="2"/>
+            <circle cx="340" cy="290" r="7" fill="#fbbf24"/>
+            <text x="340" y="313" text-anchor="middle" fill="white" font-size="10" font-family="Inter,sans-serif" font-weight="600" opacity="0.85">Dehradun</text>
           </g>
         </svg>
 
@@ -430,42 +450,42 @@
             <div class="route-row">
               <div>
                 <div class="route-name">Delhi ↔ Chandigarh</div>
-                <div class="route-meta">250 km · ~4.5 hrs</div>
+                <div class="route-meta">250 km · 24hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Chandigarh ↔ Mandi</div>
-                <div class="route-meta">210 km · ~4 hrs</div>
+                <div class="route-meta">210 km · 48hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Chandigarh ↔ Shimla</div>
-                <div class="route-meta">115 km · ~3 hrs</div>
+                <div class="route-meta">115 km · 48hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Delhi ↔ Manali</div>
-                <div class="route-meta">560 km · ~10 hrs</div>
+                <div class="route-meta">560 km · 48hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Mandi ↔ Dharamshala</div>
-                <div class="route-meta">160 km · ~3.5 hrs</div>
+                <div class="route-meta">160 km · 48hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Delhi ↔ Jammu</div>
-                <div class="route-meta">600 km · ~10 hrs</div>
+                <div class="route-meta">600 km · 72hr dispatch</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
@@ -570,10 +590,103 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // ── QUOTE FORM LOGIC ──
-    const cities = ["Delhi","Chandigarh","Ludhiana","Amritsar","Dehradun","Mandi","Shimla","Manali","Dharamshala","Pathankot","Jammu"];
+    // ── STATE → CITIES MAP ──
+    const stateCities = {
+      Delhi:       ["Delhi"],
+      Chandigarh:  ["Chandigarh"],
+      Punjab:      ["Ludhiana", "Amritsar"],
+      HP:          ["Mandi", "Shimla", "Manali", "Dharamshala"],
+      JK:          ["Pathankot", "Jammu"],
+      UK:          ["Dehradun"],
+      MH:          ["Mumbai", "Pune"],
+      KA:          ["Bangalore"],
+      TN:          ["Chennai"]
+    };
 
-    // Approximate distances in km
+    const stateLabels = {
+      Delhi:"Delhi (NCR)", Chandigarh:"Chandigarh (UT)",
+      Punjab:"Punjab", HP:"Himachal Pradesh",
+      JK:"Jammu & Kashmir", UK:"Uttarakhand",
+      MH:"Maharashtra", KA:"Karnataka", TN:"Tamil Nadu"
+    };
+
+    // North states — can ship to any north state
+    const northStates = new Set(["Delhi","Chandigarh","Punjab","HP","JK","UK"]);
+    // South states — can only ship within south
+    const southStates = new Set(["MH","KA","TN"]);
+
+    function allowedDestStates(fromState) {
+      if (northStates.has(fromState)) return [...northStates];
+      if (southStates.has(fromState)) return [...southStates];
+      return [];
+    }
+
+    function populateCities(selectEl, state) {
+      selectEl.innerHTML = '<option value="">Select city</option>';
+      (stateCities[state] || []).forEach(c => {
+        const o = document.createElement('option');
+        o.value = o.textContent = c;
+        selectEl.appendChild(o);
+      });
+      selectEl.disabled = false;
+      // Auto-select if only one city
+      if (stateCities[state] && stateCities[state].length === 1) {
+        selectEl.value = stateCities[state][0];
+      }
+    }
+
+    function populateStates(selectEl, stateKeys) {
+      selectEl.innerHTML = '<option value="">Select state</option>';
+      stateKeys.forEach(k => {
+        const o = document.createElement('option');
+        o.value = k;
+        o.textContent = stateLabels[k];
+        selectEl.appendChild(o);
+      });
+      selectEl.disabled = false;
+    }
+
+    const fromStateEl = document.getElementById('fromState');
+    const fromCityEl  = document.getElementById('fromCity');
+    const toStateEl   = document.getElementById('toState');
+    const toCityEl    = document.getElementById('toCity');
+
+    fromStateEl.addEventListener('change', function() {
+      const fs = this.value;
+      // Populate from-city
+      if (fs) {
+        populateCities(fromCityEl, fs);
+      } else {
+        fromCityEl.innerHTML = '<option value="">Select state first</option>';
+        fromCityEl.disabled = true;
+      }
+      // Reset to-state and to-city
+      toStateEl.innerHTML = '<option value="">Select state</option>';
+      toStateEl.disabled = true;
+      toCityEl.innerHTML = '<option value="">Select state first</option>';
+      toCityEl.disabled = true;
+      document.getElementById('quoteResult').textContent = 'Select your origin and destination to check availability.';
+      document.getElementById('quoteResult').style.color = 'var(--primary-blue)';
+
+      if (fs) {
+        const allowed = allowedDestStates(fs).filter(s => s !== fs || stateCities[fs].length > 1);
+        // Allow same state only if it has multiple cities (e.g. Punjab: Ludhiana→Amritsar)
+        const dest = allowedDestStates(fs);
+        populateStates(toStateEl, dest);
+      }
+    });
+
+    toStateEl.addEventListener('change', function() {
+      const ts = this.value;
+      if (ts) {
+        populateCities(toCityEl, ts);
+      } else {
+        toCityEl.innerHTML = '<option value="">Select state first</option>';
+        toCityEl.disabled = true;
+      }
+    });
+
+    // ── DISTANCES ──
     const distances = {
       "Delhi-Chandigarh":250,"Delhi-Ludhiana":310,"Delhi-Amritsar":450,
       "Delhi-Dehradun":320,"Delhi-Mandi":480,"Delhi-Shimla":370,
@@ -588,27 +701,38 @@
       "Mandi-Shimla":155,"Mandi-Manali":110,"Mandi-Dharamshala":160,"Mandi-Pathankot":230,
       "Shimla-Manali":270,"Shimla-Dehradun":230,
       "Dharamshala-Pathankot":90,"Dharamshala-Jammu":200,"Dharamshala-Manali":250,
-      "Pathankot-Jammu":115
+      "Pathankot-Jammu":115,
+      "Mumbai-Pune":150,"Mumbai-Bangalore":980,"Mumbai-Chennai":1330,
+      "Pune-Bangalore":840,"Pune-Chennai":1150,
+      "Bangalore-Chennai":350
     };
 
     function getDistance(a, b) {
       return distances[`${a}-${b}`] || distances[`${b}-${a}`] || null;
     }
 
+    // Dispatch band by destination state
+    const dispatchBand = {
+      Delhi:"24hr", Chandigarh:"24hr", Punjab:"24hr",
+      HP:"48hr", UK:"48hr", JK:"72hr",
+      MH:"48hr", KA:"48hr", TN:"48hr"
+    };
+
     function estimatePrice(km, weightBand) {
-      const base = { "5":300, "15":500, "30":800, "30+":1200 };
-      const perKm = { "5":0.4, "15":0.6, "30":0.9, "30+":1.4 };
-      const b = base[weightBand] || 300;
+      const base  = { "5":300,  "15":500,  "30":800,  "30+":1200 };
+      const perKm = { "5":0.4,  "15":0.6,  "30":0.9,  "30+":1.4  };
+      const b = base[weightBand]  || 300;
       const r = perKm[weightBand] || 0.4;
       return Math.round((b + km * r) / 50) * 50;
     }
 
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const from = document.getElementById('fromCity').value;
-      const to   = document.getElementById('toCity').value;
-      const wt   = document.getElementById('weight').value;
-      const res  = document.getElementById('quoteResult');
+      const from   = fromCityEl.value;
+      const to     = toCityEl.value;
+      const toSt   = toStateEl.value;
+      const wt     = document.getElementById('weight').value;
+      const res    = document.getElementById('quoteResult');
 
       if (!from || !to || !wt) {
         res.textContent = 'Please fill in all fields.';
@@ -616,21 +740,24 @@
         return;
       }
       if (from === to) {
-        res.textContent = 'Origin and destination can\'t be the same city.';
+        res.textContent = "Origin and destination can't be the same city.";
         res.style.color = '#ef4444';
         return;
       }
 
-      const km = getDistance(from, to);
+      const km    = getDistance(from, to);
+      const band  = dispatchBand[toSt] || '48hr';
+      const waUrl = `https://wa.me/918091889969?text=Hi Patwadi, I want to book from ${encodeURIComponent(from)} to ${encodeURIComponent(to)}`;
+
       if (!km) {
-        res.innerHTML = `✅ <strong>${from} → ${to}</strong> is serviceable. WhatsApp us for a custom quote on this route.`;
-        res.style.color = 'var(--accent-green)';
+        res.innerHTML = `Route available — <a href="${waUrl}" target="_blank" style="color:#25D366;font-weight:700;">WhatsApp us to confirm pricing →</a>`;
+        res.style.color = 'var(--neutral-700)';
         return;
       }
 
       const price = estimatePrice(km, wt);
-      res.innerHTML = `✅ <strong>${from} → ${to}</strong> &nbsp;·&nbsp; ${km} km &nbsp;·&nbsp; Estimated ₹${price.toLocaleString('en-IN')} &nbsp;·&nbsp; <a href="https://wa.me/918091889969?text=Hi Patwadi, I want to book from ${from} to ${to}" target="_blank" style="color:var(--primary-blue);font-weight:700;">Book on WhatsApp →</a>`;
-      res.style.color = 'var(--accent-green)';
+      res.innerHTML = `✅ <strong>${from} → ${to}</strong> &nbsp;·&nbsp; ${km} km &nbsp;·&nbsp; ${band} dispatch &nbsp;·&nbsp; Est. <strong>₹${price.toLocaleString('en-IN')}</strong> &nbsp;·&nbsp; <a href="${waUrl}" target="_blank" style="color:#25D366;font-weight:700;">Book on WhatsApp →</a>`;
+      res.style.color = 'var(--neutral-900)';
     });
 
     // ── MAP HOVER LOGIC ──
@@ -640,32 +767,25 @@
 
     nodes.forEach(node => {
       node.addEventListener('mouseenter', function(e) {
-        const city = this.dataset.city;
+        const city  = this.dataset.city;
         const dists = this.dataset.distances;
         if (!dists) return;
-
         const lines = dists.split('|').map(d => {
           const [dest, info] = d.trim().split(':');
           return `<span style="display:block"><strong>${dest.trim()}</strong> — ${info.trim()}</span>`;
         }).join('');
-
         tooltip.innerHTML = `<span style="display:block;font-size:0.85rem;font-weight:700;margin-bottom:5px;color:#6d28d9">${city}</span>${lines}`;
         tooltip.style.display = 'block';
         positionTooltip(e);
       });
-
       node.addEventListener('mousemove', positionTooltip);
-
-      node.addEventListener('mouseleave', function() {
-        tooltip.style.display = 'none';
-      });
+      node.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
     });
 
     function positionTooltip(e) {
       const rect = mapEl.getBoundingClientRect();
       let x = e.clientX - rect.left + 14;
-      let y = e.clientY - rect.top + 14;
-      // Flip if near right edge
+      let y = e.clientY - rect.top  + 14;
       if (x + 220 > rect.width) x = e.clientX - rect.left - 230;
       tooltip.style.left = x + 'px';
       tooltip.style.top  = y + 'px';
@@ -673,4 +793,3 @@
   </script>
 </body>
 </html>
-
