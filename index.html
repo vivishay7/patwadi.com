@@ -226,26 +226,37 @@
             </div>
           </div>
 
-          <!-- ROW 3: Weight + Submit -->
-          <div style="display:grid; grid-template-columns:1fr 2fr; gap:var(--spacing-md);">
+          <!-- ROW 3: Weight + Date -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
             <div class="form-group" style="margin-bottom:0;">
               <label>Parcel Weight</label>
               <select id="weight" required>
                 <option value="">Select weight</option>
-                <option value="5">Up to 5 kg</option>
-                <option value="15">5 – 15 kg</option>
-                <option value="30">15 – 30 kg</option>
-                <option value="30+">Above 30 kg</option>
+                <option value="Up to 5 kg">Up to 5 kg</option>
+                <option value="5–15 kg">5 – 15 kg</option>
+                <option value="15–30 kg">15 – 30 kg</option>
+                <option value="Above 30 kg">Above 30 kg</option>
               </select>
             </div>
-            <div style="display:flex; align-items:flex-end;">
-              <button type="submit" class="btn" style="width:100%;">Check Availability</button>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Pickup Date</label>
+              <input type="date" id="pickupDate" required style="width:100%;">
             </div>
           </div>
 
+          <button type="submit" class="btn" style="width:100%; background:#25D366; border-color:#25D366;">💬 Book on WhatsApp</button>
+
         </form>
-        <div class="quote-result" id="quoteResult" style="margin-top:var(--spacing-md); font-weight:600; text-align:center; min-height:28px; color:var(--primary-blue);">
-          Select your origin and destination to check availability.
+        <div class="quote-result" id="quoteResult" style="margin-top:var(--spacing-md); font-weight:600; text-align:center; min-height:28px; color:var(--neutral-500); font-size:0.85rem; font-weight:400;">
+          Fill in the details above — we'll open WhatsApp with everything pre-filled.
+        </div>
+
+        <div style="text-align:center; margin-top:16px; padding-top:16px; border-top:1px solid var(--neutral-200);">
+          <p style="font-size:0.8rem; color:var(--neutral-500); margin-bottom:10px;">Don't see your city here?</p>
+          <a href="https://wa.me/918091889969?text=Hi%20Patwadi%20team%2C%20I%27d%20like%20to%20ship%20from%20%5Borigin%20city%5D%20to%20%5Bdestination%20city%5D.%20Can%20you%20help%20with%20availability%20and%20pricing%3F" target="_blank"
+            style="display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border:1.5px solid #25D366;border-radius:6px;color:#25D366;font-size:0.85rem;font-weight:600;text-decoration:none;">
+            💬 Tell us where you'd like to ship
+          </a>
         </div>
       </div>
     </div>
@@ -719,44 +730,72 @@
     };
 
     function estimatePrice(km, weightBand) {
-      const base  = { "5":300,  "15":500,  "30":800,  "30+":1200 };
-      const perKm = { "5":0.4,  "15":0.6,  "30":0.9,  "30+":1.4  };
+      const base  = { "Up to 5 kg":300, "5–15 kg":500, "15–30 kg":800, "Above 30 kg":1200 };
+      const perKm = { "Up to 5 kg":0.4, "5–15 kg":0.6, "15–30 kg":0.9, "Above 30 kg":1.4  };
       const b = base[weightBand]  || 300;
       const r = perKm[weightBand] || 0.4;
       return Math.round((b + km * r) / 50) * 50;
     }
 
+    // Set min date on pickup date input to today
+    const dateInput = document.getElementById('pickupDate');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const from   = fromCityEl.value;
-      const to     = toCityEl.value;
-      const toSt   = toStateEl.value;
-      const wt     = document.getElementById('weight').value;
-      const res    = document.getElementById('quoteResult');
+      const fromState = document.getElementById('fromState');
+      const from      = fromCityEl.value;
+      const toSt      = toStateEl.value;
+      const to        = toCityEl.value;
+      const wt        = document.getElementById('weight').value;
+      const date      = document.getElementById('pickupDate').value;
+      const res       = document.getElementById('quoteResult');
 
-      if (!from || !to || !wt) {
-        res.textContent = 'Please fill in all fields.';
+      if (!from || !to || !wt || !date) {
+        res.textContent = 'Please fill in all fields including the pickup date.';
         res.style.color = '#ef4444';
+        res.style.fontWeight = '600';
         return;
       }
       if (from === to) {
         res.textContent = "Origin and destination can't be the same city.";
         res.style.color = '#ef4444';
+        res.style.fontWeight = '600';
         return;
       }
 
       const km    = getDistance(from, to);
       const band  = dispatchBand[toSt] || '48hr';
-      const waUrl = `https://wa.me/918091889969?text=Hi Patwadi, I want to book from ${encodeURIComponent(from)} to ${encodeURIComponent(to)}`;
 
-      const price = km ? estimatePrice(km, wt) : null;
-      const priceStr = price ? `&nbsp;·&nbsp; Est. <strong>₹${price.toLocaleString('en-IN')}</strong>` : '';
-      const kmStr = km ? `&nbsp;·&nbsp; ${km} km` : '';
-      res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
-        <span>✅ <strong>${from} → ${to}</strong>${kmStr} &nbsp;·&nbsp; ${band} dispatch${priceStr}</span>
-        <a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Book on WhatsApp</a>
+      // Format date nicely for the message
+      const dateObj = new Date(date + 'T00:00:00');
+      const dateStr = dateObj.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+      // Build the pre-filled WhatsApp message
+      const msg = `Hi Patwadi team! I'd like to book a shipment:\n\n` +
+        `📦 Weight: ${wt}\n` +
+        `🗺️ From: ${from}\n` +
+        `📍 To: ${to}\n` +
+        `📅 Pickup date: ${dateStr}\n\n` +
+        `Could you confirm availability and pricing? Thank you!`;
+
+      const waUrl = `https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
+
+      // Show confirmation and open WA
+      const price    = km ? estimatePrice(km, wt) : null;
+      const priceStr = price ? ` · Est. ₹${price.toLocaleString('en-IN')}` : '';
+      const kmStr    = km ? ` · ${km} km` : '';
+
+      res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+        <span style="color:var(--neutral-900);">✅ <strong>${from} → ${to}</strong>${kmStr} · <strong>${band} dispatch</strong>${priceStr}</span>
+        <a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-weight:700;font-size:0.85rem;padding:8px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Open WhatsApp</a>
       </div>`;
-      res.style.color = 'var(--neutral-900)';
+      res.style.color   = 'var(--neutral-900)';
+      res.style.fontWeight = '400';
+
+      // Auto-open WhatsApp
+      window.open(waUrl, '_blank');
     });
 
     // ── MAP HOVER LOGIC ──
