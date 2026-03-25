@@ -1,20 +1,182 @@
 #services.html
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services - Patwadi</title>
-  <meta name="description" content="Discover Patwadi's intercity corridor services: pickup, lockers, linehaul control, tracking, and B2B plans.">
+  <meta name="description" content="Patwadi intercity delivery services for students, parents, and small businesses across North India and beyond.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── SEGMENT TABS ── */
+    .seg-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .seg-tab {
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: 1.5px solid var(--neutral-200);
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--neutral-500);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .seg-tab:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+    .seg-tab.active { background: var(--primary-blue); border-color: var(--primary-blue); color: #fff; }
+
+    /* ── SEGMENT PANELS ── */
+    .seg-panel { display: none; }
+    .seg-panel.active { display: block; }
+
+    /* ── SERVICE CARD ── */
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 640px) { .service-row { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--neutral-200);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .service-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 14px;
+      line-height: 1;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--neutral-500);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .service-card .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 16px;
+    }
+    .stag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 4px;
+      background: var(--neutral-100);
+      color: var(--neutral-600, #4b5563);
+      border: 1px solid var(--neutral-200);
+    }
+    .stag.green { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+    .stag.blue  { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+    .stag.amber { background: #fffbeb; color: #92400e; border-color: #fde68a; }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .included-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: var(--neutral-700, #374151);
+      line-height: 1.6;
+    }
+    .included-list li::before {
+      content: '✓';
+      color: var(--accent-green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── PRICING CALLOUT ── */
+    .price-callout {
+      background: var(--neutral-50, #f9fafb);
+      border: 1px solid var(--neutral-200);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .price-callout-left h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--neutral-900);
+      margin-bottom: 4px;
+    }
+    .price-callout-left p {
+      font-size: 0.82rem;
+      color: var(--neutral-500);
+      line-height: 1.6;
+    }
+    .price-big {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--neutral-900);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+    .price-big span {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--neutral-500);
+      letter-spacing: 0;
+    }
+
+    /* ── SEGMENT CTA ── */
+    .seg-cta {
+      margin-top: 40px;
+      background: var(--neutral-900);
+      border-radius: 12px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .seg-cta h3 { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .seg-cta p  { color: var(--neutral-400); font-size: 0.875rem; }
+    .seg-cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <header class="header">
     <nav class="nav">
@@ -35,122 +197,224 @@
     </nav>
   </header>
 
-  <!-- Services Hero -->
-  <section class="hero" style="min-height: 40vh; background: linear-gradient(135deg, var(--primary-blue-light), var(--primary-blue));">
+  <!-- Hero -->
+  <section class="hero" style="min-height: 44vh;">
     <div class="hero-content">
-      <h1>End-to-End Micro-Logistics</h1>
-      <p>From first-mile pickup to last-mile delivery via a corridor-integrated control tower and AI.</p>
-      <a href="tracking.html" class="btn">Send Now</a>
+      <h1>What we deliver</h1>
+      <p>Scheduled intercity shipments for individuals, families, and businesses — across North India and beyond.</p>
     </div>
   </section>
 
-  <!-- Service Sections -->
+  <!-- Services by segment -->
   <section class="section">
     <div class="container">
-      <div class="grid">
-        <div class="card">
-          <div class="icon">🚪</div>
-          <h3>Door-to-Door Fulfillment</h3>
-          <p>First-mile pickup within 30 mins and last-mile delivery within 2 hours. Live assignment and digital proofs at both ends.</p>
-        </div>
-        <div class="card">
-          <div class="icon">📦</div>
-          <h3>Depot Dropoff</h3>
-          <p>Drop at corridor buffer hubs or scan QR lockers. 24/7 access, no queues.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🛣️</div>
-          <h3>Intercity Linehaul</h3>
-          <p>Secure batch consolidation on our intercity corridor network. Micro-holds stabilize every transfer.</p>
-        </div>
-        <div class="card">
-          <div class="icon">📝</div>
-          <h3>Contract Verification (B2B)</h3>
-          <p>Physical document verification and secure return logistics for banking, telecom, and legal contracts.</p>
-        </div>
-        <div class="card">
-          <div class="icon">⚙️</div>
-          <h3>Batch Dispatching</h3>
-          <p>AI-optimized grouping by route, dimensions, and SLA band. Maximum efficiency, minimum cost.</p>
-        </div>
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>Tracking & Notifications</h3>
-          <p>Real-time telemetry + WhatsApp alerts at every handoff. Corridor control tower visibility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Enterprise Solutions Layer -->
-  <section class="section" style="background: var(--neutral-900); color: white;">
-    <div class="container">
-      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: var(--spacing-2xl);">
-        <h2 class="section-title" style="color: white;">Enterprise SLA Guarantee</h2>
-        <p style="max-width: 700px; opacity: 0.9; font-size: 1.125rem;">For pharma, automotive, and FMCG partners requiring strict compliance and dedicated throughput. Run your city-to-storefront dispatch via our closed-loop corridor stack.</p>
+      <div class="seg-tabs">
+        <button class="seg-tab active" onclick="showSeg('personal')">🎒 Personal &amp; Students</button>
+        <button class="seg-tab" onclick="showSeg('business')">🏪 Small Businesses</button>
+        <button class="seg-tab" onclick="showSeg('enterprise')">🏢 Enterprise</button>
       </div>
-      
-      <div class="grid">
-        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          <div class="icon" style="background: var(--accent-green);">🛡️</div>
-          <h3 style="color: white;">Reliability</h3>
-          <p style="color: var(--neutral-300);">99.9% Network Uptime<br>96.7% OTIF Performance</p>
-        </div>
-        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          <div class="icon" style="background: var(--primary-blue-light);">🔐</div>
-          <h3 style="color: white;">Security</h3>
-          <p style="color: var(--neutral-300);">Tamper-proof seals<br>Real-time geo-fencing alerts</p>
-        </div>
-        <div class="card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          <div class="icon" style="background: var(--white); color: var(--neutral-900);">🤝</div>
-          <h3 style="color: white;">Support</h3>
-          <p style="color: var(--neutral-300);">Dedicated Key Account Manager<br>24/7 Control Tower Access</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- B2B Plans (Quote Based) -->
-  <section class="section" style="background: var(--neutral-50);">
-    <div class="container">
-      <h2 class="section-title">Partnership Tiers</h2>
-      <p style="text-align: center; max-width: 600px; margin: 0 auto var(--spacing-2xl); font-size: 1.125rem;">Flexible contracts designed for scale.</p>
-      <div class="grid">
-        <div class="card" style="border-top: 4px solid var(--primary-blue);">
-          <h3>SME Growth</h3>
-          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">For growing businesses shipping 50-500 parcels/mo.</p>
-          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-            <li>Consolidated billing</li>
-            <li>Priority pickup slots</li>
-            <li>Basic API access</li>
-            <li>Standard Insurance</li>
-          </ul>
-          <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Request Quote</a>
+      <!-- ── PERSONAL ── -->
+      <div class="seg-panel active" id="seg-personal">
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">🧳</div>
+            <h3>Semester &amp; relocation moves</h3>
+            <p>Moving hostels at semester end, shifting for an internship, or heading home for the holidays — send your bags ahead and travel light. We collect from your hostel or PG, transit via our intercity network, and hold at the destination for you to collect.</p>
+            <div class="tag-row">
+              <span class="stag blue">Students</span>
+              <span class="stag">Hostels &amp; PGs</span>
+              <span class="stag green">48hr HP · 24hr plains</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">📦</div>
+            <h3>Graduation pack</h3>
+            <p>Four years of accumulated goods — books, appliances, clothes, equipment. Our graduation pack handles up to 5 items in a single booking at a flat rate. No need to make multiple trips or beg friends for help.</p>
+            <div class="tag-row">
+              <span class="stag blue">Final year students</span>
+              <span class="stag amber">Up to 5 items</span>
+              <span class="stag">Flat rate</span>
+            </div>
+          </div>
         </div>
-        <div class="card" style="border-top: 4px solid var(--accent-green); background: var(--white); position: relative;">
-          <div style="position: absolute; top: 0; right: 0; background: var(--accent-green); color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: 700; border-bottom-left-radius: 8px;">POPULAR</div>
-          <h3>Corporate</h3>
-          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">High-volume optimization for 500+ parcels/mo.</p>
-          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-            <li>Volume discounts</li>
-            <li>Custom corridor planning</li>
-            <li>Full API & Webhooks</li>
-            <li>Dedicated support line</li>
-          </ul>
-          <a href="contact.html" class="btn" style="width: 100%; text-align: center;">Talk to Sales</a>
+
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">👨‍👩‍👧</div>
+            <h3>Parent care packages</h3>
+            <p>Send home-cooked food, winter clothes, festival gifts, or forgotten items to your child at their hostel or PG. Works in both directions — from home to campus, or campus to home. Same booking process, same WhatsApp number.</p>
+            <div class="tag-row">
+              <span class="stag">Parents</span>
+              <span class="stag green">Both directions</span>
+              <span class="stag">Non-perishables only</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">🏕️</div>
+            <h3>Trek &amp; sports gear</h3>
+            <p>Heading to Manali, Kasol, or Dharamshala for a trek? Send your tent, sleeping bag, and gear ahead so you travel light on the bus. We'll hold it at the destination agent for pickup on arrival.</p>
+            <div class="tag-row">
+              <span class="stag">Adventure travel</span>
+              <span class="stag blue">Hill routes</span>
+              <span class="stag">Gear bags welcome</span>
+            </div>
+          </div>
         </div>
-        <div class="card" style="border-top: 4px solid var(--neutral-900);">
-          <h3>Enterprise</h3>
-          <p style="margin: var(--spacing-md) 0; color: var(--neutral-500);">Tailored logistics infrastructure.</p>
-          <ul style="list-style: disc; padding-left: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-            <li>Private corridor buffer hubs</li>
-            <li>White-label rider app</li>
-            <li>SLA-backed guarantees</li>
-            <li>Quarterly business reviews</li>
-          </ul>
-          <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Strategy Team</a>
+
+        <div class="price-callout">
+          <div class="price-callout-left">
+            <h4>Personal shipment pricing</h4>
+            <p>Varies by route and item size. Most moves within HP and Punjab corridors start at ₹500 per item. Graduation pack flat rate from ₹3,000 for 5 items.</p>
+          </div>
+          <div class="price-big">₹500 <span>onwards</span></div>
+        </div>
+
+        <div class="seg-cta">
+          <div>
+            <h3>Ready to book?</h3>
+            <p>WhatsApp us your route, date, and number of items — we'll confirm within 1 business day.</p>
+          </div>
+          <div class="seg-cta-btns">
+            <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20book%20a%20personal%20shipment!" target="_blank" class="btn" style="background:#25D366; border-color:#25D366;">💬 Book on WhatsApp</a>
+            <a href="how-it-works.html" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;">How it works →</a>
+          </div>
         </div>
       </div>
+
+      <!-- ── BUSINESS ── -->
+      <div class="seg-panel" id="seg-business">
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">🔄</div>
+            <h3>Intercity restocking</h3>
+            <p>Send goods from your supplier city to your store or warehouse across state lines. Patwadi moves cartons, bags, and palletable goods on scheduled intercity transit — predictable dispatch windows, no surprises.</p>
+            <div class="tag-row">
+              <span class="stag blue">B2B restocking</span>
+              <span class="stag">Cartons &amp; bags</span>
+              <span class="stag green">Scheduled dispatch</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">📬</div>
+            <h3>Recurring corridor bookings</h3>
+            <p>Ship on a regular cadence — weekly, fortnightly, or monthly — on the same corridor. We maintain your route preferences and pickup details so repeat bookings take seconds, not minutes.</p>
+            <div class="tag-row">
+              <span class="stag">Regular senders</span>
+              <span class="stag amber">Saved preferences</span>
+              <span class="stag">WhatsApp booking</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">🧾</div>
+            <h3>Document &amp; sample dispatch</h3>
+            <p>Send contracts, invoices, product samples, or physical documents between offices and clients across cities. Tracked, handled carefully, and held securely at the destination agent.</p>
+            <div class="tag-row">
+              <span class="stag">Documents</span>
+              <span class="stag">Product samples</span>
+              <span class="stag blue">Tracked</span>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">💳</div>
+            <h3>Payment &amp; billing</h3>
+            <p>All business shipments are prepaid via UPI. For high-frequency senders, consolidated weekly billing is available on request. No COD, no cash — clean reconciliation every time.</p>
+            <div class="tag-row">
+              <span class="stag amber">UPI only</span>
+              <span class="stag">Weekly billing available</span>
+              <span class="stag green">Clean reconciliation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-callout">
+          <div class="price-callout-left">
+            <h4>Business shipment pricing</h4>
+            <p>Priced by route, weight, and volume. Recurring senders on the same corridor qualify for preferential rates — WhatsApp us with your monthly volume for a quote.</p>
+          </div>
+          <div class="price-big">₹500 <span>onwards</span></div>
+        </div>
+
+        <div class="seg-cta">
+          <div>
+            <h3>Ship for your business</h3>
+            <p>Tell us your route, average volume, and frequency — we'll set you up.</p>
+          </div>
+          <div class="seg-cta-btns">
+            <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20discuss%20business%20shipping%20for%20my%20company." target="_blank" class="btn" style="background:#25D366; border-color:#25D366;">💬 WhatsApp us</a>
+            <a href="b2b.html" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;">Enterprise options →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ENTERPRISE ── -->
+      <div class="seg-panel" id="seg-enterprise">
+        <div style="max-width: 680px; margin: 0 auto 40px; text-align: center;">
+          <p style="font-size: 1rem; color: var(--neutral-500); line-height: 1.75;">For organisations with consistent, high-volume intercity shipping needs — dedicated corridor planning, SLA-backed dispatch, and a key account manager who knows your routes.</p>
+        </div>
+
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">🗺️</div>
+            <h3>Dedicated corridor planning</h3>
+            <p>We map your specific origin–destination pairs, plan dispatch windows around your operational schedule, and maintain reserved capacity on your corridors so you're never bumped for ad-hoc bookings.</p>
+            <ul class="included-list" style="margin-top:14px;">
+              <li>Fixed dispatch windows aligned to your schedule</li>
+              <li>Reserved capacity on primary corridors</li>
+              <li>Route performance reporting</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">📋</div>
+            <h3>SLA-backed dispatch</h3>
+            <p>Agreed dispatch timelines with written SLAs — not just best-effort promises. Your shipments are prioritised, tracked at each handoff, and escalated automatically if a milestone is missed.</p>
+            <ul class="included-list" style="margin-top:14px;">
+              <li>Written SLA per corridor</li>
+              <li>Milestone-by-milestone tracking</li>
+              <li>Automatic escalation on breach</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-card">
+            <div class="service-card-icon">🤝</div>
+            <h3>Key account manager</h3>
+            <p>A single point of contact who knows your corridors, your team, and your expectations. No call centres, no ticket queues — direct WhatsApp or phone access during business hours.</p>
+            <ul class="included-list" style="margin-top:14px;">
+              <li>Dedicated contact, not a helpdesk</li>
+              <li>Direct WhatsApp access</li>
+              <li>Monthly volume and performance review</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-card-icon">📊</div>
+            <h3>Consolidated billing &amp; reporting</h3>
+            <p>Monthly invoice consolidation across all corridors and shipment types. Itemised breakdown by route, date, and weight slab — ready for your accounts team without manual reconciliation.</p>
+            <ul class="included-list" style="margin-top:14px;">
+              <li>Monthly consolidated invoice</li>
+              <li>Route-level breakdown</li>
+              <li>Export-ready for accounting</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="seg-cta">
+          <div>
+            <h3>Talk to our enterprise team</h3>
+            <p>Tell us about your corridors, volume, and requirements — we'll come back with a tailored proposal.</p>
+          </div>
+          <div class="seg-cta-btns">
+            <a href="b2b.html" class="btn" style="background:#fff; color:var(--neutral-900);">See enterprise options →</a>
+            <a href="contact.html" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;">Contact sales</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -166,7 +430,7 @@
       <div class="footer-section">
         <h3>Partners</h3>
         <a href="drivers.html">Drive with Us</a>
-        <a href="#">Corridor Operators</a>
+        <a href="b2b.html">Enterprise</a>
         <a href="#">API for SMBs</a>
       </div>
       <div class="footer-section">
@@ -188,7 +452,13 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    function showSeg(id) {
+      document.querySelectorAll('.seg-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.seg-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('seg-' + id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
-
 </html>
-
