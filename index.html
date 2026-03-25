@@ -749,14 +749,13 @@
       const band  = dispatchBand[toSt] || '48hr';
       const waUrl = `https://wa.me/918091889969?text=Hi Patwadi, I want to book from ${encodeURIComponent(from)} to ${encodeURIComponent(to)}`;
 
-      if (!km) {
-        res.innerHTML = `Route available — <a href="${waUrl}" target="_blank" style="color:#25D366;font-weight:700;">WhatsApp us to confirm pricing →</a>`;
-        res.style.color = 'var(--neutral-700)';
-        return;
-      }
-
-      const price = estimatePrice(km, wt);
-      res.innerHTML = `✅ <strong>${from} → ${to}</strong> &nbsp;·&nbsp; ${km} km &nbsp;·&nbsp; ${band} dispatch &nbsp;·&nbsp; Est. <strong>₹${price.toLocaleString('en-IN')}</strong> &nbsp;·&nbsp; <a href="${waUrl}" target="_blank" style="color:#25D366;font-weight:700;">Book on WhatsApp →</a>`;
+      const price = km ? estimatePrice(km, wt) : null;
+      const priceStr = price ? `&nbsp;·&nbsp; Est. <strong>₹${price.toLocaleString('en-IN')}</strong>` : '';
+      const kmStr = km ? `&nbsp;·&nbsp; ${km} km` : '';
+      res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+        <span>✅ <strong>${from} → ${to}</strong>${kmStr} &nbsp;·&nbsp; ${band} dispatch${priceStr}</span>
+        <a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Book on WhatsApp</a>
+      </div>`;
       res.style.color = 'var(--neutral-900)';
     });
 
