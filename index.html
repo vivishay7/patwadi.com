@@ -177,7 +177,16 @@
     </div>
   </section>
 
-  <!-- Quote Form -->
+  <!-- ── TICKER BANNER ── -->
+  <div style="background:var(--primary-blue); overflow:hidden; padding:9px 0; border-bottom:2px solid var(--primary-blue-dark, #1e3a8a); position:relative;">
+    <!-- fade edges -->
+    <div style="position:absolute;left:0;top:0;bottom:0;width:60px;background:linear-gradient(to right,var(--primary-blue),transparent);z-index:1;pointer-events:none;"></div>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(to left,var(--primary-blue),transparent);z-index:1;pointer-events:none;"></div>
+    <div id="ticker" style="display:flex;align-items:center;gap:0;white-space:nowrap;will-change:transform;">
+      <!-- duplicated for seamless loop — JS sets animation -->
+    </div>
+  </div>
+
   <section class="section" id="quote">
     <div class="container">
       <h2 class="section-title">Check Your Route</h2>
@@ -243,14 +252,20 @@
             </div>
           </div>
 
-          <!-- Dimension constraints note -->
+          <!-- Dimension constraints note with unit toggle -->
           <div style="background:#f8f9fb; border:1px solid var(--neutral-200); border-radius:8px; padding:14px 16px; margin-bottom:var(--spacing-md); font-size:0.8rem; color:var(--neutral-600, #4b5563);">
-            <div style="font-weight:700; color:var(--neutral-900); margin-bottom:8px; font-size:0.82rem;">📐 Item dimension limits apply</div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:6px 16px;">
-              <div><span style="font-weight:600; color:var(--neutral-700);">Carton / box</span> &nbsp;·&nbsp; <span style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">60×45×40 cm · 20 kg</span></div>
-              <div><span style="font-weight:600; color:var(--neutral-700);">Large suitcase</span> &nbsp;·&nbsp; <span style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">75×50×30 cm · 25 kg</span></div>
-              <div><span style="font-weight:600; color:var(--neutral-700);">Duffel / sports</span> &nbsp;·&nbsp; <span style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">65×35×35 cm · 20 kg</span></div>
-              <div><span style="font-weight:600; color:var(--neutral-700);">Trek / gear bag</span> &nbsp;·&nbsp; <span style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">80×40×30 cm · 18 kg</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+              <div style="font-weight:700; color:var(--neutral-900); font-size:0.82rem;">📐 Item dimension limits apply</div>
+              <div style="display:flex; align-items:center; gap:0; border:1.5px solid var(--neutral-200); border-radius:6px; overflow:hidden; font-size:0.75rem; font-weight:700;">
+                <button id="unitCm" onclick="setUnit('cm')" style="padding:4px 10px; background:var(--primary-blue); color:#fff; border:none; cursor:pointer; font-size:0.75rem; font-weight:700; font-family:monospace;">cm</button>
+                <button id="unitIn" onclick="setUnit('in')" style="padding:4px 10px; background:transparent; color:var(--neutral-500); border:none; cursor:pointer; font-size:0.75rem; font-weight:700; font-family:monospace;">in</button>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:6px 16px;" id="dimGrid">
+              <div><span style="font-weight:600; color:var(--neutral-700);">Carton / box</span> &nbsp;·&nbsp; <span class="dim-val" data-cm="60×45×40" data-kg="20" style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">60×45×40 cm · 20 kg</span></div>
+              <div><span style="font-weight:600; color:var(--neutral-700);">Large suitcase</span> &nbsp;·&nbsp; <span class="dim-val" data-cm="75×50×30" data-kg="25" style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">75×50×30 cm · 25 kg</span></div>
+              <div><span style="font-weight:600; color:var(--neutral-700);">Duffel / sports</span> &nbsp;·&nbsp; <span class="dim-val" data-cm="65×35×35" data-kg="20" style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">65×35×35 cm · 20 kg</span></div>
+              <div><span style="font-weight:600; color:var(--neutral-700);">Trek / gear bag</span> &nbsp;·&nbsp; <span class="dim-val" data-cm="80×40×30" data-kg="18" style="font-family:monospace; font-size:0.78rem; color:var(--primary-blue);">80×40×30 cm · 18 kg</span></div>
             </div>
             <div style="margin-top:8px; color:var(--neutral-400); font-size:0.75rem;">Cycles, mattresses &amp; oversized items — <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%20have%20an%20oversized%20item%20and%20need%20a%20custom%20quote." target="_blank" style="color:var(--primary-blue); font-weight:600;">contact us for a custom quote</a>.</div>
           </div>
@@ -470,94 +485,111 @@
   <!-- Active Routes -->
   <section class="section" style="background: var(--neutral-100);">
     <div class="container">
-      <h2 class="section-title">Active Routes</h2>
+      <h2 class="section-title">Active Routes &amp; Regions</h2>
+      <p style="text-align:center; color:var(--neutral-500); margin-top:-16px; margin-bottom:32px; font-size:0.875rem;">Rates shown are per consignment from Jalandhar · 2nd consignment same route = 50% off</p>
       <div class="grid">
         <div class="card">
-          <h3 style="margin-bottom: var(--spacing-lg);">High-frequency corridors</h3>
+          <h3 style="margin-bottom:var(--spacing-lg);">Plains corridors <span style="font-size:0.75rem;font-weight:500;color:var(--neutral-400);margin-left:6px;">Same-day dispatch</span></h3>
           <div class="route-list">
             <div class="route-row">
               <div>
-                <div class="route-name">Delhi ↔ Chandigarh</div>
-                <div class="route-meta">250 km · 24hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Ludhiana</div>
+                <div class="route-meta">62 km · Punjab · ₹100–₹200</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">Chandigarh ↔ Mandi</div>
-                <div class="route-meta">210 km · 48hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Amritsar</div>
+                <div class="route-meta">~80 km · Punjab · ₹130–₹280</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">Chandigarh ↔ Shimla</div>
-                <div class="route-meta">115 km · 48hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Pathankot</div>
+                <div class="route-meta">~115 km · Punjab · ₹180–₹380</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">Delhi ↔ Manali</div>
-                <div class="route-meta">560 km · 48hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Chandigarh</div>
+                <div class="route-meta">154 km · UT · ₹190–₹500</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">Mandi ↔ Dharamshala</div>
-                <div class="route-meta">160 km · 48hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Delhi NCR</div>
+                <div class="route-meta">371 km · ₹430–₹880</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">Delhi ↔ Jammu</div>
-                <div class="route-meta">600 km · 72hr dispatch</div>
+                <div class="route-name">Jalandhar ↔ Jammu</div>
+                <div class="route-meta">~195 km · J&amp;K · ₹280–₹600 · 24–72hr</div>
               </div>
               <span class="route-status">● Active</span>
-            </div>
-            <div style="text-align: center; margin-top: var(--spacing-sm);">
-              <a href="services.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">View all routes →</a>
             </div>
           </div>
         </div>
 
-        <!-- Who it's for -->
         <div class="card">
-          <h3 style="margin-bottom: var(--spacing-lg);">Who ships with us</h3>
+          <h3 style="margin-bottom:var(--spacing-lg);">Hill corridors <span style="font-size:0.75rem;font-weight:500;color:var(--neutral-400);margin-left:6px;">Via Chandigarh hub · 48hr dispatch</span></h3>
           <div class="route-list">
             <div class="route-row">
               <div>
-                <div class="route-name">🎓 Students</div>
-                <div class="route-meta">Semester moves, internship travel, graduation packs</div>
+                <div class="route-name">Jalandhar ↔ Dharamshala</div>
+                <div class="route-meta">~200 km · HP · ₹380–₹700</div>
               </div>
+              <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">👨‍👩‍👧 Parents</div>
-                <div class="route-meta">Care packages to hostels and PGs, both directions</div>
+                <div class="route-name">Jalandhar ↔ Shimla</div>
+                <div class="route-meta">274 km · HP · ₹453–₹763</div>
               </div>
+              <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">🏪 Small Businesses</div>
-                <div class="route-meta">Daily restocking, B2B shipments, retail goods</div>
+                <div class="route-name">Jalandhar ↔ Mandi</div>
+                <div class="route-meta">337 km · HP · ₹450–₹700</div>
               </div>
+              <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
-                <div class="route-name">🏢 Enterprises</div>
-                <div class="route-meta">SLA-backed corridor stack, visibility APIs</div>
+                <div class="route-name">Jalandhar ↔ Manali</div>
+                <div class="route-meta">460 km · HP · ₹489–₹924</div>
+              </div>
+              <span class="route-status">● Active</span>
+            </div>
+            <div class="route-row" style="background:var(--neutral-100);">
+              <div>
+                <div class="route-name" style="font-size:0.82rem;color:var(--neutral-500);">Also serving Kullu · Bilaspur · Solan · Kangra · Palampur</div>
               </div>
             </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">🚌 Corridor Partners</div>
-                <div class="route-meta">Monetise idle transport capacity</div>
-              </div>
+            <div style="text-align:center; margin-top:var(--spacing-sm);">
+              <a href="services.html" style="color:var(--primary-blue); text-decoration:none; font-weight:600;">See all coverage →</a>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Region coverage pills -->
+      <div style="margin-top:24px; padding:16px 20px; background:#fff; border-radius:10px; border:1px solid var(--neutral-200);">
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--neutral-400); margin-bottom:12px;">States &amp; regions covered</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; font-size:0.82rem;">
+          <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Punjab</span>
+          <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Chandigarh UT</span>
+          <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Haryana</span>
+          <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:4px 12px;border-radius:20px;font-weight:600;">Himachal Pradesh</span>
+          <span style="background:#fefce8;color:#854d0e;border:1px solid #fde68a;padding:4px 12px;border-radius:20px;font-weight:600;">Delhi NCR</span>
+          <span style="background:#fdf4ff;color:#6b21a8;border:1px solid #e9d5ff;padding:4px 12px;border-radius:20px;font-weight:600;">Jammu &amp; Kashmir <span style="opacity:0.65;font-size:0.75rem;">72hr SLA</span></span>
+          <span style="background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;padding:4px 12px;border-radius:20px;font-weight:600;">Srinagar <span style="opacity:0.65;font-size:0.75rem;">96hr SLA</span></span>
         </div>
       </div>
     </div>
@@ -815,7 +847,82 @@
       window.open(waUrl, '_blank');
     });
 
-    // ── MAP HOVER LOGIC ──
+    // ── TICKER ──
+    (function() {
+      const items = [
+        { label: 'Jalandhar → Ludhiana', detail: '62 km · ₹100–200 · Same-day' },
+        { label: 'Jalandhar → Amritsar', detail: '~80 km · ₹130–280 · Same-day' },
+        { label: 'Jalandhar → Chandigarh', detail: '154 km · ₹190–500 · Same-day' },
+        { label: 'Jalandhar → Delhi NCR', detail: '371 km · ₹430–880 · Same-day' },
+        { label: 'Jalandhar → Pathankot', detail: '~115 km · ₹180–380 · Same-day' },
+        { label: 'Jalandhar → Jammu', detail: '~195 km · ₹280–600 · 24–72hr' },
+        { label: 'Jalandhar → Dharamshala', detail: '~200 km · ₹380–700 · 48hr' },
+        { label: 'Jalandhar → Shimla', detail: '274 km · ₹453–763 · 48hr' },
+        { label: 'Jalandhar → Mandi', detail: '337 km · ₹450–700 · 48hr' },
+        { label: 'Jalandhar → Manali', detail: '460 km · ₹489–924 · 48hr' },
+        { label: '2nd consignment', detail: 'Same route & day = 50% off base rate' },
+        { label: 'Same-day dispatch', detail: 'Book before 12:00 noon' },
+      ];
+
+      const sep = `<span style="display:inline-block;width:2px;height:14px;background:rgba(255,255,255,0.25);margin:0 20px;vertical-align:middle;border-radius:1px;"></span>`;
+
+      const html = items.map(i =>
+        `<span style="display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;font-family:'DM Mono',monospace;">` +
+        `<span style="width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>` +
+        `<span style="font-weight:700;color:#fff;">${i.label}</span>` +
+        `<span style="color:rgba(255,255,255,0.65);">${i.detail}</span>` +
+        `</span>${sep}`
+      ).join('');
+
+      const ticker = document.getElementById('ticker');
+      // duplicate for seamless loop
+      ticker.innerHTML = html + html;
+
+      const totalW = ticker.scrollWidth / 2;
+      let pos = 0;
+      function tick() {
+        pos -= 0.6;
+        if (Math.abs(pos) >= totalW) pos = 0;
+        ticker.style.transform = `translateX(${pos}px)`;
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      // Pause on hover
+      const wrap = ticker.parentElement;
+      wrap.addEventListener('mouseenter', () => wrap._paused = true);
+      wrap.addEventListener('mouseleave', () => wrap._paused = false);
+
+      function tickPausable() {
+        if (!wrap._paused) {
+          pos -= 0.6;
+          if (Math.abs(pos) >= totalW) pos = 0;
+          ticker.style.transform = `translateX(${pos}px)`;
+        }
+        requestAnimationFrame(tickPausable);
+      }
+      // replace the initial tick call
+      cancelAnimationFrame(tick);
+      requestAnimationFrame(tickPausable);
+    })();
+    function setUnit(unit) {
+      const cmToIn = v => Math.round(v / 2.54 * 10) / 10;
+      document.querySelectorAll('.dim-val').forEach(el => {
+        const dims = el.dataset.cm.split('×').map(Number);
+        const kg   = parseFloat(el.dataset.kg);
+        const lbs  = Math.round(kg * 2.205 * 10) / 10;
+        if (unit === 'in') {
+          const inDims = dims.map(cmToIn).join('×');
+          el.textContent = `${inDims} in · ${lbs} lbs`;
+        } else {
+          el.textContent = `${el.dataset.cm} cm · ${kg} kg`;
+        }
+      });
+      document.getElementById('unitCm').style.background = unit === 'cm' ? 'var(--primary-blue)' : 'transparent';
+      document.getElementById('unitCm').style.color      = unit === 'cm' ? '#fff' : 'var(--neutral-500)';
+      document.getElementById('unitIn').style.background = unit === 'in' ? 'var(--primary-blue)' : 'transparent';
+      document.getElementById('unitIn').style.color      = unit === 'in' ? '#fff' : 'var(--neutral-500)';
+    }
     const tooltip = document.getElementById('mapTooltip');
     const mapEl   = document.getElementById('corridor-map');
     const nodes   = document.querySelectorAll('.map-node');
