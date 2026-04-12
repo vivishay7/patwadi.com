@@ -190,51 +190,85 @@
   <section class="section" id="quote">
     <div class="container">
       <h2 class="section-title">Check Your Route</h2>
+      <p style="text-align:center;color:var(--neutral-500);margin-top:-16px;margin-bottom:28px;font-size:0.88rem;">Select your cities — we'll open WhatsApp with everything pre-filled.</p>
       <div class="card" style="max-width: 800px; margin: 0 auto;">
         <form class="quote-form" id="quoteForm">
 
-          <!-- ROW 1: From State + From City -->
+          <!-- ROW 1: From + To — flat city lists with optgroups -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
-            <div class="form-group" style="margin-bottom:0;">
-              <label>From — State / Region</label>
-              <select id="fromState" required>
-                <option value="">Select state</option>
-                <option value="Delhi">Delhi (NCR)</option>
-                <option value="Chandigarh">Chandigarh (UT)</option>
-                <option value="Punjab">Punjab</option>
-                <option value="HP">Himachal Pradesh</option>
-                <option value="JK">Jammu &amp; Kashmir</option>
-                <option value="UK">Uttarakhand</option>
-                <option value="MH">Maharashtra</option>
-                <option value="KA">Karnataka</option>
-                <option value="TN">Tamil Nadu</option>
-              </select>
-            </div>
             <div class="form-group" style="margin-bottom:0;">
               <label>From — City</label>
-              <select id="fromCity" required disabled>
-                <option value="">Select state first</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- ROW 2: To State + To City -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
-            <div class="form-group" style="margin-bottom:0;">
-              <label>To — State / Region</label>
-              <select id="toState" required disabled>
-                <option value="">Select origin first</option>
+              <select id="fromCity" required>
+                <option value="">Select origin city</option>
+                <optgroup label="Punjab">
+                  <option>Jalandhar</option><option>Ludhiana</option><option>Amritsar</option>
+                  <option>Pathankot</option><option>Phagwara</option><option>Hoshiarpur</option>
+                  <option>Kapurthala</option><option>Batala</option>
+                </optgroup>
+                <optgroup label="Chandigarh &amp; Belt">
+                  <option>Chandigarh</option><option>Mohali</option><option>Panchkula</option><option>Zirakpur</option>
+                </optgroup>
+                <optgroup label="Haryana">
+                  <option>Ambala</option><option>Panipat</option><option>Karnal</option>
+                  <option>Sonipat</option><option>Rohtak</option><option>Gurugram</option><option>Faridabad</option>
+                </optgroup>
+                <optgroup label="Delhi NCR">
+                  <option>Delhi</option><option>Noida</option><option>Ghaziabad</option>
+                </optgroup>
+                <optgroup label="Himachal Pradesh">
+                  <option>Shimla</option><option>Mandi</option><option>Manali</option>
+                  <option>Dharamshala</option><option>Kullu</option><option>Bilaspur</option>
+                  <option>Solan</option><option>Kangra</option><option>Palampur</option>
+                </optgroup>
+                <optgroup label="Jammu &amp; Kashmir">
+                  <option>Jammu</option><option>Katra</option><option>Udhampur</option><option>Srinagar</option>
+                </optgroup>
+                <optgroup label="Gujarat">
+                  <option>Ahmedabad</option><option>Surat</option><option>Vadodara</option><option>Rajkot</option>
+                </optgroup>
+                <optgroup label="Maharashtra">
+                  <option>Mumbai</option><option>Pune</option>
+                </optgroup>
               </select>
             </div>
             <div class="form-group" style="margin-bottom:0;">
               <label>To — City</label>
-              <select id="toCity" required disabled>
-                <option value="">Select state first</option>
+              <select id="toCity" required>
+                <option value="">Select destination city</option>
+                <optgroup label="Punjab">
+                  <option>Jalandhar</option><option>Ludhiana</option><option>Amritsar</option>
+                  <option>Pathankot</option><option>Phagwara</option><option>Hoshiarpur</option>
+                  <option>Kapurthala</option><option>Batala</option>
+                </optgroup>
+                <optgroup label="Chandigarh &amp; Belt">
+                  <option>Chandigarh</option><option>Mohali</option><option>Panchkula</option><option>Zirakpur</option>
+                </optgroup>
+                <optgroup label="Haryana">
+                  <option>Ambala</option><option>Panipat</option><option>Karnal</option>
+                  <option>Sonipat</option><option>Rohtak</option><option>Gurugram</option><option>Faridabad</option>
+                </optgroup>
+                <optgroup label="Delhi NCR">
+                  <option>Delhi</option><option>Noida</option><option>Ghaziabad</option>
+                </optgroup>
+                <optgroup label="Himachal Pradesh">
+                  <option>Shimla</option><option>Mandi</option><option>Manali</option>
+                  <option>Dharamshala</option><option>Kullu</option><option>Bilaspur</option>
+                  <option>Solan</option><option>Kangra</option><option>Palampur</option>
+                </optgroup>
+                <optgroup label="Jammu &amp; Kashmir">
+                  <option>Jammu</option><option>Katra</option><option>Udhampur</option><option>Srinagar</option>
+                </optgroup>
+                <optgroup label="Gujarat">
+                  <option>Ahmedabad</option><option>Surat</option><option>Vadodara</option><option>Rajkot</option>
+                </optgroup>
+                <optgroup label="Maharashtra">
+                  <option>Mumbai</option><option>Pune</option>
+                </optgroup>
               </select>
             </div>
           </div>
 
-          <!-- ROW 3: Weight + Date -->
+          <!-- ROW 2: Weight + Date -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
             <div class="form-group" style="margin-bottom:0;">
               <label>Parcel Weight</label>
@@ -486,7 +520,7 @@
   <section class="section" style="background: var(--neutral-100);">
     <div class="container">
       <h2 class="section-title">Active Routes &amp; Regions</h2>
-      <p style="text-align:center; color:var(--neutral-500); margin-top:-16px; margin-bottom:32px; font-size:0.875rem;">Rates shown are per consignment · 2nd consignment same route = 50% off</p>
+      <p style="text-align:center; color:var(--neutral-500); margin-top:-16px; margin-bottom:32px; font-size:0.875rem;">Rates shown are per consignment from Jalandhar · 2nd consignment same route = 50% off</p>
       <div class="grid">
         <div class="card">
           <h3 style="margin-bottom:var(--spacing-lg);">Plains corridors <span style="font-size:0.75rem;font-weight:500;color:var(--neutral-400);margin-left:6px;">Same-day dispatch</span></h3>
@@ -501,35 +535,35 @@
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Amritsar</div>
-                <div class="route-meta">~80 km · Punjab </div>
+                <div class="route-meta">~80 km · Punjab · ₹130–₹280</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Pathankot</div>
-                <div class="route-meta">~115 km · Punjab </div>
+                <div class="route-meta">~115 km · Punjab · ₹180–₹380</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Chandigarh</div>
-                <div class="route-meta">154 km · UT </div>
+                <div class="route-meta">154 km · UT · ₹190–₹500</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Delhi NCR</div>
-                <div class="route-meta">371 km </div>
+                <div class="route-meta">371 km · ₹430–₹880</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Jammu</div>
-                <div class="route-meta">~195 km · J&amp;K · 24–72hr</div>
+                <div class="route-meta">~195 km · J&amp;K · ₹280–₹600 · 24–72hr</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
@@ -542,28 +576,28 @@
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Dharamshala</div>
-                <div class="route-meta">~200 km · HP </div>
+                <div class="route-meta">~200 km · HP · ₹380–₹700</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Shimla</div>
-                <div class="route-meta">274 km · HP </div>
+                <div class="route-meta">274 km · HP · ₹453–₹763</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Mandi</div>
-                <div class="route-meta">337 km · HP </div>
+                <div class="route-meta">337 km · HP · ₹450–₹700</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
             <div class="route-row">
               <div>
                 <div class="route-name">Jalandhar ↔ Manali</div>
-                <div class="route-meta">460 km · HP </div>
+                <div class="route-meta">460 km · HP · ₹489–₹924</div>
               </div>
               <span class="route-status">● Active</span>
             </div>
@@ -650,178 +684,52 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // ── STATE → CITIES MAP ──
-    const stateCities = {
-      Delhi:       ["Delhi"],
-      Chandigarh:  ["Chandigarh"],
-      Punjab:      ["Ludhiana", "Amritsar"],
-      HP:          ["Mandi", "Shimla", "Manali", "Dharamshala"],
-      JK:          ["Pathankot", "Jammu"],
-      UK:          ["Dehradun"],
-      MH:          ["Mumbai", "Pune"],
-      KA:          ["Bangalore"],
-      TN:          ["Chennai"]
-    };
-
-    const stateLabels = {
-      Delhi:"Delhi (NCR)", Chandigarh:"Chandigarh (UT)",
-      Punjab:"Punjab", HP:"Himachal Pradesh",
-      JK:"Jammu & Kashmir", UK:"Uttarakhand",
-      MH:"Maharashtra", KA:"Karnataka", TN:"Tamil Nadu"
-    };
-
-    // North states — can ship to any north state
-    const northStates = new Set(["Delhi","Chandigarh","Punjab","HP","JK","UK"]);
-    // South states — can only ship within south
-    const southStates = new Set(["MH","KA","TN"]);
-
-    function allowedDestStates(fromState) {
-      if (northStates.has(fromState)) return [...northStates];
-      if (southStates.has(fromState)) return [...southStates];
-      return [];
-    }
-
-    function populateCities(selectEl, state) {
-      selectEl.innerHTML = '<option value="">Select city</option>';
-      (stateCities[state] || []).forEach(c => {
-        const o = document.createElement('option');
-        o.value = o.textContent = c;
-        selectEl.appendChild(o);
-      });
-      selectEl.disabled = false;
-      // Auto-select if only one city
-      if (stateCities[state] && stateCities[state].length === 1) {
-        selectEl.value = stateCities[state][0];
-      }
-    }
-
-    function populateStates(selectEl, stateKeys) {
-      selectEl.innerHTML = '<option value="">Select state</option>';
-      stateKeys.forEach(k => {
-        const o = document.createElement('option');
-        o.value = k;
-        o.textContent = stateLabels[k];
-        selectEl.appendChild(o);
-      });
-      selectEl.disabled = false;
-    }
-
-    const fromStateEl = document.getElementById('fromState');
-    const fromCityEl  = document.getElementById('fromCity');
-    const toStateEl   = document.getElementById('toState');
-    const toCityEl    = document.getElementById('toCity');
-
-    fromStateEl.addEventListener('change', function() {
-      const fs = this.value;
-      // Populate from-city
-      if (fs) {
-        populateCities(fromCityEl, fs);
-      } else {
-        fromCityEl.innerHTML = '<option value="">Select state first</option>';
-        fromCityEl.disabled = true;
-      }
-      // Reset to-state and to-city
-      toStateEl.innerHTML = '<option value="">Select state</option>';
-      toStateEl.disabled = true;
-      toCityEl.innerHTML = '<option value="">Select state first</option>';
-      toCityEl.disabled = true;
-      document.getElementById('quoteResult').textContent = 'Select your origin and destination to check availability.';
-      document.getElementById('quoteResult').style.color = 'var(--primary-blue)';
-
-      if (fs) {
-        const allowed = allowedDestStates(fs).filter(s => s !== fs || stateCities[fs].length > 1);
-        // Allow same state only if it has multiple cities (e.g. Punjab: Ludhiana→Amritsar)
-        const dest = allowedDestStates(fs);
-        populateStates(toStateEl, dest);
-      }
-    });
-
-    toStateEl.addEventListener('change', function() {
-      const ts = this.value;
-      if (ts) {
-        populateCities(toCityEl, ts);
-      } else {
-        toCityEl.innerHTML = '<option value="">Select state first</option>';
-        toCityEl.disabled = true;
-      }
-    });
-
-    // ── DISTANCES ──
-    const distances = {
-      "Delhi-Chandigarh":250,"Delhi-Ludhiana":310,"Delhi-Amritsar":450,
-      "Delhi-Dehradun":320,"Delhi-Mandi":480,"Delhi-Shimla":370,
-      "Delhi-Manali":560,"Delhi-Dharamshala":480,"Delhi-Pathankot":470,"Delhi-Jammu":600,
-      "Chandigarh-Ludhiana":100,"Chandigarh-Amritsar":230,"Chandigarh-Dehradun":175,
-      "Chandigarh-Mandi":210,"Chandigarh-Shimla":115,"Chandigarh-Manali":310,
-      "Chandigarh-Dharamshala":230,"Chandigarh-Pathankot":190,"Chandigarh-Jammu":300,
-      "Ludhiana-Amritsar":130,"Ludhiana-Pathankot":220,"Ludhiana-Jammu":330,
-      "Ludhiana-Mandi":310,"Ludhiana-Shimla":220,"Ludhiana-Dehradun":260,
-      "Amritsar-Pathankot":100,"Amritsar-Jammu":210,"Amritsar-Mandi":400,
-      "Dehradun-Shimla":230,"Dehradun-Mandi":330,
-      "Mandi-Shimla":155,"Mandi-Manali":110,"Mandi-Dharamshala":160,"Mandi-Pathankot":230,
-      "Shimla-Manali":270,"Shimla-Dehradun":230,
-      "Dharamshala-Pathankot":90,"Dharamshala-Jammu":200,"Dharamshala-Manali":250,
-      "Pathankot-Jammu":115,
-      "Mumbai-Pune":150,"Mumbai-Bangalore":980,"Mumbai-Chennai":1330,
-      "Pune-Bangalore":840,"Pune-Chennai":1150,
-      "Bangalore-Chennai":350
-    };
-
-    function getDistance(a, b) {
-      return distances[`${a}-${b}`] || distances[`${b}-${a}`] || null;
-    }
-
-    // Dispatch band by destination state
+    // ── DISPATCH BAND by destination city ──
     const dispatchBand = {
-      Delhi:"24hr", Chandigarh:"24hr", Punjab:"24hr",
-      HP:"48hr", UK:"48hr", JK:"72hr",
-      MH:"48hr", KA:"48hr", TN:"48hr"
+      // Plains — same-day / 24hr
+      Jalandhar:'Same-day', Ludhiana:'Same-day', Amritsar:'Same-day',
+      Pathankot:'Same-day', Phagwara:'Same-day', Hoshiarpur:'Same-day',
+      Kapurthala:'Same-day', Batala:'Same-day',
+      Chandigarh:'Same-day', Mohali:'Same-day', Panchkula:'Same-day', Zirakpur:'Same-day',
+      Ambala:'Same-day', Panipat:'Same-day', Karnal:'Same-day',
+      Sonipat:'Same-day', Rohtak:'Same-day', Gurugram:'Same-day', Faridabad:'Same-day',
+      Delhi:'Same-day', Noida:'Same-day', Ghaziabad:'Same-day',
+      // HP — 48hr
+      Shimla:'48hr', Mandi:'48hr', Manali:'48hr', Dharamshala:'48hr',
+      Kullu:'48hr', Bilaspur:'48hr', Solan:'48hr', Kangra:'48hr', Palampur:'48hr',
+      // J&K — 72hr / Srinagar 96hr
+      Jammu:'72hr', Katra:'72hr', Udhampur:'72hr', Srinagar:'96hr',
+      // Gujarat / Maharashtra — via GSRTC/private
+      Ahmedabad:'48hr', Surat:'48hr', Vadodara:'48hr', Rajkot:'48hr',
+      Mumbai:'48hr', Pune:'48hr',
     };
 
-    function estimatePrice(km, weightBand) {
-      const base  = { "Up to 5 kg":300, "5–15 kg":500, "15–30 kg":800, "Above 30 kg":1200 };
-      const perKm = { "Up to 5 kg":0.4, "5–15 kg":0.6, "15–30 kg":0.9, "Above 30 kg":1.4  };
-      const b = base[weightBand]  || 300;
-      const r = perKm[weightBand] || 0.4;
-      return Math.round((b + km * r) / 50) * 50;
-    }
-
-    // Set min date on pickup date input to today
+    // Set min date
     const dateInput = document.getElementById('pickupDate');
     const today = new Date().toISOString().split('T')[0];
     dateInput.min = today;
 
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const fromState = document.getElementById('fromState');
-      const from      = fromCityEl.value;
-      const toSt      = toStateEl.value;
-      const to        = toCityEl.value;
-      const wt        = document.getElementById('weight').value;
-      const date      = document.getElementById('pickupDate').value;
-      const res       = document.getElementById('quoteResult');
+      const from = document.getElementById('fromCity').value;
+      const to   = document.getElementById('toCity').value;
+      const wt   = document.getElementById('weight').value;
+      const date = document.getElementById('pickupDate').value;
+      const res  = document.getElementById('quoteResult');
 
       if (!from || !to || !wt || !date) {
         res.textContent = 'Please fill in all fields including the pickup date.';
-        res.style.color = '#ef4444';
-        res.style.fontWeight = '600';
-        return;
+        res.style.color = '#ef4444'; res.style.fontWeight = '600'; return;
       }
       if (from === to) {
         res.textContent = "Origin and destination can't be the same city.";
-        res.style.color = '#ef4444';
-        res.style.fontWeight = '600';
-        return;
+        res.style.color = '#ef4444'; res.style.fontWeight = '600'; return;
       }
 
-      const km    = getDistance(from, to);
-      const band  = dispatchBand[toSt] || '48hr';
-
-      // Format date nicely for the message
+      const band = dispatchBand[to] || '48hr';
       const dateObj = new Date(date + 'T00:00:00');
       const dateStr = dateObj.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
 
-      // Build the pre-filled WhatsApp message
       const msg = `Hi Patwadi team! I'd like to book a shipment:\n\n` +
         `📦 Weight: ${wt}\n` +
         `🗺️ From: ${from}\n` +
@@ -831,80 +739,54 @@
 
       const waUrl = `https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
 
-      // Show confirmation and open WA
-      const price    = km ? estimatePrice(km, wt) : null;
-      const priceStr = price ? ` · Est. ₹${price.toLocaleString('en-IN')}` : '';
-      const kmStr    = km ? ` · ${km} km` : '';
-
       res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
-        <span style="color:var(--neutral-900);">✅ <strong>${from} → ${to}</strong>${kmStr} · <strong>${band} dispatch</strong>${priceStr}</span>
+        <span style="color:var(--neutral-900);">✅ <strong>${from} → ${to}</strong> · <strong>${band} dispatch</strong></span>
         <a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-weight:700;font-size:0.85rem;padding:8px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Open WhatsApp</a>
       </div>`;
-      res.style.color   = 'var(--neutral-900)';
-      res.style.fontWeight = '400';
-
-      // Auto-open WhatsApp
+      res.style.color = 'var(--neutral-900)'; res.style.fontWeight = '400';
       window.open(waUrl, '_blank');
     });
 
-    // ── TICKER ──
+    // ── TICKER — cities only, no pricing ──
     (function() {
-      const items = [
-        { label: 'Jalandhar → Ludhiana', detail: '62 km · ₹100–200 · Same-day' },
-        { label: 'Jalandhar → Amritsar', detail: '~80 km · ₹130–280 · Same-day' },
-        { label: 'Jalandhar → Chandigarh', detail: '154 km · ₹190–500 · Same-day' },
-        { label: 'Jalandhar → Delhi NCR', detail: '371 km · ₹430–880 · Same-day' },
-        { label: 'Jalandhar → Pathankot', detail: '~115 km · ₹180–380 · Same-day' },
-        { label: 'Jalandhar → Jammu', detail: '~195 km · ₹280–600 · 24–72hr' },
-        { label: 'Jalandhar → Dharamshala', detail: '~200 km · ₹380–700 · 48hr' },
-        { label: 'Jalandhar → Shimla', detail: '274 km · ₹453–763 · 48hr' },
-        { label: 'Jalandhar → Mandi', detail: '337 km · ₹450–700 · 48hr' },
-        { label: 'Jalandhar → Manali', detail: '460 km · ₹489–924 · 48hr' },
-        { label: '2nd consignment', detail: 'Same route & day = 50% off base rate' },
-        { label: 'Same-day dispatch', detail: 'Book before 12:00 noon' },
+      const cities = [
+        'Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala',
+        'Chandigarh','Mohali','Panchkula','Zirakpur',
+        'Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad',
+        'Delhi','Noida','Ghaziabad',
+        'Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur',
+        'Jammu','Katra','Udhampur','Srinagar',
+        'Ahmedabad','Surat','Vadodara','Rajkot',
+        'Mumbai','Pune',
       ];
-
-      const sep = `<span style="display:inline-block;width:2px;height:14px;background:rgba(255,255,255,0.25);margin:0 20px;vertical-align:middle;border-radius:1px;"></span>`;
-
-      const html = items.map(i =>
-        `<span style="display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;font-family:'DM Mono',monospace;">` +
-        `<span style="width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>` +
-        `<span style="font-weight:700;color:#fff;">${i.label}</span>` +
-        `<span style="color:rgba(255,255,255,0.65);">${i.detail}</span>` +
+      const sep = `<span style="display:inline-block;width:2px;height:12px;background:rgba(255,255,255,0.25);margin:0 18px;vertical-align:middle;border-radius:1px;"></span>`;
+      const html = cities.map(c =>
+        `<span style="display:inline-flex;align-items:center;gap:7px;font-size:0.78rem;font-family:'DM Mono',monospace;">` +
+        `<span style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>` +
+        `<span style="font-weight:600;color:#fff;">${c}</span>` +
         `</span>${sep}`
       ).join('');
-
       const ticker = document.getElementById('ticker');
-      // duplicate for seamless loop
       ticker.innerHTML = html + html;
-
-      const totalW = ticker.scrollWidth / 2;
       let pos = 0;
-      function tick() {
-        pos -= 0.6;
-        if (Math.abs(pos) >= totalW) pos = 0;
-        ticker.style.transform = `translateX(${pos}px)`;
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-
-      // Pause on hover
-      const wrap = ticker.parentElement;
-      wrap.addEventListener('mouseenter', () => wrap._paused = true);
-      wrap.addEventListener('mouseleave', () => wrap._paused = false);
-
+      const totalW = () => ticker.scrollWidth / 2;
       function tickPausable() {
-        if (!wrap._paused) {
-          pos -= 0.6;
-          if (Math.abs(pos) >= totalW) pos = 0;
+        if (!ticker.parentElement._paused) {
+          pos -= 0.5;
+          if (Math.abs(pos) >= totalW()) pos = 0;
           ticker.style.transform = `translateX(${pos}px)`;
         }
         requestAnimationFrame(tickPausable);
       }
-      // replace the initial tick call
-      cancelAnimationFrame(tick);
       requestAnimationFrame(tickPausable);
+      const wrap = ticker.parentElement;
+      wrap.addEventListener('mouseenter', () => wrap._paused = true);
+      wrap.addEventListener('mouseleave', () => wrap._paused = false);
     })();
+
+    
+
+    // ── UNIT TOGGLE ──
     function setUnit(unit) {
       const cmToIn = v => Math.round(v / 2.54 * 10) / 10;
       document.querySelectorAll('.dim-val').forEach(el => {
@@ -923,6 +805,8 @@
       document.getElementById('unitIn').style.background = unit === 'in' ? 'var(--primary-blue)' : 'transparent';
       document.getElementById('unitIn').style.color      = unit === 'in' ? '#fff' : 'var(--neutral-500)';
     }
+
+    // ── MAP HOVER LOGIC ──
     const tooltip = document.getElementById('mapTooltip');
     const mapEl   = document.getElementById('corridor-map');
     const nodes   = document.querySelectorAll('.map-node');
