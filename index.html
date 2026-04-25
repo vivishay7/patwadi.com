@@ -141,18 +141,34 @@
       <div class="card" style="max-width: 800px; margin: 0 auto;">
         <form class="quote-form" id="quoteForm">
 
-          <!-- ROW 1: From + To — flat city lists with optgroups -->
+          <!-- ROW 1: From State + From City -->
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
             <div class="form-group" style="margin-bottom:0;">
+              <label>From — State / Region</label>
+              <select id="fromState" required>
+                <option value="">Select state</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
               <label>From — City</label>
-              <select id="fromCity" required>
-                <option value="">Select origin city</option>
+              <select id="fromCity" required disabled>
+                <option value="">Select state first</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ROW 2: To State + To City -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--spacing-md); margin-bottom:var(--spacing-md);">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>To — State / Region</label>
+              <select id="toState" required disabled>
+                <option value="">Select origin first</option>
               </select>
             </div>
             <div class="form-group" style="margin-bottom:0;">
               <label>To — City</label>
-              <select id="toCity" required>
-                <option value="">Select destination city</option>
+              <select id="toCity" required disabled>
+                <option value="">Select state first</option>
               </select>
             </div>
           </div>
@@ -239,110 +255,63 @@
   <!-- Active Routes -->
   <section class="section" style="background: var(--neutral-100);">
     <div class="container">
-      <h2 class="section-title">Active Routes &amp; Regions</h2>
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin-bottom:var(--spacing-lg);">Plains corridors <span style="font-size:0.75rem;font-weight:500;color:var(--neutral-400);margin-left:6px;">Same-day dispatch</span></h3>
-          <div class="route-list">
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Ludhiana</div>
-                <div class="route-meta">62 km · Punjab · Same-day dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Amritsar</div>
-                <div class="route-meta">~80 km · Punjab · Same-day dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Pathankot</div>
-                <div class="route-meta">~115 km · Punjab · Same-day dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Chandigarh</div>
-                <div class="route-meta">154 km · Chandigarh UT · Same-day dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Delhi NCR</div>
-                <div class="route-meta">371 km · Delhi NCR · Same-day dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Jammu</div>
-                <div class="route-meta">~195 km · J&amp;K · 24–72hr dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-          </div>
-        </div>
+      <h2 class="section-title">Coverage &amp; Corridors</h2>
+      <p style="text-align:center; color:var(--neutral-500); margin-top:-16px; margin-bottom:32px; font-size:0.875rem;">Active bus corridors across 9 regions — any city in a connected region can ship to any city in another.</p>
 
-        <div class="card">
-          <h3 style="margin-bottom:var(--spacing-lg);">Hill corridors <span style="font-size:0.75rem;font-weight:500;color:var(--neutral-400);margin-left:6px;">Via Chandigarh hub · 48hr dispatch</span></h3>
-          <div class="route-list">
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Dharamshala</div>
-                <div class="route-meta">~200 km · HP · 48hr dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Shimla</div>
-                <div class="route-meta">274 km · HP · 48hr dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Mandi</div>
-                <div class="route-meta">337 km · HP · 48hr dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row">
-              <div>
-                <div class="route-name">Jalandhar ↔ Manali</div>
-                <div class="route-meta">460 km · HP · 48hr dispatch</div>
-              </div>
-              <span class="route-status">● Active</span>
-            </div>
-            <div class="route-row" style="background:var(--neutral-100);">
-              <div>
-                <div class="route-name" style="font-size:0.82rem;color:var(--neutral-500);">Also serving Kullu · Bilaspur · Solan · Kangra · Palampur</div>
-              </div>
-            </div>
-            <div style="text-align:center; margin-top:var(--spacing-sm);">
-              <a href="services.html" style="color:var(--primary-blue); text-decoration:none; font-weight:600;">See all coverage →</a>
-            </div>
-          </div>
+      <!-- Region-to-region corridor grid -->
+      <div style="overflow-x:auto; margin-bottom:24px;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.82rem; background:#fff; border-radius:10px; overflow:hidden; border:1px solid var(--neutral-200);">
+          <thead>
+            <tr style="background:var(--neutral-900); color:#fff;">
+              <th style="padding:10px 14px; text-align:left; font-weight:700; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">From → To</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Punjab</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Chandigarh</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Haryana</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Delhi NCR</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">HP</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">J&amp;K</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Uttarakhand</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Gujarat</th>
+              <th style="padding:10px 8px; text-align:center; font-weight:600; font-size:0.75rem;">Maharashtra</th>
+            </tr>
+          </thead>
+          <tbody id="corridorGrid"></tbody>
+        </table>
+      </div>
+
+      <!-- Dispatch bands -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-bottom:24px;">
+        <div style="background:#fff; border:1px solid var(--neutral-200); border-radius:8px; padding:14px 16px;">
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--neutral-400); margin-bottom:6px;">Plains corridors</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--accent-green);">Same-day dispatch</div>
+          <div style="font-size:0.78rem; color:var(--neutral-500); margin-top:3px;">Punjab · Chandigarh · Haryana · Delhi NCR</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--neutral-200); border-radius:8px; padding:14px 16px;">
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--neutral-400); margin-bottom:6px;">Hill corridors</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--primary-blue);">48hr dispatch</div>
+          <div style="font-size:0.78rem; color:var(--neutral-500); margin-top:3px;">Himachal Pradesh · Uttarakhand · Gujarat · Maharashtra</div>
+        </div>
+        <div style="background:#fff; border:1px solid var(--neutral-200); border-radius:8px; padding:14px 16px;">
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--neutral-400); margin-bottom:6px;">J&amp;K corridors</div>
+          <div style="font-size:1.1rem; font-weight:700; color:var(--neutral-700);">72–96hr dispatch</div>
+          <div style="font-size:0.78rem; color:var(--neutral-500); margin-top:3px;">Jammu/Katra/Udhampur · Srinagar 96hr SLA</div>
         </div>
       </div>
 
       <!-- Region coverage pills -->
-      <div style="margin-top:24px; padding:16px 20px; background:#fff; border-radius:10px; border:1px solid var(--neutral-200);">
+      <div style="padding:16px 20px; background:#fff; border-radius:10px; border:1px solid var(--neutral-200);">
         <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--neutral-400); margin-bottom:12px;">States &amp; regions covered</div>
         <div style="display:flex; flex-wrap:wrap; gap:8px; font-size:0.82rem;">
           <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Punjab</span>
           <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Chandigarh UT</span>
           <span style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;padding:4px 12px;border-radius:20px;font-weight:600;">Haryana</span>
-          <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:4px 12px;border-radius:20px;font-weight:600;">Himachal Pradesh</span>
           <span style="background:#fefce8;color:#854d0e;border:1px solid #fde68a;padding:4px 12px;border-radius:20px;font-weight:600;">Delhi NCR</span>
+          <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:4px 12px;border-radius:20px;font-weight:600;">Himachal Pradesh</span>
           <span style="background:#fdf4ff;color:#6b21a8;border:1px solid #e9d5ff;padding:4px 12px;border-radius:20px;font-weight:600;">Jammu &amp; Kashmir <span style="opacity:0.65;font-size:0.75rem;">72hr SLA</span></span>
           <span style="background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;padding:4px 12px;border-radius:20px;font-weight:600;">Srinagar <span style="opacity:0.65;font-size:0.75rem;">96hr SLA</span></span>
+          <span style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0;padding:4px 12px;border-radius:20px;font-weight:600;">Uttarakhand</span>
+          <span style="background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;padding:4px 12px;border-radius:20px;font-weight:600;">Gujarat</span>
+          <span style="background:#fdf4ff;color:#6b21a8;border:1px solid #e9d5ff;padding:4px 12px;border-radius:20px;font-weight:600;">Maharashtra</span>
         </div>
       </div>
     </div>
@@ -423,8 +392,7 @@
       Gujarat:'Gujarat', Maharashtra:'Maharashtra',
     };
 
-    // Corridor map — which regions each region can ship TO
-    // Based on verified bus service research
+    // Corridor map — verified bus service
     const corridors = {
       Punjab:      ['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
       Chandigarh:  ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],
@@ -437,13 +405,11 @@
       Maharashtra: ['Gujarat','Maharashtra'],
     };
 
-    // Reverse lookup: city → region key
+    const regionKeys = Object.keys(regions);
     const cityRegion = {};
-    Object.entries(regions).forEach(([reg, cities]) => {
-      cities.forEach(c => cityRegion[c] = reg);
-    });
+    Object.entries(regions).forEach(([reg, cities]) => cities.forEach(c => cityRegion[c] = reg));
 
-    // ── DISPATCH BAND by destination city ──
+    // ── DISPATCH BAND ──
     const dispatchBand = {
       Jalandhar:'Same-day', Ludhiana:'Same-day', Amritsar:'Same-day',
       Pathankot:'Same-day', Phagwara:'Same-day', Hoshiarpur:'Same-day',
@@ -460,72 +426,90 @@
       Mumbai:'48hr', Pune:'48hr',
     };
 
-    // ── BUILD DROPDOWN from region+city list ──
-    function buildSelect(selectEl, allowedRegions, excludeCity) {
-      const prev = selectEl.value;
-      selectEl.innerHTML = '<option value="">Select city</option>';
-      allowedRegions.forEach(reg => {
-        const grp = document.createElement('optgroup');
-        grp.label = regionLabels[reg];
-        regions[reg].forEach(city => {
-          if (city === excludeCity) return;
-          const opt = document.createElement('option');
-          opt.value = opt.textContent = city;
-          grp.appendChild(opt);
-        });
-        if (grp.children.length) selectEl.appendChild(grp);
+    // ── HELPERS ──
+    function populateStateSelect(sel, allowedRegs) {
+      sel.innerHTML = '<option value="">Select state / region</option>';
+      (allowedRegs || regionKeys).forEach(reg => {
+        const o = document.createElement('option');
+        o.value = reg; o.textContent = regionLabels[reg];
+        sel.appendChild(o);
       });
-      // Restore previous selection if still valid
-      if (prev && [...selectEl.options].some(o => o.value === prev)) {
-        selectEl.value = prev;
-      }
-      selectEl.disabled = false;
+      sel.disabled = false;
     }
 
-    const fromSel = document.getElementById('fromCity');
-    const toSel   = document.getElementById('toCity');
-
-    // Populate From with all cities on load
-    buildSelect(fromSel, Object.keys(regions), null);
-
-    // Populate To with all cities on load (unfiltered until From is chosen)
-    buildSelect(toSel, Object.keys(regions), null);
-
-    fromSel.addEventListener('change', function() {
-      const fromCity = this.value;
-      const fromReg  = cityRegion[fromCity];
-      const res      = document.getElementById('quoteResult');
-
-      // Reset result
-      res.innerHTML  = 'Fill in the details above — we\'ll open WhatsApp with everything pre-filled.';
-      res.style.color = 'var(--neutral-500)';
-      res.style.fontWeight = '400';
-
-      if (!fromCity || !fromReg) {
-        // No selection — show all destinations
-        buildSelect(toSel, Object.keys(regions), null);
-        return;
+    function populateCitySelect(sel, reg, excludeCity) {
+      sel.innerHTML = '<option value="">Select city</option>';
+      (regions[reg] || []).forEach(c => {
+        if (c === excludeCity) return;
+        const o = document.createElement('option');
+        o.value = o.textContent = c;
+        sel.appendChild(o);
+      });
+      // Auto-select if only one city
+      if (regions[reg] && regions[reg].length === 1 && regions[reg][0] !== excludeCity) {
+        sel.value = regions[reg][0];
       }
+      sel.disabled = false;
+    }
 
-      const allowed = corridors[fromReg] || [];
-      buildSelect(toSel, allowed, fromCity);
+    const fromStateSel = document.getElementById('fromState');
+    const fromCitySel  = document.getElementById('fromCity');
+    const toStateSel   = document.getElementById('toState');
+    const toCitySel    = document.getElementById('toCity');
 
-      // If previously selected To city is no longer valid, clear it
-      if (toSel.value === fromCity || !toSel.value) {
-        toSel.value = '';
-      }
+    // Populate From State on load
+    populateStateSelect(fromStateSel, regionKeys);
+
+    fromStateSel.addEventListener('change', function() {
+      const fr = this.value;
+      // Reset downstream
+      fromCitySel.innerHTML = '<option value="">Select city</option>';
+      fromCitySel.disabled = true;
+      toStateSel.innerHTML  = '<option value="">Select origin first</option>';
+      toStateSel.disabled   = true;
+      toCitySel.innerHTML   = '<option value="">Select state first</option>';
+      toCitySel.disabled    = true;
+      resetResult();
+      if (!fr) return;
+      populateCitySelect(fromCitySel, fr, null);
+      populateStateSelect(toStateSel, corridors[fr]);
     });
 
-    // ── SET MIN DATE ──
-    const dateInput = document.getElementById('pickupDate');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
+    fromCitySel.addEventListener('change', function() {
+      // If To city is same, clear it
+      if (toCitySel.value === this.value) {
+        toCitySel.value = '';
+      }
+      resetResult();
+    });
 
-    // ── FORM SUBMIT ──
+    toStateSel.addEventListener('change', function() {
+      const tr = this.value;
+      toCitySel.innerHTML = '<option value="">Select city</option>';
+      toCitySel.disabled  = true;
+      resetResult();
+      if (!tr) return;
+      const excl = fromCitySel.value && cityRegion[fromCitySel.value] === tr ? fromCitySel.value : null;
+      populateCitySelect(toCitySel, tr, excl);
+    });
+
+    toCitySel.addEventListener('change', resetResult);
+
+    function resetResult() {
+      const res = document.getElementById('quoteResult');
+      res.innerHTML = 'Fill in the details above — we\'ll open WhatsApp with everything pre-filled.';
+      res.style.color = 'var(--neutral-500)'; res.style.fontWeight = '400';
+    }
+
+    // ── MIN DATE ──
+    const dateInput = document.getElementById('pickupDate');
+    dateInput.min = new Date().toISOString().split('T')[0];
+
+    // ── SUBMIT ──
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const from = fromSel.value;
-      const to   = toSel.value;
+      const from = fromCitySel.value;
+      const to   = toCitySel.value;
       const wt   = document.getElementById('weight').value;
       const date = document.getElementById('pickupDate').value;
       const res  = document.getElementById('quoteResult');
@@ -539,18 +523,11 @@
         res.style.color = '#ef4444'; res.style.fontWeight = '600'; return;
       }
 
-      const band = dispatchBand[to] || '48hr';
+      const band    = dispatchBand[to] || '48hr';
       const dateObj = new Date(date + 'T00:00:00');
       const dateStr = dateObj.toLocaleDateString('en-IN', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-
-      const msg = `Hi Patwadi team! I'd like to book a shipment:\n\n` +
-        `📦 Weight: ${wt}\n` +
-        `🗺️ From: ${from}\n` +
-        `📍 To: ${to}\n` +
-        `📅 Pickup date: ${dateStr}\n\n` +
-        `Could you confirm availability and pricing? Thank you!`;
-
-      const waUrl = `https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
+      const msg     = `Hi Patwadi team! I'd like to book a shipment:\n\n📦 Weight: ${wt}\n🗺️ From: ${from}\n📍 To: ${to}\n📅 Pickup date: ${dateStr}\n\nCould you confirm availability and pricing? Thank you!`;
+      const waUrl   = `https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
 
       res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
         <span style="color:var(--neutral-900);">✅ <strong>${from} → ${to}</strong> · <strong>${band} dispatch</strong></span>
@@ -559,6 +536,37 @@
       res.style.color = 'var(--neutral-900)'; res.style.fontWeight = '400';
       window.open(waUrl, '_blank');
     });
+
+    // ── BUILD CORRIDOR GRID TABLE ──
+    (function() {
+      const colRegs = ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand','Gujarat','Maharashtra'];
+      const tbody = document.getElementById('corridorGrid');
+      if (!tbody) return;
+      colRegs.forEach(fromReg => {
+        const tr = document.createElement('tr');
+        tr.style.borderBottom = '1px solid #e5e7eb';
+        // Row label
+        const th = document.createElement('td');
+        th.style.cssText = 'padding:9px 14px;font-weight:700;font-size:0.8rem;color:#1e293b;white-space:nowrap;background:#f8fafc;border-right:1px solid #e5e7eb;';
+        th.textContent = regionLabels[fromReg];
+        tr.appendChild(th);
+        // Cells
+        colRegs.forEach(toReg => {
+          const td = document.createElement('td');
+          td.style.cssText = 'padding:9px 8px;text-align:center;';
+          const ok = corridors[fromReg] && corridors[fromReg].includes(toReg);
+          if (fromReg === toReg) {
+            td.innerHTML = '<span style="color:#94a3b8;font-size:0.85rem;">—</span>';
+          } else if (ok) {
+            td.innerHTML = '<span style="color:#16a34a;font-size:1rem;font-weight:700;">✓</span>';
+          } else {
+            td.innerHTML = '<span style="color:#e5e7eb;font-size:0.85rem;">✗</span>';
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    })();
 
     // ── TICKER — cities only, no pricing ──
     (function() {
