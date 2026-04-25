@@ -147,76 +147,12 @@
               <label>From — City</label>
               <select id="fromCity" required>
                 <option value="">Select origin city</option>
-                <optgroup label="Punjab">
-                  <option>Jalandhar</option><option>Ludhiana</option><option>Amritsar</option>
-                  <option>Pathankot</option><option>Phagwara</option><option>Hoshiarpur</option>
-                  <option>Kapurthala</option><option>Batala</option>
-                </optgroup>
-                <optgroup label="Chandigarh &amp; Belt">
-                  <option>Chandigarh</option><option>Mohali</option><option>Panchkula</option><option>Zirakpur</option>
-                </optgroup>
-                <optgroup label="Haryana">
-                  <option>Ambala</option><option>Panipat</option><option>Karnal</option>
-                  <option>Sonipat</option><option>Rohtak</option><option>Gurugram</option><option>Faridabad</option>
-                </optgroup>
-                <optgroup label="Delhi NCR">
-                  <option>Delhi</option><option>Noida</option><option>Ghaziabad</option>
-                </optgroup>
-                <optgroup label="Himachal Pradesh">
-                  <option>Shimla</option><option>Mandi</option><option>Manali</option>
-                  <option>Dharamshala</option><option>Kullu</option><option>Bilaspur</option>
-                  <option>Solan</option><option>Kangra</option><option>Palampur</option>
-                </optgroup>
-                <optgroup label="Jammu &amp; Kashmir">
-                  <option>Jammu</option><option>Katra</option><option>Udhampur</option><option>Srinagar</option>
-                </optgroup>
-                <optgroup label="Uttarakhand">
-                  <option>Dehradun</option>
-                </optgroup>
-                <optgroup label="Gujarat">
-                  <option>Ahmedabad</option><option>Surat</option><option>Vadodara</option><option>Rajkot</option>
-                </optgroup>
-                <optgroup label="Maharashtra">
-                  <option>Mumbai</option><option>Pune</option>
-                </optgroup>
               </select>
             </div>
             <div class="form-group" style="margin-bottom:0;">
               <label>To — City</label>
               <select id="toCity" required>
                 <option value="">Select destination city</option>
-                <optgroup label="Punjab">
-                  <option>Jalandhar</option><option>Ludhiana</option><option>Amritsar</option>
-                  <option>Pathankot</option><option>Phagwara</option><option>Hoshiarpur</option>
-                  <option>Kapurthala</option><option>Batala</option>
-                </optgroup>
-                <optgroup label="Chandigarh &amp; Belt">
-                  <option>Chandigarh</option><option>Mohali</option><option>Panchkula</option><option>Zirakpur</option>
-                </optgroup>
-                <optgroup label="Haryana">
-                  <option>Ambala</option><option>Panipat</option><option>Karnal</option>
-                  <option>Sonipat</option><option>Rohtak</option><option>Gurugram</option><option>Faridabad</option>
-                </optgroup>
-                <optgroup label="Delhi NCR">
-                  <option>Delhi</option><option>Noida</option><option>Ghaziabad</option>
-                </optgroup>
-                <optgroup label="Himachal Pradesh">
-                  <option>Shimla</option><option>Mandi</option><option>Manali</option>
-                  <option>Dharamshala</option><option>Kullu</option><option>Bilaspur</option>
-                  <option>Solan</option><option>Kangra</option><option>Palampur</option>
-                </optgroup>
-                <optgroup label="Jammu &amp; Kashmir">
-                  <option>Jammu</option><option>Katra</option><option>Udhampur</option><option>Srinagar</option>
-                </optgroup>
-                <optgroup label="Uttarakhand">
-                  <option>Dehradun</option>
-                </optgroup>
-                <optgroup label="Gujarat">
-                  <option>Ahmedabad</option><option>Surat</option><option>Vadodara</option><option>Rajkot</option>
-                </optgroup>
-                <optgroup label="Maharashtra">
-                  <option>Mumbai</option><option>Pune</option>
-                </optgroup>
               </select>
             </div>
           </div>
@@ -467,9 +403,48 @@
 
   <script src="assets/js/main.js"></script>
   <script>
+    // ── CITY DATA — grouped by region ──
+    const regions = {
+      Punjab:      ['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala'],
+      Chandigarh:  ['Chandigarh','Mohali','Panchkula','Zirakpur'],
+      Haryana:     ['Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad'],
+      Delhi:       ['Delhi','Noida','Ghaziabad'],
+      HP:          ['Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur'],
+      JK:          ['Jammu','Katra','Udhampur','Srinagar'],
+      Uttarakhand: ['Dehradun'],
+      Gujarat:     ['Ahmedabad','Surat','Vadodara','Rajkot'],
+      Maharashtra: ['Mumbai','Pune'],
+    };
+
+    const regionLabels = {
+      Punjab:'Punjab', Chandigarh:'Chandigarh & Belt',
+      Haryana:'Haryana', Delhi:'Delhi NCR', HP:'Himachal Pradesh',
+      JK:'Jammu & Kashmir', Uttarakhand:'Uttarakhand',
+      Gujarat:'Gujarat', Maharashtra:'Maharashtra',
+    };
+
+    // Corridor map — which regions each region can ship TO
+    // Based on verified bus service research
+    const corridors = {
+      Punjab:      ['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
+      Chandigarh:  ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],
+      Haryana:     ['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
+      Delhi:       ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],
+      HP:          ['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
+      JK:          ['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
+      Uttarakhand: ['Chandigarh','Haryana','Delhi','JK','Uttarakhand'],
+      Gujarat:     ['Gujarat','Maharashtra'],
+      Maharashtra: ['Gujarat','Maharashtra'],
+    };
+
+    // Reverse lookup: city → region key
+    const cityRegion = {};
+    Object.entries(regions).forEach(([reg, cities]) => {
+      cities.forEach(c => cityRegion[c] = reg);
+    });
+
     // ── DISPATCH BAND by destination city ──
     const dispatchBand = {
-      // Plains — same-day / 24hr
       Jalandhar:'Same-day', Ludhiana:'Same-day', Amritsar:'Same-day',
       Pathankot:'Same-day', Phagwara:'Same-day', Hoshiarpur:'Same-day',
       Kapurthala:'Same-day', Batala:'Same-day',
@@ -477,27 +452,80 @@
       Ambala:'Same-day', Panipat:'Same-day', Karnal:'Same-day',
       Sonipat:'Same-day', Rohtak:'Same-day', Gurugram:'Same-day', Faridabad:'Same-day',
       Delhi:'Same-day', Noida:'Same-day', Ghaziabad:'Same-day',
-      // HP — 48hr
       Shimla:'48hr', Mandi:'48hr', Manali:'48hr', Dharamshala:'48hr',
       Kullu:'48hr', Bilaspur:'48hr', Solan:'48hr', Kangra:'48hr', Palampur:'48hr',
-      // J&K — 72hr / Srinagar 96hr
       Jammu:'72hr', Katra:'72hr', Udhampur:'72hr', Srinagar:'96hr',
-      // Uttarakhand — 48hr
       Dehradun:'48hr',
-      // Gujarat / Maharashtra — via GSRTC/private
       Ahmedabad:'48hr', Surat:'48hr', Vadodara:'48hr', Rajkot:'48hr',
       Mumbai:'48hr', Pune:'48hr',
     };
 
-    // Set min date
+    // ── BUILD DROPDOWN from region+city list ──
+    function buildSelect(selectEl, allowedRegions, excludeCity) {
+      const prev = selectEl.value;
+      selectEl.innerHTML = '<option value="">Select city</option>';
+      allowedRegions.forEach(reg => {
+        const grp = document.createElement('optgroup');
+        grp.label = regionLabels[reg];
+        regions[reg].forEach(city => {
+          if (city === excludeCity) return;
+          const opt = document.createElement('option');
+          opt.value = opt.textContent = city;
+          grp.appendChild(opt);
+        });
+        if (grp.children.length) selectEl.appendChild(grp);
+      });
+      // Restore previous selection if still valid
+      if (prev && [...selectEl.options].some(o => o.value === prev)) {
+        selectEl.value = prev;
+      }
+      selectEl.disabled = false;
+    }
+
+    const fromSel = document.getElementById('fromCity');
+    const toSel   = document.getElementById('toCity');
+
+    // Populate From with all cities on load
+    buildSelect(fromSel, Object.keys(regions), null);
+
+    // Populate To with all cities on load (unfiltered until From is chosen)
+    buildSelect(toSel, Object.keys(regions), null);
+
+    fromSel.addEventListener('change', function() {
+      const fromCity = this.value;
+      const fromReg  = cityRegion[fromCity];
+      const res      = document.getElementById('quoteResult');
+
+      // Reset result
+      res.innerHTML  = 'Fill in the details above — we\'ll open WhatsApp with everything pre-filled.';
+      res.style.color = 'var(--neutral-500)';
+      res.style.fontWeight = '400';
+
+      if (!fromCity || !fromReg) {
+        // No selection — show all destinations
+        buildSelect(toSel, Object.keys(regions), null);
+        return;
+      }
+
+      const allowed = corridors[fromReg] || [];
+      buildSelect(toSel, allowed, fromCity);
+
+      // If previously selected To city is no longer valid, clear it
+      if (toSel.value === fromCity || !toSel.value) {
+        toSel.value = '';
+      }
+    });
+
+    // ── SET MIN DATE ──
     const dateInput = document.getElementById('pickupDate');
     const today = new Date().toISOString().split('T')[0];
     dateInput.min = today;
 
+    // ── FORM SUBMIT ──
     document.getElementById('quoteForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const from = document.getElementById('fromCity').value;
-      const to   = document.getElementById('toCity').value;
+      const from = fromSel.value;
+      const to   = toSel.value;
       const wt   = document.getElementById('weight').value;
       const date = document.getElementById('pickupDate').value;
       const res  = document.getElementById('quoteResult');
@@ -513,7 +541,7 @@
 
       const band = dispatchBand[to] || '48hr';
       const dateObj = new Date(date + 'T00:00:00');
-      const dateStr = dateObj.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+      const dateStr = dateObj.toLocaleDateString('en-IN', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 
       const msg = `Hi Patwadi team! I'd like to book a shipment:\n\n` +
         `📦 Weight: ${wt}\n` +
