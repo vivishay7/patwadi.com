@@ -1,4 +1,3 @@
-#index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,172 +85,229 @@
     </nav>
   </header>
 
-  <!-- ══ HERO — tool first, copy second ══ -->
-  <section style="background:#f8faff; border-bottom:1px solid #e5e7eb; padding:0;">
+  <!-- ══ HERO — full bleed, centered, form at bottom ══ -->
+  <section style="position:relative; min-height:520px; display:flex; flex-direction:column; overflow:hidden;">
 
-    <div style="max-width:1200px; margin:0 auto; padding:40px 24px 36px; display:grid; grid-template-columns:1fr 480px; gap:48px; align-items:start;">
+    <!-- Background — mountain/highway SVG atmosphere -->
+    <div style="position:absolute;inset:0;z-index:0;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="#1e3a5f"/>
+          </linearGradient>
+          <linearGradient id="mtn" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1e3a5f"/>
+            <stop offset="100%" stop-color="#162d4a"/>
+          </linearGradient>
+          <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="#0a0f1e"/>
+          </linearGradient>
+        </defs>
+        <!-- Sky -->
+        <rect width="1440" height="520" fill="url(#sky)"/>
+        <!-- Stars -->
+        <g fill="rgba(255,255,255,0.4)" font-size="3">
+          <circle cx="120" cy="40" r="1.2"/><circle cx="280" cy="80" r="0.9"/><circle cx="450" cy="25" r="1.4"/><circle cx="600" cy="55" r="0.8"/><circle cx="750" cy="35" r="1.1"/><circle cx="900" cy="65" r="1.3"/><circle cx="1050" cy="20" r="0.9"/><circle cx="1200" cy="50" r="1.2"/><circle cx="1350" cy="30" r="0.8"/><circle cx="200" cy="100" r="0.7"/><circle cx="380" cy="110" r="1.0"/><circle cx="820" cy="90" r="0.8"/><circle cx="1100" cy="85" r="1.1"/>
+        </g>
+        <!-- Far mountains -->
+        <path d="M0,280 L120,180 L240,220 L360,150 L480,200 L600,140 L720,190 L840,160 L960,210 L1080,155 L1200,200 L1320,170 L1440,220 L1440,520 L0,520Z" fill="#162d4a" opacity="0.9"/>
+        <!-- Mid mountains -->
+        <path d="M0,320 L180,240 L300,280 L420,230 L540,270 L660,220 L780,265 L900,240 L1020,280 L1140,250 L1260,285 L1380,255 L1440,270 L1440,520 L0,520Z" fill="#1a3455" opacity="0.95"/>
+        <!-- Foreground hills -->
+        <path d="M0,370 L200,330 L400,355 L600,325 L800,360 L1000,335 L1200,365 L1440,340 L1440,520 L0,520Z" fill="#0f2035"/>
+        <!-- Road perspective -->
+        <path d="M680,520 L760,520 L820,400 L780,400Z" fill="rgba(255,255,255,0.04)"/>
+        <path d="M700,520 L740,520 L800,420 L760,420Z" fill="rgba(255,255,255,0.03)"/>
+        <!-- Road dashes -->
+        <rect x="715" y="480" width="10" height="22" rx="2" fill="rgba(255,255,255,0.15)"/>
+        <rect x="718" y="450" width="8" height="16" rx="2" fill="rgba(255,255,255,0.1)"/>
+        <rect x="720" y="428" width="6" height="12" rx="2" fill="rgba(255,255,255,0.07)"/>
+        <!-- Distant city lights -->
+        <g opacity="0.6">
+          <circle cx="580" cy="365" r="1.5" fill="#fbbf24"/><circle cx="600" cy="360" r="1" fill="#fbbf24"/><circle cx="620" cy="368" r="1.5" fill="#60a5fa"/><circle cx="640" cy="358" r="1" fill="#fbbf24"/><circle cx="660" cy="365" r="1.5" fill="#fbbf24"/><circle cx="680" cy="360" r="1" fill="#60a5fa"/><circle cx="700" cy="363" r="1.5" fill="#fbbf24"/><circle cx="720" cy="358" r="1" fill="#fbbf24"/><circle cx="740" cy="365" r="1.5" fill="#60a5fa"/><circle cx="760" cy="360" r="1" fill="#fbbf24"/><circle cx="780" cy="363" r="1.5" fill="#fbbf24"/><circle cx="800" cy="358" r="1" fill="#60a5fa"/><circle cx="820" cy="365" r="1.5" fill="#fbbf24"/><circle cx="840" cy="360" r="1" fill="#fbbf24"/>
+        </g>
+        <!-- Overlay gradient — dark at edges, lighter centre-bottom for form -->
+        <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(0,0,0,0.2)"/>
+          <stop offset="60%" stop-color="rgba(0,0,0,0)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,0.55)"/>
+        </linearGradient>
+        <rect width="1440" height="520" fill="url(#vignette)"/>
+      </svg>
+    </div>
 
-      <!-- LEFT — headline + trust -->
-      <div>
-        <!-- Eyebrow -->
-        <div style="display:inline-flex; align-items:center; gap:8px; background:#eff6ff; border:1px solid #bfdbfe; padding:5px 12px; border-radius:20px; margin-bottom:20px;">
-          <span style="width:7px; height:7px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span>
-          <span style="font-size:0.75rem; font-weight:700; color:#1d4ed8; letter-spacing:0.06em; text-transform:uppercase;">Intercity cargo · Same-day on plains · 48hr to hills</span>
-        </div>
+    <!-- Content — centred, over background -->
+    <div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 24px 0;text-align:center;">
 
-        <!-- Headline — short, functional -->
-        <h1 style="font-size:clamp(2rem,4vw,3rem); font-weight:800; color:#0f172a; line-height:1.08; letter-spacing:-0.03em; margin-bottom:16px;">
-          North India's<br>
-          <span style="color:#1d4ed8;">intercity cargo</span><br>
-          network.
-        </h1>
-
-        <p style="font-size:1rem; color:#475569; line-height:1.7; margin-bottom:28px; max-width:440px;">
-          Book in 2 minutes on WhatsApp. We pick up, transit via scheduled buses, and deliver — plains to hills, Punjab to J&amp;K, Haryana to HP.
-        </p>
-
-        <!-- Trust signals — inline, not a band -->
-        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:28px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.25rem; font-weight:800; color:#16a34a;">96.7%</span>
-            <span style="font-size:0.78rem; color:#64748b; font-weight:500;">on-time<br>delivery</span>
-          </div>
-          <div style="width:1px; background:#e5e7eb;"></div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.25rem; font-weight:800; color:#1d4ed8;">1,100+</span>
-            <span style="font-size:0.78rem; color:#64748b; font-weight:500;">parcels<br>delivered</span>
-          </div>
-          <div style="width:1px; background:#e5e7eb;"></div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.25rem; font-weight:800; color:#0f172a;">0</span>
-            <span style="font-size:0.78rem; color:#64748b; font-weight:500;">lost<br>parcels</span>
-          </div>
-          <div style="width:1px; background:#e5e7eb;"></div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.25rem; font-weight:800; color:#0f172a;">9</span>
-            <span style="font-size:0.78rem; color:#64748b; font-weight:500;">states<br>covered</span>
-          </div>
-        </div>
-
-        <!-- Who ships with us -->
-        <div style="display:flex; flex-wrap:wrap; gap:8px;">
-          <span style="font-size:0.75rem; background:#fff; border:1px solid #e5e7eb; padding:4px 12px; border-radius:20px; color:#374151; font-weight:500;">🎓 Students</span>
-          <span style="font-size:0.75rem; background:#fff; border:1px solid #e5e7eb; padding:4px 12px; border-radius:20px; color:#374151; font-weight:500;">👨‍👩‍👧 Parents</span>
-          <span style="font-size:0.75rem; background:#fff; border:1px solid #e5e7eb; padding:4px 12px; border-radius:20px; color:#374151; font-weight:500;">🏪 Wholesalers</span>
-          <span style="font-size:0.75rem; background:#fff; border:1px solid #e5e7eb; padding:4px 12px; border-radius:20px; color:#374151; font-weight:500;">🏢 Businesses</span>
-        </div>
+      <!-- Eyebrow -->
+      <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(6px);padding:5px 14px;border-radius:20px;margin-bottom:18px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></span>
+        <span style="font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.1em;text-transform:uppercase;">Live · 9 states · Same-day plains · 48hr hills</span>
       </div>
 
-      <!-- RIGHT — booking tool -->
-      <div style="background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:24px; box-shadow:0 4px 24px rgba(0,0,0,0.07);">
-        <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#64748b; margin-bottom:14px;">Book your shipment</div>
+      <!-- Headline -->
+      <h1 style="font-size:clamp(2.4rem,5vw,3.6rem);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-0.03em;margin-bottom:14px;max-width:700px;">
+        Intercity cargo,<br>booked in 2 minutes.
+      </h1>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.75);margin-bottom:36px;max-width:480px;line-height:1.65;">
+        WhatsApp booking · Scheduled buses · Plains to hills · Punjab · HP · Haryana · J&K · Delhi NCR
+      </p>
 
-        <form id="quoteForm" style="display:flex; flex-direction:column; gap:12px;">
+      <!-- Shipment type tabs — like FreightMango's FCL/LCL/Air/Truck -->
+      <div style="display:flex;gap:0;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:4px;margin-bottom:0;" id="shipTabs">
+        <button class="ship-tab active" data-type="Parcel" data-weight="Up to 5 kg"
+          style="padding:8px 20px;border:none;border-radius:7px;font-size:0.82rem;font-weight:700;cursor:pointer;background:#fff;color:#1d4ed8;transition:all 0.15s;">
+          📦 Parcel
+        </button>
+        <button class="ship-tab" data-type="Luggage" data-weight="5–15 kg"
+          style="padding:8px 20px;border:none;border-radius:7px;font-size:0.82rem;font-weight:700;cursor:pointer;background:transparent;color:rgba(255,255,255,0.8);transition:all 0.15s;">
+          🧳 Luggage
+        </button>
+        <button class="ship-tab" data-type="Business Goods" data-weight="15–30 kg"
+          style="padding:8px 20px;border:none;border-radius:7px;font-size:0.82rem;font-weight:700;cursor:pointer;background:transparent;color:rgba(255,255,255,0.8);transition:all 0.15s;">
+          🏪 Business
+        </button>
+        <button class="ship-tab" data-type="Graduation Pack (5 items)" data-weight="Above 30 kg"
+          style="padding:8px 20px;border:none;border-radius:7px;font-size:0.82rem;font-weight:700;cursor:pointer;background:transparent;color:rgba(255,255,255,0.8);transition:all 0.15s;">
+          🎓 Graduation
+        </button>
+      </div>
+    </div>
+
+    <!-- FORM BAR — pinned to bottom of hero like FreightMango -->
+    <div style="position:relative;z-index:2;padding:0 24px 0;">
+      <div style="max-width:1100px;margin:0 auto;">
+        <form id="quoteForm" style="background:#fff;border-radius:14px 14px 0 0;box-shadow:0 -4px 40px rgba(0,0,0,0.25);display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr auto;gap:0;overflow:hidden;">
 
           <!-- FROM -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">From — State</label>
-              <select id="fromState" required style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-                <option value="">Select state</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">From — City</label>
-              <select id="fromCity" required disabled style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-                <option value="">State first</option>
-              </select>
-            </div>
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">From</div>
+            <select id="fromState" required style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
+              <option value="">State / Region</option>
+            </select>
+            <select id="fromCity" required disabled style="width:100%;border:none;outline:none;font-size:0.78rem;color:#64748b;background:transparent;padding:0;">
+              <option value="">City</option>
+            </select>
           </div>
 
           <!-- TO -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">To — State</label>
-              <select id="toState" required disabled style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-                <option value="">Origin first</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">To — City</label>
-              <select id="toCity" required disabled style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-                <option value="">State first</option>
-              </select>
-            </div>
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">To</div>
+            <select id="toState" required disabled style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
+              <option value="">State / Region</option>
+            </select>
+            <select id="toCity" required disabled style="width:100%;border:none;outline:none;font-size:0.78rem;color:#64748b;background:transparent;padding:0;">
+              <option value="">City</option>
+            </select>
           </div>
 
-          <!-- WEIGHT + DATE -->
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">Weight</label>
-              <select id="weight" required style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-                <option value="">Select</option>
-                <option value="Up to 5 kg">Up to 5 kg</option>
-                <option value="5–15 kg">5 – 15 kg</option>
-                <option value="15–30 kg">15 – 30 kg</option>
-                <option value="Above 30 kg">Above 30 kg</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:0.72rem; font-weight:700; color:#374151; display:block; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.06em;">Pickup Date</label>
-              <input type="date" id="pickupDate" required style="width:100%; padding:9px 10px; border:1.5px solid #e5e7eb; border-radius:7px; font-size:0.85rem; color:#0f172a; background:#fafafa;">
-            </div>
+          <!-- TYPE — set by tab, editable -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Shipment Type</div>
+            <select id="shipType" style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
+              <option value="Parcel">📦 Parcel</option>
+              <option value="Luggage">🧳 Luggage</option>
+              <option value="Business Goods">🏪 Business Goods</option>
+              <option value="Graduation Pack (5 items)">🎓 Graduation Pack</option>
+            </select>
+            <select id="weight" required style="width:100%;border:none;outline:none;font-size:0.78rem;color:#64748b;background:transparent;padding:0;">
+              <option value="Up to 5 kg">Up to 5 kg</option>
+              <option value="5–15 kg">5 – 15 kg</option>
+              <option value="15–30 kg">15 – 30 kg</option>
+              <option value="Above 30 kg">Above 30 kg</option>
+            </select>
           </div>
 
-          <!-- GST toggle -->
-          <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.82rem; color:#374151; font-weight:500; padding:10px 12px; background:#f8faff; border:1px solid #dbeafe; border-radius:7px;">
-            <input type="checkbox" id="needGst" style="width:15px; height:15px; accent-color:#1d4ed8;">
-            Need a GST invoice?
-            <span style="margin-left:auto; font-size:0.72rem; color:#1d4ed8; font-weight:600;">Available for all routes</span>
-          </label>
-
-          <!-- Dispatch badge — updates with city selection -->
-          <div id="dispatchBadge" style="display:none; align-items:center; gap:8px; padding:10px 12px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:7px; font-size:0.82rem;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span>
-            <span id="dispatchText" style="font-weight:600; color:#15803d;"></span>
+          <!-- DATE -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Pickup Date</div>
+            <input type="date" id="pickupDate" required style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
+            <div id="dispatchText" style="font-size:0.72rem;color:#16a34a;font-weight:600;min-height:14px;"></div>
           </div>
 
-          <!-- Submit -->
-          <button type="submit" style="width:100%; background:#25D366; color:#fff; border:none; padding:13px 16px; border-radius:8px; font-size:0.95rem; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
-            💬 Book on WhatsApp
+          <!-- GST -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:8px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2px;">Invoice</div>
+            <label style="display:flex;align-items:center;gap:7px;cursor:pointer;font-size:0.8rem;font-weight:600;color:#374151;">
+              <input type="checkbox" id="needGst" style="width:14px;height:14px;accent-color:#1d4ed8;"> GST Invoice
+            </label>
+            <div style="font-size:0.7rem;color:#94a3b8;">Available on all routes</div>
+          </div>
+
+          <!-- SUBMIT -->
+          <button type="submit" style="background:#25D366;color:#fff;border:none;padding:0 28px;font-size:0.9rem;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap;min-width:140px;justify-content:center;">
+            💬 Book Now
           </button>
 
         </form>
-
-        <div id="quoteResult" style="margin-top:12px; text-align:center; font-size:0.82rem; color:#64748b; min-height:20px;"></div>
-
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #f1f5f9; text-align:center;">
-          <a href="https://wa.me/918091889969?text=Hi%20Patwadi%20team%2C%20my%20city%20isn%27t%20listed.%20I%27d%20like%20to%20ship%20from%20%5Bcity%5D%20to%20%5Bcity%5D." target="_blank"
-             style="font-size:0.78rem; color:#1d4ed8; font-weight:600; text-decoration:none;">
-            Don't see your city? WhatsApp us →
-          </a>
-        </div>
       </div>
     </div>
 
-    <!-- Dimension note — below hero, full width -->
-    <div style="background:#fff; border-top:1px solid #e5e7eb; padding:12px 24px;">
-      <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-        <span style="font-size:0.72rem; font-weight:700; color:#64748b; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">📐 Max dimensions</span>
-        <div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
-          <span style="font-size:0.75rem; color:#374151;"><strong>Carton</strong> <span class="dim-val" data-cm="60×45×40" data-kg="20" style="font-family:monospace; color:#1d4ed8;">60×45×40 cm · 20 kg</span></span>
-          <span style="color:#d1d5db;">·</span>
-          <span style="font-size:0.75rem; color:#374151;"><strong>Suitcase</strong> <span class="dim-val" data-cm="75×50×30" data-kg="25" style="font-family:monospace; color:#1d4ed8;">75×50×30 cm · 25 kg</span></span>
-          <span style="color:#d1d5db;">·</span>
-          <span style="font-size:0.75rem; color:#374151;"><strong>Duffel</strong> <span class="dim-val" data-cm="65×35×35" data-kg="20" style="font-family:monospace; color:#1d4ed8;">65×35×35 cm · 20 kg</span></span>
-          <span style="color:#d1d5db;">·</span>
-          <span style="font-size:0.75rem; color:#374151;"><strong>Trek bag</strong> <span class="dim-val" data-cm="80×40×30" data-kg="18" style="font-family:monospace; color:#1d4ed8;">80×40×30 cm · 18 kg</span></span>
-        </div>
-        <div style="margin-left:auto; display:flex; align-items:center; gap:8px;">
-          <span style="font-size:0.72rem; color:#64748b;">Units:</span>
-          <div style="display:flex; border:1.5px solid #e5e7eb; border-radius:6px; overflow:hidden;">
-            <button id="unitCm" onclick="setUnit('cm')" style="padding:3px 10px; background:#1d4ed8; color:#fff; border:none; cursor:pointer; font-size:0.72rem; font-weight:700; font-family:monospace;">cm</button>
-            <button id="unitIn" onclick="setUnit('in')" style="padding:3px 10px; background:transparent; color:#64748b; border:none; cursor:pointer; font-size:0.72rem; font-weight:700; font-family:monospace;">in</button>
-          </div>
-        </div>
+    <!-- Result bar -->
+    <div style="position:relative;z-index:2;padding:0 24px;">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div id="quoteResult" style="background:#f8faff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;padding:10px 18px;font-size:0.82rem;min-height:36px;display:flex;align-items:center;"></div>
       </div>
     </div>
+
   </section>
+
+  <!-- Trust bar — just below hero, clean -->
+  <div style="background:#fff;border-bottom:1px solid #e5e7eb;padding:14px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.1rem;font-weight:800;color:#16a34a;">96.7%</span>
+          <span style="font-size:0.75rem;color:#64748b;">on-time delivery</span>
+        </div>
+        <div style="width:1px;height:20px;background:#e5e7eb;"></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.1rem;font-weight:800;color:#1d4ed8;">1,100+</span>
+          <span style="font-size:0.75rem;color:#64748b;">parcels delivered</span>
+        </div>
+        <div style="width:1px;height:20px;background:#e5e7eb;"></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.1rem;font-weight:800;color:#0f172a;">Zero</span>
+          <span style="font-size:0.75rem;color:#64748b;">lost parcels</span>
+        </div>
+        <div style="width:1px;height:20px;background:#e5e7eb;"></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:1.1rem;font-weight:800;color:#0f172a;">9 states</span>
+          <span style="font-size:0.75rem;color:#64748b;">covered</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <span style="font-size:0.72rem;color:#94a3b8;font-weight:600;">Serves:</span>
+        <span style="font-size:0.72rem;background:#f1f5f9;padding:3px 10px;border-radius:20px;color:#374151;font-weight:500;">🎓 Students</span>
+        <span style="font-size:0.72rem;background:#f1f5f9;padding:3px 10px;border-radius:20px;color:#374151;font-weight:500;">👨‍👩‍👧 Parents</span>
+        <span style="font-size:0.72rem;background:#f1f5f9;padding:3px 10px;border-radius:20px;color:#374151;font-weight:500;">🏪 Wholesalers</span>
+        <span style="font-size:0.72rem;background:#f1f5f9;padding:3px 10px;border-radius:20px;color:#374151;font-weight:500;">🏢 Businesses</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dimension bar -->
+  <div style="background:#f8faff;border-bottom:1px solid #e5e7eb;padding:10px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <span style="font-size:0.68rem;font-weight:700;color:#64748b;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">📐 Max item dimensions</span>
+      <span style="font-size:0.75rem;color:#374151;"><strong>Carton</strong> <span class="dim-val" data-cm="60×45×40" data-kg="20" style="font-family:monospace;color:#1d4ed8;">60×45×40 cm · 20 kg</span></span>
+      <span style="color:#d1d5db;">·</span>
+      <span style="font-size:0.75rem;color:#374151;"><strong>Suitcase</strong> <span class="dim-val" data-cm="75×50×30" data-kg="25" style="font-family:monospace;color:#1d4ed8;">75×50×30 cm · 25 kg</span></span>
+      <span style="color:#d1d5db;">·</span>
+      <span style="font-size:0.75rem;color:#374151;"><strong>Duffel</strong> <span class="dim-val" data-cm="65×35×35" data-kg="20" style="font-family:monospace;color:#1d4ed8;">65×35×35 cm · 20 kg</span></span>
+      <span style="color:#d1d5db;">·</span>
+      <span style="font-size:0.75rem;color:#374151;"><strong>Trek bag</strong> <span class="dim-val" data-cm="80×40×30" data-kg="18" style="font-family:monospace;color:#1d4ed8;">80×40×30 cm · 18 kg</span></span>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+        <span style="font-size:0.68rem;color:#64748b;">Units:</span>
+        <div style="display:flex;border:1.5px solid #e5e7eb;border-radius:5px;overflow:hidden;">
+          <button id="unitCm" onclick="setUnit('cm')" style="padding:2px 9px;background:#1d4ed8;color:#fff;border:none;cursor:pointer;font-size:0.7rem;font-weight:700;font-family:monospace;">cm</button>
+          <button id="unitIn" onclick="setUnit('in')" style="padding:2px 9px;background:transparent;color:#64748b;border:none;cursor:pointer;font-size:0.7rem;font-weight:700;font-family:monospace;">in</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ── TICKER ── -->
   <div style="background:#1d4ed8; overflow:hidden; padding:9px 0; position:relative;">
@@ -405,7 +461,25 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // ── CITY DATA — grouped by region ──
+    // ── SHIPMENT TYPE TABS ──
+    document.querySelectorAll('.ship-tab').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.ship-tab').forEach(b => {
+          b.style.background = 'transparent';
+          b.style.color = 'rgba(255,255,255,0.8)';
+        });
+        this.style.background = '#fff';
+        this.style.color = '#1d4ed8';
+        const type   = this.dataset.type;
+        const weight = this.dataset.weight;
+        const typeSel   = document.getElementById('shipType');
+        const weightSel = document.getElementById('weight');
+        if (typeSel)   typeSel.value   = type;
+        if (weightSel) weightSel.value = weight;
+      });
+    });
+
+        // ── CITY DATA — grouped by region ──
     const regions = {
       Punjab:      ['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala'],
       Chandigarh:  ['Chandigarh','Mohali','Panchkula','Zirakpur'],
@@ -539,16 +613,11 @@
     dateInput.min = new Date().toISOString().split('T')[0];
 
     // ── SUBMIT ──
-    // Show dispatch badge when To city changes
+    // Show dispatch info when To city changes
     toCitySel.addEventListener('change', function() {
-      const badge = document.getElementById('dispatchBadge');
-      const text  = document.getElementById('dispatchText');
-      if (this.value && badge && text) {
-        const band = dispatchBand[this.value] || '48hr';
-        text.textContent = `${this.value}: ${band} dispatch`;
-        badge.style.display = 'flex';
-      } else if (badge) {
-        badge.style.display = 'none';
+      const text = document.getElementById('dispatchText');
+      if (text) {
+        text.textContent = this.value ? `${dispatchBand[this.value] || '48hr'} dispatch to ${this.value}` : '';
       }
       resetResult();
     });
@@ -573,14 +642,12 @@
       const band    = dispatchBand[to] || '48hr';
       const dateObj = new Date(date + 'T00:00:00');
       const dateStr = dateObj.toLocaleDateString('en-IN', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-      const gst = document.getElementById('needGst') && document.getElementById('needGst').checked ? '\n🧾 GST invoice required: Yes' : '';
-      const msg     = `Hi Patwadi team! I'd like to book a shipment:\n\n📦 Weight: ${wt}\n🗺️ From: ${from}\n📍 To: ${to}\n📅 Pickup date: ${dateStr}${gst}\n\nCould you confirm availability and pricing? Thank you!`;
+      const gst      = document.getElementById('needGst') && document.getElementById('needGst').checked ? '\n🧾 GST invoice: Yes' : '';
+      const shipType = (document.getElementById('shipType') && document.getElementById('shipType').value) || 'Parcel';
+      const msg     = `Hi Patwadi team! I'd like to book a shipment:\n\n📦 Type: ${shipType}\n⚖️ Weight: ${wt}\n🗺️ From: ${from}\n📍 To: ${to}\n📅 Pickup date: ${dateStr}${gst}\n\nCould you confirm availability and pricing? Thank you!`;
       const waUrl   = `https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
 
-      res.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
-        <span style="color:var(--neutral-900);">✅ <strong>${from} → ${to}</strong> · <strong>${band} dispatch</strong></span>
-        <a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-weight:700;font-size:0.85rem;padding:8px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Open WhatsApp</a>
-      </div>`;
+      res.innerHTML = `<span style="color:#0f172a;font-weight:600;">✅ ${from} → ${to} · ${band} dispatch</span>&nbsp;&nbsp;<a href="${waUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:#25D366;color:#fff;font-weight:700;font-size:0.78rem;padding:5px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;">💬 Open WhatsApp</a>`;
       res.style.color = 'var(--neutral-900)'; res.style.fontWeight = '400';
       window.open(waUrl, '_blank');
     });
