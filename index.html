@@ -203,22 +203,112 @@
             </select>
           </div>
 
-          <!-- TYPE — set by tab, editable -->
-          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
-            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Shipment Type</div>
-            <select id="shipType" style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
-              <option value="Parcel">📦 Parcel</option>
-              <option value="Luggage">🧳 Luggage</option>
-              <option value="Business Goods">🏪 Business Goods</option>
-              <option value="Graduation Pack (5 items)">🎓 Graduation Pack</option>
-            </select>
-            <select id="weight" required style="width:100%;border:none;outline:none;font-size:0.78rem;color:#64748b;background:transparent;padding:0;">
-              <option value="Up to 5 kg">Up to 5 kg</option>
-              <option value="5–15 kg">5 – 15 kg</option>
-              <option value="15–30 kg">15 – 30 kg</option>
-              <option value="Above 30 kg">Above 30 kg</option>
-            </select>
+          <!-- SHIPMENT DETAILS — expandable with VWT calculator -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;cursor:pointer;position:relative;" id="shipDetailsCol" onclick="toggleShipPanel()">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Shipment Details</div>
+            <div id="shipSummaryLine" style="font-size:0.82rem;font-weight:600;color:#0f172a;">📦 Parcel</div>
+            <div id="shipSummaryWeight" style="font-size:0.78rem;color:#64748b;margin-top:3px;">1 item · weight TBC</div>
+            <!-- hidden inputs still needed for form submit -->
+            <input type="hidden" id="shipType" value="Parcel">
+            <input type="hidden" id="weight" value="Up to 5 kg">
           </div>
+
+          <!-- SHIP DETAILS PANEL — drops below form bar -->
+          </form><!-- close main form grid here, panel sits outside -->
+          <div id="shipPanel" style="display:none;background:#fff;border:1px solid #e5e7eb;border-top:2px solid #1d4ed8;border-radius:0 0 12px 12px;padding:20px 24px;box-shadow:0 8px 32px rgba(0,0,0,0.12);position:relative;z-index:10;">
+
+            <!-- Tabs: Calculate by piece / by total -->
+            <div style="display:flex;gap:0;border-bottom:1px solid #e5e7eb;margin-bottom:16px;">
+              <button id="calcPieceBtn" onclick="setCalcMode('piece')" style="padding:8px 18px;border:none;background:transparent;font-size:0.78rem;font-weight:700;color:#1d4ed8;border-bottom:2px solid #1d4ed8;cursor:pointer;margin-bottom:-1px;">Calculate by Piece</button>
+              <button id="calcTotalBtn" onclick="setCalcMode('total')" style="padding:8px 18px;border:none;background:transparent;font-size:0.78rem;font-weight:600;color:#94a3b8;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;">Calculate by Total Weight</button>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:16px;align-items:end;">
+
+              <!-- Package type -->
+              <div>
+                <label style="font-size:0.68rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;">Package Type</label>
+                <select id="pkgType" onchange="calcVWT()" style="width:100%;padding:8px 10px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.82rem;font-weight:600;color:#0f172a;">
+                  <option value="carton">📦 Carton / Box</option>
+                  <option value="suitcase">🧳 Suitcase / Trolley</option>
+                  <option value="duffel">👜 Duffel / Sports bag</option>
+                  <option value="trek">🎒 Trek / Gear bag</option>
+                  <option value="other">📫 Other</option>
+                </select>
+              </div>
+
+              <!-- Dimensions + units -->
+              <div>
+                <label style="font-size:0.68rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;">Dimensions (L × W × H) <span id="dimUnitLabel" style="color:#1d4ed8;">cm</span></label>
+                <div style="display:flex;gap:4px;align-items:center;">
+                  <input id="dimL" type="number" placeholder="L" min="1" oninput="calcVWT()" style="width:52px;padding:8px 6px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.82rem;text-align:center;">
+                  <span style="color:#94a3b8;font-size:0.75rem;">×</span>
+                  <input id="dimW" type="number" placeholder="W" min="1" oninput="calcVWT()" style="width:52px;padding:8px 6px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.82rem;text-align:center;">
+                  <span style="color:#94a3b8;font-size:0.75rem;">×</span>
+                  <input id="dimH" type="number" placeholder="H" min="1" oninput="calcVWT()" style="width:52px;padding:8px 6px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.82rem;text-align:center;">
+                  <select id="dimUnit" onchange="calcVWT()" style="padding:7px 4px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.75rem;font-weight:700;color:#1d4ed8;background:#f8faff;">
+                    <option value="cm">cm</option>
+                    <option value="in">in</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Weight + units -->
+              <div>
+                <label style="font-size:0.68rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;">Actual Weight</label>
+                <div style="display:flex;gap:4px;align-items:center;">
+                  <input id="actualWt" type="number" placeholder="kg" min="0.1" step="0.1" oninput="calcVWT()" style="width:80px;padding:8px 10px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.82rem;">
+                  <select id="wtUnit" onchange="calcVWT()" style="padding:7px 4px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:0.75rem;font-weight:700;color:#1d4ed8;background:#f8faff;">
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Unit count -->
+              <div>
+                <label style="font-size:0.68rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:5px;">Items</label>
+                <div style="display:flex;align-items:center;gap:0;border:1.5px solid #e5e7eb;border-radius:6px;overflow:hidden;">
+                  <button type="button" onclick="changeUnits(-1)" style="width:32px;height:36px;border:none;background:#f8faff;font-size:1rem;font-weight:700;cursor:pointer;color:#374151;">−</button>
+                  <span id="unitCount" style="width:36px;text-align:center;font-size:0.88rem;font-weight:700;color:#0f172a;">1</span>
+                  <button type="button" onclick="changeUnits(1)" style="width:32px;height:36px;border:none;background:#f8faff;font-size:1rem;font-weight:700;cursor:pointer;color:#374151;">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Result row -->
+            <div id="vwtResult" style="margin-top:14px;padding:12px 16px;background:#f8faff;border-radius:8px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;min-height:44px;font-size:0.82rem;">
+              <span style="color:#94a3b8;">Enter dimensions and weight to see chargeable weight</span>
+            </div>
+
+            <!-- Confirm button -->
+            <div style="margin-top:14px;display:flex;justify-content:flex-end;gap:10px;">
+              <button type="button" onclick="toggleShipPanel()" style="padding:8px 18px;border:1.5px solid #e5e7eb;border-radius:7px;font-size:0.82rem;font-weight:600;color:#64748b;background:#fff;cursor:pointer;">Cancel</button>
+              <button type="button" onclick="confirmShipDetails()" style="padding:8px 22px;background:#1d4ed8;color:#fff;border:none;border-radius:7px;font-size:0.82rem;font-weight:700;cursor:pointer;">Confirm Details</button>
+            </div>
+          </div>
+          <!-- DATE -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">Pickup Date</div>
+            <input type="date" id="pickupDate" required style="width:100%;border:none;outline:none;font-size:0.82rem;font-weight:600;color:#0f172a;background:transparent;padding:0;margin-bottom:4px;">
+            <div id="dispatchText" style="font-size:0.72rem;color:#16a34a;font-weight:600;min-height:14px;"></div>
+          </div>
+
+          <!-- GST -->
+          <div style="border-right:1px solid #f1f5f9;padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:8px;">
+            <div style="font-size:0.65rem;font-weight:800;color:#94a3b8;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2px;">Invoice</div>
+            <label style="display:flex;align-items:center;gap:7px;cursor:pointer;font-size:0.8rem;font-weight:600;color:#374151;">
+              <input type="checkbox" id="needGst" style="width:14px;height:14px;accent-color:#1d4ed8;"> GST Invoice
+            </label>
+            <div style="font-size:0.7rem;color:#94a3b8;">All routes</div>
+          </div>
+
+          <!-- SUBMIT -->
+          <button type="submit" style="background:#25D366;color:#fff;border:none;padding:0 28px;font-size:0.9rem;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap;min-width:140px;justify-content:center;">
+            💬 Book Now
+          </button>
+
+        </form>
 
           <!-- DATE -->
           <div style="border-right:1px solid #f1f5f9;padding:16px 18px;">
@@ -723,7 +813,94 @@
 
     
 
-    // ── UNIT TOGGLE ──
+    // ── SHIPMENT DETAILS PANEL ──
+    const maxDims = { carton:[60,45,40,20], suitcase:[75,50,30,25], duffel:[65,35,35,20], trek:[80,40,30,18], other:[100,80,60,30] };
+    let shipUnits = 1;
+
+    function toggleShipPanel() {
+      const p = document.getElementById('shipPanel');
+      p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function setCalcMode(mode) {
+      const pb = document.getElementById('calcPieceBtn');
+      const tb = document.getElementById('calcTotalBtn');
+      if (mode === 'piece') {
+        pb.style.color='#1d4ed8'; pb.style.borderBottomColor='#1d4ed8';
+        tb.style.color='#94a3b8'; tb.style.borderBottomColor='transparent';
+      } else {
+        tb.style.color='#1d4ed8'; tb.style.borderBottomColor='#1d4ed8';
+        pb.style.color='#94a3b8'; pb.style.borderBottomColor='transparent';
+      }
+    }
+
+    function changeUnits(delta) {
+      shipUnits = Math.max(1, Math.min(99, shipUnits + delta));
+      document.getElementById('unitCount').textContent = shipUnits;
+      calcVWT();
+    }
+
+    function calcVWT() {
+      const L = parseFloat(document.getElementById('dimL').value) || 0;
+      const W = parseFloat(document.getElementById('dimW').value) || 0;
+      const H = parseFloat(document.getElementById('dimH').value) || 0;
+      let wt = parseFloat(document.getElementById('actualWt').value) || 0;
+      const dimUnit = document.getElementById('dimUnit').value;
+      const wtUnit  = document.getElementById('wtUnit').value;
+      const pkgType = document.getElementById('pkgType').value;
+      const res = document.getElementById('vwtResult');
+
+      // Convert to cm / kg
+      const lcm = dimUnit === 'in' ? L*2.54 : L;
+      const wcm = dimUnit === 'in' ? W*2.54 : W;
+      const hcm = dimUnit === 'in' ? H*2.54 : H;
+      const wtkg = wtUnit === 'lbs' ? wt*0.4536 : wt;
+
+      if (!L || !W || !H || !wt) {
+        res.innerHTML = '<span style="color:#94a3b8;">Enter dimensions and weight to see chargeable weight</span>';
+        return;
+      }
+
+      // VWT formula: L×W×H / 5000 (road freight standard)
+      const vwt = (lcm * wcm * hcm) / 5000;
+      const chargeableWt = Math.max(vwt, wtkg) * shipUnits;
+      const actualTotal  = wtkg * shipUnits;
+      const vwtTotal     = vwt * shipUnits;
+      const isVWT        = vwt > wtkg;
+
+      // Dimension check
+      const limits = maxDims[pkgType] || maxDims.other;
+      const dims   = [lcm, wcm, hcm].sort((a,b)=>b-a);
+      const lims   = [limits[0], limits[1], limits[2]].sort((a,b)=>b-a);
+      const oversized = dims[0]>lims[0] || dims[1]>lims[1] || dims[2]>lims[2] || wtkg>limits[3];
+
+      let html = `
+        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center;width:100%;">
+          <div><span style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;font-weight:700;letter-spacing:0.07em;">Items</span><br><strong style="font-size:1rem;color:#0f172a;">${shipUnits}</strong></div>
+          <div><span style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;font-weight:700;letter-spacing:0.07em;">Actual weight</span><br><strong style="font-size:1rem;color:#0f172a;">${actualTotal.toFixed(1)} kg</strong></div>
+          <div><span style="font-size:0.7rem;color:#94a3b8;text-transform:uppercase;font-weight:700;letter-spacing:0.07em;">Volumetric weight</span><br><strong style="font-size:1rem;color:#0f172a;">${vwtTotal.toFixed(1)} kg</strong></div>
+          <div style="background:${isVWT?'#fef9c3':'#f0fdf4'};border:1.5px solid ${isVWT?'#fbbf24':'#86efac'};border-radius:6px;padding:6px 12px;">
+            <span style="font-size:0.7rem;color:#64748b;text-transform:uppercase;font-weight:700;letter-spacing:0.07em;">Chargeable weight</span><br>
+            <strong style="font-size:1rem;color:${isVWT?'#b45309':'#16a34a'};">${chargeableWt.toFixed(1)} kg ${isVWT?'(VWT billed)':'(actual billed)'}</strong>
+          </div>
+          ${oversized ? '<div style="background:#fef2f2;border:1.5px solid #fca5a5;border-radius:6px;padding:6px 12px;color:#dc2626;font-size:0.78rem;font-weight:700;">⚠️ Exceeds standard limits — WhatsApp us for a custom quote</div>' : ''}
+        </div>`;
+      res.innerHTML = html;
+
+      // Update summary line
+      document.getElementById('shipSummaryWeight').textContent = `${shipUnits} item${shipUnits>1?'s':''} · ${chargeableWt.toFixed(1)} kg chargeable`;
+      document.getElementById('weight').value = chargeableWt <= 5 ? 'Up to 5 kg' : chargeableWt <= 15 ? '5–15 kg' : chargeableWt <= 30 ? '15–30 kg' : 'Above 30 kg';
+    }
+
+    function confirmShipDetails() {
+      const type = document.getElementById('pkgType');
+      const typeLabels = {carton:'📦 Carton / Box', suitcase:'🧳 Suitcase', duffel:'👜 Duffel bag', trek:'🎒 Trek bag', other:'📫 Other'};
+      if (type) document.getElementById('shipSummaryLine').textContent = typeLabels[type.value] || '📦 Parcel';
+      document.getElementById('shipType').value = typeLabels[type.value] || 'Parcel';
+      toggleShipPanel();
+    }
+
+    
     function setUnit(unit) {
       const cmToIn = v => Math.round(v / 2.54 * 10) / 10;
       document.querySelectorAll('.dim-val').forEach(el => {
