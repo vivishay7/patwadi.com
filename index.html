@@ -69,9 +69,10 @@
     /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 580px;
+      min-height: 520px;
       display: flex; flex-direction: column;
       overflow: hidden;
+      padding-bottom: 32px;
     }
 
     /* Video layer */
@@ -108,7 +109,7 @@
       flex: 1;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      padding: 56px 24px 0;
+      padding: 44px 24px 0;
       text-align: center;
     }
 
@@ -151,7 +152,7 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 10px; padding: 3px;
-      margin-bottom: -1px; /* flush into form bar */
+      margin-bottom: 12px;
     }
     .ship-tab {
       padding: 9px 22px;
@@ -173,6 +174,7 @@
     .form-bar-wrap {
       position: relative; z-index: 2;
       padding: 0 24px;
+      width: 100%;
     }
     .form-bar-inner {
       max-width: 1200px; margin: 0 auto; position: relative;
@@ -182,8 +184,9 @@
       border-radius: 12px 12px 0 0;
       box-shadow: 0 -4px 32px rgba(0,0,0,0.28);
       display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr 0.95fr 0.8fr auto;
+      grid-template-columns: 1fr 1fr 1.2fr 0.95fr 0.75fr auto;
       overflow: hidden;
+      width: 100%;
     }
     .form-cell {
       padding: 16px 20px;
@@ -222,7 +225,7 @@
       cursor: pointer;
     }
     .cell-primary:disabled, .cell-secondary:disabled {
-      color: #CBD5E1; cursor: not-allowed;
+      color: #94A3B8; cursor: not-allowed;
     }
     .dispatch-hint {
       font-size: 0.72rem; color: #16a34a;
@@ -233,7 +236,7 @@
       border: none; font-size: 0.9rem; font-weight: 800;
       cursor: pointer; padding: 0 28px;
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      min-width: 130px; white-space: nowrap;
+      min-width: 110px; white-space: nowrap;
       border-radius: 0 12px 0 0;
       transition: background 0.15s;
     }
@@ -250,6 +253,8 @@
       padding: 10px 20px; min-height: 38px;
       font-size: 0.82rem; color: #94A3B8;
       display: flex; align-items: center; gap: 12px;
+      width: 100%;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
 
     /* VWT dropdown panel */
@@ -652,19 +657,31 @@
     </div>
     <h1 class="hero-headline">Intercity cargo,<br>booked in 2 minutes.</h1>
     <p class="hero-sub">WhatsApp booking · Scheduled buses · Plains to hills<br>Punjab · HP · Haryana · J&amp;K · Delhi NCR · Gujarat</p>
-
-    <!-- Shipment type tabs -->
-    <div class="ship-tabs">
-      <button class="ship-tab active" data-type="Parcel" data-weight="Up to 5 kg">📦 Parcel</button>
-      <button class="ship-tab" data-type="Luggage" data-weight="5–15 kg">🧳 Luggage</button>
-      <button class="ship-tab" data-type="Business Goods" data-weight="15–30 kg">🏪 Business</button>
-      <button class="ship-tab" data-type="Graduation Pack" data-weight="Above 30 kg">🎓 Graduation</button>
-    </div>
   </div>
 
-  <!-- Form bar pinned to bottom of hero -->
+  <!-- Tabs + Form bar as one connected unit -->
   <div class="form-bar-wrap">
     <div class="form-bar-inner">
+
+      <!-- Shipment type tabs — sits flush on top of form -->
+      <div style="display:flex;gap:2px;padding:0 2px 0;margin-bottom:0;">
+        <button class="ship-tab active" data-type="Parcel" data-weight="Up to 5 kg"
+          style="padding:9px 20px;border:none;border-radius:8px 8px 0 0;font-size:0.82rem;font-weight:700;cursor:pointer;background:#fff;color:#1D4ED8;border-bottom:none;">
+          📦 Parcel
+        </button>
+        <button class="ship-tab" data-type="Luggage" data-weight="5–15 kg"
+          style="padding:9px 20px;border:none;border-radius:8px 8px 0 0;font-size:0.82rem;font-weight:700;cursor:pointer;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.82);border-bottom:none;">
+          🧳 Luggage
+        </button>
+        <button class="ship-tab" data-type="Business Goods" data-weight="15–30 kg"
+          style="padding:9px 20px;border:none;border-radius:8px 8px 0 0;font-size:0.82rem;font-weight:700;cursor:pointer;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.82);border-bottom:none;">
+          🏪 Business
+        </button>
+        <button class="ship-tab" data-type="Graduation Pack" data-weight="Above 30 kg"
+          style="padding:9px 20px;border:none;border-radius:8px 8px 0 0;font-size:0.82rem;font-weight:700;cursor:pointer;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.82);border-bottom:none;">
+          🎓 Graduation
+        </button>
+      </div>
       <form class="booking-form" id="quoteForm">
 
         <!-- FROM -->
@@ -796,8 +813,8 @@
   </div>
 
   <!-- Result bar -->
-  <div style="position:relative;z-index:2;">
-    <div class="result-bar">
+  <div style="position:relative;z-index:2;padding:0 24px;">
+    <div style="max-width:1200px;margin:0 auto;">
       <div class="result-inner" id="quoteResult">Fill in the form above — we'll open WhatsApp with everything pre-filled.</div>
     </div>
   </div>
@@ -805,7 +822,7 @@
 </section>
 
 <!-- Trust bar -->
-<div class="trust-bar">
+<div class="trust-bar" style="margin-top:24px;">
   <div class="trust-inner">
     <div class="trust-stats">
       <div class="trust-stat"><span class="trust-num green">96.7%</span><span class="trust-lbl">on-time delivery</span></div>
@@ -1044,8 +1061,12 @@
   // ── SHIP TABS ──
   document.querySelectorAll('.ship-tab').forEach(btn => {
     btn.addEventListener('click', function() {
-      document.querySelectorAll('.ship-tab').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
+      document.querySelectorAll('.ship-tab').forEach(b => {
+        b.style.background = 'rgba(255,255,255,0.15)';
+        b.style.color = 'rgba(255,255,255,0.82)';
+      });
+      this.style.background = '#fff';
+      this.style.color = '#1D4ED8';
       const t = document.getElementById('shipType');
       const w = document.getElementById('weight');
       if (t) t.value = this.dataset.type;
