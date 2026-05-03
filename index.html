@@ -58,13 +58,13 @@
     }
     .nav-links a:hover { background: #F1F5F9; color: #0F172A; }
     .nav-cta {
-      background: #25D366; color: #fff;
+      background: #1D4ED8; color: #fff;
       font-size: 0.82rem; font-weight: 700;
       padding: 8px 18px; border-radius: 8px;
       text-decoration: none; white-space: nowrap; flex-shrink: 0;
       transition: background 0.15s;
     }
-    .nav-cta:hover { background: #16a34a; }
+    .nav-cta:hover { background: #1E3A8A; }
 
     /* ── HERO ── */
     .hero {
@@ -232,7 +232,7 @@
       font-weight: 600; min-height: 16px; margin-top: 1px;
     }
     .form-submit {
-      background: #25D366; color: #fff;
+      background: #1D4ED8; color: #fff;
       border: none; font-size: 0.9rem; font-weight: 800;
       cursor: pointer; padding: 0 28px;
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -240,7 +240,7 @@
       border-radius: 0 12px 0 0;
       transition: background 0.15s;
     }
-    .form-submit:hover { background: #16a34a; }
+    .form-submit:hover { background: #1E3A8A; }
 
     /* Result bar */
     .result-bar {
@@ -656,7 +656,7 @@
       <span class="hero-pill-text">Live · 9 states · Same-day plains · 48hr hills</span>
     </div>
     <h1 class="hero-headline">Intercity cargo,<br>booked in 2 minutes.</h1>
-    <p class="hero-sub">WhatsApp booking · Scheduled buses · Plains to hills<br>Punjab · HP · Haryana · J&amp;K · Delhi NCR · Gujarat</p>
+    <p class="hero-sub">WhatsApp booking · Plains to hills<br>Punjab · HP · Haryana · J&amp;K · Delhi NCR · Gujarat</p>
   </div>
 
   <!-- Tabs + Form bar as one connected unit -->
@@ -767,7 +767,7 @@
         <div class="vwt-grid">
           <div>
             <label class="vwt-label">Package type</label>
-            <select id="pkgType" class="vwt-input" onchange="calcVWT()">
+            <select id="pkgType" class="vwt-input" onchange="calcVWT(); updateDimHint()">
               <option value="carton">Carton / Box</option>
               <option value="suitcase">Suitcase / Trolley</option>
               <option value="duffel">Duffel / Sports bag</option>
@@ -783,7 +783,7 @@
               <input id="dimW" type="number" placeholder="W" min="1" oninput="calcVWT()" class="dim-input">
               <span class="dim-sep">×</span>
               <input id="dimH" type="number" placeholder="H" min="1" oninput="calcVWT()" class="dim-input">
-              <select id="dimUnit" class="unit-sel" onchange="calcVWT()"><option value="cm">cm</option><option value="in">in</option></select>
+              <select id="dimUnit" class="unit-sel" onchange="calcVWT(); updateDimHint()"><option value="cm">cm</option><option value="in">in</option></select>
             </div>
           </div>
           <div>
@@ -801,6 +801,12 @@
               <button type="button" class="counter-btn" onclick="changeUnits(1)">+</button>
             </div>
           </div>
+        </div>
+
+        <!-- Live dimension limit hint — updates with package type & unit -->
+        <div id="dimLimitHint" style="display:flex;align-items:center;gap:6px;padding:8px 12px;background:#F0F7FF;border:1px solid #BFDBFE;border-radius:7px;margin-bottom:2px;">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#1D4ED8" stroke-width="1.2"/><path d="M6.5 5.5v4M6.5 4h.01" stroke="#1D4ED8" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <span style="font-size:0.72rem;color:#1D4ED8;font-weight:600;" id="dimLimitText">Max for carton: 60×45×40 cm · 20 kg</span>
         </div>
         <div class="vwt-result" id="vwtResult">Enter dimensions and weight to see chargeable weight</div>
         <div class="vwt-actions">
@@ -832,34 +838,8 @@
       <div class="trust-stat"><span class="trust-num ink">Zero</span><span class="trust-lbl">lost parcels</span></div>
       <div class="trust-div"></div>
       <div class="trust-stat"><span class="trust-num ink">9 states</span><span class="trust-lbl">covered</span></div>
-    </div>
-    <div class="segment-chips">
-      <span style="font-size:0.7rem;color:#94A3B8;font-weight:600;">Serves</span>
-      <span class="segment-chip">🎓 Students</span>
-      <span class="segment-chip">👨‍👩‍👧 Parents</span>
-      <span class="segment-chip">🏪 Wholesalers</span>
-      <span class="segment-chip">🏢 Businesses</span>
-    </div>
-  </div>
-</div>
-
-<!-- Dimension bar -->
-<div class="dim-bar">
-  <div class="dim-bar-inner">
-    <span class="dim-bar-label">📐 Max item dimensions</span>
-    <span class="dim-item"><strong>Carton</strong> <span class="dim-val" data-cm="60×45×40" data-kg="20">60×45×40 cm · 20 kg</span></span>
-    <span class="dim-sep-dot">·</span>
-    <span class="dim-item"><strong>Suitcase</strong> <span class="dim-val" data-cm="75×50×30" data-kg="25">75×50×30 cm · 25 kg</span></span>
-    <span class="dim-sep-dot">·</span>
-    <span class="dim-item"><strong>Duffel</strong> <span class="dim-val" data-cm="65×35×35" data-kg="20">65×35×35 cm · 20 kg</span></span>
-    <span class="dim-sep-dot">·</span>
-    <span class="dim-item"><strong>Trek bag</strong> <span class="dim-val" data-cm="80×40×30" data-kg="18">80×40×30 cm · 18 kg</span></span>
-    <div class="unit-toggle">
-      <span>Units:</span>
-      <div class="unit-btns">
-        <button id="unitCm" class="unit-btn active" onclick="setUnit('cm')">cm</button>
-        <button id="unitIn" class="unit-btn" onclick="setUnit('in')">in</button>
-      </div>
+      <div class="trust-div"></div>
+      <div class="trust-stat"><span class="trust-num ink">&lt; 24hr</span><span class="trust-lbl">plains dispatch</span></div>
     </div>
   </div>
 </div>
@@ -948,7 +928,7 @@
   <div class="container">
     <p class="section-eyebrow">Coverage</p>
     <h2 class="section-title">Active corridors</h2>
-    <p class="section-sub">Any city within a connected region can ship to any city in another. Verified bus routes only.</p>
+    <p class="section-sub">Any city within a connected region can ship to any city in another.</p>
 
     <div class="coverage-table-wrap">
       <table class="coverage-table">
@@ -1311,18 +1291,24 @@
     toggleShipPanel();
   }
 
-  // ── UNIT TOGGLE ──
-  function setUnit(u) {
-    const toIn = v => Math.round(v/2.54*10)/10;
-    document.querySelectorAll('.dim-val').forEach(el => {
-      const dims = el.dataset.cm.split('×').map(Number);
-      const kg = parseFloat(el.dataset.kg);
-      const lbs = Math.round(kg*2.205*10)/10;
-      el.textContent = u==='in' ? `${dims.map(toIn).join('×')} in · ${lbs} lbs` : `${el.dataset.cm} cm · ${kg} kg`;
-    });
-    document.getElementById('unitCm').classList.toggle('active', u==='cm');
-    document.getElementById('unitIn').classList.toggle('active', u==='in');
+  // ── DIM LIMIT HINT ──
+  const dimLabels = {
+    carton:   { cm: '60×45×40 cm · 20 kg',  in: '23.6×17.7×15.7 in · 44 lbs',  name: 'Carton / Box' },
+    suitcase: { cm: '75×50×30 cm · 25 kg',  in: '29.5×19.7×11.8 in · 55 lbs',  name: 'Suitcase' },
+    duffel:   { cm: '65×35×35 cm · 20 kg',  in: '25.6×13.8×13.8 in · 44 lbs',  name: 'Duffel bag' },
+    trek:     { cm: '80×40×30 cm · 18 kg',  in: '31.5×15.7×11.8 in · 40 lbs',  name: 'Trek / Gear bag' },
+    other:    { cm: '100×80×60 cm · 30 kg', in: '39.4×31.5×23.6 in · 66 lbs',  name: 'Other' },
+  };
+  function updateDimHint() {
+    const pt  = document.getElementById('pkgType').value;
+    const du  = document.getElementById('dimUnit').value;
+    const el  = document.getElementById('dimLimitText');
+    if (!el) return;
+    const d = dimLabels[pt] || dimLabels.other;
+    el.textContent = `Max for ${d.name}: ${d[du]}`;
   }
+  // Init on load
+  updateDimHint();
 </script>
 </body>
 </html>
