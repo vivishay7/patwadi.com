@@ -612,9 +612,12 @@
 
   <!-- Video background -->
   <div class="hero-video-wrap">
-    <!-- Hosted highway/mountain video — autoplay, muted, loop, no controls -->
-    <video autoplay muted loop playsinline poster="">
-      <!-- No src — falls through to SVG fallback gracefully -->
+    <!-- Self-hosted video required for reliable autoplay across browsers.     -->
+    <!-- Download https://youtu.be/RGGZmosQXLs, compress to ~4MB 720p H.264,  -->
+    <!-- save as assets/video/hero.mp4 in your repo to activate.              -->
+    <video autoplay muted loop playsinline poster=""
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.45;">
+      <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
     <!-- SVG fallback — always rendered behind video -->
     <svg class="hero-svg-bg" viewBox="0 0 1440 580" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
