@@ -86,13 +86,20 @@
       object-fit: cover;
       opacity: 0.45;
     }
-    /* Fallback SVG if video unavailable */
+    /* Fallback SVG — sits behind the video */
     .hero-svg-bg {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
+      z-index: 0;
     }
-
-    /* Gradient overlay — ensures text always readable */
+    /* Video sits above SVG fallback */
+    .hero-video-wrap video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: 1;
+    }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
@@ -615,8 +622,7 @@
     <!-- Self-hosted video required for reliable autoplay across browsers.     -->
     <!-- Download https://youtu.be/RGGZmosQXLs, compress to ~4MB 720p H.264,  -->
     <!-- save as assets/video/hero.mp4 in your repo to activate.              -->
-    <video autoplay muted loop playsinline poster=""
-      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.45;">
+    <video autoplay muted loop playsinline>
       <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
     <!-- SVG fallback — always rendered behind video -->
