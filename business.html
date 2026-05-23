@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Shipping, Patwadi</title>
+  <meta name="description" content="City to city carton and stock shipping for shops, wholesalers, and repeat lanes. GST invoice support. WhatsApp booking. Route confirmed before dispatch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--green-wa:#25D366;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background 0.15s;}
+    .nav-links a:hover,.nav-links a.active{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--blue);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+    .nav-mobile-menu.open{display:flex;}
+    .nav-mobile-menu a{display:block;padding:10px 12px;font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+    .hero{background:linear-gradient(135deg,#0F172A 0%,#1a2e1a 100%);padding:68px 24px 52px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");}
+    .eyebrow-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:5px 14px;border-radius:20px;margin-bottom:20px;font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.1em;text-transform:uppercase;}
+    .hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px;max-width:640px;margin-left:auto;margin-right:auto;}
+    .hero p{font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.75;max-width:540px;margin:0 auto 12px;}
+    .hero-reassurance{font-size:0.82rem;color:rgba(255,255,255,0.45);margin-bottom:28px;max-width:460px;margin-left:auto;margin-right:auto;}
+    .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .btn-wa{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:var(--green-wa);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:rgba(255,255,255,0.12);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);}
+    .trust-strip{background:#fff;border-bottom:1px solid var(--border);padding:14px 24px;}
+    .trust-strip-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+    .ts-stat{display:flex;align-items:baseline;gap:6px;padding:8px 22px;border-right:1px solid var(--border);}
+    .ts-stat:last-child{border-right:none;}
+    .ts-num{font-size:1rem;font-weight:800;}
+    .ts-lbl{font-size:0.73rem;color:#64748b;}
+    .section{padding:60px 24px;}
+    .section-alt{background:var(--surface);}
+    .container{max-width:1100px;margin:0 auto;}
+    .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:12px;}
+    .section-sub{font-size:0.88rem;color:#64748b;line-height:1.7;margin-bottom:32px;max-width:520px;}
+    .usp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .usp-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;transition:border-color 0.2s;}
+    .usp-card:hover{border-color:var(--blue);}
+    .usp-icon{font-size:1.4rem;margin-bottom:10px;}
+    .usp-title{font-size:0.92rem;font-weight:700;color:var(--ink);margin-bottom:5px;}
+    .usp-body{font-size:0.8rem;color:var(--mid);line-height:1.65;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .p-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;}
+    .p-card.featured{border-color:var(--blue);border-width:2px;}
+    .p-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghost);margin-bottom:8px;}
+    .p-title{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .p-body{font-size:0.82rem;color:var(--mid);line-height:1.65;margin-bottom:12px;}
+    .p-cta{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:700;color:var(--blue);text-decoration:none;}
+    .p-small{font-size:0.72rem;color:var(--ghost);margin-top:8px;}
+    .gst-box{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:16px 20px;font-size:0.82rem;color:#166534;line-height:1.65;}
+    .lane-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .lane-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:border-color 0.15s,box-shadow 0.15s;}
+    .lane-card:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(29,78,216,0.1);}
+    .lane-pair{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:3px;}
+    .lane-meta{font-size:0.7rem;color:#64748b;}
+    .lane-cta{font-size:0.72rem;font-weight:700;color:var(--blue);white-space:nowrap;flex-shrink:0;margin-left:12px;}
+    .cluster-label{font-size:0.68rem;font-weight:700;color:var(--ghost);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;margin-top:24px;display:block;}
+    .cluster-label:first-child{margin-top:0;}
+    .route-caveat{background:#F0F7FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;font-size:0.8rem;color:#1D4ED8;margin-top:12px;line-height:1.6;}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .form-group{display:flex;flex-direction:column;gap:5px;}
+    .form-group label{font-size:0.78rem;font-weight:600;color:#374151;}
+    .form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.85rem;outline:none;font-family:inherit;transition:border-color 0.15s;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);}
+    .cta-band{background:var(--ink);border-radius:14px;padding:36px 40px;text-align:center;}
+    .cta-band h2{color:#fff;font-size:1.25rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.02em;}
+    .cta-band p{color:#64748b;font-size:0.875rem;margin-bottom:20px;}
+    .cta-band .reassurance{font-size:0.78rem;color:#64748b;margin-top:12px;}
+    footer{background:var(--ink);color:var(--ghost);padding:28px 24px;}
+    .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #1E293B;padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.78rem;color:#475569;}
+    .footer-bottom a{color:#64748b;text-decoration:none;margin:0 10px;}
+    .footer-bottom a:hover{color:#fff;}
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}
+      .hero h1{font-size:1.8rem;}.usp-grid{grid-template-columns:1fr;}.pricing-grid{grid-template-columns:1fr;}.lane-grid{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr;}.split-grid{grid-template-columns:1fr!important;}.ts-stat{width:50%;border-right:none;border-bottom:1px solid var(--border);}.ts-stat:nth-child(odd){border-right:1px solid var(--border);}.section{padding:40px 20px;}.cta-band{padding:28px 20px;}.hero-btns{flex-direction:column;align-items:center;}.btn-wa,.btn-outline{width:100%;justify-content:center;}
+    }
+    @media(max-width:480px){.ts-stat{width:100%;border-right:none!important;}}
+  </style>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="students.html">Students</a></li>
+      <li><a href="business.html" class="active">Business</a></li>
+      <li><a href="index.html#routes">Routes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta" aria-label="Get business quote on WhatsApp">Get a quote</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="mNav">
+    <a href="students.html">Students</a><a href="business.html">Business</a><a href="index.html#routes">Routes</a><a href="contact.html">Contact</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta-m" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="eyebrow-pill"><span style="width:6px;height:6px;border-radius:50%;background:#4ADE80;flex-shrink:0;"></span>Shops, wholesalers, campus vendors, repeat lanes</div>
+    <h1>Cartons moving city to city. Without courier confusion.</h1>
+    <p>For shops, wholesalers, campus vendors, and repeat lanes. Six cartons to Mandi. Booked before lunch. Send your route and carton count. We'll confirm the quote on WhatsApp.</p>
+    <p class="hero-reassurance">Tell us the route, carton count, approximate weight, and frequency. We'll confirm the exact quote before anything moves.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="btn-wa" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+      <a href="#contact" class="btn-outline" aria-label="Send route enquiry">Send route enquiry</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="ts-stat"><span class="ts-num" style="color:#16a34a;">GST</span><span class="ts-lbl">invoice support on every shipment</span></div>
+    <div class="ts-stat"><span class="ts-num" style="color:#1D4ED8;">No min</span><span class="ts-lbl">order or account setup</span></div>
+    <div class="ts-stat"><span class="ts-num" style="color:#0F172A;">WhatsApp</span><span class="ts-lbl">tracking and route confirmation</span></div>
+    <div class="ts-stat"><span class="ts-num" style="color:#0F172A;">Quote</span><span class="ts-lbl">confirmed before dispatch</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">What's different</p>
+    <h2 class="section-title">Built for how you actually ship</h2>
+    <p class="section-sub">No courier app. No minimum order. No account setup. Quote confirmed before anything moves.</p>
+    <div class="usp-grid">
+      <div class="usp-card"><div class="usp-icon">🧾</div><div class="usp-title">GST invoice support</div><div class="usp-body">Every booking can carry a GST invoice. Tell us at booking. Your business name and GSTIN on the shipment documentation.</div></div>
+      <div class="usp-card"><div class="usp-icon">🔁</div><div class="usp-title">Repeat lane quotes</div><div class="usp-body">If you send cartons on the same corridor every week or month, message us your route list and frequency. We'll build a standing lane quote.</div></div>
+      <div class="usp-card"><div class="usp-icon">💬</div><div class="usp-title">WhatsApp-first, no app</div><div class="usp-body">Book, track, and ask questions on the same WhatsApp thread. No portal login, no ticket queue.</div></div>
+      <div class="usp-card"><div class="usp-icon">✅</div><div class="usp-title">Route confirmed before dispatch</div><div class="usp-body">We confirm route availability, timing, and quote on WhatsApp before your cartons leave your hands.</div></div>
+      <div class="usp-card"><div class="usp-icon">📋</div><div class="usp-title">Proof of delivery</div><div class="usp-body">Arrival confirmation sent to the sender via WhatsApp. Know when your stock reached the destination.</div></div>
+      <div class="usp-card"><div class="usp-icon">⚡</div><div class="usp-title">Same-day dispatch on plains</div><div class="usp-body">Book before noon on key corridors: Punjab, Haryana, Delhi, Chandigarh. Your consignment moves the same day. Confirm timing on WhatsApp.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Rates and GST</p>
+    <h2 class="section-title">Quote confirmed on WhatsApp</h2>
+    <p class="section-sub">No public rate card. Rates depend on route, carton count, weight, and frequency. Message us and we'll confirm before anything moves.</p>
+    <div class="pricing-grid">
+      <div class="p-card">
+        <div class="p-label">Single shipment</div>
+        <div class="p-title">One-time route</div>
+        <div class="p-body">One booking, any active corridor. Tell us carton count, approximate weight, and destination. We'll confirm the quote on WhatsApp.</div>
+        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20one-time%20business%20shipping%20quote" target="_blank" class="p-cta" aria-label="Get single shipment quote on WhatsApp">Get a quote on WhatsApp</a>
+      </div>
+      <div class="p-card featured">
+        <div class="p-label">Repeat lanes</div>
+        <div class="p-title">Regular shipping?</div>
+        <div class="p-body">If you send cartons on the same lanes every week or every month, message us your route list, carton range, and frequency. We'll build a lane quote that fits your movement pattern.</div>
+        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20repeat-lane%20pricing%20for%20my%20business" target="_blank" class="p-cta" aria-label="Ask for repeat-lane pricing on WhatsApp">Ask for repeat-lane pricing</a>
+        <p class="p-small">Best for shops, wholesalers, campus vendors, and regional stock movement.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-label">GST invoice</div>
+        <div class="p-title">GST invoice support</div>
+        <div class="p-body">Need GST details on your shipment? Send your business name, GSTIN, route, and carton count with the inquiry. Available on all active routes.</div>
+        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20ask%20about%20GST%20shipping" target="_blank" class="p-cta" aria-label="Ask about GST shipping on WhatsApp">Ask about GST shipping</a>
+      </div>
+    </div>
+    <div class="gst-box" style="margin-top:16px;">GST invoice available on all active routes. Confirm at booking with your GSTIN and business name.</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Popular business routes</p>
+    <h2 class="section-title">Where businesses are shipping</h2>
+    <p class="section-sub">Tap any route to open a pre-filled WhatsApp inquiry. Route and quote confirmed before dispatch.</p>
+    <span class="cluster-label">North India</span>
+    <div class="lane-grid" style="margin-bottom:0;">
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Panipat%20to%20Delhi" target="_blank" class="lane-card" aria-label="Book Panipat to Delhi business route on WhatsApp"><div><div class="lane-pair">Panipat to Delhi NCR</div><div class="lane-meta">Same-day. Textile cartons, samples, documents.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Jalandhar%20to%20Chandigarh" target="_blank" class="lane-card" aria-label="Book Jalandhar to Chandigarh business route on WhatsApp"><div><div class="lane-pair">Jalandhar to Chandigarh</div><div class="lane-meta">Same-day. Stock, cartons, mixed goods.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Delhi%20to%20Mandi" target="_blank" class="lane-card" aria-label="Book Delhi to Mandi business route on WhatsApp"><div><div class="lane-pair">Delhi to Mandi</div><div class="lane-meta">48 hours. Restocking cartons.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Ludhiana%20to%20Delhi" target="_blank" class="lane-card" aria-label="Book Ludhiana to Delhi business route on WhatsApp"><div><div class="lane-pair">Ludhiana to Delhi NCR</div><div class="lane-meta">Same-day. Garments, cartons, samples.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Chandigarh%20to%20Shimla" target="_blank" class="lane-card" aria-label="Book Chandigarh to Shimla business route on WhatsApp"><div><div class="lane-pair">Chandigarh to Shimla</div><div class="lane-meta">48 hours. Stock restocking.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Delhi%20to%20Jammu" target="_blank" class="lane-card" aria-label="Book Delhi to Jammu business route on WhatsApp"><div><div class="lane-pair">Delhi to Jammu</div><div class="lane-meta">72 hours. Cartons, documents.</div></div><span class="lane-cta">Book this route</span></a>
+    </div>
+    <span class="cluster-label">West India</span>
+    <div class="lane-grid" style="margin-bottom:0;">
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Ahmedabad%20to%20Mumbai" target="_blank" class="lane-card" aria-label="Book Ahmedabad to Mumbai business route on WhatsApp"><div><div class="lane-pair">Ahmedabad to Mumbai</div><div class="lane-meta">48 hours. Cartons, mixed goods.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Surat%20to%20Pune" target="_blank" class="lane-card" aria-label="Book Surat to Pune business route on WhatsApp"><div><div class="lane-pair">Surat to Pune</div><div class="lane-meta">48 hours. Textile goods, cartons.</div></div><span class="lane-cta">Book this route</span></a>
+    </div>
+    <span class="cluster-label">South India</span>
+    <div class="lane-grid">
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Hyderabad%20to%20Chennai" target="_blank" class="lane-card" aria-label="Book Hyderabad to Chennai business route on WhatsApp"><div><div class="lane-pair">Hyderabad to Chennai</div><div class="lane-meta">24 to 48 hours. Cartons, documents.</div></div><span class="lane-cta">Book this route</span></a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20business%20route%20inquiry%3A%20Bangalore%20to%20Chennai" target="_blank" class="lane-card" aria-label="Book Bangalore to Chennai business route on WhatsApp"><div><div class="lane-pair">Bangalore to Chennai</div><div class="lane-meta">24 to 48 hours. Mixed goods, restocking.</div></div><span class="lane-cta">Book this route</span></a>
+    </div>
+    <div class="route-caveat">Don't see your route? Message us the city pair, carton count, and frequency. We'll confirm availability on WhatsApp. <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20business%20route" target="_blank" style="font-weight:700;color:#1D4ED8;" aria-label="Check business route on WhatsApp">Check my route</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;" class="split-grid">
+      <div>
+        <p class="eyebrow">Get a quote</p>
+        <h2 class="section-title">Tell us your route</h2>
+        <p style="font-size:0.9rem;color:#475569;line-height:1.75;margin-bottom:16px;">Fill in the form and we'll confirm a quote on WhatsApp within a few hours. Or just message us directly.</p>
+        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:#25D366;color:#fff;font-weight:700;font-size:0.88rem;border-radius:9px;text-decoration:none;margin-bottom:20px;" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;font-size:0.82rem;color:#475569;line-height:1.75;">
+          <strong style="color:#0F172A;display:block;margin-bottom:6px;">What to tell us:</strong>
+          Origin city. Destination city. Number of cartons or bags. Approximate weight. How often you ship.
+        </div>
+      </div>
+      <div>
+        <form id="bizForm" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="contact-grid">
+            <div class="form-group"><label>Your name</label><input type="text" placeholder="Rahul Sharma" required></div>
+            <div class="form-group"><label>Shop or company name</label><input type="text" placeholder="Sharma Textiles" required></div>
+          </div>
+          <div class="contact-grid">
+            <div class="form-group"><label>WhatsApp number</label><input type="tel" placeholder="+91 98765 43210" required></div>
+            <div class="form-group"><label>Email (optional)</label><input type="email" placeholder="rahul@sharma.com"></div>
+          </div>
+          <div class="form-group"><label>Route (origin to destination)</label><input type="text" placeholder="Panipat to Chandigarh" required></div>
+          <div class="contact-grid">
+            <div class="form-group"><label>Typical carton count</label><select><option value="">Select</option><option>1 to 5 cartons</option><option>5 to 20 cartons</option><option>20 or more cartons</option><option>Varies</option></select></div>
+            <div class="form-group"><label>Shipping frequency</label><select><option value="">Select</option><option>One-off</option><option>Weekly</option><option>Fortnightly</option><option>Monthly</option></select></div>
+          </div>
+          <div class="form-group"><label>GST invoice needed?</label><select><option>Yes, include GST invoice</option><option>No, not required</option><option>Not sure</option></select></div>
+          <div class="form-group"><label>Anything else</label><textarea rows="2" placeholder="Item type, special requirements..."></textarea></div>
+          <button type="submit" style="padding:13px;background:var(--blue);color:#fff;font-weight:700;font-size:0.9rem;border:none;border-radius:9px;cursor:pointer;" aria-label="Submit business enquiry">Send enquiry</button>
+          <p style="font-size:0.75rem;color:var(--ghost);text-align:center;">We confirm within a few hours. You can also <a href="https://wa.me/918091889969" target="_blank" style="color:var(--blue);" aria-label="Message Patwadi on WhatsApp">message us directly on WhatsApp</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Ready to move your next batch?</h2>
+      <p>Send your route, carton count, approximate weight, and GST requirement. We'll confirm the quote on WhatsApp.</p>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+      <p class="reassurance">No account setup. Quote confirmed before dispatch.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
+    <div><a href="index.html">Home</a><a href="students.html">Students</a><a href="how-it-works.html">How It Works</a><a href="contact.html">Contact</a><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">+91 80918 89969</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('bizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.innerHTML=`<div style="text-align:center;padding:36px 20px;"><div style="font-size:2rem;margin-bottom:12px;">Done</div><h3 style="margin-bottom:8px;color:#0F172A;">Enquiry received</h3><p style="color:#475569;font-size:0.88rem;line-height:1.65;">We'll confirm a quote on WhatsApp within a few hours.<br>You can also reach us at <a href="https://wa.me/918091889969" target="_blank" style="color:#1D4ED8;font-weight:600;">+91 80918 89969</a>.</p></div>`;
+  });
+</script>
+</body>
+</html>
