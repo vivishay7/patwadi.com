@@ -663,10 +663,10 @@
   <div class="hero-content">
     <div class="hero-pill">
       <div class="hero-pill-dot"></div>
-      <span class="hero-pill-text">Live · 9 states · Same-day plains · 48hr hills</span>
+      <span class="hero-pill-text">Live · Pan-India · North &amp; South · Book in 2 min</span>
     </div>
     <h1 class="hero-headline">Intercity cargo,<br>booked in 2 minutes.</h1>
-    <p class="hero-sub">WhatsApp booking · Plains to hills<br>Punjab · HP · Haryana · J&amp;K · Delhi NCR · Gujarat</p>
+    <p class="hero-sub">WhatsApp booking · Plains to hills · North to South<br>Punjab · HP · J&amp;K · Delhi · Haryana · Tamil Nadu · Karnataka · Kerala · AP</p>
   </div>
 
   <!-- Tabs + Form bar as one connected unit -->
@@ -853,7 +853,7 @@
       <span style="font-size:0.75rem;color:#64748b;">lost parcels</span>
     </div>
     <div style="display:flex;align-items:baseline;gap:6px;padding:0 28px;border-right:1px solid #E2E8F0;">
-      <span style="font-size:1.1rem;font-weight:800;color:#0F172A;">9 states</span>
+      <span style="font-size:1.1rem;font-weight:800;color:#0F172A;">13 states</span>
       <span style="font-size:0.75rem;color:#64748b;">covered</span>
     </div>
     <div style="display:flex;align-items:baseline;gap:6px;padding:0 28px;">
@@ -874,8 +874,8 @@
 <section class="section">
   <div class="container">
     <p class="section-eyebrow">Why choose us</p>
-    <h2 class="section-title">Built for North India's routes</h2>
-    <p class="section-sub">Scheduled buses, real corridors, WhatsApp-first booking. No app, no account, no courier complexity.</p>
+    <h2 class="section-title">Built for India's intercity corridors</h2>
+    <p class="section-sub">Real corridors, real operators, WhatsApp-first booking. No app, no account, no courier complexity.</p>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">⚡</div>
@@ -884,8 +884,8 @@
       </div>
       <div class="why-card">
         <div class="why-icon">🏔️</div>
-        <div class="why-title">Hill routes that work</div>
-        <div class="why-body">Shimla, Mandi, Manali, Dharamshala, Srinagar — corridors most couriers avoid. 48–96hr SLA, tracked live.</div>
+        <div class="why-title">Routes others avoid</div>
+        <div class="why-body">Shimla to Srinagar in the North, Chennai to Kochi in the South — corridors most couriers price out of reach. 24–96hr SLA, tracked live.</div>
       </div>
       <div class="why-card">
         <div class="why-icon">💬</div>
@@ -949,40 +949,66 @@
     <h2 class="section-title">Active corridors</h2>
     <p class="section-sub">Any city within a connected region can ship to any city in another.</p>
 
-    <div class="coverage-table-wrap">
-      <table class="coverage-table">
-        <thead>
-          <tr>
-            <th>From → To</th>
-            <th>Punjab</th><th>Chandigarh</th><th>Haryana</th><th>Delhi NCR</th>
-            <th>HP</th><th>J&amp;K</th><th>Uttarakhand</th><th>Gujarat</th><th>Maharashtra</th>
-          </tr>
-        </thead>
-        <tbody id="corridorGrid"></tbody>
-      </table>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+      <!-- North cluster table -->
+      <div>
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;">North India cluster</div>
+        <div class="coverage-table-wrap">
+          <table class="coverage-table">
+            <thead><tr>
+              <th>From → To</th>
+              <th>Punjab</th><th>Chd</th><th>Haryana</th><th>Delhi</th><th>HP</th><th>J&amp;K</th><th>UK</th>
+            </tr></thead>
+            <tbody id="corridorGridNorth"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- South cluster table -->
+      <div>
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;">South India cluster</div>
+        <div class="coverage-table-wrap">
+          <table class="coverage-table">
+            <thead><tr>
+              <th>From → To</th>
+              <th>Tamil Nadu</th><th>Karnataka</th><th>AP &amp; TS</th><th>Kerala</th>
+            </tr></thead>
+            <tbody id="corridorGridSouth"></tbody>
+          </table>
+        </div>
+        <div style="margin-top:10px;font-size:0.72rem;color:#94A3B8;padding:8px 12px;background:#F8FAFF;border-radius:7px;border:1px solid #E2E8F0;">
+          ⚠️ North and South clusters are independent — no direct cross-country routes.
+          Gujarat ↔ Maharashtra operate as a separate West cluster.
+        </div>
+      </div>
     </div>
 
-    <div class="dispatch-grid">
+    <div class="dispatch-grid" style="grid-template-columns:repeat(4,1fr);">
       <div class="dispatch-card plains">
-        <div class="dispatch-eyebrow">Plains corridors</div>
-        <div class="dispatch-time green">Same-day dispatch</div>
+        <div class="dispatch-eyebrow">Plains — North</div>
+        <div class="dispatch-time green">Same-day</div>
         <div class="dispatch-note">Punjab · Chandigarh · Haryana · Delhi NCR</div>
       </div>
       <div class="dispatch-card hills">
-        <div class="dispatch-eyebrow">Hill corridors</div>
-        <div class="dispatch-time blue">48hr dispatch</div>
-        <div class="dispatch-note">Himachal Pradesh · Uttarakhand · Gujarat · Maharashtra</div>
+        <div class="dispatch-eyebrow">Hills &amp; West</div>
+        <div class="dispatch-time blue">48hr</div>
+        <div class="dispatch-note">HP · Uttarakhand · Gujarat · Maharashtra</div>
       </div>
       <div class="dispatch-card jk">
-        <div class="dispatch-eyebrow">J&amp;K corridors</div>
-        <div class="dispatch-time ink">72–96hr dispatch</div>
-        <div class="dispatch-note">Jammu / Katra / Udhampur · Srinagar 96hr SLA</div>
+        <div class="dispatch-eyebrow">J&amp;K</div>
+        <div class="dispatch-time ink">72–96hr</div>
+        <div class="dispatch-note">Jammu · Katra · Udhampur · Srinagar 96hr</div>
+      </div>
+      <div class="dispatch-card" style="border-top-color:#F97316;">
+        <div class="dispatch-eyebrow">South India</div>
+        <div class="dispatch-time" style="color:#F97316;">24–48hr</div>
+        <div class="dispatch-note">TN · Karnataka · AP/TS · Kerala</div>
       </div>
     </div>
 
     <div class="pills-wrap">
       <div class="pills-label">States &amp; regions covered</div>
       <div class="pills">
+        <span style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em;width:100%;margin-bottom:4px;">North</span>
         <span class="pill pill-blue">Punjab</span>
         <span class="pill pill-blue">Chandigarh UT</span>
         <span class="pill pill-blue">Haryana</span>
@@ -991,8 +1017,15 @@
         <span class="pill pill-purple">Jammu &amp; Kashmir <span style="opacity:0.6;font-size:0.72rem;">72hr SLA</span></span>
         <span class="pill pill-orange">Srinagar <span style="opacity:0.6;font-size:0.72rem;">96hr SLA</span></span>
         <span class="pill pill-green">Uttarakhand</span>
+        <span style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em;width:100%;margin-top:8px;margin-bottom:4px;">West</span>
         <span class="pill pill-orange">Gujarat</span>
         <span class="pill pill-purple">Maharashtra</span>
+        <span style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em;width:100%;margin-top:8px;margin-bottom:4px;">South</span>
+        <span class="pill pill-green">Tamil Nadu</span>
+        <span class="pill pill-blue">Karnataka</span>
+        <span class="pill pill-amber">Andhra Pradesh</span>
+        <span class="pill pill-amber">Telangana</span>
+        <span class="pill pill-green">Kerala</span>
       </div>
     </div>
   </div>
@@ -1076,6 +1109,7 @@
 
   // ── DATA ──
   const regions = {
+    // ── NORTH CLUSTER ──
     Punjab:['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala'],
     Chandigarh:['Chandigarh','Mohali','Panchkula','Zirakpur'],
     Haryana:['Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad'],
@@ -1083,15 +1117,24 @@
     HP:['Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur'],
     JK:['Jammu','Katra','Udhampur','Srinagar'],
     Uttarakhand:['Dehradun'],
+    // ── WEST CLUSTER ──
     Gujarat:['Ahmedabad','Surat','Vadodara','Rajkot'],
     Maharashtra:['Mumbai','Pune'],
+    // ── SOUTH CLUSTER ──
+    TamilNadu:['Chennai','Coimbatore','Madurai','Trichy','Salem','Tirunelveli','Vellore'],
+    Karnataka:['Bangalore','Mysore','Hosur'],
+    AndhraTelangana:['Hyderabad','Tirupati','Vijayawada','Visakhapatnam'],
+    Kerala:['Kochi','Thiruvananthapuram'],
   };
   const regionLabels = {
     Punjab:'Punjab', Chandigarh:'Chandigarh & Belt', Haryana:'Haryana',
     Delhi:'Delhi NCR', HP:'Himachal Pradesh', JK:'Jammu & Kashmir',
     Uttarakhand:'Uttarakhand', Gujarat:'Gujarat', Maharashtra:'Maharashtra',
+    TamilNadu:'Tamil Nadu', Karnataka:'Karnataka',
+    AndhraTelangana:'Andhra & Telangana', Kerala:'Kerala',
   };
   const corridors = {
+    // North cluster — no cross-cluster routes
     Punjab:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
     Chandigarh:['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],
     Haryana:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
@@ -1099,8 +1142,14 @@
     HP:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
     JK:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],
     Uttarakhand:['Chandigarh','Haryana','Delhi','JK','Uttarakhand'],
+    // West cluster
     Gujarat:['Gujarat','Maharashtra'],
     Maharashtra:['Gujarat','Maharashtra'],
+    // South cluster — verified bus corridors
+    TamilNadu:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],
+    Karnataka:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],
+    AndhraTelangana:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],
+    Kerala:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],
   };
   const regionKeys = Object.keys(regions);
   const cityRegion = {};
@@ -1118,6 +1167,12 @@
     Dehradun:'48hr',
     Ahmedabad:'48hr',Surat:'48hr',Vadodara:'48hr',Rajkot:'48hr',
     Mumbai:'48hr',Pune:'48hr',
+    // South India — 24–48hr intercity
+    Chennai:'24hr',Coimbatore:'24hr',Madurai:'24hr',Trichy:'24hr',
+    Salem:'24hr',Tirunelveli:'24hr',Vellore:'24hr',
+    Bangalore:'24hr',Mysore:'24hr',Hosur:'24hr',
+    Hyderabad:'24hr',Tirupati:'24hr',Vijayawada:'24hr',Visakhapatnam:'48hr',
+    Kochi:'24hr','Thiruvananthapuram':'48hr',
   };
 
   // ── DROPDOWNS ──
@@ -1216,7 +1271,7 @@
 
   // ── TICKER ──
   (function() {
-    const cities = ['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala','Chandigarh','Mohali','Panchkula','Zirakpur','Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad','Delhi','Noida','Ghaziabad','Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur','Jammu','Katra','Udhampur','Srinagar','Dehradun','Ahmedabad','Surat','Vadodara','Rajkot','Mumbai','Pune'];
+    const cities = ['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Chandigarh','Mohali','Panchkula','Ambala','Panipat','Gurugram','Delhi','Noida','Shimla','Mandi','Manali','Dharamshala','Jammu','Srinagar','Dehradun','Ahmedabad','Surat','Mumbai','Pune','Chennai','Coimbatore','Madurai','Trichy','Salem','Tirunelveli','Bangalore','Mysore','Hyderabad','Tirupati','Vijayawada','Kochi'];
     const sep = `<span style="display:inline-block;width:2px;height:11px;background:rgba(255,255,255,0.2);margin:0 16px;vertical-align:middle;border-radius:1px;"></span>`;
     const html = cities.map(c => `<span style="display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-family:monospace;"><span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;flex-shrink:0;"></span><span style="font-weight:600;color:#fff;">${c}</span></span>${sep}`).join('');
     const t = document.getElementById('ticker');
@@ -1233,17 +1288,16 @@
     wrap.addEventListener('mouseleave', () => wrap._paused = false);
   })();
 
-  // ── CORRIDOR GRID ──
-  (function() {
-    const cols = ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand','Gujarat','Maharashtra'];
-    const tbody = document.getElementById('corridorGrid');
+  // ── CORRIDOR GRIDS ──
+  function buildGrid(tbodyId, rowRegs, colRegs) {
+    const tbody = document.getElementById(tbodyId);
     if (!tbody) return;
-    cols.forEach(fr => {
+    rowRegs.forEach(fr => {
       const tr = document.createElement('tr');
       const th = document.createElement('td');
       th.textContent = regionLabels[fr];
       tr.appendChild(th);
-      cols.forEach(to => {
+      colRegs.forEach(to => {
         const td = document.createElement('td');
         if (fr === to) td.innerHTML = '<span style="color:#CBD5E1;font-size:0.8rem;">—</span>';
         else if (corridors[fr]?.includes(to)) td.innerHTML = '<span style="color:#16a34a;font-weight:700;font-size:0.95rem;">✓</span>';
@@ -1252,7 +1306,15 @@
       });
       tbody.appendChild(tr);
     });
-  })();
+  }
+  buildGrid('corridorGridNorth',
+    ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],
+    ['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand']
+  );
+  buildGrid('corridorGridSouth',
+    ['TamilNadu','Karnataka','AndhraTelangana','Kerala'],
+    ['TamilNadu','Karnataka','AndhraTelangana','Kerala']
+  );
 
   // ── VWT PANEL ──
   const maxDims = {carton:[60,45,40,20],suitcase:[75,50,30,25],duffel:[65,35,35,20],trek:[80,40,30,18],other:[100,80,60,30]};
