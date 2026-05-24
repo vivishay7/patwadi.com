@@ -10,7 +10,7 @@
   <style>
     :root { --blue:#1D4ED8; --blue-dk:#1E3A8A; --ink:#0F172A; --mid:#475569; --ghost:#94A3B8; --border:#E2E8F0; --surface:#F8FAFF; --green-wa:#25D366; }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
@@ -108,14 +108,14 @@
       <li><a href="index.html#routes">Routes</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta" aria-label="Book student move-out on WhatsApp">Book move-out</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta" aria-label="Book on WhatsApp">Book move-out</a>
     <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav-mobile-menu" id="mNav">
     <a href="students.html">Students</a><a href="business.html">Business</a><a href="index.html#routes">Routes</a><a href="contact.html">Contact</a>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta-m" aria-label="Book student move-out on WhatsApp">Book move-out on WhatsApp</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta-m" aria-label="Book on WhatsApp">Book move-out on WhatsApp</a>
   </div>
 </nav>
 
@@ -126,7 +126,7 @@
     <p>Suitcases, cartons, bedding, books, and graduation packs. Book on WhatsApp, track each step, and get route confirmation before you send.</p>
     <p class="hero-caveat">Campus or PG pickup may be available on select routes. Otherwise, we'll guide you to the nearest collection point.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book%20a%20shipment" target="_blank" class="btn-wa" aria-label="Book student move-out on WhatsApp">Book student move-out on WhatsApp</a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book%20a%20shipment" target="_blank" class="btn-wa" aria-label="Book on WhatsApp">Book on WhatsApp</a>
       <a href="#lanes" class="btn-outline" aria-label="See student routes">See student routes</a>
     </div>
   </div>
@@ -147,12 +147,12 @@
     <h2 class="section-title">Everything in your hostel room</h2>
     <p class="section-sub">If it fits the dimension limits and isn't on the banned list, we'll move it.</p>
     <div class="item-grid">
-      <div class="item-card"><div class="item-icon">🧳</div><div class="item-title">Suitcases and trolleys</div><div class="item-desc">Full-size suitcases up to 75x50x30 cm and 25 kg. Hard or soft shell. Leave the padlock on.</div><span class="item-tag">Up to 25 kg</span></div>
-      <div class="item-card"><div class="item-icon">📦</div><div class="item-title">Carton boxes</div><div class="item-desc">Books, utensils, clothes, appliances. Pack tightly in a sealed carton. Max 60x45x40 cm and 20 kg per box.</div><span class="item-tag">Up to 20 kg</span></div>
-      <div class="item-card"><div class="item-icon">🛏️</div><div class="item-title">Bedding and rolled items</div><div class="item-desc">Mattress toppers, blankets, pillows. Roll tightly and wrap in plastic. Confirm dimensions at booking.</div><span class="item-tag">Confirm dimensions</span></div>
-      <div class="item-card"><div class="item-icon">👜</div><div class="item-title">Duffel and sports bags</div><div class="item-desc">Duffel bags, sports kits, gear bags. Max 65x35x35 cm and 20 kg.</div><span class="item-tag">Up to 20 kg</span></div>
-      <div class="item-card"><div class="item-icon">💻</div><div class="item-title">Electronics, boxed</div><div class="item-desc">Monitors, printers, speakers in original box or double-boxed with padding. Declare as fragile at booking.</div><span class="item-tag">Declare fragile</span></div>
-      <div class="item-card"><div class="item-icon">🎓</div><div class="item-title">Graduation pack</div><div class="item-desc">Send up to 5 items in one booking. Route confirmed on WhatsApp before dispatch.</div><span class="item-tag">5 items, one booking</span></div>
+      <div class="item-card"><div class="item-title">Suitcases and trolleys</div><div class="item-desc">Full-size suitcases up to 75x50x30 cm and 25 kg. Hard or soft shell. Leave the padlock on.</div><span class="item-tag">Up to 25 kg</span></div>
+      <div class="item-card"><div class="item-title">Carton boxes</div><div class="item-desc">Books, utensils, clothes, appliances. Pack tightly in a sealed carton. Max 60x45x40 cm and 20 kg per box.</div><span class="item-tag">Up to 20 kg</span></div>
+      <div class="item-card"><div class="item-title">Bedding and rolled items</div><div class="item-desc">Mattress toppers, blankets, pillows. Roll tightly and wrap in plastic. Confirm dimensions at booking.</div><span class="item-tag">Confirm dimensions</span></div>
+      <div class="item-card"><div class="item-title">Duffel and sports bags</div><div class="item-desc">Duffel bags, sports kits, gear bags. Max 65x35x35 cm and 20 kg.</div><span class="item-tag">Up to 20 kg</span></div>
+      <div class="item-card"><div class="item-title">Electronics, boxed</div><div class="item-desc">Monitors, printers, speakers in original box or double-boxed with padding. Declare as fragile at booking.</div><span class="item-tag">Declare fragile</span></div>
+      <div class="item-card"><div class="item-title">Graduation pack</div><div class="item-desc">Send up to 5 items in one booking. Route confirmed on WhatsApp before dispatch.</div><span class="item-tag">5 items, one booking</span></div>
     </div>
   </div>
 </section>
@@ -214,24 +214,24 @@
     <div class="checklist-grid">
       <div class="checklist-col"><h3 class="green">You can send</h3>
         <ul class="checklist-list">
-          <li><span class="check">Y</span>Clothes and shoes in sealed bags or cartons</li>
-          <li><span class="check">Y</span>Books, notes, stationery packed tightly</li>
-          <li><span class="check">Y</span>Bedding, blankets, pillow covers rolled and wrapped</li>
-          <li><span class="check">Y</span>Kitchen items: utensils, small appliances. No liquids.</li>
-          <li><span class="check">Y</span>Electronics in original or double-boxed packaging</li>
-          <li><span class="check">Y</span>Sports gear and bags within dimension limits</li>
-          <li><span class="check">Y</span>Posters and frames: well-padded, declared fragile</li>
+          <li><span class="check">Yes</span>Clothes and shoes in sealed bags or cartons</li>
+          <li><span class="check">Yes</span>Books, notes, stationery packed tightly</li>
+          <li><span class="check">Yes</span>Bedding, blankets, pillow covers rolled and wrapped</li>
+          <li><span class="check">Yes</span>Kitchen items: utensils, small appliances. No liquids.</li>
+          <li><span class="check">Yes</span>Electronics in original or double-boxed packaging</li>
+          <li><span class="check">Yes</span>Sports gear and bags within dimension limits</li>
+          <li><span class="check">Yes</span>Posters and frames: well-padded, declared fragile</li>
         </ul>
       </div>
       <div class="checklist-col"><h3 class="red">Do not send</h3>
         <ul class="checklist-list">
-          <li><span class="cross">N</span>Liquids: bottles, oils, perfumes, sauces</li>
-          <li><span class="cross">N</span>Perishables: food, dairy, anything needing refrigeration</li>
-          <li><span class="cross">N</span>Loose lithium batteries or power banks above 20,000 mAh</li>
-          <li><span class="cross">N</span>Cash, gold, jewellery, or original documents</li>
-          <li><span class="cross">N</span>Gas cylinders or flammables</li>
-          <li><span class="cross">N</span>Fragile items without bubble wrap and declaration</li>
-          <li><span class="cross">N</span>Oversized items without prior WhatsApp confirmation</li>
+          <li><span class="cross">No</span>Liquids: bottles, oils, perfumes, sauces</li>
+          <li><span class="cross">No</span>Perishables: food, dairy, anything needing refrigeration</li>
+          <li><span class="cross">No</span>Loose lithium batteries or power banks above 20,000 mAh</li>
+          <li><span class="cross">No</span>Cash, gold, jewellery, or original documents</li>
+          <li><span class="cross">No</span>Gas cylinders or flammables</li>
+          <li><span class="cross">No</span>Fragile items without bubble wrap and declaration</li>
+          <li><span class="cross">No</span>Oversized items without prior WhatsApp confirmation</li>
         </ul>
       </div>
     </div>
@@ -256,7 +256,7 @@
     <div class="cta-band">
       <h2>Ready to send your room home?</h2>
       <p>Tell us your route, item count, and move date. We'll confirm availability, timing, and quote on WhatsApp.</p>
-      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book%20a%20shipment" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Book student move-out on WhatsApp">Book student move-out on WhatsApp</a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book%20a%20shipment" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Book on WhatsApp">Book on WhatsApp</a>
       <p class="reassurance">Parents can receive tracking updates too.</p>
     </div>
   </div>
