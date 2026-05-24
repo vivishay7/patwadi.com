@@ -21,7 +21,7 @@
       --green-wa:  #25D366;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
     /* === NAV === */
@@ -157,12 +157,13 @@
     #ticker { display: flex; align-items: center; white-space: nowrap; will-change: transform; }
 
     /* === WHY CARDS === */
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 24px; border-left: none; }
     .why-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; }
     .why-card:hover { border-color: var(--blue); transform: translateY(-2px); }
-    .why-icon { width: 44px; height: 44px; border-radius: 10px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px; }
     .why-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
     .why-body { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
+    .why-card { border-left: 3px solid var(--border); border-top: none; border-right: none; border-bottom: none; border-radius: 0; padding: 20px 24px; background: transparent; }
+    .why-card:hover { border-left-color: var(--blue); transform: none; box-shadow: none; }
 
     /* === STEPS === */
     .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
@@ -242,7 +243,14 @@
     .route-caveat { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 14px 18px; font-size: 0.82rem; color: #92400E; line-height: 1.65; margin-top: 16px; }
 
     /* === MOBILE === */
+    /* Coverage tables — clip to container on mobile */
+    .coverage-table-wrap { max-width: 100%; }
+    .coverage-grid-wrap { overflow: hidden; }
+
     @media (max-width: 768px) {
+      /* Hide complex corridor tables on mobile, show pill summary only */
+      .coverage-grid-wrap { display: none !important; }
+      .dispatch-grid { margin-top: 0; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-cta { display: none; }
@@ -342,8 +350,8 @@
     <h1 class="hero-headline">Bags, boxes, cartons. Sent city to city on WhatsApp.</h1>
     <p class="hero-sub">Choose what you're sending. We'll confirm the route, timing, and quote before anything moves.</p>
     <div class="hero-doors">
-      <a href="students.html" class="door-btn door-btn-primary" aria-label="Go to student move-out page">🎓 Student move-out</a>
-      <a href="business.html" class="door-btn door-btn-secondary" aria-label="Go to business shipping page">🏪 Business shipping</a>
+      <a href="students.html" class="door-btn door-btn-primary" aria-label="Go to student move-out page">Student move-out</a>
+      <a href="business.html" class="door-btn door-btn-secondary" aria-label="Go to business shipping page">Business shipping</a>
     </div>
     <p class="hero-hint">or use the route checker below</p>
   </div>
@@ -352,10 +360,10 @@
   <div class="form-bar-wrap">
     <div class="form-bar-inner">
       <div class="ship-tabs">
-        <button class="ship-tab active" data-type="Parcel" data-weight="Up to 5 kg" aria-label="Select parcel shipment type">📦 Parcel</button>
-        <button class="ship-tab" data-type="Luggage" data-weight="5-15 kg" aria-label="Select luggage shipment type">🧳 Luggage</button>
-        <button class="ship-tab" data-type="Business Goods" data-weight="15-30 kg" aria-label="Select business goods shipment type">🏪 Business</button>
-        <button class="ship-tab" data-type="Graduation Pack" data-weight="Above 30 kg" aria-label="Select graduation pack shipment type">🎓 Graduation</button>
+        <button class="ship-tab active" data-type="Parcel" data-weight="Up to 5 kg" aria-label="Select parcel shipment type">Parcel</button>
+        <button class="ship-tab" data-type="Luggage" data-weight="5-15 kg" aria-label="Select luggage shipment type">Luggage</button>
+        <button class="ship-tab" data-type="Business Goods" data-weight="15-30 kg" aria-label="Select business goods shipment type">Business</button>
+        <button class="ship-tab" data-type="Graduation Pack" data-weight="Above 30 kg" aria-label="Select graduation pack shipment type">Graduation</button>
       </div>
       <form class="booking-form" id="quoteForm">
         <div class="form-cell">
@@ -526,19 +534,19 @@
     <p class="section-sub">Tell us what you're sending. We'll confirm the route, timing, and quote before anything moves.</p>
     <div class="router-grid">
       <div class="router-card">
-        <div class="router-icon">🎓</div>
+        
         <div class="router-title">Moving out?</div>
         <div class="router-body">Send suitcases, bedding, books, cartons, and graduation packs through active city corridors.</div>
         <a href="students.html" class="router-cta" aria-label="Go to student move-out page">Student move-out</a>
       </div>
       <div class="router-card">
-        <div class="router-icon">🏪</div>
+        
         <div class="router-title">Shipping for your shop?</div>
         <div class="router-body">Move cartons and stock across repeat lanes with route confirmation and GST invoice support.</div>
         <a href="business.html" class="router-cta" aria-label="Go to business shipping page">Business shipping</a>
       </div>
       <div class="router-card">
-        <div class="router-icon">📍</div>
+        
         <div class="router-title">Not sure if your route is active?</div>
         <div class="router-body">Message us the city pair. We'll confirm availability, timing, and quote on WhatsApp.</div>
         <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20if%20my%20route%20is%20active" target="_blank" class="router-cta wa" aria-label="Check route availability on WhatsApp">Check my route</a>
@@ -563,15 +571,15 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:12px;">
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;display:flex;gap:14px;">
-          <span style="font-size:1.4rem;flex-shrink:0;">🧳</span>
+          
           <div><div style="font-weight:700;color:#0F172A;margin-bottom:4px;font-size:0.92rem;">Hostel luggage</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Suitcases, trolleys, duffel bags. Drop at collection point. 48-hour hold at destination.</div></div>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;display:flex;gap:14px;">
-          <span style="font-size:1.4rem;flex-shrink:0;">📚</span>
+          
           <div><div style="font-weight:700;color:#0F172A;margin-bottom:4px;font-size:0.92rem;">Books, bedding and cartons</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Carton boxes up to 20 kg, rolled bedding, kitchen items. Pack it, drop it, track it.</div></div>
         </div>
         <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:18px;display:flex;gap:14px;">
-          <span style="font-size:1.4rem;flex-shrink:0;">🎓</span>
+          
           <div><div style="font-weight:700;color:#0F172A;margin-bottom:4px;font-size:0.92rem;">Graduation pack</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Send up to 5 items in one booking. Quote confirmed before dispatch. Book 48 hours before your move date.</div></div>
         </div>
       </div>
@@ -658,12 +666,12 @@
     <h2 class="section-title">Built for India's city corridors</h2>
     <p class="section-sub">Real operators, real routes, WhatsApp-first booking. No app, no account, no courier confusion.</p>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Same-day on plains</div><div class="why-body">Punjab, Delhi, Haryana, Chandigarh. Book before noon and your consignment moves the same day. Confirm timing on WhatsApp.</div></div>
-      <div class="why-card"><div class="why-icon">🏔️</div><div class="why-title">Routes others avoid</div><div class="why-body">Shimla to Srinagar in the North. Chennai to Kochi in the South. Corridors most couriers price out of reach. 24 to 96 hours depending on the lane.</div></div>
-      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">WhatsApp-first</div><div class="why-body">No app download, no account setup. Confirm route, track shipment, and ask questions on the same WhatsApp thread.</div></div>
-      <div class="why-card"><div class="why-icon">🧾</div><div class="why-title">GST invoice support</div><div class="why-body">Every shipment can carry a GST invoice. Tell us at booking. Wholesale restocking, business transfers, all covered.</div></div>
-      <div class="why-card"><div class="why-icon">📦</div><div class="why-title">Cartons and luggage</div><div class="why-body">One suitcase or twenty cartons. Quote confirmed by WhatsApp before dispatch. No minimum order.</div></div>
-      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">96.7% on time, zero lost</div><div class="why-body">1,100 plus deliveries completed. Not one lost parcel. Quote and route confirmed before anything moves.</div></div>
+      <div class="why-card"><div class="why-title">Same-day on plains</div><div class="why-body">Punjab, Delhi, Haryana, Chandigarh. Book before noon and your consignment moves the same day. Confirm timing on WhatsApp.</div></div>
+      <div class="why-card"><div class="why-title">Routes others avoid</div><div class="why-body">Shimla to Srinagar in the North. Chennai to Kochi in the South. Corridors most couriers price out of reach. 24 to 96 hours depending on the lane.</div></div>
+      <div class="why-card"><div class="why-title">WhatsApp-first</div><div class="why-body">No app download, no account setup. Confirm route, track shipment, and ask questions on the same WhatsApp thread.</div></div>
+      <div class="why-card"><div class="why-title">GST invoice support</div><div class="why-body">Every shipment can carry a GST invoice. Tell us at booking. Wholesale restocking, business transfers, all covered.</div></div>
+      <div class="why-card"><div class="why-title">Cartons and luggage</div><div class="why-body">One suitcase or twenty cartons. Quote confirmed by WhatsApp before dispatch. No minimum order.</div></div>
+      <div class="why-card"><div class="why-title">96.7% on time, zero lost</div><div class="why-body">1,100 plus deliveries completed. Not one lost parcel. Quote and route confirmed before anything moves.</div></div>
     </div>
   </div>
 </section>
@@ -752,11 +760,11 @@
   <div class="container">
     <p class="eyebrow" style="margin-bottom:24px;">Operating on</p>
     <div class="partners-row">
-      <span class="partner-name">HRTC</span><span style="color:#CBD5E1;">.</span>
-      <span class="partner-name">GSRTC</span><span style="color:#CBD5E1;">.</span>
-      <span class="partner-name">UPSRTC</span><span style="color:#CBD5E1;">.</span>
-      <span class="partner-name">Punjab Roadways</span><span style="color:#CBD5E1;">.</span>
-      <span class="partner-name">Haryana Roadways</span><span style="color:#CBD5E1;">.</span>
+      <span class="partner-name">HRTC</span><span style="color:#CBD5E1;margin:0 4px;">·</span>
+      <span class="partner-name">GSRTC</span><span style="color:#CBD5E1;margin:0 4px;">·</span>
+      <span class="partner-name">UPSRTC</span><span style="color:#CBD5E1;margin:0 4px;">·</span>
+      <span class="partner-name">Punjab Roadways</span><span style="color:#CBD5E1;margin:0 4px;">·</span>
+      <span class="partner-name">Haryana Roadways</span><span style="color:#CBD5E1;margin:0 4px;">·</span>
       <span class="partner-name">Private Operators</span>
     </div>
   </div>
