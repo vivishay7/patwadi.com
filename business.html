@@ -10,7 +10,7 @@
   <style>
     :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--green-wa:#25D366;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
@@ -100,14 +100,14 @@
       <li><a href="index.html#routes">Routes</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta" aria-label="Get business quote on WhatsApp">Get a quote</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta" aria-label="Get a quote on WhatsApp">Get a quote</a>
     <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav-mobile-menu" id="mNav">
     <a href="students.html">Students</a><a href="business.html">Business</a><a href="index.html#routes">Routes</a><a href="contact.html">Contact</a>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta-m" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta-m" aria-label="Get a quote on WhatsApp">Get a quote on WhatsApp</a>
   </div>
 </nav>
 
@@ -118,7 +118,7 @@
     <p>For shops, wholesalers, campus vendors, and repeat lanes. Six cartons to Mandi. Booked before lunch. Send your route and carton count. We'll confirm the quote on WhatsApp.</p>
     <p class="hero-reassurance">Tell us the route, carton count, approximate weight, and frequency. We'll confirm the exact quote before anything moves.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="btn-wa" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="btn-wa" aria-label="Get a quote on WhatsApp">Get a quote on WhatsApp</a>
       <a href="#contact" class="btn-outline" aria-label="Send route enquiry">Send route enquiry</a>
     </div>
   </div>
@@ -139,12 +139,12 @@
     <h2 class="section-title">Built for how you actually ship</h2>
     <p class="section-sub">No courier app. No minimum order. No account setup. Quote confirmed before anything moves.</p>
     <div class="usp-grid">
-      <div class="usp-card"><div class="usp-icon">🧾</div><div class="usp-title">GST invoice support</div><div class="usp-body">Every booking can carry a GST invoice. Tell us at booking. Your business name and GSTIN on the shipment documentation.</div></div>
-      <div class="usp-card"><div class="usp-icon">🔁</div><div class="usp-title">Repeat lane quotes</div><div class="usp-body">If you send cartons on the same corridor every week or month, message us your route list and frequency. We'll build a standing lane quote.</div></div>
-      <div class="usp-card"><div class="usp-icon">💬</div><div class="usp-title">WhatsApp-first, no app</div><div class="usp-body">Book, track, and ask questions on the same WhatsApp thread. No portal login, no ticket queue.</div></div>
-      <div class="usp-card"><div class="usp-icon">✅</div><div class="usp-title">Route confirmed before dispatch</div><div class="usp-body">We confirm route availability, timing, and quote on WhatsApp before your cartons leave your hands.</div></div>
-      <div class="usp-card"><div class="usp-icon">📋</div><div class="usp-title">Proof of delivery</div><div class="usp-body">Arrival confirmation sent to the sender via WhatsApp. Know when your stock reached the destination.</div></div>
-      <div class="usp-card"><div class="usp-icon">⚡</div><div class="usp-title">Same-day dispatch on plains</div><div class="usp-body">Book before noon on key corridors: Punjab, Haryana, Delhi, Chandigarh. Your consignment moves the same day. Confirm timing on WhatsApp.</div></div>
+      <div class="usp-card"><div class="usp-title">GST invoice support</div><div class="usp-body">Every booking can carry a GST invoice. Tell us at booking. Your business name and GSTIN on the shipment documentation.</div></div>
+      <div class="usp-card"><div class="usp-title">Repeat lane quotes</div><div class="usp-body">If you send cartons on the same corridor every week or month, message us your route list and frequency. We'll build a standing lane quote.</div></div>
+      <div class="usp-card"><div class="usp-title">WhatsApp-first, no app</div><div class="usp-body">Book, track, and ask questions on the same WhatsApp thread. No portal login, no ticket queue.</div></div>
+      <div class="usp-card"><div class="usp-title">Route confirmed before dispatch</div><div class="usp-body">We confirm route availability, timing, and quote on WhatsApp before your cartons leave your hands.</div></div>
+      <div class="usp-card"><div class="usp-title">Proof of delivery</div><div class="usp-body">Arrival confirmation sent to the sender via WhatsApp. Know when your stock reached the destination.</div></div>
+      <div class="usp-card"><div class="usp-title">Same-day dispatch on plains</div><div class="usp-body">Book before noon on key corridors: Punjab, Haryana, Delhi, Chandigarh. Your consignment moves the same day. Confirm timing on WhatsApp.</div></div>
     </div>
   </div>
 </section>
@@ -214,7 +214,7 @@
         <p class="eyebrow">Get a quote</p>
         <h2 class="section-title">Tell us your route</h2>
         <p style="font-size:0.9rem;color:#475569;line-height:1.75;margin-bottom:16px;">Fill in the form and we'll confirm a quote on WhatsApp within a few hours. Or just message us directly.</p>
-        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:#25D366;color:#fff;font-weight:700;font-size:0.88rem;border-radius:9px;text-decoration:none;margin-bottom:20px;" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+        <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:#25D366;color:#fff;font-weight:700;font-size:0.88rem;border-radius:9px;text-decoration:none;margin-bottom:20px;" aria-label="Get a quote on WhatsApp">Get a quote on WhatsApp</a>
         <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;font-size:0.82rem;color:#475569;line-height:1.75;">
           <strong style="color:#0F172A;display:block;margin-bottom:6px;">What to tell us:</strong>
           Origin city. Destination city. Number of cartons or bags. Approximate weight. How often you ship.
@@ -250,7 +250,7 @@
     <div class="cta-band">
       <h2>Ready to move your next batch?</h2>
       <p>Send your route, carton count, approximate weight, and GST requirement. We'll confirm the quote on WhatsApp.</p>
-      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Get business quote on WhatsApp">Get business quote on WhatsApp</a>
+      <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Get a quote on WhatsApp">Get a quote on WhatsApp</a>
       <p class="reassurance">No account setup. Quote confirmed before dispatch.</p>
     </div>
   </div>
