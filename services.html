@@ -11,181 +11,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ── SEGMENT TABS ── */
-    .seg-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
-    }
-    .seg-tab {
-      padding: 10px 22px;
-      border-radius: 30px;
-      border: 1.5px solid var(--neutral-200);
-      background: transparent;
-      font-family: inherit;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--neutral-500);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .seg-tab:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
-    .seg-tab.active { background: var(--primary-blue); border-color: var(--primary-blue); color: #fff; }
-
-    /* ── SEGMENT PANELS ── */
-    .seg-panel { display: none; }
-    .seg-panel.active { display: block; }
-
-    /* ── SERVICE CARD ── */
-    .service-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    @media (max-width: 640px) { .service-row { grid-template-columns: 1fr; } }
-
-    .service-card {
-      background: #fff;
-      border: 1px solid var(--neutral-200);
-      border-radius: 12px;
-      padding: 28px 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .service-card-icon {
-      font-size: 1.75rem;
-      margin-bottom: 14px;
-      line-height: 1;
-    }
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--neutral-900);
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .service-card p {
-      font-size: 0.875rem;
-      color: var(--neutral-500);
-      line-height: 1.7;
-      flex: 1;
-    }
-    .service-card .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 16px;
-    }
-    .stag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: var(--neutral-100);
-      color: var(--neutral-600, #4b5563);
-      border: 1px solid var(--neutral-200);
-    }
-    .stag.green { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
-    .stag.blue  { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
-    .stag.amber { background: #fffbeb; color: #92400e; border-color: #fde68a; }
-
-    /* ── WHAT'S INCLUDED ── */
-    .included-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .included-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 0.875rem;
-      color: var(--neutral-700, #374151);
-      line-height: 1.6;
-    }
-    .included-list li::before {
-      content: '✓';
-      color: var(--accent-green);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* ── PRICING CALLOUT ── */
-    .price-callout {
-      background: var(--neutral-50, #f9fafb);
-      border: 1px solid var(--neutral-200);
-      border-radius: 10px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .price-callout-left h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--neutral-900);
-      margin-bottom: 4px;
-    }
-    .price-callout-left p {
-      font-size: 0.82rem;
-      color: var(--neutral-500);
-      line-height: 1.6;
-    }
-    .price-big {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--neutral-900);
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-    .price-big span {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--neutral-500);
-      letter-spacing: 0;
-    }
-
-    /* ── SEGMENT CTA ── */
-    .seg-cta {
-      margin-top: 40px;
-      background: var(--neutral-900);
-      border-radius: 12px;
-      padding: 36px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .seg-cta h3 { color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-    .seg-cta p  { color: var(--neutral-400); font-size: 0.875rem; }
-    .seg-cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .seg-tabs { display:flex; justify-content:center; gap:8px; margin-bottom:48px; flex-wrap:wrap; }
+    .seg-tab { padding:10px 22px; border-radius:30px; border:1.5px solid var(--neutral-200); background:transparent; font-family:inherit; font-size:0.875rem; font-weight:600; color:var(--neutral-500); cursor:pointer; transition:all 0.15s; }
+    .seg-tab:hover { border-color:var(--primary-blue); color:var(--primary-blue); }
+    .seg-tab.active { background:var(--primary-blue); border-color:var(--primary-blue); color:#fff; }
+    .seg-panel { display:none; }
+    .seg-panel.active { display:block; }
+    .service-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+    @media (max-width:640px) { .service-row { grid-template-columns:1fr; } }
+    .service-card { background:#fff; border:1px solid var(--neutral-200); border-radius:12px; padding:28px 28px 24px; display:flex; flex-direction:column; gap:0; }
+    .service-card-icon { font-size:1.75rem; margin-bottom:14px; line-height:1; }
+    .service-card h3 { font-size:1.05rem; font-weight:700; color:var(--neutral-900); margin-bottom:8px; letter-spacing:-0.01em; }
+    .service-card p { font-size:0.875rem; color:var(--neutral-500); line-height:1.7; flex:1; }
+    .service-card .tag-row { display:flex; flex-wrap:wrap; gap:5px; margin-top:16px; }
+    .stag { font-size:0.7rem; font-weight:600; padding:3px 9px; border-radius:4px; background:var(--neutral-100); color:var(--neutral-600,#4b5563); border:1px solid var(--neutral-200); }
+    .stag.green { background:#f0fdf4; color:#166534; border-color:#bbf7d0; }
+    .stag.blue  { background:#eff6ff; color:#1e40af; border-color:#bfdbfe; }
+    .stag.amber { background:#fffbeb; color:#92400e; border-color:#fde68a; }
+    .included-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+    .included-list li { display:flex; align-items:flex-start; gap:10px; font-size:0.875rem; color:var(--neutral-700,#374151); line-height:1.6; }
+    .included-list li::before { content:'✓'; color:var(--accent-green); font-weight:700; flex-shrink:0; margin-top:1px; }
+    .price-callout { background:var(--neutral-50,#f9fafb); border:1px solid var(--neutral-200); border-radius:10px; padding:24px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-top:8px; }
+    .price-callout-left h4 { font-size:1rem; font-weight:700; color:var(--neutral-900); margin-bottom:4px; }
+    .price-callout-left p { font-size:0.82rem; color:var(--neutral-500); line-height:1.6; }
+    .price-big { font-size:2rem; font-weight:800; color:var(--neutral-900); letter-spacing:-0.03em; white-space:nowrap; }
+    .price-big span { font-size:0.9rem; font-weight:500; color:var(--neutral-500); letter-spacing:0; }
+    .seg-cta { margin-top:40px; background:var(--neutral-900); border-radius:12px; padding:36px 40px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+    .seg-cta h3 { color:#fff; font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .seg-cta p  { color:var(--neutral-400); font-size:0.875rem; }
+    .seg-cta-btns { display:flex; gap:10px; flex-wrap:wrap; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header class="header">
     <nav class="nav">
       <a href="index.html" class="logo">Patwadi</a>
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="business.html">Business</a></li>
+        <li><a href="index.html#routes">Routes</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="tracking.html">Track</a></li>
         <li><a href="drivers.html">Join Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/posts/">Guides</a></li>
       </ul>
       <div class="mobile-toggle">
         <span class="hamburger"></span>
@@ -195,7 +65,6 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero" style="min-height: 44vh;">
     <div class="hero-content">
       <h1>What we deliver</h1>
@@ -203,7 +72,6 @@
     </div>
   </section>
 
-  <!-- Services by segment -->
   <section class="section">
     <div class="container">
 
@@ -237,7 +105,6 @@
             </div>
           </div>
         </div>
-
         <div class="service-row">
           <div class="service-card">
             <div class="service-card-icon">👨‍👩‍👧</div>
@@ -260,7 +127,6 @@
             </div>
           </div>
         </div>
-
         <div class="price-callout">
           <div class="price-callout-left">
             <h4>Personal shipment pricing</h4>
@@ -268,7 +134,6 @@
           </div>
           <div class="price-big">₹500 <span>onwards</span></div>
         </div>
-
         <div class="seg-cta">
           <div>
             <h3>Ready to book?</h3>
@@ -305,7 +170,6 @@
             </div>
           </div>
         </div>
-
         <div class="service-row">
           <div class="service-card">
             <div class="service-card-icon">🧾</div>
@@ -328,7 +192,6 @@
             </div>
           </div>
         </div>
-
         <div class="price-callout">
           <div class="price-callout-left">
             <h4>Business shipment pricing</h4>
@@ -336,7 +199,6 @@
           </div>
           <div class="price-big">₹500 <span>onwards</span></div>
         </div>
-
         <div class="seg-cta">
           <div>
             <h3>Ship for your business</h3>
@@ -351,10 +213,9 @@
 
       <!-- ── ENTERPRISE ── -->
       <div class="seg-panel" id="seg-enterprise">
-        <div style="max-width: 680px; margin: 0 auto 40px; text-align: center;">
-          <p style="font-size: 1rem; color: var(--neutral-500); line-height: 1.75;">For organisations with consistent, high-volume intercity shipping needs — dedicated corridor planning, SLA-backed dispatch, and a key account manager who knows your routes.</p>
+        <div style="max-width:680px; margin:0 auto 40px; text-align:center;">
+          <p style="font-size:1rem; color:var(--neutral-500); line-height:1.75;">For organisations with consistent, high-volume intercity shipping needs — dedicated corridor planning, SLA-backed dispatch, and a key account manager who knows your routes.</p>
         </div>
-
         <div class="service-row">
           <div class="service-card">
             <div class="service-card-icon">🗺️</div>
@@ -377,7 +238,6 @@
             </ul>
           </div>
         </div>
-
         <div class="service-row">
           <div class="service-card">
             <div class="service-card-icon">🤝</div>
@@ -400,7 +260,6 @@
             </ul>
           </div>
         </div>
-
         <div class="seg-cta">
           <div>
             <h3>Talk to our enterprise team</h3>
@@ -408,7 +267,7 @@
           </div>
           <div class="seg-cta-btns">
             <a href="b2b.html" class="btn" style="background:#fff; color:var(--neutral-900);">See enterprise options →</a>
-            <a href="contact.html" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;">Contact sales</a>
+            <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20discuss%20enterprise." target="_blank" class="btn btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;">WhatsApp our team</a>
           </div>
         </div>
       </div>
@@ -416,30 +275,29 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content container">
       <div class="footer-section">
         <h3>Product</h3>
-        <a href="services.html">Services</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="tracking.html">Track Parcel</a>
-      </div>
-      <div class="footer-section">
-        <h3>Partners</h3>
-        <a href="drivers.html">Drive with Us</a>
-        <a href="b2b.html">Enterprise</a>
-        <a href="#">API for SMBs</a>
+        <a href="/posts/">Guides</a>
       </div>
       <div class="footer-section">
         <h3>Company</h3>
-        <a href="contact.html">Contact</a>
+        <a href="b2b.html">Enterprise</a>
+        <a href="https://wa.me/918091889969">WhatsApp</a>
         <a href="#">About</a>
         <a href="#">Careers</a>
       </div>
       <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a>
+        <a href="mailto:admin@patwadi.com">admin@patwadi.com</a>
+      </div>
+      <div class="footer-section">
         <h3>Legal</h3>
-        <a href="#">Privacy</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
         <a href="#">Terms</a>
         <a href="#">Compliance</a>
       </div>
