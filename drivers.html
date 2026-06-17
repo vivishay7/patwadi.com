@@ -3,181 +3,277 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drive with Patwadi - Partner Network</title>
-  <meta name="description" content="Join Patwadi's intercity corridor network. High earnings, flexible routes, and daily payouts for riders and fleet partners.">
+  <title>Join Us · Patwadi</title>
+  <meta name="description" content="Join Patwadi's intercity cargo network. Partner as a last-mile rider, fleet operator, or corridor operator across North India.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--green-wa:#25D366;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+
+    /* NAV */
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background 0.15s;}
+    .nav-links a:hover,.nav-links a.active{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--blue);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+    .nav-mobile-menu.open{display:flex;}
+    .nav-mobile-menu a{display:block;padding:10px 12px;font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#0F172A 0%,#1a2040 100%);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
+    .eyebrow-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:5px 14px;border-radius:20px;margin-bottom:20px;font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.1em;text-transform:uppercase;}
+    .hero h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px;max-width:600px;margin-left:auto;margin-right:auto;}
+    .hero p{font-size:0.96rem;color:rgba(255,255,255,0.7);line-height:1.75;max-width:500px;margin:0 auto 28px;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--blue);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+    .btn-primary:hover{background:var(--blue-dk);}
+
+    /* STATS STRIP */
+    .stats-strip{background:#fff;border-bottom:1px solid var(--border);padding:14px 24px;}
+    .stats-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
+    .stat-item{display:flex;align-items:baseline;gap:6px;padding:8px 24px;border-right:1px solid var(--border);}
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-size:1rem;font-weight:800;}
+    .stat-lbl{font-size:0.73rem;color:#64748b;}
+
+    /* SECTIONS */
+    .section{padding:60px 24px;}
+    .section-alt{background:var(--surface);}
+    .container{max-width:1100px;margin:0 auto;}
+    .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:12px;}
+    .section-sub{font-size:0.88rem;color:#64748b;line-height:1.7;margin-bottom:32px;max-width:520px;}
+
+    /* BENEFIT CARDS */
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .benefit-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 24px;transition:border-color 0.2s,transform 0.15s;}
+    .benefit-card:hover{border-color:var(--blue);transform:translateY(-2px);}
+    .benefit-icon{font-size:1.8rem;margin-bottom:14px;}
+    .benefit-title{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .benefit-body{font-size:0.82rem;color:var(--mid);line-height:1.65;}
+
+    /* ROLE CARDS */
+    .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+    .role-card{border:1px solid var(--border);border-radius:12px;padding:22px;}
+    .role-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ghost);margin-bottom:6px;}
+    .role-title{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .role-desc{font-size:0.82rem;color:var(--mid);line-height:1.65;}
+
+    /* FORM */
+    .form-wrap{max-width:560px;margin:0 auto;}
+    .form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+    .form-group label{font-size:0.78rem;font-weight:600;color:#374151;}
+    .form-group input,.form-group select{padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.88rem;outline:none;font-family:inherit;transition:border-color 0.15s;}
+    .form-group input:focus,.form-group select:focus{border-color:var(--blue);}
+    .info-pill{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:999px;background:#BFDBFE;color:var(--blue);font-size:0.72rem;margin-left:5px;cursor:default;position:relative;}
+    .info-pill:hover::after{content:attr(data-tip);position:absolute;bottom:125%;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:6px 10px;border-radius:6px;font-size:0.72rem;white-space:nowrap;min-width:220px;z-index:10;}
+    .submit-btn{width:100%;padding:13px;background:var(--blue);color:#fff;font-weight:700;font-size:0.9rem;border:none;border-radius:9px;cursor:pointer;font-family:inherit;transition:background 0.15s;}
+    .submit-btn:hover{background:var(--blue-dk);}
+    .form-note{font-size:0.78rem;color:var(--ghost);text-align:center;margin-top:10px;}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:var(--ghost);padding:28px 24px;position:relative;}
+    .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #1E293B;padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.78rem;color:#475569;}
+    .footer-bottom a{color:#64748b;text-decoration:none;margin:0 10px;}
+    .footer-bottom a:hover{color:#fff;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}
+      .benefit-grid{grid-template-columns:1fr;}
+      .role-grid{grid-template-columns:1fr;}
+      .stat-item{width:50%;border-right:none;border-bottom:1px solid var(--border);}
+      .stat-item:nth-child(odd){border-right:1px solid var(--border);}
+      .section{padding:40px 20px;}
+      .hero h1{font-size:1.8rem;}
+    }
+    @media(max-width:480px){.stat-item{width:100%;border-right:none!important;}}
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav">
-      <a href="index.html" class="logo">Patwadi</a>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="tracking.html">Track</a></li>
-        <li><a href="drivers.html">Join Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="mobile-toggle">
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="business.html">Business</a></li>
+      <li><a href="index.html#routes">Routes</a></li>
+      <li><a href="drivers.html" class="active">Join Us</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="#join" class="nav-cta">Apply now</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="mNav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="business.html">Business</a>
+    <a href="index.html#routes">Routes</a>
+    <a href="drivers.html">Join Us</a>
+    <a href="/posts/">Guides</a>
+    <a href="#join" class="nav-cta-m">Apply now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div style="position:relative;z-index:1;">
+    <div class="eyebrow-pill"><span style="width:6px;height:6px;border-radius:50%;background:#4ADE80;flex-shrink:0;"></span>Last-mile riders · Fleet operators · Corridor partners</div>
+    <h1>Partner with India's intercity cargo network.</h1>
+    <p>Patwadi moves freight across 13 states on scheduled bus corridors. We're looking for partners who know the routes — and want to earn on them.</p>
+    <a href="#join" class="btn-primary">Express interest</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num" style="color:#16a34a;">1,100+</span><span class="stat-lbl">parcels moved on network</span></div>
+    <div class="stat-item"><span class="stat-num" style="color:var(--blue);">96.7%</span><span class="stat-lbl">on-time delivery rate</span></div>
+    <div class="stat-item"><span class="stat-num" style="color:var(--ink);">13</span><span class="stat-lbl">states and regions active</span></div>
+    <div class="stat-item"><span class="stat-num" style="color:var(--ink);">Zero</span><span class="stat-lbl">lost parcels on record</span></div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Why partner with us</p>
+    <h2 class="section-title">Built on India's bus network. Formalised.</h2>
+    <p class="section-sub">We run on HRTC, GSRTC, Punjab Roadways, and private operators — existing routes, existing schedules. We add the booking layer, the tracking, and the accountability.</p>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">💰</div>
+        <div class="benefit-title">Per-parcel payouts</div>
+        <div class="benefit-body">Earn on every pickup, handoff, or corridor leg you complete. Payouts are per-item — no minimum thresholds, no waiting for month-end aggregation.</div>
       </div>
-    </nav>
-  </header>
-
-  <!-- Partner Hero -->
-  <section class="hero" style="min-height: 60vh; background: linear-gradient(135deg, var(--neutral-900), var(--neutral-700));">
-    <div class="hero-content">
-      <h1>Partner with the Network</h1>
-      <p>Join India's fastest intercity corridor mesh. High earning potential for riders, fleets, and corridor operators.</p>
-      <a href="#join" class="btn">Start Earning</a>
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <div class="benefit-title">WhatsApp-first dispatch</div>
+        <div class="benefit-body">No complex app to learn. Manifests arrive on WhatsApp. Confirm pickup, update handoff status, and resolve exceptions — all on the same thread.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🗓️</div>
+        <div class="benefit-title">Scheduled corridors, not ad-hoc gigs</div>
+        <div class="benefit-body">Unlike gig platforms, Patwadi runs on predictable intercity schedules. You know your corridor, your load, and your window in advance.</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Why Partner -->
-  <section class="section">
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <div class="icon">💰</div>
-          <h3>High Earnings</h3>
-          <p>Competitive payouts per pickup/drop. Bonuses for peak corridor hours.</p>
+<!-- ROLES -->
+<section class="section section-alt" id="join">
+  <div class="container">
+    <p class="eyebrow">Three ways to partner</p>
+    <h2 class="section-title">Pick your role</h2>
+    <p class="section-sub">Different partners serve different parts of the corridor. Choose the one that fits what you already do.</p>
+
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-label">Last-Mile</div>
+        <div class="role-title">Last-Mile Rider</div>
+        <div class="role-desc">You handle pickups from senders and deliveries to recipients within a city. Typically 2-wheelers or small vehicles. Ideal for those already operating within one city.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-label">Fleet</div>
+        <div class="role-title">Fleet Owner</div>
+        <div class="role-desc">You provide vehicles and drivers on fixed intercity corridors. Trucks, tempos, or vans — if you run a corridor regularly, you can carry cargo on the return leg or fill gaps in scheduled runs.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-label">Corridor</div>
+        <div class="role-title">Corridor Operator</div>
+        <div class="role-desc">You run a buffer hub or aggregation point between two cities — receiving parcels from one leg and dispatching to the next. Critical for HP hill routes and J&K corridors.</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-wrap">
+      <form id="joinForm">
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
         </div>
-        <div class="card">
-          <div class="icon">⏱️</div>
-          <h3>Flexible Shifts</h3>
-          <p>Log in when you want. Smart routing keeps you in your preferred zone.</p>
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile" pattern="[6-9][0-9]{9}" maxlength="10">
         </div>
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>Tech-First</h3>
-          <p>Live app dispatch, digital PODs, and instant wallet transfers.</p>
+        <div class="form-group">
+          <label for="role">
+            Role you're interested in
+            <span class="info-pill" data-tip="Last-Mile Rider: city pickups/deliveries. Fleet Owner: intercity cargo haul. Corridor Operator: buffer hub or relay point.">ⓘ</span>
+          </label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Select a role</option>
+            <option value="rider">Last-Mile Rider</option>
+            <option value="fleet">Fleet Owner</option>
+            <option value="corridor">Corridor Operator</option>
+          </select>
         </div>
-      </div>
+        <button type="submit" class="submit-btn">Request a call back</button>
+        <p class="form-note">Our team will reach out within 24 hours.</p>
+      </form>
     </div>
-  </section>
 
-  <!-- Express Interest Section -->
-  <section class="section" id="join" style="background: var(--neutral-100);">
-    <div class="container">
-      <h2 class="section-title">Express Interest</h2>
-      <div class="card" style="max-width: 600px; margin: 0 auto;">
-        <form id="joinForm">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your Name">
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" title="Enter a 10-digit Indian mobile number">
-          </div>
-          <div class="form-group">
-            <label for="role">Role Interested In <span class="info-icon" data-tooltip="Last-Mile Rider – city pickups and deliveries. Fleet Owner – provide vehicles and drivers on fixed corridors. Corridor Operator – run buffer hubs and intercity corridor legs.">ⓘ</span></label>
-            <select id="role" name="role" required>
-              <option value="" disabled selected>Select Role</option>
-              <option value="rider">Last-Mile Rider</option>
-              <option value="fleet">Fleet Owner</option>
-              <option value="corridor">Corridor Operator</option>
-            </select>
-          </div>
-          <button type="submit" class="btn" style="width: 100%;">Request Call Back</button>
-        </form>
-        <p style="text-align: center; margin-top: var(--spacing-md); font-size: 0.875rem; color: var(--neutral-500);">
-          Our onboarding team will contact you within 24 hours.
-        </p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content container">
-      <div class="footer-section">
-        <h3>Product</h3>
-        <a href="services.html">Services</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="tracking.html">Track Parcel</a>
-      </div>
-      <div class="footer-section">
-        <h3>Partners</h3>
-        <a href="drivers.html">Drive with Us</a>
-        <a href="#">Corridor Operators</a>
-        <a href="#">API for SMBs</a>
-      </div>
-      <div class="footer-section">
-        <h3>Company</h3>
-        <a href="contact.html">Contact</a>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-      </div>
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Compliance</a>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom" style="position:relative;">
+    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="students.html">Students</a>
+      <a href="business.html">Business</a>
+      <a href="/posts/">Guides</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">+91 80918 89969</a>
     </div>
-    <div class="footer-bottom" style="position: relative;">
-      <p>© 2025 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p>
-      <!-- Secret Onboarding Button -->
-      <a href="partner-onboarding.html" style="position: absolute; bottom: 20px; right: 0; width: 10px; height: 10px; background: var(--primary-blue); border-radius: 50%; opacity: 0.3; cursor: default;" title="Internal Onboarding" aria-hidden="true"></a>
-    </div>
-  </footer>
+    <!-- Internal onboarding entry — direct link only -->
+    <a href="partner-onboarding.html" style="position:absolute;bottom:18px;right:0;width:10px;height:10px;background:var(--blue);border-radius:50%;opacity:0.3;cursor:default;" title="Internal Onboarding" aria-hidden="true" tabindex="-1"></a>
+  </div>
+</footer>
 
-  <script>
-  document.getElementById('joinForm').addEventListener('submit', function(e) {
+<script>
+  const joinForm = document.getElementById('joinForm');
+  document.getElementById('phone').addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,10);
+  });
+  joinForm.addEventListener('submit', function(e){
     e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
+    const name  = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const role = document.getElementById('role').value;
-
-    // Manually enforce 10-digit validation
-    const phonePattern = /^[6-9]\d{9}$/; // Starts with 6-9 and has 10 digits
-    if (!phonePattern.test(phone)) {
-      alert('Please enter a valid 10-digit Indian mobile number starting with 6-9.');
+    const role  = document.getElementById('role').value;
+    if(!/^[6-9]\d{9}$/.test(phone)){
+      alert('Please enter a valid 10-digit Indian mobile number.');
       return;
     }
-
-    const payload = {
-      name: name,
-      phone: '+91' + phone,
-      role: role
-    };
-
     fetch('https://script.google.com/macros/s/AKfycbwmOPnkG313ODCHPPh0LNEJY1Afd1KxYMkjYXwWpf9HqkGVC-GDow8F3MD-TJiPFevpRg/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      mode: 'no-cors', // Required for Google Apps Script
-      body: JSON.stringify(payload)
-    }).then(() => {
-      // Show a pop-up even though response isn't received in no-cors
-      alert('✅ Thanks! Our team will contact you within 24 hours.');
-      document.getElementById('joinForm').reset();
-    }).catch((error) => {
-      console.error('Form submission error:', error);
-      alert('There was an error submitting the form. Please try again later.');
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name, phone:'+91'+phone, role})
     });
-  });
-
-  // Optional: restrict to 10 digits as user types
-  document.getElementById('phone').addEventListener('input', function (e) {
-    this.value = this.value.replace(/\D/g, '').slice(0, 10); // Only digits, max 10
+    joinForm.innerHTML = `<div style="text-align:center;padding:36px 0;">
+      <div style="font-size:2rem;margin-bottom:12px;">✅</div>
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:#0F172A;">Request received</h3>
+      <p style="font-size:0.85rem;color:#475569;">Our onboarding team will call you within 24 hours.</p>
+    </div>`;
   });
 </script>
 
-
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-
