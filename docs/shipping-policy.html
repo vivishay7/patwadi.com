@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Policy · Patwadi</title>
+  <meta name="description" content="Patwadi Logistics LLP Shipping Policy — corridors, packaging, delivery, claims, and support.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--green-wa:#25D366;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--blue);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s;}
+    .nav-cta:hover{background:var(--blue-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .nav-mob .cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:.88rem;}
+    .ph{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:26px 24px 20px;}
+    .ph-inner{max-width:960px;margin:0 auto;}
+    .ph h1{font-size:1.0rem;font-weight:700;color:#fff;margin-bottom:3px;}
+    .ph p{font-size:.71rem;color:rgba(255,255,255,.45);}
+    .tab-bar{position:sticky;top:60px;z-index:100;background:#fff;border-bottom:1px solid var(--border);}
+    .tab-inner{max-width:960px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;scrollbar-width:none;}
+    .tab-inner::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;padding:10px 13px;font-size:.73rem;font-weight:500;color:var(--mid);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;font-family:inherit;}
+    .tab-btn:hover{color:var(--ink);}
+    .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600;}
+    .mob-nav{display:none;padding:10px 20px;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:60px;z-index:100;}
+    .mob-nav select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:.82rem;color:var(--ink);background:#fff;font-family:inherit;}
+    .pol-wrap{max-width:760px;margin:0 auto;padding:26px 24px 80px;}
+    .pol-sec{display:none;}
+    .pol-sec.active{display:block;}
+    .sec-intro{font-size:.77rem;color:var(--mid);line-height:1.85;text-align:justify;margin-bottom:16px;}
+    .acc{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+    .acc details summary{display:flex;justify-content:space-between;align-items:center;padding:11px 15px;cursor:pointer;list-style:none;gap:12px;background:#fff;transition:background .12s;}
+    .acc details summary::-webkit-details-marker{display:none;}
+    .acc details summary:hover{background:#FAFBFF;}
+    .acc-q{font-size:.77rem;font-weight:600;color:var(--ink);line-height:1.4;}
+    .chev{width:13px;height:13px;flex-shrink:0;color:var(--ghost);transition:transform .18s;}
+    .acc details[open] .chev{transform:rotate(180deg);}
+    .acc details[open] summary{border-bottom:1px solid var(--border);background:var(--surface);}
+    .acc details[open] .acc-q{color:var(--blue);}
+    .acc-body{padding:13px 15px;font-size:.76rem;color:var(--mid);line-height:1.85;text-align:justify;}
+    .acc-body p{margin-bottom:8px;}
+    .acc-body p:last-child{margin-bottom:0;}
+    .acc-body ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;margin-top:6px;}
+    .acc-body li{display:flex;align-items:flex-start;gap:8px;font-size:.76rem;text-align:justify;}
+    .acc-body li::before{content:'';display:block;width:3px;height:3px;background:var(--ghost);border-radius:50%;flex-shrink:0;margin-top:8px;}
+    .acc-body li strong{color:var(--ink);font-weight:600;}
+    .flat{margin-top:22px;padding-top:18px;border-top:1px solid var(--border);}
+    .flat-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .flat-body{font-size:.76rem;color:var(--mid);line-height:1.85;text-align:justify;}
+    .flat-body p{margin-bottom:8px;}
+    .flat-body p:last-child{margin-bottom:0;}
+    .ccard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-top:12px;}
+    .crow{display:flex;gap:12px;align-items:flex-start;font-size:.76rem;padding:3px 0;}
+    .clbl{font-weight:600;color:var(--ink);min-width:110px;flex-shrink:0;}
+    .ccard a{color:var(--blue);text-decoration:none;}
+    .ccard a:hover{text-decoration:underline;}
+    footer{background:var(--ink);color:var(--ghost);padding:48px 24px 24px;}
+    .fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+    .fb-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:10px;display:block;}
+    .fb-desc{font-size:.82rem;line-height:1.65;}
+    .fc h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+    .fc a{display:block;font-size:.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color .15s;}
+    .fc a:hover{color:#fff;}
+    .fb{max-width:1200px;margin:0 auto;border-top:1px solid #1E293B;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#475569;flex-wrap:wrap;gap:12px;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.tab-bar{display:none;}.mob-nav{display:block;}.fg{grid-template-columns:1fr 1fr;gap:24px;}.pol-wrap{padding:20px 18px 60px;}}
+    @media(max-width:480px){.fg{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
 
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="business.html">Business</a></li>
+      <li><a href="index.html#routes">Routes</a></li>
+      <li><a href="drivers.html">Join Us</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi" target="_blank" class="nav-cta">Check route on WhatsApp</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mob" id="mNav">
+    <a href="index.html">Home</a><a href="students.html">Students</a><a href="business.html">Business</a>
+    <a href="index.html#routes">Routes</a><a href="drivers.html">Join Us</a><a href="/posts/">Guides</a>
+    <a href="https://wa.me/918091889969" target="_blank" class="cta-m">Check route on WhatsApp</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div class="ph-inner">
+    <h1>Shipping Policy</h1>
+    <p>Patwadi Logistics LLP &nbsp;·&nbsp; Effective date: 14 June 2026</p>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="overview"    onclick="showTab('overview')">How It Works</button>
+    <button class="tab-btn"        data-tab="corridors"   onclick="showTab('corridors')">Corridors</button>
+    <button class="tab-btn"        data-tab="declaration" onclick="showTab('declaration')">Parcel Declaration</button>
+    <button class="tab-btn"        data-tab="packaging"   onclick="showTab('packaging')">Packaging</button>
+    <button class="tab-btn"        data-tab="prohibited"  onclick="showTab('prohibited')">Prohibited Items</button>
+    <button class="tab-btn"        data-tab="delivery"    onclick="showTab('delivery')">Delivery Process</button>
+    <button class="tab-btn"        data-tab="storage"     onclick="showTab('storage')">Storage &amp; Returns</button>
+    <button class="tab-btn"        data-tab="damage"      onclick="showTab('damage')">Damage Claims</button>
+    <button class="tab-btn"        data-tab="loss"        onclick="showTab('loss')">Lost Parcels</button>
+    <button class="tab-btn"        data-tab="support"     onclick="showTab('support')">Support</button>
+  </div>
+</div>
+
+<div class="mob-nav">
+  <select id="mobSelect" onchange="showTab(this.value)">
+    <option value="overview">How It Works</option>
+    <option value="corridors">Corridors</option>
+    <option value="declaration">Parcel Declaration</option>
+    <option value="packaging">Packaging</option>
+    <option value="prohibited">Prohibited Items</option>
+    <option value="delivery">Delivery Process</option>
+    <option value="storage">Storage &amp; Returns</option>
+    <option value="damage">Damage Claims</option>
+    <option value="loss">Lost Parcels</option>
+    <option value="support">Support</option>
+  </select>
+</div>
+
+<div class="pol-wrap">
+
+  <!-- HOW IT WORKS -->
+  <div id="overview" class="pol-sec active">
+    <p class="sec-intro">This Shipping Policy governs the operational rules for all parcels shipped through Patwadi's intercity cargo network. It supplements the <a href="terms.html" style="color:var(--blue);">Terms of Service</a> and the <a href="privacy-policy.html" style="color:var(--blue);">Privacy Policy</a>. By placing a Booking, you agree to these operational rules in addition to the Terms of Service.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">How Patwadi ships your parcel</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi moves parcels between cities through a verified multi-leg cargo corridor network. Each shipment passes through multiple custody points — your parcel is collected at the origin by a Pickup Partner, transferred through the intercity corridor, and delivered to the Consignee by a Delivery Partner at the destination.</p><p>Every handoff requires a custody confirmation code and a photograph. These Custody Events form an immutable chain of proof across your parcel's journey and are the primary basis for any damage or loss investigation. As a Customer, your five-stage tracker shows: Booked → Picked up → In transit → Out for delivery → Delivered. Operational handoff details between network agents are not exposed in the customer view.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Said to contain basis</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>All Parcels are accepted on a <strong>Said to Contain Basis</strong>. Patwadi does not open, inspect, or verify the contents of any Parcel. You are solely responsible for the accuracy of your declaration of contents, weight, dimensions, and value. Inaccurate declarations that result in damage, loss, or regulatory action are the User's sole responsibility.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Estimated delivery times</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>TAT (Turnaround Time) estimates shown at checkout are based on typical corridor performance. They are estimates only, not guaranteed delivery commitments. Delays may occur due to weather, route conditions, operational constraints, or force majeure events beyond Patwadi's control. Patwadi is not liable for losses resulting from delivery delays that are not caused by its direct negligence.</p></div>
+    </details></div>
+  </div>
+
+  <!-- CORRIDORS -->
+  <div id="corridors" class="pol-sec">
+    <p class="sec-intro">Patwadi operates on verified intercity cargo corridors. Bookings are only accepted for destinations within currently active corridors. Routes outside the supported network will not be accepted at checkout.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Currently active corridors — North India</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Delhi ↔ Chandigarh</li>
+        <li>Chandigarh ↔ Shimla</li>
+        <li>Shimla ↔ Mandi</li>
+        <li>Mandi ↔ Manali</li>
+        <li>Mumbai ↔ Pune</li>
+      </ul><p style="margin-top:8px;">The full current route list is available in the Patwadi app at checkout. Corridor availability may vary by date and season.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Expanding corridors — South India</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi is actively expanding its corridor network in South India. Routes to and from Bangalore, Chennai, Coimbatore, Madurai, Trichy, Hyderabad, Kochi, and Tirupati are being onboarded. New corridors will be announced in the app when they open for bookings.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Documentation for inter-state shipments</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>For inter-state shipments (crossing state boundaries), the following GST documentation is mandatory and must be handed to the Pickup Partner at collection:</p><ul>
+        <li><strong>Consignment value above ₹50,000:</strong> a valid E-way bill generated on the GST portal, along with a tax invoice.</li>
+        <li><strong>Consignment value below ₹50,000:</strong> a bill of supply or delivery challan as applicable.</li>
+      </ul><p>Patwadi is not liable for seizure, delay, or penalties arising from failure to provide valid documentation. The responsibility for generating and providing all required documentation rests entirely with the Shipper.</p></div>
+    </details></div>
+  </div>
+
+  <!-- PARCEL DECLARATION -->
+  <div id="declaration" class="pol-sec">
+    <p class="sec-intro">You must declare your parcel accurately at booking. Declared value, weight, and contents form the basis for pricing, liability calculations, and claims processing. Inaccurate declarations constitute a breach of the Terms of Service.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Declared value — pilot caps</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>During the pilot period, maximum declared values per Parcel are:</p><ul>
+        <li><strong>General parcels</strong> — maximum declared value ₹10,000</li>
+        <li><strong>Electronics</strong> (laptops, tablets, phones, gaming consoles, cameras) — maximum declared value ₹5,000</li>
+      </ul><p>These caps apply because cargo insurance is not yet in place for the pilot phase. Patwadi's maximum liability does not exceed the Declared Value or ₹5,000 — whichever is lower — regardless of actual value. Do not ship items whose loss would exceed this compensation limit.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Weight and dimension verification</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The Pickup Partner will verify the weight and dimensions of the Parcel at collection against the declared figures. If the actual weight or dimensions exceed the declared figures, Patwadi may: (a) charge a differential price adjustment before completing the collection; or (b) decline to accept the Parcel. Patwadi is not responsible for delays resulting from weight or dimension discrepancies at pickup.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Contents declaration</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You must accurately describe the contents of the Parcel. Vague descriptions (such as "miscellaneous items" or "household goods") are not acceptable for parcels containing electronics, fragile goods, or items in restricted categories. If contents are discovered to be different from the declaration at any stage of transit, the Booking will be treated as an Invalid Order and Patwadi assumes no liability for the shipment.</p></div>
+    </details></div>
+  </div>
+
+  <!-- PACKAGING -->
+  <div id="packaging" class="pol-sec">
+    <p class="sec-intro">Patwadi does not provide packaging materials. The User is solely responsible for ensuring that all items are adequately packaged before the Pickup Partner arrives. Damage caused by inadequate packaging is not Patwadi's liability.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">General packaging requirements</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>All items must be enclosed in a sealed outer carton or package before pickup.</li>
+        <li>Internal cushioning (bubble wrap, crumpled paper, foam) must be used for any item that could shift, break, or scratch in transit.</li>
+        <li>Do not reuse packaging that is visibly damaged, damp, or structurally compromised.</li>
+        <li>The Parcel must be sealed securely — open or loose packaging will not be accepted.</li>
+        <li>Do not mark packages with "Fragile", "This Side Up", or orientation arrows — Patwadi does not provide special orientation handling and such markings do not create additional liability on Patwadi's part.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Electronics and fragile items</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Electronics (laptops, phones, tablets, monitors, cameras, consoles) must be individually bubble-wrapped with a minimum of five plies and enclosed in a rigid outer carton.</li>
+        <li>Glass, ceramics, and other breakables must be individually wrapped and separated from each other within the carton using at least five-ply bubble wrap. Newspaper alone is not acceptable for fragile items.</li>
+        <li>Musical instruments and precision equipment must be in their manufacturer's case or equivalent hard shell packaging.</li>
+        <li>Liquid items must be sealed in watertight packaging and then placed in a secondary sealed container.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Packaging inspection at pickup</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The Pickup Partner will photograph the exterior of the Parcel at the time of collection. This photograph is a Custody Event and forms part of the immutable shipment record. If the Pickup Partner identifies inadequate packaging, they may ask you to repack before accepting the Parcel.</p><p>If you choose to proceed after the Pickup Partner has flagged a packaging concern, you acknowledge that Patwadi is not liable for any damage resulting from the flagged packaging deficiency. This acknowledgement is recorded as part of the Custody Event.</p></div>
+    </details></div>
+  </div>
+
+  <!-- PROHIBITED ITEMS -->
+  <div id="prohibited" class="pol-sec">
+    <p class="sec-intro">The following items are prohibited on the Patwadi network. Shipping a prohibited item is a material breach of the <a href="terms.html" style="color:var(--blue);">Terms of Service</a>. Patwadi may refuse, impound, or hand over to authorities any Parcel found to contain prohibited items.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Dangerous goods</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Flammable liquids: paints, thinners, solvents, fuels, adhesives</li>
+        <li>Pressurised containers or aerosol cans of any kind</li>
+        <li>Dry ice (solid carbon dioxide)</li>
+        <li>Infectious or biological substances</li>
+        <li>Toxic compounds, poisons, gases</li>
+        <li>Bleach and corrosive chemicals</li>
+        <li>Pesticides, insecticides, herbicides</li>
+        <li>Radioactive material</li>
+        <li>Magnetised material</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Weapons and illegal items</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Firearms, weapons, ammunition, explosives</li>
+        <li>Narcotics and controlled substances</li>
+        <li>Counterfeit goods</li>
+        <li>Pornographic material</li>
+        <li>Any item prohibited under Indian law</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Financial and identity documents</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Do not ship: currency, coins, or cash of any amount; bearer cheques, demand drafts, or negotiable instruments; jewellery, precious metals, or gemstones; Aadhaar cards, passports, PAN cards, voter ID; bank cards (credit or debit); bank statements, cheque books; educational certificates or degree documents. Patwadi has no liability if such items are handed over for shipment.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Other prohibited categories</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Live animals or biological specimens</li>
+        <li>Perishable food requiring temperature control</li>
+        <li>Human remains or ashes</li>
+        <li>Alcohol or tobacco products</li>
+        <li>Items with declared value exceeding ₹10,000 (general) or ₹5,000 (electronics)</li>
+      </ul></div>
+    </details></div>
+  </div>
+
+  <!-- DELIVERY PROCESS -->
+  <div id="delivery" class="pol-sec">
+    <p class="sec-intro">Your Delivery Partner will make two delivery attempts at the Consignee's address at no additional charge. The Consignee must be available with a valid identity document where Patwadi requires it for delivery acceptance.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Delivery attempts</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Two delivery attempts are included in the booking price at no extra charge.</li>
+        <li>The second attempt will be made within 24 hours of the first failed attempt.</li>
+        <li>If both attempts fail, storage fees begin immediately — there is no grace period after the second failed attempt.</li>
+        <li>Additional delivery attempts beyond the second may be arranged at ₹150 per attempt by contacting support within the storage period.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Delivery acceptance and proof</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi reserves the right to require the Consignee to provide a government-issued photo ID and/or a delivery OTP before releasing the Parcel. Delivery is deemed complete when the Custody Event for the final handoff is recorded on the Platform, with the Consignee's confirmation and photograph. If the Consignee refuses to provide required identification, Patwadi may decline to release the Parcel and treat the attempt as a failed delivery.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Consignee unavailability and refused delivery</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If the Consignee is unavailable, unreachable, or refuses delivery without valid cause, the attempt is recorded as a failed delivery. No refund of freight charges is applicable for failed attempts due to Consignee unavailability or refusal. If a Consignee refuses delivery because the Parcel is visibly damaged, the refused delivery must be reported to Patwadi support within 48 hours for a damage claim to be assessed.</p></div>
+    </details></div>
+  </div>
+
+  <!-- STORAGE & RETURNS -->
+  <div id="storage" class="pol-sec">
+    <p class="sec-intro">If delivery cannot be completed after two attempts, your Parcel is held at the destination city's network point. Storage fees apply from the moment of the second failed attempt with no grace period. After 7 days, return-to-origin (RTO) is initiated.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Storage fees</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Storage rate: <strong>₹100 per day</strong> beginning immediately after the second failed delivery attempt.</li>
+        <li>Maximum holding period before return-to-origin (RTO): <strong>7 days</strong> from the second failed attempt.</li>
+        <li>Storage fees are charged regardless of the reason for failed delivery, including force majeure delays that occur after the second attempt.</li>
+        <li>Storage fees are payable before the Parcel is released or returned.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Return to origin (RTO)</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>After 7 days of storage, RTO is initiated. Return freight is charged at the same rate as the original Booking.</li>
+        <li>Patwadi will contact the Shipper on record to confirm the return address and arrange payment of return freight.</li>
+        <li>If the Shipper cannot be reached within 30 days of RTO initiation, the Parcel may be disposed of in accordance with applicable law. Patwadi will make reasonable attempts to contact the Shipper before disposal.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Extended storage charges</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If an RTO Parcel is returned but the Shipper refuses to accept it or cannot be reached, additional demurrage/storage charges will continue to accrue. Patwadi reserves the right to levy suitable charges for extended storage beyond the standard holding period. These charges must be settled before the Parcel is released.</p></div>
+    </details></div>
+  </div>
+
+  <!-- DAMAGE CLAIMS -->
+  <div id="damage" class="pol-sec">
+    <p class="sec-intro">Patwadi investigates damage claims using the immutable chain of Custody Events — photographs taken at every handoff point — to determine when and how damage occurred. Claims must be filed within 48 hours of delivery.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">How to file a damage claim</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>File within <strong>48 hours of delivery</strong>. Claims after this window will not be accepted.</li>
+        <li>WhatsApp our support team at <a href="https://wa.me/918091889969" style="color:var(--blue);">+91 80918 89969</a> with: your Booking ID; clear photographs of the damaged item and all six sides of the outer packaging; and a written description of the damage and estimated value of loss.</li>
+        <li>Do not dispose of the damaged item or packaging before the claim is assessed — Patwadi may require physical inspection.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">How claims are investigated</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi will review the custody photograph record for the Booking to identify the point at which damage occurred. Photographs are taken at pickup, each transfer point, and delivery. If damage is identified as occurring between two Custody Events under Patwadi's control, the claim is eligible for compensation. If damage is attributable to: inadequate packaging by the User; the contents declared by the User; force majeure; or occurs outside of Patwadi's documented custody, the claim will not be upheld.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Compensation limits</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Compensation for approved damage claims is limited to the <strong>lower of: (a) the Declared Value; or (b) ₹5,000</strong> per Parcel per Booking. Compensation does not include indirect losses, replacement costs above the Declared Value, or consequential damages. Freight charges are not refunded in addition to damage compensation.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">When claims will not be accepted</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Claims filed after 48 hours of delivery</li>
+        <li>Damage caused by inadequate or faulty packaging by the User</li>
+        <li>Damage to prohibited or misdeclared items</li>
+        <li>Damage arising from force majeure events</li>
+        <li>Damage to items with no photographic evidence</li>
+        <li>Items whose actual value exceeds the Declared Value at booking</li>
+        <li>Invalid Orders</li>
+      </ul></div>
+    </details></div>
+  </div>
+
+  <!-- LOST PARCELS -->
+  <div id="loss" class="pol-sec">
+    <p class="sec-intro">A parcel is considered overdue if it has not been delivered or reached its next Custody Event within 48 hours of the expected time for the given Corridor. Contact support immediately if you believe your parcel is overdue.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Reporting an overdue or missing parcel</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>If your parcel has not been delivered within 48 hours of the expected TAT, contact Patwadi support immediately via WhatsApp at <a href="https://wa.me/918091889969" style="color:var(--blue);">+91 80918 89969</a>.</li>
+        <li>Provide your Booking ID and the expected delivery date/time.</li>
+        <li>Patwadi will investigate the custody record, contact all Network Agents on the route, and provide a status update within 4 business hours during support hours.</li>
+        <li>If the Parcel is located but delayed, Patwadi will arrange continued delivery without additional charge.</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Confirmed loss — compensation</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If Patwadi is unable to locate or recover the Parcel following a full investigation, and the loss is determined to have occurred while the Parcel was under Patwadi's documented custody, compensation is limited to the <strong>lower of: (a) the Declared Value; or (b) ₹5,000</strong>, plus a refund of the freight charges paid for the affected Booking. Patwadi is not liable for loss of parcels determined to be Invalid Orders, misdeclared, or outside of verified Custody Events.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Force majeure and external loss</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi is not liable for loss caused by: natural disasters; vehicle accidents outside Patwadi's control; theft by third parties not under Patwadi's custody; civil unrest; government seizure; or any other force majeure event. In such cases, Patwadi will assist in filing any applicable insurance or authority claims but cannot guarantee compensation.</p></div>
+    </details></div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div id="support" class="pol-sec">
+    <p class="sec-intro">Patwadi support is available via WhatsApp and email. For active in-transit issues, WhatsApp is the fastest channel.</p>
+    <div class="ccard">
+      <div class="crow"><span class="clbl">WhatsApp</span><span style="font-size:.76rem;color:var(--mid);"><a href="https://wa.me/918091889969" target="_blank">+91 80918 89969</a></span></div>
+      <div class="crow"><span class="clbl">Email</span><span style="font-size:.76rem;color:var(--mid);"><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></span></div>
+      <div class="crow"><span class="clbl">Hours</span><span style="font-size:.76rem;color:var(--mid);">8am – 10pm IST daily</span></div>
+      <div class="crow"><span class="clbl">Standard SLA</span><span style="font-size:.76rem;color:var(--mid);">Within 2 hours during support hours</span></div>
+      <div class="crow"><span class="clbl">In-transit SLA</span><span style="font-size:.76rem;color:var(--mid);">Within 30 minutes for active in-transit exceptions</span></div>
+    </div>
+    <div class="flat">
+      <div class="flat-title">Governing law</div>
+      <div class="flat-body"><p>This Shipping Policy is governed by the laws of India. Disputes are subject to the exclusive jurisdiction of the courts at Chandigarh, Punjab, India. See the <a href="terms.html" style="color:var(--blue);">Terms of Service</a> for the full dispute resolution process, including the mandatory support-first step and arbitration provisions.</p></div>
+    </div>
+    <div class="flat">
+      <div class="flat-body"><p>Related documents: <a href="terms.html" style="color:var(--blue);">Terms of Service</a> &nbsp;·&nbsp; <a href="privacy-policy.html" style="color:var(--blue);">Privacy Policy</a></p></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fg">
+    <div>
+      <span class="fb-name">Patwadi</span>
+      <p class="fb-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Book on WhatsApp.</p>
+    </div>
+    <div class="fc"><h4>Who we serve</h4><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="b2b.html">Enterprise</a></div>
+    <div class="fc"><h4>Useful pages</h4><a href="how-it-works.html">How It Works</a><a href="index.html#routes">Routes</a><a href="tracking.html">Track a parcel</a><a href="posts/">Guides</a><a href="privacy-policy.html">Privacy Policy</a></div>
+    <div class="fc"><h4>Contact</h4><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></div>
+  </div>
+  <div class="fb">
+    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
+    <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;font-weight:600;">+91 80918 89969</a>
+  </div>
+</footer>
+
+<script>
+  function showTab(id){
+    document.querySelectorAll('.pol-sec').forEach(function(s){s.classList.remove('active');});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+    var s=document.getElementById(id); if(s) s.classList.add('active');
+    var b=document.querySelector('[data-tab="'+id+'"]'); if(b) b.classList.add('active');
+    var sel=document.getElementById('mobSelect'); if(sel) sel.value=id;
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var m=document.getElementById('mNav'),b=document.querySelector('.nav-hamburger');
+    if(m&&b&&!m.contains(e.target)&&!b.contains(e.target)) m.classList.remove('open');
+  });
+</script>
+</body>
+</html>
