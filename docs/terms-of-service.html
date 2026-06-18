@@ -1,1 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service · Patwadi</title>
+  <meta name="description" content="Patwadi Logistics LLP Terms of Service — terms governing all bookings made through the Patwadi app or website.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--green-wa:#25D366;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--blue);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s;}
+    .nav-cta:hover{background:var(--blue-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .nav-mob .cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:.88rem;}
+    .ph{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:26px 24px 20px;}
+    .ph-inner{max-width:960px;margin:0 auto;}
+    .ph h1{font-size:1.0rem;font-weight:700;color:#fff;margin-bottom:3px;}
+    .ph p{font-size:.71rem;color:rgba(255,255,255,.45);}
+    .tab-bar{position:sticky;top:60px;z-index:100;background:#fff;border-bottom:1px solid var(--border);}
+    .tab-inner{max-width:960px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;scrollbar-width:none;}
+    .tab-inner::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;padding:10px 13px;font-size:.73rem;font-weight:500;color:var(--mid);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;font-family:inherit;}
+    .tab-btn:hover{color:var(--ink);}
+    .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600;}
+    .mob-nav{display:none;padding:10px 20px;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:60px;z-index:100;}
+    .mob-nav select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:.82rem;color:var(--ink);background:#fff;font-family:inherit;}
+    .pol-wrap{max-width:760px;margin:0 auto;padding:26px 24px 80px;}
+    .pol-sec{display:none;}
+    .pol-sec.active{display:block;}
+    .sec-intro{font-size:.77rem;color:var(--mid);line-height:1.85;text-align:justify;margin-bottom:16px;}
+    .acc{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+    .acc details summary{display:flex;justify-content:space-between;align-items:center;padding:11px 15px;cursor:pointer;list-style:none;gap:12px;background:#fff;transition:background .12s;}
+    .acc details summary::-webkit-details-marker{display:none;}
+    .acc details summary:hover{background:#FAFBFF;}
+    .acc-q{font-size:.77rem;font-weight:600;color:var(--ink);line-height:1.4;}
+    .chev{width:13px;height:13px;flex-shrink:0;color:var(--ghost);transition:transform .18s;}
+    .acc details[open] .chev{transform:rotate(180deg);}
+    .acc details[open] summary{border-bottom:1px solid var(--border);background:var(--surface);}
+    .acc details[open] .acc-q{color:var(--blue);}
+    .acc-body{padding:13px 15px;font-size:.76rem;color:var(--mid);line-height:1.85;text-align:justify;}
+    .acc-body p{margin-bottom:8px;}
+    .acc-body p:last-child{margin-bottom:0;}
+    .acc-body ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;margin-top:6px;}
+    .acc-body li{display:flex;align-items:flex-start;gap:8px;font-size:.76rem;text-align:justify;}
+    .acc-body li::before{content:'';display:block;width:3px;height:3px;background:var(--ghost);border-radius:50%;flex-shrink:0;margin-top:8px;}
+    .acc-body li strong{color:var(--ink);font-weight:600;}
+    .acc-body .def-term{font-weight:700;color:var(--ink);}
+    .flat{margin-top:22px;padding-top:18px;border-top:1px solid var(--border);}
+    .flat-title{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .flat-body{font-size:.76rem;color:var(--mid);line-height:1.85;text-align:justify;}
+    .flat-body p{margin-bottom:8px;}
+    .flat-body p:last-child{margin-bottom:0;}
+    .ccard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-top:12px;}
+    .crow{display:flex;gap:12px;align-items:flex-start;font-size:.76rem;padding:3px 0;}
+    .clbl{font-weight:600;color:var(--ink);min-width:100px;flex-shrink:0;}
+    .ccard a{color:var(--blue);text-decoration:none;}
+    .ccard a:hover{text-decoration:underline;}
+    footer{background:var(--ink);color:var(--ghost);padding:48px 24px 24px;}
+    .fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+    .fb-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:10px;display:block;}
+    .fb-desc{font-size:.82rem;line-height:1.65;}
+    .fc h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+    .fc a{display:block;font-size:.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color .15s;}
+    .fc a:hover{color:#fff;}
+    .fb{max-width:1200px;margin:0 auto;border-top:1px solid #1E293B;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#475569;flex-wrap:wrap;gap:12px;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.tab-bar{display:none;}.mob-nav{display:block;}.fg{grid-template-columns:1fr 1fr;gap:24px;}.pol-wrap{padding:20px 18px 60px;}}
+    @media(max-width:480px){.fg{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
 
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="business.html">Business</a></li>
+      <li><a href="index.html#routes">Routes</a></li>
+      <li><a href="drivers.html">Join Us</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi" target="_blank" class="nav-cta">Check route on WhatsApp</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mob" id="mNav">
+    <a href="index.html">Home</a><a href="students.html">Students</a><a href="business.html">Business</a>
+    <a href="index.html#routes">Routes</a><a href="drivers.html">Join Us</a><a href="/posts/">Guides</a>
+    <a href="https://wa.me/918091889969" target="_blank" class="cta-m">Check route on WhatsApp</a>
+  </div>
+</nav>
+
+<div class="ph">
+  <div class="ph-inner">
+    <h1>Terms of Service</h1>
+    <p>Patwadi Logistics LLP &nbsp;·&nbsp; Effective date: 14 June 2026</p>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="intro"     onclick="showTab('intro')">Introduction</button>
+    <button class="tab-btn"        data-tab="defs"      onclick="showTab('defs')">Definitions</button>
+    <button class="tab-btn"        data-tab="booking"   onclick="showTab('booking')">Booking &amp; Payment</button>
+    <button class="tab-btn"        data-tab="cancel"    onclick="showTab('cancel')">Cancellations &amp; Refunds</button>
+    <button class="tab-btn"        data-tab="liability" onclick="showTab('liability')">Liability</button>
+    <button class="tab-btn"        data-tab="prohibited" onclick="showTab('prohibited')">Prohibited Items</button>
+    <button class="tab-btn"        data-tab="obligations" onclick="showTab('obligations')">User Obligations</button>
+    <button class="tab-btn"        data-tab="platform"  onclick="showTab('platform')">Platform &amp; IP</button>
+    <button class="tab-btn"        data-tab="disputes"  onclick="showTab('disputes')">Disputes &amp; Law</button>
+    <button class="tab-btn"        data-tab="contact"   onclick="showTab('contact')">Contact</button>
+  </div>
+</div>
+
+<div class="mob-nav">
+  <select id="mobSelect" onchange="showTab(this.value)">
+    <option value="intro">Introduction</option>
+    <option value="defs">Definitions</option>
+    <option value="booking">Booking &amp; Payment</option>
+    <option value="cancel">Cancellations &amp; Refunds</option>
+    <option value="liability">Liability</option>
+    <option value="prohibited">Prohibited Items</option>
+    <option value="obligations">User Obligations</option>
+    <option value="platform">Platform &amp; IP</option>
+    <option value="disputes">Disputes &amp; Law</option>
+    <option value="contact">Contact</option>
+  </select>
+</div>
+
+<div class="pol-wrap">
+
+  <!-- INTRODUCTION -->
+  <div id="intro" class="pol-sec active">
+    <p class="sec-intro">These Terms of Service ("Terms") constitute a legally binding agreement between you ("User", "Customer", "Shipper") and Patwadi Logistics LLP ("Patwadi", "we", "us") governing all bookings and use of our intercity parcel delivery services and platform. By ticking "I agree to Patwadi's Terms of Service" at checkout, you confirm you have read, understood, and agree to be bound by these Terms. If you do not agree, do not complete the booking.</p>
+    <p class="sec-intro">These Terms may be updated periodically. Continued use of our Services after an update constitutes acceptance of the revised Terms. Material changes will be notified via in-app notification at least 7 days in advance.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Who we are</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi Logistics LLP is an intercity parcel delivery network registered in India with its principal office in Chandigarh. We operate a verified cargo corridor network connecting cities across India, handling parcels through a multi-leg chain of network agents with custody verified at every handoff point.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Eligibility</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You must be at least 18 years of age and legally capable of entering into binding contracts to use our Services. By booking, you warrant that you are the owner of the Parcel or are legally authorised to ship it on the owner's behalf, and that you have full authority to agree to these Terms on behalf of any organisation you represent.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Scope of these Terms</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>These Terms apply to all bookings placed through the Patwadi mobile application or website (patwadi.com), including bookings initiated via WhatsApp with confirmation through the platform. They are supplemented by our <a href="shipping.html" style="color:var(--blue);">Shipping Policy</a> (operational rules) and our <a href="privacy-policy.html" style="color:var(--blue);">Privacy Policy</a> (data practices), each of which forms part of the agreement between you and Patwadi.</p><p>Where there is any conflict between these Terms and the Shipping Policy, these Terms prevail.</p></div>
+    </details></div>
+  </div>
+
+  <!-- DEFINITIONS -->
+  <div id="defs" class="pol-sec">
+    <p class="sec-intro">The following terms have the meanings assigned to them below and apply throughout these Terms and the Shipping Policy.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Core terms</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li><span class="def-term">Booking</span> — a confirmed shipment order placed through the Patwadi Platform, evidenced by a booking confirmation and payment receipt.</li>
+        <li><span class="def-term">Consignee</span> — the person or entity designated by the User to receive the Parcel at the destination.</li>
+        <li><span class="def-term">Corridor</span> — a verified intercity route on which Patwadi's network operates, as listed in the Platform at the time of Booking.</li>
+        <li><span class="def-term">Custody Event</span> — each verified handoff of a Parcel between Network Agents, recorded immutably on Patwadi's platform with a confirmation code and photographic proof.</li>
+        <li><span class="def-term">Declared Value</span> — the monetary value of the Parcel as stated by the User at the time of Booking.</li>
+        <li><span class="def-term">Delivery Partner</span> — a Patwadi Network Agent responsible for last-mile delivery to the Consignee at the destination city.</li>
+        <li><span class="def-term">Network Agent</span> — any individual or entity engaged by Patwadi to handle, transit, or deliver Parcels at any stage of the shipment journey. Network Agents are independent contractors; they are not employees or agents of Patwadi for purposes beyond the specific services they perform.</li>
+        <li><span class="def-term">Parcel</span> — the item(s) packaged by the User and handed over to a Patwadi Network Agent for delivery.</li>
+        <li><span class="def-term">Pickup Partner</span> — a Patwadi Network Agent responsible for collecting the Parcel from the User at the origin city.</li>
+        <li><span class="def-term">Platform</span> — the Patwadi mobile application and website (patwadi.com) through which Services are booked and tracked.</li>
+        <li><span class="def-term">Said to Contain Basis</span> — the principle that Patwadi accepts Parcels on the basis of the User's declaration of contents without independent verification of those contents.</li>
+        <li><span class="def-term">Service Commencement</span> — the earlier of: (a) assignment of a Pickup Partner to the Booking; (b) arrival of the Pickup Partner at the pickup location; or (c) physical collection of the Parcel by a Pickup Partner.</li>
+        <li><span class="def-term">Services</span> — the intercity parcel delivery services provided by Patwadi, as described on the Platform from time to time.</li>
+        <li><span class="def-term">TAT (Turnaround Time)</span> — the estimated delivery timeframe for a given Corridor as stated at the time of Booking. TAT is an estimate only and does not constitute a guaranteed delivery time.</li>
+        <li><span class="def-term">Invalid Order</span> — a Booking involving: (a) Parcels with misdeclared contents, weight, or value; (b) prohibited items; (c) arrangements made outside the Platform with a Network Agent; or (d) any shipment that materially deviates from what was declared at Booking. Patwadi has no liability in respect of Invalid Orders.</li>
+      </ul></div>
+    </details></div>
+  </div>
+
+  <!-- BOOKING & PAYMENT -->
+  <div id="booking" class="pol-sec">
+    <p class="sec-intro">All Services are provided on a prepaid basis. Your Booking is confirmed only after payment is successfully processed by Razorpay. By completing a Booking, you accept the price shown at checkout subject to the provisions below.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Payment and price</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>All payments are processed through Razorpay. We do not accept cash on delivery or offline payment of any kind. The price shown at checkout is based on the route, parcel category, and weight declared by the User. The final price is subject to weight and dimension verification at pickup. If the actual weight or dimensions exceed the declared figures, Patwadi reserves the right to charge a differential amount before completing the Booking, or to reject the Parcel. Patwadi is not responsible for any delays resulting from weight discrepancies.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Booking confirmation and timing</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Bookings placed after 10:00 pm IST will be assigned a Pickup Partner on the following morning. Patwadi does not guarantee specific pickup times; TAT commences from actual physical collection of the Parcel. Bookings are not confirmed until payment is successfully processed and a Booking confirmation is issued.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Tax compliance and E-way bill</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The User is solely responsible for compliance with applicable tax laws in relation to the Parcel and its declared value. For inter-state shipments where the consignment value exceeds ₹50,000, the User must generate a valid E-way bill and provide it along with a tax invoice to the Pickup Partner at the time of collection. For consignments below ₹50,000, a bill of supply or delivery challan (as applicable under GST law) must be provided. Patwadi shall not be held responsible for seizure, detention, or penalties arising from the User's failure to provide valid documentation.</p><p>TDS (Tax Deducted at Source) shall be applicable where aggregate freight payable to Patwadi exceeds ₹1,00,000 in a financial year. The process for TDS deduction and reimbursement shall be as per applicable law and mutually agreed procedure.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Off-platform payments — strictly prohibited</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi does not recognise or accept any payment made directly by the User to a Network Agent outside the Patwadi Platform, whether in cash, UPI, or any other method. Any such payment is at the User's sole risk. Patwadi has no liability for disputes, overcharges, or service failures arising from off-platform payments. Any Booking undertaken pursuant to an off-platform payment arrangement shall be treated as an Invalid Order. Users who induce or compensate a Network Agent to accept a Parcel outside the Platform are in material breach of these Terms.</p></div>
+    </details></div>
+  </div>
+
+  <!-- CANCELLATIONS & REFUNDS -->
+  <div id="cancel" class="pol-sec">
+    <p class="sec-intro">Cancellation rights and refund eligibility depend on how far your Booking has progressed at the time of the cancellation request. Patwadi processes refunds through the original payment method within the timeframes below.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Cancellation before Service Commencement</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If you cancel a Booking before a Pickup Partner has been assigned, you are entitled to a <strong>full refund</strong> of the amount paid. Cancellation requests must be submitted through the Patwadi app or by contacting support. Cancellation by phone call or WhatsApp is acknowledged only as a notification; the formal cancellation must be confirmed on the Platform.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Cancellation after assignment but before physical collection</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If a Pickup Partner has been assigned to your Booking but the Parcel has not yet been physically collected, you are entitled to a <strong>50% refund</strong>. The remaining 50% compensates the assigned Pickup Partner for time and travel already committed to the Booking.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Cancellation after Service Commencement — no refund</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Once the Parcel has been physically collected by the Pickup Partner (Service Commencement), <strong>no refund is available</strong>. The Parcel will proceed to its destination. If the Consignee refuses delivery, storage and return charges apply as described in the Shipping Policy. Patwadi cannot interrupt an in-transit Parcel.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Patwadi-initiated cancellation</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi may cancel a Booking at its discretion in the event of: operational constraints; unavailability of corridor capacity; discovery of a prohibited item; safety concerns; or any material misrepresentation by the User. Where Patwadi initiates cancellation for a reason not attributable to the User, a full refund will be processed. Where cancellation is due to User misrepresentation or prohibited items, no refund is guaranteed and Patwadi may charge handling costs.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Refund timelines and method</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Eligible refunds are credited to the original Razorpay payment method within <strong>7–10 business days</strong> from the date of cancellation confirmation. Patwadi is not liable for delays caused by payment gateway providers or issuing banks. Refunds cannot be redirected to a different payment method or account.</p></div>
+    </details></div>
+  </div>
+
+  <!-- LIABILITY -->
+  <div id="liability" class="pol-sec">
+    <p class="sec-intro">Patwadi's liability for loss or damage to Parcels is subject to the limits set out below. These limits apply only to valid Bookings placed in compliance with these Terms. No liability arises in respect of Invalid Orders.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Said to contain basis</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>All Parcels are accepted on a <strong>Said to Contain Basis</strong>. Patwadi is under no obligation to verify the description, contents, weight, or value of any Parcel as declared by the User. The User undertakes to make accurate, truthful, and complete declarations. Any inaccuracy in the declaration — including understatement of value, misdescription of contents, or failure to disclose the presence of fragile or restricted items — is the User's sole responsibility and releases Patwadi from any associated liability.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Maximum liability cap</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi's maximum liability for loss, damage, or mis-delivery of a Parcel is limited to the <strong>lower of: (a) the Declared Value of the Parcel; or (b) ₹5,000</strong>. This cap applies per Parcel per Booking. Freight charges paid are not refunded in addition to this cap; they may be refunded separately in cases of loss where Patwadi is determined to be at fault following investigation.</p><p>Users are strongly advised to declare accurate values and not ship items whose potential loss would exceed ₹5,000 until cargo insurance arrangements are in place. Patwadi recommends that Users obtain independent transit insurance for high-value items.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">What Patwadi is not liable for</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Under no circumstances will Patwadi be liable for:</p><ul>
+        <li>Indirect, incidental, consequential, special, or exemplary losses or damages</li>
+        <li>Loss of income, profit, business opportunity, or data</li>
+        <li>Sentimental or replacement value beyond the Declared Value</li>
+        <li>Damage arising from inadequate or faulty packaging by the User</li>
+        <li>Damage or loss caused by a force majeure event (see below)</li>
+        <li>Delays not caused by Patwadi's direct negligence</li>
+        <li>Loss arising from User-supplied incorrect or incomplete address or contact information</li>
+        <li>Loss in respect of Invalid Orders</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Reverse liability — mis-declaration</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Where a User's mis-declaration of Parcel contents results in damage to the mis-declared Parcel or to any other Parcel or property while in transit or storage, the User shall be fully liable for all resulting damages, including to third parties, and shall indemnify Patwadi against any resulting claims, costs, penalties, or regulatory action.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Force majeure</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi shall not be liable for delay, mis-delivery, non-delivery, or loss caused by: acts of God; natural disasters; floods, earthquakes, or extreme weather; war, civil unrest, riots, or political disturbances; epidemics or pandemics; government orders, embargoes, or regulatory prohibitions; road closures, strikes, or transport disruptions beyond Patwadi's control; vehicle accidents; legal seizure or court orders; or any other cause reasonably beyond Patwadi's control. In force majeure events, Patwadi will endeavour to notify affected customers and resume services as promptly as possible.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Claims — timing and process</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Any claim for loss or damage must be submitted within <strong>48 hours of delivery</strong> (or 48 hours of the expected delivery time in the case of non-delivery). Claims submitted after this window will not be entertained. Claims must be accompanied by: the Booking ID; photographs of the damage or evidence of loss; and a description of the alleged loss or damage. Full details are set out in the <a href="shipping.html" style="color:var(--blue);">Shipping Policy</a>.</p></div>
+    </details></div>
+  </div>
+
+  <!-- PROHIBITED ITEMS -->
+  <div id="prohibited" class="pol-sec">
+    <p class="sec-intro">The following items cannot be shipped via Patwadi under any circumstances. Booking a Parcel containing prohibited items constitutes a material breach of these Terms. Patwadi reserves the right to refuse, impound, return, or hand over to authorities any Parcel found to contain prohibited items at any stage of transit.</p>
+
+    <div class="acc"><details open><summary><span class="acc-q">Dangerous and hazardous materials</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Flammable liquids including oil-based paints, thinners, and industrial solvents</li>
+        <li>Flammable adhesives, aerosols, and propellants</li>
+        <li>Pressurised containers of any kind</li>
+        <li>Dry ice (solid carbon dioxide)</li>
+        <li>Fuel for camp stoves, lanterns, torches, or heating elements</li>
+        <li>Insecticides, pesticides, fertilizers, and garden chemicals</li>
+        <li>Bleach and corrosive cleaning agents</li>
+        <li>Any compound, liquid, or gas with toxic characteristics</li>
+        <li>Infectious substances or biological materials</li>
+        <li>Radioactive materials</li>
+        <li>Magnetized materials</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Weapons, illegal items, and controlled substances</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Firearms, weapons, ammunition, and explosives</li>
+        <li>Military equipment of any kind</li>
+        <li>Narcotics, controlled substances, and illegal drugs</li>
+        <li>Counterfeit goods or goods infringing intellectual property</li>
+        <li>Pornographic or obscene material</li>
+        <li>Any item prohibited or regulated under applicable Indian law</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">High-value and financial items</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Currency, coins, and cash of any denomination</li>
+        <li>Bearer instruments, uncrossed cheques, demand drafts, and negotiable instruments</li>
+        <li>Jewellery, precious metals, and gemstones</li>
+        <li>Items with a Declared Value exceeding ₹10,000 (general) or ₹5,000 (electronics) in the pilot period</li>
+      </ul></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Identity and secure documents</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Users must not ship any secure identity or financial document, including but not limited to: Aadhaar cards, passports, voter ID cards, PAN cards, bank statements, credit cards, debit cards, cheques, insurance documents, and educational certificates. Patwadi has no liability if such documents are handed over for shipment.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Other prohibited categories</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul>
+        <li>Live animals or biological specimens</li>
+        <li>Perishable food items or items requiring temperature-controlled transport</li>
+        <li>Human remains or ashes</li>
+        <li>Alcohol, tobacco, or e-cigarette products</li>
+        <li>Machinery containing fuel</li>
+      </ul></div>
+    </details></div>
+  </div>
+
+  <!-- USER OBLIGATIONS -->
+  <div id="obligations" class="pol-sec">
+    <p class="sec-intro">By placing a Booking, the User accepts the following obligations in addition to all other provisions of these Terms.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Accurate declarations</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The User must provide accurate, complete, and truthful declarations of: Parcel contents and category; Declared Value; weight and dimensions; Consignee name, address, and contact number; and any special handling requirements. Inaccurate declarations that result in loss, damage, or regulatory action render the Booking an Invalid Order and release Patwadi from all liability.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Packaging responsibility</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The User is solely responsible for ensuring that the Parcel is adequately packed prior to pickup. Patwadi does not provide packaging materials. The Pickup Partner will photograph the Parcel's exterior at collection — this photograph forms part of the custody record. If packaging is flagged as inadequate, the Pickup Partner may ask the User to repack. Patwadi is not liable for damage caused by inadequate packaging, regardless of whether the Parcel was accepted with flagged packaging.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Consignee availability</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The User is responsible for ensuring that the Consignee is available at the delivery address at the time of delivery, or that an authorised person is present. If the Consignee is unavailable, refuses delivery, or cannot be reached, the instance is treated as an attempted delivery. Storage and return charges apply as detailed in the Shipping Policy. Patwadi is not liable for failed deliveries arising from Consignee unavailability.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">User indemnity</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The User agrees to fully indemnify, defend, and hold harmless Patwadi, its partners, Network Agents, officers, and representatives from and against any and all losses, liabilities, claims, damages, costs, and expenses (including reasonable legal fees) arising from: (a) breach of these Terms; (b) inaccurate Parcel declarations; (c) shipment of prohibited items; (d) the User's violation of any applicable law; (e) any third-party claim related to the Parcel or its contents; or (f) off-platform payment or arrangement with a Network Agent.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Account security</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You are responsible for maintaining the confidentiality of your account credentials. Any activity conducted through your account is your responsibility. You must notify Patwadi immediately at admin@patwadi.com if you suspect unauthorised access to your account. Patwadi is not liable for losses arising from unauthorised account access resulting from the User's failure to protect credentials.</p></div>
+    </details></div>
+  </div>
+
+  <!-- PLATFORM & IP -->
+  <div id="platform" class="pol-sec">
+    <p class="sec-intro">The Patwadi Platform is provided for the purpose of booking and tracking parcel deliveries. All intellectual property in the Platform belongs to Patwadi or its licensors.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">License to use the Platform</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi grants you a limited, revocable, non-exclusive, non-transferable, non-sublicensable licence to access and use the Platform for the purpose of booking and managing your parcel deliveries, subject to your compliance with these Terms. This licence does not extend to: commercial resale of our Services without written authorisation; reverse engineering of the Platform; scraping or automated data extraction; or use of Platform content for any purpose other than personal delivery management.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Intellectual property</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>All content on the Platform — including trademarks, logos, design, text, software, and data — is the intellectual property of Patwadi Logistics LLP or its licensors and is protected by applicable intellectual property laws. "Patwadi" is a registered trademark. You may not use, reproduce, or distribute any content from the Platform without express written permission from Patwadi.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Account suspension and termination</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi reserves the right to suspend or terminate your access to the Platform, in whole or in part, at any time and for any reason, including: breach of these Terms; fraud or misrepresentation; violation of applicable law; security risk; or repeated cancellations without cause. Restoration of access is at Patwadi's sole discretion. Termination does not affect Patwadi's right to recover outstanding freight charges, handling fees, or indemnified losses.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Feedback and user submissions</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Any feedback, suggestions, reviews, or comments you submit to Patwadi become the property of Patwadi and may be used without restriction or compensation. You warrant that any content you submit does not violate any third-party right, is not defamatory, and does not contain malicious code or misleading information. Patwadi may remove any submitted content at its discretion without notice.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Disclaimer of warranties</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>The Platform and Services are provided "as is" without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or uninterrupted availability. Patwadi does not warrant that the Platform will be error-free, virus-free, or continuously available. TAT estimates are not guaranteed delivery commitments.</p></div>
+    </details></div>
+  </div>
+
+  <!-- DISPUTES & GOVERNING LAW -->
+  <div id="disputes" class="pol-sec">
+    <p class="sec-intro">We aim to resolve all disputes quickly and fairly. Please contact our support team first. These Terms are governed by Indian law with exclusive jurisdiction in Chandigarh, Punjab.</p>
+
+    <div class="acc"><details><summary><span class="acc-q">Dispute resolution — support first</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Before initiating any formal legal process, the User must contact Patwadi's support team at <a href="mailto:admin@patwadi.com" style="color:var(--blue);">admin@patwadi.com</a> and allow 15 business days for the dispute to be reviewed and a resolution proposed. This informal resolution step is a condition precedent to any arbitration or litigation.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Arbitration</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>If a dispute is not resolved through the informal process, it shall be referred to and finally resolved by binding arbitration in accordance with the Arbitration and Conciliation Act, 1996 (as amended). The seat of arbitration shall be Chandigarh, Punjab, India. The language of arbitration shall be English. The arbitral tribunal shall consist of a sole arbitrator, mutually appointed by the parties or, failing agreement within 15 days, appointed by the competent court at Chandigarh.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Governing law and jurisdiction</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>These Terms and any dispute arising from them shall be governed by the laws of India. The courts at Chandigarh, Punjab, India shall have exclusive jurisdiction over any matter that is not subject to arbitration, including emergency interim relief.</p></div>
+    </details></div>
+
+    <div class="acc"><details><summary><span class="acc-q">Severability, entire agreement, and waiver</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p><strong>Severability.</strong> If any provision of these Terms is held invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p><p><strong>Entire Agreement.</strong> These Terms, together with the Shipping Policy and Privacy Policy, constitute the entire agreement between you and Patwadi with respect to the Services and supersede all prior agreements or understandings.</p><p><strong>Waiver.</strong> Patwadi's failure to enforce any provision of these Terms in a particular instance shall not be construed as a waiver of that provision or Patwadi's right to enforce it in the future.</p></div>
+    </details></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="pol-sec">
+    <p class="sec-intro">For all queries relating to these Terms, bookings, or support, use the contact details below. Patwadi's support team is available 8am–10pm IST daily.</p>
+    <div class="ccard">
+      <div class="crow"><span class="clbl">Email</span><span style="font-size:.76rem;color:var(--mid);"><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></span></div>
+      <div class="crow"><span class="clbl">WhatsApp</span><span style="font-size:.76rem;color:var(--mid);"><a href="https://wa.me/918091889969" target="_blank">+91 80918 89969</a></span></div>
+      <div class="crow"><span class="clbl">Hours</span><span style="font-size:.76rem;color:var(--mid);">8am – 10pm IST daily</span></div>
+      <div class="crow"><span class="clbl">Response SLA</span><span style="font-size:.76rem;color:var(--mid);">Within 2 hours during support hours; within 30 minutes for active in-transit exceptions</span></div>
+      <div class="crow"><span class="clbl">Registered office</span><span style="font-size:.76rem;color:var(--mid);">Patwadi Logistics LLP, Chandigarh, India</span></div>
+    </div>
+    <div class="flat">
+      <div class="flat-body"><p>Related documents: <a href="shipping.html" style="color:var(--blue);">Shipping Policy</a> &nbsp;·&nbsp; <a href="privacy-policy.html" style="color:var(--blue);">Privacy Policy</a></p></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fg">
+    <div>
+      <span class="fb-name">Patwadi</span>
+      <p class="fb-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Book on WhatsApp.</p>
+    </div>
+    <div class="fc"><h4>Who we serve</h4><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="b2b.html">Enterprise</a></div>
+    <div class="fc"><h4>Useful pages</h4><a href="how-it-works.html">How It Works</a><a href="index.html#routes">Routes</a><a href="tracking.html">Track a parcel</a><a href="posts/">Guides</a><a href="privacy-policy.html">Privacy Policy</a></div>
+    <div class="fc"><h4>Contact</h4><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></div>
+  </div>
+  <div class="fb">
+    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
+    <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;font-weight:600;">+91 80918 89969</a>
+  </div>
+</footer>
+
+<script>
+  function showTab(id){
+    document.querySelectorAll('.pol-sec').forEach(function(s){s.classList.remove('active');});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+    var s=document.getElementById(id); if(s) s.classList.add('active');
+    var b=document.querySelector('[data-tab="'+id+'"]'); if(b) b.classList.add('active');
+    var sel=document.getElementById('mobSelect'); if(sel) sel.value=id;
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var m=document.getElementById('mNav'),b=document.querySelector('.nav-hamburger');
+    if(m&&b&&!m.contains(e.target)&&!b.contains(e.target)) m.classList.remove('open');
+  });
+</script>
+</body>
+</html>
