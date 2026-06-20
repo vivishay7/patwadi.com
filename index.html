@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patwadi, City to city cargo on WhatsApp</title>
   <meta name="description" content="Send bags, boxes, cartons and luggage city to city across North, South and West India. WhatsApp booking, route confirmation before dispatch, live tracking.">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="icon" type="image/jpeg" href="assets/logo-mark.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -54,7 +54,7 @@
     .hw-photo-area{position:relative;}
     .hw-photo{width:100%;aspect-ratio:4/3;border-radius:20px 20px 0 0;overflow:hidden;background:linear-gradient(145deg,#EAD9C8 0%,#CCA97C 55%,#B8905A 100%);position:relative;display:flex;align-items:center;justify-content:center;}
     .hw-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
-    .hw-photo-placeholder{font-size:0.75rem;font-weight:600;color:#7A5835;text-align:center;padding:20px;background:rgba(255,255,255,0.22);border-radius:12px;line-height:1.7;}
+    .hw-photo-placeholder{font-size:0.75rem;font-weight:600;color:#7A5835;text-align:center;padding:20px;background:rgba(255,255,255,0.22);border-radius:12px;line-height:1.7;display:none;}
     .hw-postit{position:absolute;top:-16px;right:-14px;background:#FEFCE8;border-radius:3px;padding:12px 14px;width:144px;transform:rotate(2.5deg);box-shadow:2px 5px 14px rgba(0,0,0,0.13);font-size:0.8rem;line-height:1.55;color:#1A1A1A;z-index:3;}
     .hw-postit-tape{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:36px;height:14px;background:rgba(255,224,160,0.7);border-radius:2px;}
     .hw-circle{display:inline;border:1.5px solid var(--orange);border-radius:50%;padding:0 3px 1px;white-space:nowrap;font-weight:600;}
@@ -62,6 +62,7 @@
     .hw-box{position:absolute;bottom:14px;right:14px;background:#D4B896;border:2px solid #B8915A;border-radius:6px;padding:9px 12px 7px;font-weight:800;font-size:0.78rem;color:#6B3A0A;z-index:2;display:flex;align-items:center;gap:5px;box-shadow:2px 3px 10px rgba(0,0,0,0.15);}
     .hw-box-icon{width:18px;height:18px;border-radius:3px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:0.7rem;overflow:hidden;position:relative;background:var(--orange);}
     .hw-box-icon img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;}
+    .hw-box-icon .fallback{display:none;}
     .hw-box-sparkle{position:absolute;top:-8px;right:-4px;font-size:0.9rem;}
     .hw-polaroids{display:flex;gap:7px;padding:12px 0 14px;overflow-x:auto;scrollbar-width:none;background:var(--warm-bg);}
     .hw-polaroids::-webkit-scrollbar{display:none;}
@@ -69,7 +70,7 @@
     .hw-pol:hover{transform:rotate(0deg) scale(1.05);}
     .hw-pol-img{width:100%;aspect-ratio:1;border-radius:1px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;overflow:hidden;position:relative;}
     .hw-pol-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-    .hw-pol-img .fallback{position:relative;z-index:0;}
+    .hw-pol-img .fallback{position:relative;z-index:0;display:none;}
     .hw-pol-cap{font-size:0.66rem;margin-top:6px;text-align:center;color:#374151;line-height:1.35;font-family:'Caveat',cursive;}
     .hw-pol-cap .hrt{color:var(--orange);}
     .hw-slots{background:#fff;border-radius:0 0 14px 14px;box-shadow:0 6px 20px rgba(0,0,0,0.09);padding:12px 14px;}
@@ -273,7 +274,7 @@
 <!-- NAV -->
 <nav class="nav-bar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">Patwadi</a>
+    <a href="index.html" class="nav-logo"><img src="assets/logo-mark.jpg" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">Patwadi</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="students.html">Students</a></li>
@@ -337,16 +338,16 @@
     <div class="hw-right">
       <div class="hw-photo-area">
         <div class="hw-photo">
-          <!-- Drop your lifestyle photo at assets/images/hero-lifestyle.jpg -->
+          <!-- Drop your lifestyle photo at assets/hero-lifestyle.jpg -->
           <!-- Portrait orientation, warm tones, woman at home/laptop -->
-          <img src="assets/images/hero-lifestyle.jpg" alt="Relaxed woman working from home with coffee" loading="eager" onerror="this.style.display='none'">
+          <img src="assets/hero-lifestyle.jpg" alt="Relaxed woman working from home with coffee" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <div class="hw-photo-placeholder">
             Drop your lifestyle photo here<br>
-            <small style="opacity:.65;font-weight:400;font-size:0.68rem;">assets/images/hero-lifestyle.jpg<br>Warm tones · Portrait/4:3 crop</small>
+            <small style="opacity:.65;font-weight:400;font-size:0.68rem;">assets/hero-lifestyle.jpg<br>Warm tones · Portrait/4:3 crop</small>
           </div>
           <!-- Patwadi branded box overlay -->
           <div class="hw-box" aria-hidden="true">
-            <span class="hw-box-icon"><img src="assets/images/logo-mark-white.png" alt="" onerror="this.style.display='none'"><span class="fallback">⇒</span></span> patwadi
+            <span class="hw-box-icon"><img src="assets/logo-mark.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">⇒</span></span> patwadi
             <span class="hw-box-sparkle">✦</span>
           </div>
         </div>
@@ -360,12 +361,12 @@
 
       <!-- Polaroid row -->
       <div class="hw-polaroids" role="list" aria-label="What people send on Patwadi">
-        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><img src="assets/images/polaroid-mithai.jpg" alt="Ghar ki mithai" loading="lazy" onerror="this.style.display='none'"><span class="fallback">🍮</span></div><div class="hw-pol-cap">Ghar ki mithai for the win <span class="hrt">♡</span></div></div>
-        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><img src="assets/images/polaroid-notes.jpg" alt="Exam notes" loading="lazy" onerror="this.style.display='none'"><span class="fallback">📚</span></div><div class="hw-pol-cap">Exam notes, that matter <span class="hrt">♡</span></div></div>
-        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><img src="assets/images/polaroid-gift.jpg" alt="Birthday gift" loading="lazy" onerror="this.style.display='none'"><span class="fallback">🎁</span></div><div class="hw-pol-cap">Birthday love, delivered</div></div>
-        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><img src="assets/images/polaroid-achar.jpg" alt="Ghar ka achar" loading="lazy" onerror="this.style.display='none'"><span class="fallback">🫙</span></div><div class="hw-pol-cap">Ghar ka achar, packed with love <span class="hrt">♡</span></div></div>
-        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><img src="assets/images/polaroid-business.jpg" alt="Small business parcel" loading="lazy" onerror="this.style.display='none'"><span class="fallback">📦</span></div><div class="hw-pol-cap">Small business, big dreams. <span class="hrt">♡</span></div></div>
-        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><img src="assets/images/polaroid-charger.jpg" alt="Forgotten charger" loading="lazy" onerror="this.style.display='none'"><span class="fallback">🔌</span></div><div class="hw-pol-cap">The charger, saviour <span class="hrt">♡</span></div></div>
+        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><img src="assets/polaroid-mithai.jpg" alt="Ghar ki mithai" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🍮</span></div><div class="hw-pol-cap">Ghar ki mithai for the win <span class="hrt">♡</span></div></div>
+        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><img src="assets/polaroid-notes.jpg" alt="Exam notes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">📚</span></div><div class="hw-pol-cap">Exam notes, that matter <span class="hrt">♡</span></div></div>
+        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><img src="assets/polaroid-gift.jpg" alt="Birthday gift" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🎁</span></div><div class="hw-pol-cap">Birthday love, delivered</div></div>
+        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><img src="assets/polaroid-achar.jpg" alt="Ghar ka achar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🫙</span></div><div class="hw-pol-cap">Ghar ka achar, packed with love <span class="hrt">♡</span></div></div>
+        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><img src="assets/polaroid-business.jpg" alt="Small business parcel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">📦</span></div><div class="hw-pol-cap">Small business, big dreams. <span class="hrt">♡</span></div></div>
+        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><img src="assets/polaroid-charger.jpg" alt="Forgotten charger" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🔌</span></div><div class="hw-pol-cap">The charger, saviour <span class="hrt">♡</span></div></div>
       </div>
 
       <!-- Time slot card -->
