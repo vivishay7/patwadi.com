@@ -1,125 +1,814 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Track Parcel - Patwadi</title>
-  <meta name="description" content="Track your Patwadi parcel in real-time with live updates and WhatsApp notifications.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Your Parcel · Patwadi</title>
+<meta name="description" content="Track your Patwadi parcel by tracking code, see exactly where your shipment is right now.">
+<link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#241F1C; --ink-soft:#5C534C; --paper:#FBF6EE;
+    --frame-wood:#7A5236; --frame-wood-dark:#5C3D27; --frame-wood-light:#9A7050;
+    --accent:#C7491F; --line:#E4D9C8;
+    --blue:#1D4ED8; --blue-dk:#1E3A8A; --border:#E2E8F0; --surface:#F8FAFF; --green-wa:#25D366; --ghost:#94A3B8; --mid:#475569; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);font-family:'Inter',sans-serif;color:var(--ink)}
+
+  /* ── SITE NAV (shared across all pages) ── */
+  .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+  .nav-logo-img{height:30px;width:30px;object-fit:contain;flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+  .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap;}
+  .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+  .nav-links a.active{color:var(--accent);font-weight:700;}
+  .nav-cta{background:var(--blue);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s;}
+  .nav-cta:hover{background:var(--blue-dk);}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+  .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+  .nav-mobile-menu.open{display:flex;}
+  .nav-mobile-menu a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+  .nav-mobile-menu a:hover{background:#F1F5F9;}
+  .nav-mobile-menu a.active{color:var(--accent);font-weight:700;}
+  .nav-mobile-menu .nav-cta-mobile{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:.88rem;}
+
+  /* ── PAGE WRAPPER (was on body in the original demo) ── */
+  .track-content{padding:40px 20px 90px;display:flex;flex-direction:column;align-items:center;}
+
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;text-align:center}
+  .pagehead{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,32px);font-weight:500;text-align:center;letter-spacing:-.01em;margin-bottom:6px}
+  .pagesub{font-size:12.5px;color:var(--ink-soft);text-align:center;max-width:500px;line-height:1.6;margin-bottom:24px}
+  .selector-group{margin-bottom:12px;text-align:center;max-width:680px}
+  .selector-label{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#B5A892;margin-bottom:7px}
+  .stage-switch{display:inline-flex;gap:5px;background:#F1E7D8;padding:5px;border-radius:30px;box-shadow:inset 0 1px 3px rgba(0,0,0,.06);flex-wrap:wrap;justify-content:center;max-width:680px}
+  .stage-switch button{border:none;background:transparent;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:6px 11px;border-radius:24px;cursor:pointer;color:var(--ink-soft);letter-spacing:.01em;transition:all .3s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .stage-switch button.active{background:var(--paper);color:var(--ink);box-shadow:0 2px 8px rgba(36,31,28,.12)}
+  .stage-switch svg{width:13px;height:13px;flex-shrink:0}
+  .city-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  .resolve-badge{display:inline-flex;align-items:center;gap:7px;margin-top:6px;margin-bottom:8px;background:#FBF6EE;border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:11px;color:var(--ink-soft)}
+  .resolve-badge b{color:var(--ink);font-weight:600}
+  .resolve-tag{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px}
+  .resolve-tag.city{background:#FBE0D5;color:#A8442E}
+  .resolve-tag.state{background:#E3EEE8;color:#3C6B52}
+  .phone{width:374px;max-width:92vw;background:#fff;border-radius:42px;padding:14px;margin-top:14px;box-shadow:0 30px 70px -20px rgba(36,31,28,.35), 0 0 0 1px rgba(36,31,28,.04)}
+  .screen{background:var(--paper);border-radius:30px;overflow:hidden;position:relative;min-height:620px}
+  .statusbar{height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:11px;font-weight:600;color:var(--ink)}
+  .topbar{padding:6px 22px 14px;display:flex;align-items:center;gap:10px}
+  .back{width:30px;height:30px;border-radius:50%;background:#F1E7D8;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink-soft)}
+  .toptitle{font-family:'Fraunces',serif;font-size:17px;font-weight:500}
+  .toporder{font-size:11px;color:var(--ink-soft);margin-top:1px}
+  .window-wrap{padding:8px 22px 6px}
+  .window{position:relative;border-radius:18px;overflow:hidden;height:250px;box-shadow:0 10px 24px -8px rgba(36,31,28,.25), inset 0 0 0 1px rgba(255,255,255,.08)}
+  .scene{position:absolute;inset:0;opacity:0;transition:opacity .85s ease}
+  .scene.show{opacity:1}
+  .sash{position:absolute;inset:0;pointer-events:none}
+  .sash .mullion-v{position:absolute;top:0;bottom:0;left:50%;width:10px;margin-left:-5px;background:linear-gradient(90deg,var(--frame-wood-dark),var(--frame-wood) 45%,var(--frame-wood-light) 55%,var(--frame-wood-dark));box-shadow:0 0 6px rgba(0,0,0,.25)}
+  .sash .mullion-h{position:absolute;left:0;right:0;top:50%;height:9px;margin-top:-4.5px;background:linear-gradient(180deg,var(--frame-wood-dark),var(--frame-wood) 45%,var(--frame-wood-light) 55%,var(--frame-wood-dark));box-shadow:0 0 6px rgba(0,0,0,.25)}
+  .sash .pane-border{position:absolute;inset:0;border:9px solid;border-image:linear-gradient(135deg,var(--frame-wood-light),var(--frame-wood) 40%,var(--frame-wood-dark)) 1;box-shadow:inset 0 2px 8px rgba(0,0,0,.18)}
+  .sill{position:absolute;left:-3px;right:-3px;bottom:-4px;height:14px;background:linear-gradient(180deg,var(--frame-wood),var(--frame-wood-dark));border-radius:0 0 14px 14px;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+  .status-chip{position:absolute;top:14px;right:14px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);border-radius:20px;padding:6px 12px 6px 8px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+  .status-dot{width:7px;height:7px;border-radius:50%}
+  .status-chip span{font-size:10.5px;font-weight:600;color:var(--ink)}
+  .city-chip{position:absolute;top:14px;left:14px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(36,31,28,.45);backdrop-filter:blur(6px);border-radius:20px;padding:6px 11px;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+  .city-chip span{font-size:10.5px;font-weight:600;color:#fff;letter-spacing:.02em}
+  .updatecopy{padding:16px 22px 4px}
+  .updatecopy h2{font-family:'Fraunces',serif;font-size:18.5px;font-weight:500;line-height:1.32;letter-spacing:-.01em}
+  .updatecopy p{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  .motif-note{padding:0 22px;margin-top:9px}
+  .motif-note span{display:inline-block;font-size:10.5px;color:#B5A892;font-style:italic;border-top:1px dashed var(--line);padding-top:7px;width:100%}
+  .timeline{padding:14px 22px 18px;display:flex;flex-direction:column;gap:0}
+  .stamp{display:flex;gap:13px;position:relative}
+  .stamp:not(:last-child){padding-bottom:14px}
+  .stamp-rail{display:flex;flex-direction:column;align-items:center;width:24px;flex-shrink:0}
+  .stamp-icon{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;z-index:2;border:1.5px solid var(--line);background:var(--paper)}
+  .stamp-icon.done{background:var(--accent);border-color:var(--accent);color:#fff}
+  .stamp-icon.current{background:#fff;border-color:var(--accent);box-shadow:0 0 0 4px rgba(199,73,31,.13)}
+  .stamp-thread{width:1.5px;flex:1;background:var(--line);margin-top:2px}
+  .stamp-thread.done{background:var(--accent);opacity:.4}
+  .stamp-body{padding-top:0;flex:1}
+  .stamp-title{font-size:12px;font-weight:600;color:var(--ink-soft)}
+  .stamp.active .stamp-title{color:var(--ink)}
+  .stamp-time{font-size:10px;color:#B5A892;margin-top:0}
+  .stamp.active .stamp-time{color:var(--ink-soft)}
+  @media (max-width:420px){ .phone{width:100%;padding:10px} .window{height:215px} }
+
+  /* ── SITE FOOTER (shared across all pages) ── */
+  footer{background:var(--ink);color:#94A3B8;padding:48px 24px 24px;}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+  .footer-brand-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:10px;display:block;font-family:'Inter',sans-serif;}
+  .footer-brand-desc{font-size:.82rem;line-height:1.65;font-family:'Inter',sans-serif;}
+  .footer-col h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-family:'Inter',sans-serif;}
+  .footer-col a{display:block;font-size:.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color .15s;font-family:'Inter',sans-serif;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid #1E293B;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#475569;flex-wrap:wrap;gap:12px;font-family:'Inter',sans-serif;}
+  @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+  /* ── SEARCH / LOOKUP UI ── */
+  .lookup-wrap{width:100%;max-width:420px;margin-bottom:18px;}
+  .lookup-row{display:flex;gap:8px;}
+  .lookup-input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;outline:none;letter-spacing:.03em;text-transform:uppercase;}
+  .lookup-input::placeholder{color:#C4B7A2;text-transform:none;letter-spacing:0;}
+  .lookup-input:focus{border-color:var(--accent);}
+  .lookup-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:0 20px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background .15s;}
+  .lookup-btn:hover{background:#A83C18;}
+  .lookup-btn:disabled{background:#D9C5B4;cursor:not-allowed;}
+  .lookup-hint{font-size:10.5px;color:#B5A892;margin-top:7px;}
+  .lookup-hint b{color:var(--ink-soft);font-weight:600;}
+  .lookup-msg{width:100%;max-width:420px;font-size:12px;border-radius:10px;padding:10px 14px;margin-bottom:14px;display:none;}
+  .lookup-msg.show{display:block;}
+  .lookup-msg.error{background:#FBE3DC;color:#A8442E;border:1px solid #F0C2B0;}
+  .lookup-msg.loading{background:#F1E7D8;color:var(--ink-soft);}
+  .idle-state{width:374px;max-width:92vw;text-align:center;padding:60px 24px;color:#B5A892;font-size:13px;line-height:1.6;}
+  .idle-state svg{width:36px;height:36px;margin-bottom:12px;opacity:.5;}
+
+  /* ── ROUTE CARD ── */
+  .route-card{margin:0 22px 4px;padding:12px 14px;background:#F8F3EA;border-radius:12px;display:flex;align-items:center;gap:10px;}
+  .route-pt{flex:1;min-width:0;}
+  .route-city{font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .route-tag{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B5A892;margin-bottom:2px;}
+  .route-arrow{color:var(--accent);flex-shrink:0;font-size:13px;}
+
+  /* ── POD ── */
+  .pod-wrap{margin:14px 22px 0;}
+  .pod-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B5A892;margin-bottom:8px;}
+  .pod-img{width:100%;border-radius:10px;display:block;border:1px solid var(--line);}
+
+  /* ── BLOCKED EXCEPTION ── */
+  .exception-banner{margin:14px 22px 0;padding:12px 14px;background:#FBE3DC;border:1px solid #F0C2B0;border-radius:10px;font-size:12px;color:#A8442E;line-height:1.5;}
+
+  /* ── SUPPORT LINK ── */
+  .support-link{display:flex;align-items:center;justify-content:center;gap:7px;margin:16px 22px 18px;padding:11px;background:#F1E7D8;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;}
+  .support-link svg{width:15px;height:15px;flex-shrink:0;color:#25D366;}
+
+</style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav">
-      <a href="index.html" class="logo">Patwadi</a>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="students.html">Students</a></li>
-        <li><a href="business.html">Business</a></li>
-        <li><a href="index.html#routes">Routes</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="tracking.html">Track</a></li>
-        <li><a href="drivers.html">Join Us</a></li>
-        <li><a href="/posts/">Guides</a></li>
-      </ul>
-      <div class="mobile-toggle">
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-      </div>
-    </nav>
-  </header>
 
-  <!-- Tracking Hero (Demo Sandbox) -->
-  <section style="padding: var(--spacing-3xl) 0; background: var(--neutral-900); color: white; text-align: center;">
-    <div class="container tracking-container">
-      <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--spacing-md);">Tracking Sandbox</h1>
-      <p style="max-width: 500px; margin: 0 auto var(--spacing-xl);">Experience our real-time visibility engine. Enter a demo ID to see the granular events our API returns.</p>
-      <div style="background: rgba(255,255,255,0.1); padding: var(--spacing-lg); border-radius: var(--border-radius); border: 1px solid var(--neutral-700);">
-        <input type="text" class="tracking-input" placeholder="Enter Tracking ID (Try: DEMO123)" value="" style="background: white; color: var(--neutral-900); border: none;">
-        <button type="button" class="btn tracking-submit" style="margin-top: var(--spacing-md); width: 100%; max-width: 220px;">Enter</button>
-        <p style="color: var(--neutral-400); font-size: 0.875rem; margin-top: var(--spacing-sm);">NOTE: For live production shipments, please use the link sent to your WhatsApp/Email.</p>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="business.html">Business</a></li>
+      <li><a href="index.html#routes">Routes</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="tracking.html" class="active">Track</a></li>
+      <li><a href="drivers.html">Join Us</a></li>
+      <li><a href="posts/">Guides</a></li>
+    </ul>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta" aria-label="Check route on WhatsApp">Check route on WhatsApp</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="business.html">Business</a>
+    <a href="index.html#routes">Routes</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="tracking.html" class="active">Track</a>
+    <a href="drivers.html">Join Us</a>
+    <a href="posts/">Guides</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta-mobile">Check route on WhatsApp</a>
+  </div>
+</nav>
+
+<div class="track-content">
+
+<div class="eyebrow">Patwadi — Tracking</div>
+<div class="pagehead">Where's my parcel?</div>
+<p class="pagesub">Enter your tracking code to see exactly where it is right now.</p>
+
+<div class="lookup-wrap">
+  <div class="lookup-row">
+    <input type="text" id="codeInput" class="lookup-input" placeholder="PXXX00X00XXX" maxlength="12" autocomplete="off" autocapitalize="characters" aria-label="Tracking code">
+    <button id="searchBtn" class="lookup-btn">Search</button>
+  </div>
+</div>
+<div class="lookup-msg" id="lookupMsg"></div>
+
+<div id="idleState" class="idle-state">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><br>
+  Enter your tracking code above to see your parcel's journey.
+</div>
+
+<div class="phone" id="phoneCard" style="display:none;">
+  <div class="screen">
+    <div class="statusbar"><span>9:41</span><span>●●●●  Wi-Fi  100%</span></div>
+    <div class="topbar">
+      <div class="back">‹</div>
+      <div><div class="toptitle">Tracking</div><div class="toporder" id="toporder">—</div></div>
+    </div>
+    <div class="window-wrap">
+      <div class="window" id="window">
+        <div class="sash"><div class="pane-border"></div><div class="mullion-v"></div><div class="mullion-h"></div></div>
+        <div class="sill"></div>
+        <div class="city-chip"><span id="cityChipText">—</span></div>
+        <div class="status-chip"><div class="status-dot" id="statusDot"></div><span id="statusChipText">—</span></div>
       </div>
     </div>
-  </section>
-
-  <!-- Status Timeline -->
-  <section class="section">
-    <div class="container tracking-container">
-      <h2>Your Parcel Journey</h2>
-      <div class="status-timeline">
-        <p>Enter a Tracking ID (try "DEMO123") to see journey.</p>
-      </div>
-      <div class="card" style="margin-top: var(--spacing-xl); padding: var(--spacing-lg);">
-        <h3 style="margin-bottom: var(--spacing-sm);">Sample Parcel Details</h3>
-        <p><strong>ID:</strong> PW-EXAMPLE-001</p>
-        <p><strong>From:</strong> Delhi | <strong>To:</strong> Manali</p>
-        <p><strong>Dims:</strong> 30x20x10 cm | <strong>Weight:</strong> 2kg</p>
-        <p><strong>Status:</strong> In Transit (Intercity Corridor)</p>
-      </div>
+    <div class="updatecopy">
+      <h2 id="copyHeadline">—</h2>
+      <p id="copySub">—</p>
     </div>
-  </section>
-
-  <!-- Tips -->
-  <section class="section" style="background: var(--neutral-100);">
-    <div class="container">
-      <h2 class="section-title">Track Tips</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="icon">📱</div>
-          <h3>WhatsApp Alerts</h3>
-          <p>Opt-in for instant updates on pickup, transit, and delivery.</p>
-        </div>
-        <div class="card">
-          <div class="icon">🗺️</div>
-          <h3>Live Map</h3>
-          <p>View exact corridor/rider location on integrated map (coming soon).</p>
-        </div>
-        <div class="card">
-          <div class="icon">📞</div>
-          <h3>Support</h3>
-          <p>Issues? WhatsApp +91-22-PATWADI or email support@patwadi.com</p>
-        </div>
-      </div>
+    <div class="motif-note"><span id="motifText"></span></div>
+    <div class="exception-banner" id="exceptionBanner" style="display:none;"></div>
+    <div class="timeline" id="timeline"></div>
+    <div class="route-card" id="routeCard" style="display:none;">
+      <div class="route-pt"><div class="route-tag">From</div><div class="route-city" id="routeFrom">—</div></div>
+      <span class="route-arrow">→</span>
+      <div class="route-pt"><div class="route-tag">To</div><div class="route-city" id="routeTo">—</div></div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content container">
-      <div class="footer-section">
-        <h3>Product</h3>
-        <a href="services.html">Services</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="tracking.html">Track Parcel</a>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a>
-        <a href="mailto:admin@patwadi.com">admin@patwadi.com</a>
-      </div>
-      <div class="footer-section">
-        <h3>Company</h3>
-        <a href="https://wa.me/918091889969">WhatsApp</a>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-      </div>
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <a href="/docs/privacy-policy.html">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Compliance</a>
-      </div>
+    <div class="pod-wrap" id="podWrap" style="display:none;">
+      <div class="pod-label">Delivery proof</div>
+      <img class="pod-img" id="podImg" src="" alt="Proof of delivery">
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p>
-    </div>
-  </footer>
+    <a href="#" target="_blank" class="support-link" id="supportLink">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+      Need help with this order?
+    </a>
+  </div>
+</div>
 
-  <script src="assets/js/main.js"></script>
+</div><!-- /track-content -->
+
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-brand-name">Patwadi</span>
+      <p class="footer-brand-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Book on WhatsApp.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Who we serve</h4>
+      <a href="students.html">Students</a>
+      <a href="business.html">Business shipping</a>
+      <a href="b2b.html">Enterprise</a>
+    </div>
+    <div class="footer-col">
+      <h4>Useful pages</h4>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="index.html#routes">Routes</a>
+      <a href="tracking.html">Track a parcel</a>
+      <a href="/posts/">Guides</a>
+      <a href="/docs/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a>
+      <a href="mailto:admin@patwadi.com">admin@patwadi.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
+    <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;font-weight:600;">+91 80918 89969</a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobileNav'),btn=document.querySelector('.nav-hamburger');
+  if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)) menu.classList.remove('open');
+});
+
+function rnd(a,b){ return a + Math.random()*(b-a); }
+/* ============ TIME OF DAY ============ */
+const TIMES = {
+  morning:{ label:'Morning', chipColor:'#E9A23B',
+    icon:'<svg viewBox="0 0 24 24" fill="none"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/></svg>',
+    statusText:'Out for delivery',
+    sky:()=>`<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FCE2B0"/><stop offset="55%" stop-color="#FBCB8A"/><stop offset="100%" stop-color="#F2A968"/></linearGradient>`,
+    celestial:(W,H)=>`<radialGradient id="cel" cx="50%" cy="50%"><stop offset="0%" stop-color="#FFF3D6"/><stop offset="60%" stop-color="#FFD98A"/><stop offset="100%" stop-color="#FFD98A" stop-opacity="0"/></radialGradient><circle cx="${W*0.24}" cy="${H*0.22}" r="68" fill="url(#cel)"/><circle cx="${W*0.24}" cy="${H*0.22}" r="22" fill="#FFEFC2"/>`,
+    tint:'rgba(255,205,140,.10)', starOpacity:0 },
+  afternoon:{ label:'Afternoon', chipColor:'#3E7EC9',
+    icon:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v3M12 20v3M3.5 3.5l2 2M18.5 18.5l2 2M1 12h3M20 12h3M3.5 20.5l2-2M18.5 5.5l2-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    statusText:'On corridor',
+    sky:()=>`<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#A9D6EE"/><stop offset="60%" stop-color="#CDE6F2"/><stop offset="100%" stop-color="#E8E1CB"/></linearGradient>`,
+    celestial:(W,H)=>`<circle cx="${W*0.8}" cy="${H*0.13}" r="16" fill="#FFF7DE"/><circle cx="${W*0.8}" cy="${H*0.13}" r="27" fill="#FFF7DE" opacity=".3"/>`,
+    tint:'rgba(255,255,255,.05)', starOpacity:0 },
+  evening:{ label:'Evening', chipColor:'#C7491F',
+    icon:'<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="15" r="5" fill="currentColor"/><path d="M3 19h18M5 16h1M18 16h1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    statusText:'Reached city',
+    sky:()=>`<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4A3450"/><stop offset="40%" stop-color="#A8503F"/><stop offset="75%" stop-color="#E08B4E"/><stop offset="100%" stop-color="#F3B36A"/></linearGradient>`,
+    celestial:(W,H)=>`<radialGradient id="cel" cx="50%" cy="50%"><stop offset="0%" stop-color="#FFD9A0"/><stop offset="100%" stop-color="#FFD9A0" stop-opacity="0"/></radialGradient><circle cx="${W*0.5}" cy="${H*0.38}" r="50" fill="url(#cel)"/><circle cx="${W*0.5}" cy="${H*0.38}" r="17" fill="#FFCB7D"/>`,
+    tint:'rgba(220,100,60,.16)', starOpacity:.3 },
+  night:{ label:'Night', chipColor:'#7C6FB5',
+    icon:'<svg viewBox="0 0 24 24" fill="none"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" fill="currentColor"/></svg>',
+    statusText:'Resting · safe',
+    sky:()=>`<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1430"/><stop offset="100%" stop-color="#2E2347"/></linearGradient>`,
+    celestial:(W,H)=>`<radialGradient id="cel" cx="50%" cy="50%"><stop offset="0%" stop-color="#F4EFE0" stop-opacity=".45"/><stop offset="100%" stop-color="#F4EFE0" stop-opacity="0"/></radialGradient><circle cx="${W*0.76}" cy="${H*0.16}" r="34" fill="url(#cel)"/><circle cx="${W*0.76}" cy="${H*0.16}" r="14" fill="#F4EFE0"/><circle cx="${W*0.76+4}" cy="${H*0.16-3}" r="14" fill="#1A1430" opacity=".45"/>`,
+    tint:'rgba(15,12,40,.42)', starOpacity:1 }
+};
+
+/* ============ CITY LANDMARKS — real, specific silhouettes ============ */
+const CITY_SCENES = {
+  'Delhi':{ dot:'#A8442E', motif:'India Gate arch · red sandstone domes',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#8B3624"/>
+      <path d="M ${W*0.4} ${H*0.7} L ${W*0.4} ${H*0.46} Q ${W*0.5} ${H*0.34} ${W*0.6} ${H*0.46} L ${W*0.6} ${H*0.7} Z" fill="none" stroke="#A8442E" stroke-width="${W*0.05}"/>
+      <circle cx="${W*0.18}" cy="${H*0.6}" r="8" fill="#A8442E"/><rect x="${W*0.1}" y="${H*0.6}" width="${W*0.16}" height="${H*0.1}" fill="#A8442E"/>
+      <circle cx="${W*0.82}" cy="${H*0.6}" r="8" fill="#A8442E"/><rect x="${W*0.74}" y="${H*0.6}" width="${W*0.16}" height="${H*0.1}" fill="#A8442E"/>
+      <rect x="0" y="${H*0.7}" width="${W}" height="2" fill="#E8D9BF" opacity=".6"/></g>` },
+
+  'Jaipur':{ dot:'#D9748C', motif:'Pink City sandstone · scalloped jharokha arches',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.66}" width="${W}" height="${H*0.34}" fill="#C97561"/><rect x="0" y="${H*0.62}" width="${W}" height="${H*0.06}" fill="#D98C7A"/>
+      <rect x="${W*0.36}" y="${H*0.46}" width="${W*0.28}" height="${H*0.22}" fill="#E8A693"/><path d="M ${W*0.36} ${H*0.46} q ${W*0.14} -22 ${W*0.28} 0 Z" fill="#D9748C"/>
+      <circle cx="${W*0.5}" cy="${H*0.4}" r="6" fill="#D9748C"/>
+      ${[0.42,0.5,0.58].map(x=>`<path d="M ${W*x-8} ${H*0.56} q 8 -10 16 0 Z" fill="#FBE8DE"/><rect x="${W*x-6}" y="${H*0.56}" width="12" height="10" fill="#FBE8DE"/>`).join('')}
+      <rect x="${W*0.06}" y="${H*0.52}" width="${W*0.24}" height="${H*0.16}" fill="#D9748C"/><rect x="${W*0.7}" y="${H*0.5}" width="${W*0.24}" height="${H*0.18}" fill="#D9748C"/></g>` },
+
+  'Jodhpur':{ dot:'#5C7FA8', motif:'Mehrangarh Fort over the Blue City',
+    skyline:(W,H)=>`<g>
+      <polygon points="${W*0.2},${H*0.62} ${W*0.3},${H*0.3} ${W*0.42},${H*0.34} ${W*0.5},${H*0.18} ${W*0.6},${H*0.32} ${W*0.72},${H*0.28} ${W*0.8},${H*0.62}" fill="#8B7355"/>
+      <rect x="${W*0.46}" y="${H*0.2}" width="${W*0.08}" height="${H*0.1}" fill="#6B5740"/>
+      <rect x="0" y="${H*0.6}" width="${W}" height="${H*0.4}" fill="#3E6B8C"/>
+      ${[[0.06,0.7],[0.15,0.66],[0.24,0.72],[0.33,0.68],[0.62,0.7],[0.71,0.66],[0.8,0.72],[0.89,0.68]].map(([x,y])=>`<rect x="${W*x}" y="${H*y}" width="${W*0.08}" height="${H*0.16}" fill="#4A78A0"/><rect x="${W*x+3}" y="${H*(y+0.04)}" width="3" height="4" fill="#CFE0EC" opacity=".7"/>`).join('')}
+      </g>` },
+
+  'Udaipur':{ dot:'#E8E0D0', motif:'Lake Palace · white marble on water',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#7BAFC4" opacity=".6"/>
+      <rect x="${W*0.28}" y="${H*0.58}" width="${W*0.44}" height="${H*0.2}" fill="#F0EBDD"/>
+      <circle cx="${W*0.5}" cy="${H*0.52}" r="10" fill="#E8E0D0"/><rect x="${W*0.5-2.5}" y="${H*0.4}" width="5" height="13" fill="#E8E0D0"/>
+      <circle cx="${W*0.36}" cy="${H*0.56}" r="5" fill="#E8E0D0"/><circle cx="${W*0.64}" cy="${H*0.56}" r="5" fill="#E8E0D0"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.8}" rx="${W*0.24}" ry="4" fill="#F0EBDD" opacity=".3"/></g>` },
+
+  'Amritsar':{ dot:'#D9A53E', motif:'Golden Temple · dome reflected in the Sarovar',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#5C8FB8"/>
+      <rect x="${W*0.34}" y="${H*0.58}" width="${W*0.32}" height="${H*0.18}" fill="#F2EAD3"/>
+      <path d="M ${W*0.38} ${H*0.58} q ${W*0.12} -22 ${W*0.24} 0 Z" fill="#D9A53E"/><circle cx="${W*0.5}" cy="${H*0.34}" r="3" fill="#D9A53E"/><rect x="${W*0.49}" y="${H*0.3}" width="2" height="6" fill="#D9A53E"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.78}" rx="${W*0.2}" ry="5" fill="#D9A53E" opacity=".25"/></g>` },
+
+  'Chandigarh':{ dot:'#5C8F5C', motif:'City Beautiful — concrete set in deliberate green',
+    skyline:(W,H)=>`<g>
+      <polygon points="0,${H*0.5} ${W*0.3},${H*0.36} ${W*0.6},${H*0.46} ${W},${H*0.38} ${W},${H*0.6} 0,${H*0.6}" fill="#A8B8A0" opacity=".4"/>
+      <rect x="0" y="${H*0.56}" width="${W}" height="${H*0.06}" fill="#7BA0B8" opacity=".5"/>
+      <rect x="${W*0.08}" y="${H*0.4}" width="${W*0.14}" height="${H*0.2}" fill="#B5AC9C"/>
+      <rect x="${W*0.42}" y="${H*0.32}" width="${W*0.18}" height="${H*0.28}" fill="#B5AC9C"/>
+      <rect x="${W*0.42}" y="${H*0.5}" width="${W*0.18}" height="${H*0.035}" fill="#A8543A"/>
+      <rect x="${W*0.78}" y="${H*0.36}" width="${W*0.13}" height="${H*0.24}" fill="#A39B8B"/>
+      <g fill="#7D7565" opacity=".5">${[0.45,0.49,0.53,0.57].map(x=>`<rect x="${W*x}" y="${H*0.36}" width="${W*0.022}" height="${H*0.13}"/>`).join('')}</g>
+      <g fill="#4A7A4A">${[0.04,0.18,0.3,0.62,0.72,0.86,0.96].map(x=>`<ellipse cx="${W*x}" cy="${H*0.7}" rx="${W*0.09}" ry="${H*0.09}"/>`).join('')}</g>
+      <g fill="#5C9C5C">${[0.0,0.12,0.24,0.36,0.56,0.68,0.8,0.92,1.0].map(x=>`<ellipse cx="${W*x}" cy="${H*0.74}" rx="${W*0.085}" ry="${H*0.075}"/>`).join('')}</g>
+      <g fill="#6FAE6F" opacity=".85">${[0.06,0.2,0.32,0.44,0.58,0.7,0.84].map(x=>`<ellipse cx="${W*x}" cy="${H*0.78}" rx="${W*0.07}" ry="${H*0.055}"/>`).join('')}</g>
+      <rect x="0" y="${H*0.84}" width="${W}" height="${H*0.16}" fill="#5C8F5C"/>
+      <g fill="#C7491F" opacity=".6">${[0.15,0.5,0.65,0.88].map(x=>`<circle cx="${W*x}" cy="${H*0.82}" r="2"/>`).join('')}</g>
+      <rect x="${W*0.27}" y="${H*0.56}" width="2.5" height="${H*0.16}" fill="#8C8474"/>
+      <path d="M ${W*0.27} ${H*0.56} q -4 -6 -2 -10 m 2 10 q 4 -6 2 -10 m -2 4 q -2 -8 1 -12 m -1 12 q 2 -8 -1 -12" stroke="#8C8474" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>` },
+
+  'Mumbai':{ dot:'#D9A53E', motif:'Marine Drive lit at dusk — the city that never sleeps',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.86}" width="${W}" height="${H*0.14}" fill="#3E5C6B" opacity=".6"/>
+      <rect x="${W*0.02}" y="${H*0.5}" width="${W*0.1}" height="${H*0.36}" rx="6" fill="#E8D9C4"/><rect x="${W*0.02}" y="${H*0.46}" width="${W*0.1}" height="${H*0.05}" rx="6" fill="#C9A876"/>
+      <rect x="${W*0.13}" y="${H*0.4}" width="${W*0.11}" height="${H*0.46}" rx="7" fill="#F0DCC8"/><rect x="${W*0.13}" y="${H*0.36}" width="${W*0.11}" height="${H*0.05}" rx="7" fill="#D9B98F"/>
+      <rect x="${W*0.25}" y="${H*0.48}" width="${W*0.1}" height="${H*0.38}" rx="6" fill="#E8C8B8"/>
+      <rect x="${W*0.38}" y="${H*0.44}" width="${W*0.2}" height="${H*0.42}" fill="none" stroke="#C9A876" stroke-width="${W*0.038}"/>
+      <rect x="${W*0.38}" y="${H*0.4}" width="${W*0.2}" height="${H*0.06}" fill="#C9A876"/>
+      <rect x="${W*0.36}" y="${H*0.42}" width="${W*0.03}" height="${H*0.18}" fill="#C9A876"/><rect x="${W*0.61}" y="${H*0.42}" width="${W*0.03}" height="${H*0.18}" fill="#C9A876"/>
+      <rect x="${W*0.6}" y="${H*0.46}" width="${W*0.1}" height="${H*0.4}" rx="6" fill="#F0DCC8"/><rect x="${W*0.6}" y="${H*0.42}" width="${W*0.1}" height="${H*0.05}" rx="6" fill="#D9B98F"/>
+      <rect x="${W*0.71}" y="${H*0.36}" width="${W*0.11}" height="${H*0.5}" rx="7" fill="#E8D9C4"/><rect x="${W*0.71}" y="${H*0.32}" width="${W*0.11}" height="${H*0.05}" rx="7" fill="#C9A876"/>
+      <rect x="${W*0.83}" y="${H*0.46}" width="${W*0.11}" height="${H*0.4}" rx="6" fill="#F0DCC8"/>
+      <g fill="#FFCB6B">${Array.from({length:24}).map(()=>{const x=rnd(0.05,0.92),y=rnd(0.46,0.82);return `<rect x="${W*x}" y="${H*y}" width="2.4" height="3" opacity="${rnd(0.5,0.95)}"/>`;}).join('')}</g>
+      <path d="M 0 ${H*0.88} Q ${W*0.5} ${H*0.94} ${W} ${H*0.88}" fill="none" stroke="#FFD98A" stroke-width="1.4" stroke-dasharray="2 4" opacity=".8"/>
+      <ellipse cx="${W*0.06}" cy="${H*0.86}" rx="3" ry="6" fill="#3E8F5C"/><rect x="${W*0.058}" y="${H*0.86}" width="1.5" height="${H*0.1}" fill="#6B4A34"/></g>` },
+
+  'Pune':{ dot:'#8B5A3C', motif:'Shaniwar Wada gate · Peshwa teak wadas',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#A8754C"/>
+      <rect x="${W*0.36}" y="${H*0.46}" width="${W*0.28}" height="${H*0.3}" fill="#8B5A3C"/>
+      <path d="M ${W*0.44} ${H*0.76} L ${W*0.44} ${H*0.58} Q ${W*0.5} ${H*0.5} ${W*0.56} ${H*0.58} L ${W*0.56} ${H*0.76} Z" fill="#6B4128"/>
+      ${[0.39,0.6].map(x=>`<circle cx="${W*x}" cy="${H*0.5}" r="3" fill="#D9C09A"/>`).join('')}
+      <rect x="${W*0.1}" y="${H*0.58}" width="${W*0.2}" height="${H*0.12}" fill="#9C6B45"/><rect x="${W*0.7}" y="${H*0.58}" width="${W*0.2}" height="${H*0.12}" fill="#9C6B45"/></g>` },
+
+  'Hyderabad':{ dot:'#8B9C8F', motif:'Charminar — four minarets, one grand arch',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.82}" width="${W}" height="${H*0.18}" fill="#C9B896"/>
+      <g>${[0.1,0.18,0.26,0.7,0.78,0.86].map((x,i)=>`<rect x="${W*x}" y="${H*0.76}" width="${W*0.06}" height="${H*0.05}" fill="${['#C7491F','#3E8F7C','#D9A53E'][i%3]}"/>`).join('')}</g>
+      <rect x="${W*0.3}" y="${H*0.46}" width="${W*0.4}" height="${H*0.36}" fill="#9DA68F"/>
+      <path d="M ${W*0.42} ${H*0.82} L ${W*0.42} ${H*0.58} Q ${W*0.5} ${H*0.44} ${W*0.58} ${H*0.58} L ${W*0.58} ${H*0.82} Z" fill="#7D8870"/>
+      <circle cx="${W*0.5}" cy="${H*0.5}" r="4" fill="#E8DEC4"/>
+      ${[0.31,0.43,0.57,0.69].map(x=>`
+        <path d="M ${W*x-4} ${H*0.46} L ${W*x-2.5} ${H*0.22} L ${W*x+2.5} ${H*0.22} L ${W*x+4} ${H*0.46} Z" fill="#9DA68F"/>
+        <path d="M ${W*x-3} ${H*0.22} Q ${W*x} ${H*0.13} ${W*x+3} ${H*0.22} Q ${W*x} ${H*0.18} ${W*x-3} ${H*0.22} Z" fill="#7D8870"/>
+        <rect x="${W*x-0.8}" y="${H*0.08}" width="1.6" height="${H*0.06}" fill="#7D8870"/>
+        <circle cx="${W*x}" cy="${H*0.34}" r="2" fill="#7D8870"/>`).join('')}</g>` },
+
+  'Bengaluru':{ dot:'#7A3B36', motif:'Vidhana Soudha dome · garden-city avenues',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.76}" width="${W}" height="${H*0.24}" fill="#8B4A42"/>
+      <rect x="${W*0.22}" y="${H*0.62}" width="${W*0.56}" height="${H*0.14}" fill="#7A3B36"/>
+      <circle cx="${W*0.5}" cy="${H*0.54}" r="14" fill="#8B4A42"/><circle cx="${W*0.5}" cy="${H*0.42}" r="3" fill="#D9A53E"/>
+      <circle cx="${W*0.3}" cy="${H*0.58}" r="6" fill="#8B4A42"/><circle cx="${W*0.7}" cy="${H*0.58}" r="6" fill="#8B4A42"/>
+      <g fill="#5C8F5C" opacity=".7"><ellipse cx="${W*0.1}" cy="${H*0.72}" rx="9" ry="7"/><ellipse cx="${W*0.9}" cy="${H*0.72}" rx="9" ry="7"/></g></g>` },
+
+  'Chennai':{ dot:'#C2603F', motif:'Marina lighthouse · Mylapore gopuram',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.8}" width="${W}" height="${H*0.2}" fill="#9FC4C8" opacity=".5"/>
+      <rect x="${W*0.18}" y="${H*0.5}" width="${W*0.08}" height="${H*0.32}" fill="#C2603F"/>
+      ${[0,1,2,3].map(i=>`<rect x="${W*0.18}" y="${H*(0.5+i*0.07)}" width="${W*0.08}" height="${H*0.035}" fill="${i%2?'#fff':'#C2603F'}"/>`).join('')}
+      <circle cx="${W*0.22}" cy="${H*0.47}" r="6" fill="#FFD98A"/>
+      <rect x="${W*0.5}" y="${H*0.62}" width="${W*0.2}" height="${H*0.1}" fill="#C2603F"/><rect x="${W*0.53}" y="${H*0.52}" width="${W*0.14}" height="${H*0.1}" fill="#D9A53E"/>
+      <rect x="${W*0.55}" y="${H*0.44}" width="${W*0.1}" height="${H*0.08}" fill="#3E8F7C"/>
+      <ellipse cx="${W*0.83}" cy="${H*0.56}" rx="16" ry="7" fill="#5C8F5C" opacity=".7"/><rect x="${W*0.82}" y="${H*0.6}" width="2" height="${H*0.2}" fill="#6B4A34"/></g>` },
+
+  'Madurai':{ dot:'#D9456E', motif:'Meenakshi Temple — one soaring, densely carved tower',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.84}" width="${W}" height="${H*0.16}" fill="#D98B5C"/>
+      <rect x="${W*0.34}" y="${H*0.74}" width="${W*0.32}" height="${H*0.1}" fill="#D9456E"/>
+      <rect x="${W*0.36}" y="${H*0.64}" width="${W*0.28}" height="${H*0.1}" fill="#3E8F7C"/>
+      <rect x="${W*0.385}" y="${H*0.55}" width="${W*0.23}" height="${H*0.09}" fill="#D9A53E"/>
+      <rect x="${W*0.41}" y="${H*0.47}" width="${W*0.18}" height="${H*0.08}" fill="#3E6BA6"/>
+      <rect x="${W*0.435}" y="${H*0.4}" width="${W*0.13}" height="${H*0.07}" fill="#D9456E"/>
+      <rect x="${W*0.46}" y="${H*0.34}" width="${W*0.08}" height="${H*0.06}" fill="#D9A53E"/>
+      <path d="M ${W*0.46} ${H*0.34} Q ${W*0.5} ${H*0.27} ${W*0.54} ${H*0.34} Z" fill="#3E8F7C"/>
+      <circle cx="${W*0.5}" cy="${H*0.26}" r="2.4" fill="#D9A53E"/>
+      <g opacity=".9">${Array.from({length:5}).flatMap((_,row)=>Array.from({length:7-row}).map((__,c)=>{
+        const tierY=[0.78,0.68,0.59,0.51,0.44][row], tierW=[0.3,0.26,0.21,0.16,0.11][row], tierX=[0.35,0.37,0.395,0.42,0.445][row];
+        const x=tierX+ (c+0.5)*(tierW/(7-row));
+        return `<circle cx="${W*x}" cy="${H*tierY}" r="1.5" fill="${['#F2D34A','#fff','#3E8F7C'][c%3]}"/>`;
+      })).join('')}</g></g>` },
+
+  'Visakhapatnam':{ dot:'#3E7E8F', motif:'Ropeway hills · the beached submarine museum',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#3E7E8F"/>
+      <path d="M 0 ${H*0.6} Q ${W*0.2} ${H*0.34} ${W*0.4} ${H*0.5} Q ${W*0.55} ${H*0.3} ${W*0.72} ${H*0.46} Q ${W*0.86} ${H*0.36} ${W} ${H*0.44} L ${W} ${H*0.74} L 0 ${H*0.74} Z" fill="#5C9CA8" opacity=".75"/>
+      <path d="M ${W*0.22} ${H*0.38} Q ${W*0.5} ${H*0.27} ${W*0.78} ${H*0.4}" stroke="#2E5C66" stroke-width="1.3" fill="none"/>
+      <rect x="${W*0.46}" y="${H*0.34}" width="10" height="7" rx="1.5" fill="#E8D9C4" stroke="#2E5C66" stroke-width="0.8"/>
+      <line x1="${W*0.49}" y1="${H*0.34}" x2="${W*0.49}" y2="${H*0.3}" stroke="#2E5C66" stroke-width="1"/>
+      <rect x="${W*0.1}" y="${H*0.78}" width="${W*0.28}" height="${H*0.1}" rx="${H*0.05}" fill="#5C6068"/>
+      <rect x="${W*0.2}" y="${H*0.71}" width="${W*0.06}" height="${H*0.08}" rx="2" fill="#5C6068"/>
+      <rect x="${W*0.82}" y="${H*0.52}" width="3" height="${H*0.3}" fill="#4A4640"/>
+      <path d="M ${W*0.82} ${H*0.54} L ${W*0.94} ${H*0.46}" stroke="#4A4640" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="${W*0.91}" y1="${H*0.48}" x2="${W*0.91}" y2="${H*0.6}" stroke="#4A4640" stroke-width="1"/>
+      <ellipse cx="${W*0.9}" cy="${H*0.79}" rx="${W*0.06}" ry="3" fill="#7A8088"/></g>` },
+
+  'Kochi':{ dot:'#5C8F5C', motif:'Chinese fishing nets · backwater palms',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#5C8F9C"/>
+      <line x1="${W*0.3}" y1="${H*0.78}" x2="${W*0.42}" y2="${H*0.42}" stroke="#6B4A34" stroke-width="2.5"/>
+      <line x1="${W*0.58}" y1="${H*0.78}" x2="${W*0.42}" y2="${H*0.42}" stroke="#6B4A34" stroke-width="2.5"/>
+      <line x1="${W*0.42}" y1="${H*0.42}" x2="${W*0.7}" y2="${H*0.5}" stroke="#6B4A34" stroke-width="2"/>
+      <path d="M ${W*0.3} ${H*0.78} Q ${W*0.45} ${H*0.66} ${W*0.58} ${H*0.78}" fill="none" stroke="#3E6B5C" stroke-width="1.4" opacity=".7"/>
+      <rect x="${W*0.1}" y="${H*0.62}" width="3" height="${H*0.2}" fill="#7A5A38"/>
+      <g fill="#3E8F5C">${[-1,-0.5,0,0.5,1].map(a=>`<ellipse cx="${W*0.1+a*8}" cy="${H*0.6+Math.abs(a)*2}" rx="8" ry="3" transform="rotate(${a*30} ${W*0.1} ${H*0.62})"/>`).join('')}</g></g>` },
+
+  'Mysuru':{ dot:'#D9A53E', motif:'Mysore Palace · illuminated domes',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.76}" width="${W}" height="${H*0.24}" fill="#D9A53E" opacity=".3"/>
+      <rect x="${W*0.22}" y="${H*0.56}" width="${W*0.56}" height="${H*0.2}" fill="#E8C49A"/>
+      <circle cx="${W*0.5}" cy="${H*0.48}" r="12" fill="#D9A53E"/><rect x="${W*0.5-2}" y="${H*0.36}" width="4" height="10" fill="#D9A53E"/>
+      <circle cx="${W*0.32}" cy="${H*0.52}" r="6" fill="#D9A53E"/><circle cx="${W*0.68}" cy="${H*0.52}" r="6" fill="#D9A53E"/>
+      <g fill="#FFD98A" opacity=".8">${[0.28,0.36,0.44,0.56,0.64,0.72].map(x=>`<circle cx="${W*x}" cy="${H*0.64}" r="1.4"/>`).join('')}</g></g>` },
+
+  'Kolkata':{ dot:'#5C8FB8', motif:'Howrah Bridge truss · blue heritage facades',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#4A7BA6"/>
+      <path d="M ${W*0.1} ${H*0.62} L ${W*0.3} ${H*0.42} L ${W*0.5} ${H*0.62} M ${W*0.1} ${H*0.62} L ${W*0.5} ${H*0.62}" fill="none" stroke="#2E4A5C" stroke-width="2"/>
+      <path d="M ${W*0.15} ${H*0.62} L ${W*0.3} ${H*0.48} L ${W*0.45} ${H*0.62}" fill="none" stroke="#2E4A5C" stroke-width="1.4"/>
+      <rect x="${W*0.6}" y="${H*0.5}" width="${W*0.18}" height="${H*0.16}" fill="#5C8FB8"/><rect x="${W*0.6}" y="${H*0.5}" width="${W*0.18}" height="3" fill="#F2EAD3"/>
+      <path d="M ${W*0.84} ${H*0.7} L ${W*0.84} ${H*0.56} Q ${W*0.9} ${H*0.44} ${W*0.96} ${H*0.56} L ${W*0.96} ${H*0.7} Z" fill="#A8503F"/></g>` },
+
+  'Varanasi':{ dot:'#D9A53E', motif:'Ghats · stepped temple spires on the river',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.84}" width="${W}" height="${H*0.16}" fill="#4A7B9C"/>
+      ${[0,1,2,3].map(i=>`<rect x="0" y="${H*(0.72+i*0.03)}" width="${W}" height="${H*0.03}" fill="${i%2?'#C9A876':'#D9BD96'}"/>`).join('')}
+      ${[[0.12,0.5],[0.3,0.38],[0.5,0.44],[0.7,0.34],[0.86,0.46]].map(([x,h])=>`<rect x="${W*x}" y="${H*h}" width="${W*0.06}" height="${H*(0.72-h)}" fill="#C2603F"/><polygon points="${W*x},${H*h} ${W*(x+0.03)},${H*(h-0.06)} ${W*(x+0.06)},${H*h}" fill="#A8442E"/>`).join('')}
+      <g fill="#FFD98A" opacity=".7">${[0.2,0.4,0.6,0.8].map(x=>`<circle cx="${W*x}" cy="${H*0.86}" r="2"/>`).join('')}</g></g>` },
+
+  'Lucknow':{ dot:'#D9A53E', motif:'Bara Imambara dome · Rumi Darwaza gate',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.76}" width="${W}" height="${H*0.24}" fill="#D9B98F"/>
+      <rect x="${W*0.1}" y="${H*0.34}" width="${W*0.18}" height="${H*0.42}" fill="none" stroke="#C2603F" stroke-width="${W*0.025}"/>
+      <path d="M ${W*0.13} ${H*0.34} Q ${W*0.19} ${H*0.2} ${W*0.25} ${H*0.34}" fill="none" stroke="#C2603F" stroke-width="${W*0.025}"/>
+      <circle cx="${W*0.19}" cy="${H*0.3}" r="2.5" fill="#D9A53E"/>
+      <rect x="${W*0.46}" y="${H*0.52}" width="${W*0.32}" height="${H*0.24}" fill="#E8C49A"/>
+      <path d="M ${W*0.5} ${H*0.52} Q ${W*0.62} ${H*0.34} ${W*0.74} ${H*0.52} Z" fill="#D9A53E"/><circle cx="${W*0.62}" cy="${H*0.32}" r="3" fill="#D9A53E"/></g>` },
+
+  'Bhubaneswar':{ dot:'#9C7456', motif:'Kalinga shikhara — the curved beehive tower',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.82}" width="${W}" height="${H*0.18}" fill="#D98B5C"/>
+      <rect x="${W*0.2}" y="${H*0.66}" width="${W*0.18}" height="${H*0.16}" fill="#B08560"/>
+      <polygon points="${W*0.19},${H*0.66} ${W*0.29},${H*0.52} ${W*0.39},${H*0.66}" fill="#9C7456"/>
+      <path d="M ${W*0.42} ${H*0.82} Q ${W*0.37} ${H*0.6} ${W*0.42} ${H*0.46} Q ${W*0.46} ${H*0.3} ${W*0.5} ${H*0.24}
+               Q ${W*0.54} ${H*0.3} ${W*0.58} ${H*0.46} Q ${W*0.63} ${H*0.6} ${W*0.58} ${H*0.82} Z" fill="#9C7456"/>
+      <g stroke="#7D5C40" stroke-width="1" opacity=".6">
+        <path d="M ${W*0.4} ${H*0.7} Q ${W*0.5} ${H*0.66} ${W*0.6} ${H*0.7}" fill="none"/>
+        <path d="M ${W*0.4} ${H*0.58} Q ${W*0.5} ${H*0.54} ${W*0.6} ${H*0.58}" fill="none"/>
+        <path d="M ${W*0.41} ${H*0.46} Q ${W*0.5} ${H*0.43} ${W*0.59} ${H*0.46}" fill="none"/>
+      </g>
+      <ellipse cx="${W*0.5}" cy="${H*0.24}" rx="${W*0.05}" ry="3" fill="#D9A53E"/>
+      <circle cx="${W*0.5}" cy="${H*0.18}" r="3" fill="#D9A53E"/><rect x="${W*0.5-1}" y="${H*0.13}" width="2" height="${H*0.05}" fill="#D9A53E"/></g>` },
+
+  'Patna':{ dot:'#B8714A', motif:'Golghar — the granary with the spiral stair',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.88}" width="${W}" height="${H*0.12}" fill="#4A7B9C" opacity=".5"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.78}" rx="${W*0.26}" ry="${H*0.2}" fill="#B8714A"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.78}" rx="${W*0.26}" ry="${H*0.2}" fill="none" stroke="#9C5C3C" stroke-width="1" opacity=".4"/>
+      <path d="M ${W*0.5} ${H*0.6} Q ${W*0.76} ${H*0.66} ${W*0.74} ${H*0.78} Q ${W*0.72} ${H*0.9} ${W*0.5} ${H*0.92}
+               M ${W*0.5} ${H*0.6} Q ${W*0.24} ${H*0.66} ${W*0.26} ${H*0.78} Q ${W*0.28} ${H*0.9} ${W*0.5} ${H*0.92}"
+            stroke="#9C5C3C" stroke-width="1.4" fill="none" opacity=".7"/>
+      <circle cx="${W*0.5}" cy="${H*0.6}" r="3" fill="#D9A53E"/>
+      <path d="M ${W*0.46} ${H*0.92} Q ${W*0.5} ${H*0.86} ${W*0.54} ${H*0.92} Z" fill="#7A4A2E"/></g>` },
+
+  'Guwahati':{ dot:'#5C8F5C', motif:'Kamakhya hill · Brahmaputra tea country',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#5C8FA8"/>
+      <polygon points="${W*0.3},${H*0.74} ${W*0.55},${H*0.42} ${W*0.8},${H*0.74}" fill="#5C7A5C"/>
+      <path d="M ${W*0.5} ${H*0.5} Q ${W*0.47} ${H*0.38} ${W*0.55} ${H*0.3} Q ${W*0.63} ${H*0.38} ${W*0.6} ${H*0.5} Z" fill="#C2603F"/>
+      <g fill="#3E6B3C" opacity=".6">${Array.from({length:5}).map((_,i)=>`<ellipse cx="${W*(0.06+i*0.04)}" cy="${H*0.84}" rx="6" ry="3"/>`).join('')}</g></g>` },
+
+  'Panaji':{ dot:'#D9A53E', motif:'Goan baroque · laterite church facade',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#B85C3C"/>
+      <rect x="${W*0.36}" y="${H*0.48}" width="${W*0.28}" height="${H*0.3}" fill="#F2EAD3"/>
+      <polygon points="${W*0.36},${H*0.48} ${W*0.5},${H*0.34} ${W*0.64},${H*0.48}" fill="#D9A53E"/>
+      <rect x="${W*0.3}" y="${H*0.4}" width="${W*0.05}" height="${H*0.16}" fill="#F2EAD3"/><rect x="${W*0.65}" y="${H*0.4}" width="${W*0.05}" height="${H*0.16}" fill="#F2EAD3"/>
+      <circle cx="${W*0.5}" cy="${H*0.58}" r="5" fill="#D9A53E"/></g>` },
+
+  'Nagpur':{ dot:'#E8E0D0', motif:'Deekshabhoomi — the great white stupa',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.86}" width="${W}" height="${H*0.14}" fill="#D9A56C" opacity=".4"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.84}" rx="${W*0.32}" ry="${H*0.05}" fill="#C9BCA4"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.8}" rx="${W*0.27}" ry="${H*0.045}" fill="#D9CDB4"/>
+      <rect x="${W*0.26}" y="${H*0.62}" width="${W*0.48}" height="${H*0.16}" fill="#E8E0D0"/>
+      <path d="M ${W*0.26} ${H*0.62} A ${W*0.24} ${H*0.4} 0 0 1 ${W*0.74} ${H*0.62} Z" fill="#F0EBDD"/>
+      <g stroke="#D9CDB4" stroke-width="1" opacity=".6">
+        <path d="M ${W*0.32} ${H*0.6} A ${W*0.18} ${H*0.3} 0 0 1 ${W*0.5} ${H*0.32}" fill="none"/>
+        <path d="M ${W*0.68} ${H*0.6} A ${W*0.18} ${H*0.3} 0 0 0 ${W*0.5} ${H*0.32}" fill="none"/>
+      </g>
+      <rect x="${W*0.5-1.5}" y="${H*0.24}" width="3" height="${H*0.1}" fill="#C9BCA4"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.23}" rx="6" ry="2" fill="#C9BCA4"/></g>` },
+};
+
+/* ============ STATE DEFAULTS — fallback for everywhere else ============ */
+const STATE_SCENES = {
+  'Punjab':{ dot:'#D4A437', motif:'Sikh-gold chhatri · mustard-field gold',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#E0B84A"/>
+      <rect x="${W*0.34}" y="${H*0.5}" width="${W*0.32}" height="${H*0.2}" fill="#F2E2A8"/><circle cx="${W*0.5}" cy="${H*0.44}" r="9" fill="#D4A437"/>
+      <rect x="${W*0.08}" y="${H*0.58}" width="${W*0.2}" height="${H*0.12}" fill="#CFE0DC"/><rect x="${W*0.72}" y="${H*0.58}" width="${W*0.2}" height="${H*0.12}" fill="#CFE0DC"/></g>` },
+  'Haryana':{ dot:'#B58A5C', motif:'Brick havelis · agrarian flatlands',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.72}" width="${W}" height="${H*0.28}" fill="#C9A26B"/>
+      <rect x="${W*0.08}" y="${H*0.56}" width="${W*0.2}" height="${H*0.18}" fill="#B5895A"/><rect x="${W*0.54}" y="${H*0.46}" width="${W*0.16}" height="${H*0.28}" fill="#9C7748"/>
+      <rect x="${W*0.76}" y="${H*0.58}" width="${W*0.18}" height="${H*0.16}" fill="#B5895A"/></g>` },
+  'Himachal Pradesh':{ dot:'#7C8B96', motif:'Pahadi kath-kuni · deodar ridgeline',
+    skyline:(W,H)=>`<g><polygon points="0,${H*0.48} ${W*0.2},${H*0.36} ${W*0.4},${H*0.46} ${W*0.6},${H*0.32} ${W*0.8},${H*0.44} ${W},${H*0.38} ${W},${H*0.58} 0,${H*0.58}" fill="#9FB0BC" opacity=".5"/>
+      ${[0.07,0.15,0.87,0.93].map(x=>`<polygon points="${W*x},${H*0.58} ${W*x-6},${H*0.72} ${W*x+6},${H*0.72}" fill="#5C6B5E"/>`).join('')}
+      <rect x="${W*0.24}" y="${H*0.6}" width="${W*0.18}" height="${H*0.18}" fill="#E8E4D8"/><polygon points="${W*0.22},${H*0.6} ${W*0.33},${H*0.48} ${W*0.44},${H*0.6}" fill="#5C6B5E"/>
+      <rect x="${W*0.46}" y="${H*0.54}" width="${W*0.22}" height="${H*0.24}" fill="#DCD6C4"/><polygon points="${W*0.44},${H*0.54} ${W*0.57},${H*0.4} ${W*0.7},${H*0.54}" fill="#48564A"/>
+      <g>${[0.33,0.37,0.41,0.45].map((x,i)=>`<rect x="${W*x}" y="${H*0.4}" width="6" height="4" fill="${['#C7491F','#3E7EC9','#E9A23B','#5C8FB8'][i%4]}" opacity=".75"/>`).join('')}</g></g>` },
+  'Jammu and Kashmir':{ dot:'#6FA88A', motif:'Chinar trees · pitched tin roofs, valley willows',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#8FAFA0" opacity=".55"/>
+      <rect x="${W*0.18}" y="${H*0.56}" width="${W*0.22}" height="${H*0.2}" fill="#E2D8C2"/><polygon points="${W*0.16},${H*0.56} ${W*0.29},${H*0.44} ${W*0.42},${H*0.56}" fill="#7A4F3A"/>
+      <g transform="translate(${W*0.78},${H*0.42})"><circle cx="0" cy="0" r="13" fill="#C97B4A"/><circle cx="-9" cy="6" r="9" fill="#C97B4A"/><circle cx="9" cy="6" r="9" fill="#C97B4A"/><rect x="-2" y="10" width="4" height="16" fill="#6B4A34"/></g>
+      <path d="M ${W*0.08} ${H*0.5} q -8 4 -10 14 M ${W*0.08} ${H*0.5} q 8 4 10 14" stroke="#6B8A5E" stroke-width="1.4" fill="none" opacity=".7"/></g>` },
+  'Rajasthan':{ dot:'#C98B5E', motif:'Desert haveli · sandstone chhatri',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#D9B98F"/>
+      <rect x="${W*0.3}" y="${H*0.52}" width="${W*0.4}" height="${H*0.22}" fill="#C98B5E"/>
+      ${[0.36,0.5,0.64].map(x=>`<circle cx="${W*x}" cy="${H*0.48}" r="4" fill="#E8C49A"/><rect x="${W*x-2}" y="${H*0.44}" width="4" height="6" fill="#E8C49A"/>`).join('')}
+      <rect x="${W*0.1}" y="${H*0.62}" width="${W*0.14}" height="${H*0.12}" fill="#B8714A"/><rect x="${W*0.76}" y="${H*0.62}" width="${W*0.14}" height="${H*0.12}" fill="#B8714A"/></g>` },
+  'Gujarat':{ dot:'#B8935E', motif:'Sandstone jali lattice · stepwell geometry',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.66}" width="${W}" height="${H*0.34}" fill="#B8935E"/>
+      <rect x="${W*0.32}" y="${H*0.58}" width="${W*0.36}" height="${H*0.1}" fill="#C9A876"/><rect x="${W*0.36}" y="${H*0.48}" width="${W*0.28}" height="${H*0.1}" fill="#D6B587"/>
+      <g fill="#8A6B40" opacity=".5">${Array.from({length:4}).flatMap((_,r)=>Array.from({length:9}).map((__,c)=>{const x=W*0.08+c*(W*0.09),y=H*0.72+r*(H*0.045);return `<rect x="${x}" y="${y}" width="4" height="4" transform="rotate(45 ${x+2} ${y+2})"/>`;})).join('')}</g></g>` },
+  'Maharashtra':{ dot:'#8B5A3C', motif:'Wada timber courtyards',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#A8754C"/>
+      <rect x="${W*0.1}" y="${H*0.52}" width="${W*0.26}" height="${H*0.2}" fill="#8B5A3C"/><rect x="${W*0.4}" y="${H*0.44}" width="${W*0.2}" height="${H*0.28}" fill="#9C6B45"/>
+      <rect x="${W*0.64}" y="${H*0.52}" width="${W*0.24}" height="${H*0.2}" fill="#8B5A3C"/></g>` },
+  'Tamil Nadu':{ dot:'#C2603F', motif:'Stepped gopuram · temple-town stripes',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.72}" width="${W}" height="${H*0.28}" fill="#D98B5C"/>
+      <rect x="${W*0.38}" y="${H*0.62}" width="${W*0.24}" height="${H*0.1}" fill="#C2603F"/><rect x="${W*0.4}" y="${H*0.52}" width="${W*0.2}" height="${H*0.1}" fill="#D9A53E"/>
+      <rect x="${W*0.42}" y="${H*0.44}" width="${W*0.16}" height="${H*0.08}" fill="#3E8F7C"/>
+      <g>${[0,1,2,3,4,5].map(i=>`<rect x="${W*(0.06+i*0.045)}" y="${H*0.78}" width="${W*0.02}" height="${H*0.06}" fill="${i%2?'#C2603F':'#fff'}"/>`).join('')}</g></g>` },
+  'West Bengal':{ dot:'#5C8FB8', motif:'Heritage blue facades · terracotta temple roof',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.7}" width="${W}" height="${H*0.3}" fill="#4A7BA6"/>
+      <rect x="${W*0.1}" y="${H*0.54}" width="${W*0.26}" height="${H*0.16}" fill="#5C8FB8"/><rect x="${W*0.1}" y="${H*0.54}" width="${W*0.26}" height="3" fill="#F2EAD3"/>
+      <path d="M ${W*0.62} ${H*0.7} L ${W*0.62} ${H*0.56} Q ${W*0.68} ${H*0.44} ${W*0.74} ${H*0.56} L ${W*0.74} ${H*0.7} Z" fill="#A8503F"/></g>` },
+  'Karnataka':{ dot:'#9C7B4A', motif:'Laterite temple towns · areca groves',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#C9A876"/>
+      <rect x="${W*0.36}" y="${H*0.56}" width="${W*0.28}" height="${H*0.18}" fill="#9C7B4A"/><polygon points="${W*0.36},${H*0.56} ${W*0.5},${H*0.44} ${W*0.64},${H*0.56}" fill="#7A5E38"/>
+      <rect x="${W*0.1}" y="${H*0.6}" width="2" height="${H*0.16}" fill="#7A5E38"/><ellipse cx="${W*0.1}" cy="${H*0.58}" rx="4" ry="8" fill="#5C8F5C"/></g>` },
+  'Kerala':{ dot:'#5C8F5C', motif:'Red-tiled roofs · backwater palms',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#5C8F9C"/>
+      <rect x="${W*0.32}" y="${H*0.58}" width="${W*0.3}" height="${H*0.18}" fill="#E2D8C2"/><polygon points="${W*0.3},${H*0.58} ${W*0.47},${H*0.46} ${W*0.64},${H*0.58}" fill="#A8503F"/>
+      <rect x="${W*0.12}" y="${H*0.62}" width="2.5" height="${H*0.18}" fill="#7A5A38"/><g fill="#3E8F5C">${[-1,0,1].map(a=>`<ellipse cx="${W*0.12+a*7}" cy="${H*0.6}" rx="7" ry="2.6" transform="rotate(${a*30} ${W*0.12} ${H*0.62})"/>`).join('')}</g></g>` },
+  'Telangana & Andhra Pradesh':{ dot:'#C2603F', motif:'Deccan plateau · sandstone forts',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#D9A56C"/>
+      <polygon points="${W*0.2},${H*0.74} ${W*0.34},${H*0.5} ${W*0.48},${H*0.74}" fill="#9C6B45"/>
+      <rect x="${W*0.56}" y="${H*0.58}" width="${W*0.26}" height="${H*0.16}" fill="#C2603F"/><rect x="${W*0.6}" y="${H*0.5}" width="${W*0.18}" height="${H*0.1}" fill="#D9A56C"/></g>` },
+  'Uttar Pradesh':{ dot:'#D9A53E', motif:'Riverside temple spires',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.8}" width="${W}" height="${H*0.2}" fill="#4A7B9C" opacity=".5"/>
+      ${[[0.2,0.5],[0.42,0.4],[0.64,0.46],[0.82,0.36]].map(([x,h])=>`<rect x="${W*x}" y="${H*h}" width="${W*0.06}" height="${H*(0.8-h)}" fill="#C2603F"/><polygon points="${W*x},${H*h} ${W*(x+0.03)},${H*(h-0.06)} ${W*(x+0.06)},${H*h}" fill="#A8442E"/>`).join('')}</g></g>` },
+  'Bihar':{ dot:'#C2603F', motif:'River-plain granaries',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#C9A26B"/>
+      <ellipse cx="${W*0.5}" cy="${H*0.68}" rx="${W*0.16}" ry="${H*0.14}" fill="#C2603F"/><rect x="${W*0.2}" y="${H*0.66}" width="${W*0.16}" height="${H*0.12}" fill="#9C7748"/></g>` },
+  'Odisha':{ dot:'#C2603F', motif:'Kalinga curved shikhara',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#D98B5C"/>
+      <path d="M ${W*0.4} ${H*0.78} Q ${W*0.37} ${H*0.56} ${W*0.5} ${H*0.4} Q ${W*0.63} ${H*0.56} ${W*0.6} ${H*0.78} Z" fill="#C2603F"/></g>` },
+  'Assam':{ dot:'#5C8F5C', motif:'Tea-garden hills · Brahmaputra plain',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.78}" width="${W}" height="${H*0.22}" fill="#5C8FA8"/>
+      <polygon points="${W*0.2},${H*0.78} ${W*0.5},${H*0.5} ${W*0.8},${H*0.78}" fill="#5C7A5C"/>
+      <g fill="#3E6B3C" opacity=".6">${Array.from({length:6}).map((_,i)=>`<ellipse cx="${W*(0.04+i*0.04)}" cy="${H*0.86}" rx="6" ry="3"/>`).join('')}</g></g>` },
+};
+
+
+/* ============ LIVE DATA WIRING ============ */
+
+// No keys needed — this edge function has verify_jwt = false and is
+// invoked with no auth headers at all, exactly as documented in
+// docs/web-tracking-integration-brief.md §8.
+const EDGE_FUNCTION_URL = 'https://wvxyaqqlqwbbpkgvrali.supabase.co/functions/v1/public-track-parcel';
+
+const TRACKING_CODE_RE = /^P\d{9}[A-Z]{2}$/;
+
+const CUSTOMER_LABELS = {
+  created:'Booked', pickup_confirmed:'Picked up', in_transit:'In transit',
+  out_for_delivery:'Out for delivery', delivered:'Delivered'
+};
+const STAGE_ORDER = ['created','pickup_confirmed','in_transit','out_for_delivery','delivered'];
+
+// Build a city → state lookup from the same corridor knowledge the old
+// LOCATIONS array encoded, so any city name the API returns that isn't a
+// CITY_SCENES entry can still fall back to its correct state scenery.
+const CITY_TO_STATE = {
+  Manali:'Himachal Pradesh', Mandi:'Himachal Pradesh', Shimla:'Himachal Pradesh',
+  Ludhiana:'Punjab', Jalandhar:'Punjab', Amritsar:'Punjab',
+  Gurugram:'Haryana', Panipat:'Haryana', Ambala:'Haryana',
+  Srinagar:'Jammu and Kashmir', Jammu:'Jammu and Kashmir',
+  Bikaner:'Rajasthan', Jaipur:'Rajasthan', Jodhpur:'Rajasthan', Udaipur:'Rajasthan',
+  Surat:'Gujarat', Ahmedabad:'Gujarat',
+  Coimbatore:'Tamil Nadu', Chennai:'Tamil Nadu', Madurai:'Tamil Nadu',
+  Kanpur:'Uttar Pradesh', Lucknow:'Uttar Pradesh', Varanasi:'Uttar Pradesh',
+  Gaya:'Bihar', Patna:'Bihar',
+  Cuttack:'Odisha', Bhubaneswar:'Odisha',
+  Dibrugarh:'Assam', Guwahati:'Assam',
+  Mumbai:'Maharashtra', Pune:'Maharashtra', Nagpur:'Maharashtra',
+  Hyderabad:'Telangana & Andhra Pradesh', Visakhapatnam:'Telangana & Andhra Pradesh',
+  Bengaluru:'Karnataka', Mysuru:'Karnataka',
+  Kochi:'Kerala', Kolkata:'West Bengal', Chandigarh:'Punjab',
+};
+
+function resolveSceneForCity(cityName){
+  const clean = (cityName || '').trim();
+  if (CITY_SCENES[clean]) return { kind:'city', name:clean, scene:CITY_SCENES[clean] };
+  const state = CITY_TO_STATE[clean];
+  if (state && STATE_SCENES[state]) return { kind:'state', name:state, scene:STATE_SCENES[state] };
+  // Last-resort neutral fallback so the page never breaks on an unmapped city
+  return { kind:'state', name:'India', scene:{ dot:'#9C8B72', motif:'On the move across India',
+    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#C9B896"/></g>` } };
+}
+
+function getTimeOfDay(){
+  const h = new Date().getHours();
+  if (h >= 5 && h < 12) return 'morning';
+  if (h >= 12 && h < 16) return 'afternoon';
+  if (h >= 16 && h < 20) return 'evening';
+  return 'night';
+}
+
+const winEl = document.getElementById('window');
+let sceneA = mk(), sceneB = mk(), aActive = true;
+function mk(){ const d = document.createElement('div'); d.className = 'scene'; winEl.prepend(d); return d; }
+
+function buildSVG(W, H, timeKey, resolved){
+  const t = TIMES[timeKey];
+  return `<svg width="100%" height="100%" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">
+    <defs>${t.sky()}</defs><rect width="${W}" height="${H}" fill="url(#sky)"/>
+    ${t.starOpacity>0?Array.from({length:14}).map(()=>{const x=(Math.random()*W).toFixed(1),y=(Math.random()*H*0.5).toFixed(1),r=(Math.random()*1.1+.3).toFixed(2);return `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" opacity="${(Math.random()*.5+.2)*t.starOpacity}"/>`;}).join(''):''}
+    ${t.celestial(W,H)}${resolved.scene.skyline(W,H)}<rect width="${W}" height="${H}" fill="${t.tint}"/></svg>`;
+}
+
+function showMsg(text, kind){
+  const el = document.getElementById('lookupMsg');
+  el.textContent = text;
+  el.className = 'lookup-msg show ' + kind;
+}
+function clearMsg(){
+  const el = document.getElementById('lookupMsg');
+  el.className = 'lookup-msg';
+}
+
+async function doSearch(){
+  const raw = document.getElementById('codeInput').value.trim().toUpperCase();
+  clearMsg();
+
+  if (!TRACKING_CODE_RE.test(raw)){
+    showMsg('That doesn\'t look like a valid tracking code. Format: P262006001DC', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('searchBtn');
+  btn.disabled = true;
+  showMsg('Looking up your parcel…', 'loading');
+
+  try {
+    const res = await fetch(EDGE_FUNCTION_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tracking_code: raw }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok){
+      showMsg(data.error || 'We couldn\'t find a parcel with that code.', 'error');
+      document.getElementById('idleState').style.display = 'block';
+      document.getElementById('phoneCard').style.display = 'none';
+      return;
+    }
+
+    clearMsg();
+    renderResult(data);
+  } catch (err){
+    console.error(err);
+    showMsg('Something went wrong reaching our tracking service. Please try again.', 'error');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderResult(data){
+  document.getElementById('idleState').style.display = 'none';
+  document.getElementById('phoneCard').style.display = 'block';
+
+  const timeKey = getTimeOfDay();
+  const resolved = resolveSceneForCity(data.tracking_city);
+
+  const incoming = aActive ? sceneB : sceneA, outgoing = aActive ? sceneA : sceneB;
+  incoming.innerHTML = buildSVG(340, 250, timeKey, resolved);
+  incoming.classList.add('show'); outgoing.classList.remove('show'); aActive = !aActive;
+
+  document.getElementById('statusDot').style.background = TIMES[timeKey].chipColor;
+  document.getElementById('statusChipText').textContent = TIMES[timeKey].statusText;
+  document.getElementById('cityChipText').textContent = data.tracking_city || resolved.name;
+  document.getElementById('motifText').textContent = resolved.scene.motif;
+  document.getElementById('toporder').textContent = data.tracking_code;
+
+  const isException = data.state === 'blocked_exception';
+  const banner = document.getElementById('exceptionBanner');
+  if (isException){
+    banner.style.display = 'block';
+    banner.textContent = data.blocked_message || data.label || "There's a delay with this parcel.";
+  } else {
+    banner.style.display = 'none';
+  }
+
+  const cityName = data.tracking_city || 'transit';
+  const HEADLINES = {
+    created: `Your parcel is booked and waiting for pickup in ${cityName}.`,
+    pickup_confirmed: `Your parcel was picked up in ${cityName}.`,
+    in_transit: `Your parcel is moving through ${cityName}.`,
+    out_for_delivery: `Your parcel is out for delivery in ${cityName}.`,
+    delivered: `Your parcel was delivered in ${cityName}.`,
+  };
+  document.getElementById('copyHeadline').textContent = isException
+    ? `We've flagged an issue with your parcel in ${cityName}.`
+    : (HEADLINES[data.state] || `Your parcel is on its way — currently at the ${cityName} stage.`);
+  document.getElementById('copySub').textContent = isException
+    ? 'Our team is already on it — message support below for the latest.'
+    : (data.last_updated_at ? `Last updated ${new Date(data.last_updated_at).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'})}` : '');
+
+  // Route card
+  if (data.origin_city || data.destination_city){
+    document.getElementById('routeCard').style.display = 'flex';
+    document.getElementById('routeFrom').textContent = data.origin_city || '—';
+    document.getElementById('routeTo').textContent = data.destination_city || '—';
+  }
+
+  // 5-stage timeline (hidden during a blocked exception — the banner takes its place)
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+  if (!isException){
+    const activeIdx = typeof data.stage_index === 'number' ? data.stage_index : STAGE_ORDER.indexOf(data.state);
+    STAGE_ORDER.forEach((stageKey, i) => {
+      const isDone = i < activeIdx, isCurrent = i === activeIdx;
+      const row = document.createElement('div');
+      row.className = 'stamp' + (isDone || isCurrent ? ' active' : '');
+      const stageDate = data.stage_dates && data.stage_dates[stageKey];
+      const dateText = stageDate ? new Date(stageDate).toLocaleDateString('en-IN',{day:'numeric',month:'short'}) : (isDone ? 'Completed' : isCurrent ? 'In progress' : 'Pending');
+      row.innerHTML = `<div class="stamp-rail"><div class="stamp-icon ${isDone?'done':isCurrent?'current':''}">${isDone?'✓':''}</div>${i<STAGE_ORDER.length-1?`<div class="stamp-thread ${isDone?'done':''}"></div>`:''}</div>
+        <div class="stamp-body"><div class="stamp-title">${CUSTOMER_LABELS[stageKey]}</div><div class="stamp-time">${dateText}</div></div>`;
+      tl.appendChild(row);
+    });
+  }
+
+  // Proof of delivery
+  const podWrap = document.getElementById('podWrap');
+  if (data.pod_url){
+    podWrap.style.display = 'block';
+    document.getElementById('podImg').src = data.pod_url;
+  } else {
+    podWrap.style.display = 'none';
+  }
+
+  // Support link — prefilled with code + current stage for context
+  const supportMsg = encodeURIComponent(`Hi Patwadi, I need help with my order ${data.tracking_code} (currently: ${data.label}).`);
+  document.getElementById('supportLink').href = `https://wa.me/918091889969?text=${supportMsg}`;
+}
+
+document.getElementById('searchBtn').addEventListener('click', doSearch);
+document.getElementById('codeInput').addEventListener('keydown', function(e){
+  if (e.key === 'Enter') doSearch();
+});
+
+// Auto-load from ?code= — this is what makes tracking.html?code=P262006001DC
+// links from WhatsApp notifications work without the customer typing anything.
+(function autoLoadFromUrl(){
+  const codeFromUrl = new URLSearchParams(window.location.search).get('code');
+  if (codeFromUrl){
+    document.getElementById('codeInput').value = codeFromUrl.trim().toUpperCase();
+    doSearch();
+  }
+})();
+
+</script>
 </body>
 </html>
