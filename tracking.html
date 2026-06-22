@@ -2,44 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Your Parcel · Patwadi</title>
-<meta name="description" content="Track your Patwadi parcel by tracking code, see exactly where your shipment is right now.">
-<link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Patwadi — The Window, India</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{ --ink:#241F1C; --ink-soft:#5C534C; --paper:#FBF6EE;
     --frame-wood:#7A5236; --frame-wood-dark:#5C3D27; --frame-wood-light:#9A7050;
     --accent:#C7491F; --line:#E4D9C8;
-    --blue:#1D4ED8; --blue-dk:#1E3A8A; --border:#E2E8F0; --surface:#F8FAFF; --green-wa:#25D366; --ghost:#94A3B8; --mid:#475569; }
+    --warm-bg:#FDF2E9; --surface:#E8D5B8; --orange:#F05A1A; --orange-dk:#D44D14; }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--paper);font-family:'Inter',sans-serif;color:var(--ink)}
-
-  /* ── SITE NAV (shared across all pages) ── */
-  .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
-  .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-  .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
-  .nav-logo-img{height:30px;width:30px;object-fit:contain;flex-shrink:0;}
-  .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
-  .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s,color .15s;white-space:nowrap;}
-  .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
-  .nav-links a.active{color:var(--accent);font-weight:700;}
-  .nav-cta{background:var(--blue);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s;}
-  .nav-cta:hover{background:var(--blue-dk);}
-  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-  .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
-  .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
-  .nav-mobile-menu.open{display:flex;}
-  .nav-mobile-menu a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
-  .nav-mobile-menu a:hover{background:#F1F5F9;}
-  .nav-mobile-menu a.active{color:var(--accent);font-weight:700;}
-  .nav-mobile-menu .nav-cta-mobile{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:.88rem;}
-
-  /* ── PAGE WRAPPER (was on body in the original demo) ── */
-  .track-content{padding:40px 20px 90px;display:flex;flex-direction:column;align-items:center;}
-
+  body{padding:104px 20px 90px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
   .eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;text-align:center}
   .pagehead{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,32px);font-weight:500;text-align:center;letter-spacing:-.01em;margin-bottom:6px}
   .pagesub{font-size:12.5px;color:var(--ink-soft);text-align:center;max-width:500px;line-height:1.6;margin-bottom:24px}
@@ -97,188 +71,119 @@
   .stamp.active .stamp-time{color:var(--ink-soft)}
   @media (max-width:420px){ .phone{width:100%;padding:10px} .window{height:215px} }
 
-  /* ── SITE FOOTER (shared across all pages) ── */
-  footer{background:var(--ink);color:#94A3B8;padding:48px 24px 24px;}
-  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
-  .footer-brand-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:10px;display:block;font-family:'Inter',sans-serif;}
-  .footer-brand-desc{font-size:.82rem;line-height:1.65;font-family:'Inter',sans-serif;}
-  .footer-col h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-family:'Inter',sans-serif;}
-  .footer-col a{display:block;font-size:.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color .15s;font-family:'Inter',sans-serif;}
-  .footer-col a:hover{color:#fff;}
-  .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid #1E293B;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:#475569;flex-wrap:wrap;gap:12px;font-family:'Inter',sans-serif;}
-  @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.footer-grid{grid-template-columns:1fr 1fr;gap:24px;}}
-  @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
-
-  /* ── SEARCH / LOOKUP UI ── */
-  .lookup-wrap{width:100%;max-width:420px;margin-bottom:18px;}
-  .lookup-row{display:flex;gap:8px;}
-  .lookup-input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:var(--ink);background:#fff;outline:none;letter-spacing:.03em;text-transform:uppercase;}
-  .lookup-input::placeholder{color:#C4B7A2;text-transform:none;letter-spacing:0;}
-  .lookup-input:focus{border-color:var(--accent);}
-  .lookup-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:0 20px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background .15s;}
-  .lookup-btn:hover{background:#A83C18;}
-  .lookup-btn:disabled{background:#D9C5B4;cursor:not-allowed;}
-  .lookup-hint{font-size:10.5px;color:#B5A892;margin-top:7px;}
-  .lookup-hint b{color:var(--ink-soft);font-weight:600;}
-  .lookup-msg{width:100%;max-width:420px;font-size:12px;border-radius:10px;padding:10px 14px;margin-bottom:14px;display:none;}
-  .lookup-msg.show{display:block;}
-  .lookup-msg.error{background:#FBE3DC;color:#A8442E;border:1px solid #F0C2B0;}
-  .lookup-msg.loading{background:#F1E7D8;color:var(--ink-soft);}
-  .idle-state{width:374px;max-width:92vw;text-align:center;padding:60px 24px;color:#B5A892;font-size:13px;line-height:1.6;}
-  .idle-state svg{width:36px;height:36px;margin-bottom:12px;opacity:.5;}
-
-  /* ── ROUTE CARD ── */
-  .route-card{margin:0 22px 4px;padding:12px 14px;background:#F8F3EA;border-radius:12px;display:flex;align-items:center;gap:10px;}
-  .route-pt{flex:1;min-width:0;}
-  .route-city{font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .route-tag{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B5A892;margin-bottom:2px;}
-  .route-arrow{color:var(--accent);flex-shrink:0;font-size:13px;}
-
-  /* ── POD ── */
-  .pod-wrap{margin:14px 22px 0;}
-  .pod-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B5A892;margin-bottom:8px;}
-  .pod-img{width:100%;border-radius:10px;display:block;border:1px solid var(--line);}
-
-  /* ── BLOCKED EXCEPTION ── */
-  .exception-banner{margin:14px 22px 0;padding:12px 14px;background:#FBE3DC;border:1px solid #F0C2B0;border-radius:10px;font-size:12px;color:#A8442E;line-height:1.5;}
-
-  /* ── SUPPORT LINK ── */
-  .support-link{display:flex;align-items:center;justify-content:center;gap:7px;margin:16px 22px 18px;padding:11px;background:#F1E7D8;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;}
-  .support-link svg{width:15px;height:15px;flex-shrink:0;color:#25D366;}
-
+  /* ── Unified Patwadi Nav ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid #E2E8F0;height:64px;display:flex;align-items:center;padding:0 24px;gap:32px;}
+  .nav-logo{display:flex;align-items:center;gap:9px;font-size:1.25rem;font-weight:800;color:#1A1108;text-decoration:none;letter-spacing:-.02em;flex-shrink:0;}
+  .nav-logo-img{height:28px;width:28px;object-fit:contain;}
+  .nav-logo-mark{width:26px;height:26px;border-radius:50%;background:#F05A1A;color:#fff;font-size:12px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:0;}
+  .nav-links{display:flex;align-items:center;gap:4px;margin-left:auto;}
+  .nav-link{font-size:13.5px;font-weight:500;color:#1A1108;text-decoration:none;padding:6px 12px;border-radius:6px;transition:background .15s;}
+  .nav-link:hover,.nav-link.active{background:#F3E8DF;}
+  .nav-link.active{font-weight:600;}
+  .nav-item{position:relative;}
+  .nav-btn{border:none;background:transparent;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;color:#1A1108;padding:6px 12px;border-radius:6px;cursor:pointer;transition:background .15s;}
+  .nav-btn:hover{background:#F3E8DF;}
+  .nav-drop{position:absolute;top:calc(100%+6px);left:0;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.1);min-width:160px;display:none;flex-direction:column;gap:2px;z-index:200;}
+  .nav-item:hover .nav-drop,.nav-item:focus-within .nav-drop{display:flex;}
+  .nav-drop a{font-size:13px;font-weight:500;color:#1A1108;text-decoration:none;padding:8px 12px;border-radius:7px;white-space:nowrap;}
+  .nav-drop a:hover{background:#F3E8DF;}
+  .nav-cta{background:#F05A1A;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background .15s;margin-left:12px;}
+  .nav-cta:hover{background:#D44D14;}
+  .nav-mobile-toggle{display:none;margin-left:auto;background:none;border:none;font-size:22px;cursor:pointer;color:#1A1108;padding:4px 8px;}
+  .nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;z-index:99;padding:16px 20px;overflow-y:auto;flex-direction:column;gap:4px;}
+  .nav-mobile-menu.open{display:flex;}
+  .nav-m-section{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94A3B8;margin:10px 0 4px;}
+  .nav-m-link{font-size:15px;font-weight:500;color:#1A1108;text-decoration:none;padding:10px 12px;border-radius:8px;}
+  .nav-m-link.indent{padding-left:24px;}
+  .nav-m-link:hover,.nav-m-link.active{background:#F3E8DF;}
+  .nav-m-link.active{font-weight:600;}
+  .nav-m-cta{display:block;background:#F05A1A;color:#fff!important;text-align:center;border-radius:10px;padding:14px;font-size:15px;font-weight:700;margin-top:16px;}
+  @media(max-width:768px){.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}}
+  @media(min-width:769px){.nav-mobile-menu{display:none!important;}}
 </style>
 </head>
 <body>
 
-<nav class="nav-bar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">Patwadi</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="students.html">Students</a></li>
-      <li><a href="business.html">Business</a></li>
-      <li><a href="index.html#routes">Routes</a></li>
-      <li><a href="how-it-works.html">How It Works</a></li>
-      <li><a href="tracking.html" class="active">Track</a></li>
-      <li><a href="drivers.html">Join Us</a></li>
-      <li><a href="posts/">Guides</a></li>
-    </ul>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta" aria-label="Check route on WhatsApp">Check route on WhatsApp</a>
-    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
+<nav>
+  <a href="/index.html" class="nav-logo">
+    <img src="/assets/images/patwadi-logo-transp.png" alt="" class="nav-logo-img" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'">
+    Patwadi
+  </a>
+  <div class="nav-links">
+    <div class="nav-item has-drop">
+      <button class="nav-btn">Services &#9662;</button>
+      <div class="nav-drop">
+        <a href="/students.html">For Students</a>
+        <a href="/business.html">For Business</a>
+      </div>
+    </div>
+    <a href="/tracking.html" class="nav-link active">Track</a>
+    <div class="nav-item has-drop">
+      <button class="nav-btn">About &#9662;</button>
+      <div class="nav-drop">
+        <a href="/how-it-works.html">How It Works</a>
+        <a href="/routes.html">Routes</a>
+      </div>
+    </div>
+    <a href="/drivers.html" class="nav-link">Join Us</a>
+    <a href="/guides.html" class="nav-link">Guides</a>
   </div>
-  <div class="nav-mobile-menu" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="students.html">Students</a>
-    <a href="business.html">Business</a>
-    <a href="index.html#routes">Routes</a>
-    <a href="how-it-works.html">How It Works</a>
-    <a href="tracking.html" class="active">Track</a>
-    <a href="drivers.html">Join Us</a>
-    <a href="posts/">Guides</a>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta-mobile">Check route on WhatsApp</a>
-  </div>
+  <a href="https://wa.me/91XXXXXXXXXX" class="nav-cta">Book Now</a>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
 </nav>
+<div class="nav-mobile-menu" id="navMobile">
+  <div class="nav-m-section">Services</div>
+  <a href="/students.html" class="nav-m-link indent">For Students</a>
+  <a href="/business.html" class="nav-m-link indent">For Business</a>
+  <a href="/tracking.html" class="nav-m-link active">Track</a>
+  <div class="nav-m-section">About</div>
+  <a href="/how-it-works.html" class="nav-m-link indent">How It Works</a>
+  <a href="/routes.html" class="nav-m-link indent">Routes</a>
+  <a href="/drivers.html" class="nav-m-link">Join Us</a>
+  <a href="/guides.html" class="nav-m-link">Guides</a>
+  <a href="https://wa.me/91XXXXXXXXXX" class="nav-cta nav-m-cta">Book Now</a>
+</div>
 
-<div class="track-content">
 
 <div class="eyebrow">Patwadi — Tracking</div>
-<div class="pagehead">Where's my parcel?</div>
-<p class="pagesub">Enter your tracking code to see exactly where it is right now.</p>
+<div class="pagehead">The Window, India</div>
+<p class="pagesub">Real landmarks, not generic buildings. Charminar is Charminar. The Golden Temple is the Golden Temple. Everywhere without its own scene yet borrows its state's character.</p>
 
-<div class="lookup-wrap">
-  <div class="lookup-row">
-    <input type="text" id="codeInput" class="lookup-input" placeholder="PXXX00X00XXX" maxlength="12" autocomplete="off" autocapitalize="characters" aria-label="Tracking code">
-    <button id="searchBtn" class="lookup-btn">Search</button>
-  </div>
+<div class="selector-group">
+  <div class="selector-label">Time of day</div>
+  <div class="stage-switch" id="timeSwitch"></div>
 </div>
-<div class="lookup-msg" id="lookupMsg"></div>
-
-<div id="idleState" class="idle-state">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg><br>
-  Enter your tracking code above to see your parcel's journey.
+<div class="selector-group">
+  <div class="selector-label">Where the parcel is — 23 cities + state fallbacks</div>
+  <div class="stage-switch" id="locSwitch"></div>
 </div>
+<div class="resolve-badge" id="resolveBadge"></div>
 
-<div class="phone" id="phoneCard" style="display:none;">
+<div class="phone">
   <div class="screen">
     <div class="statusbar"><span>9:41</span><span>●●●●  Wi-Fi  100%</span></div>
     <div class="topbar">
       <div class="back">‹</div>
-      <div><div class="toptitle">Tracking</div><div class="toporder" id="toporder">—</div></div>
+      <div><div class="toptitle">Tracking</div><div class="toporder" id="toporder">Order #PW2241</div></div>
     </div>
     <div class="window-wrap">
       <div class="window" id="window">
         <div class="sash"><div class="pane-border"></div><div class="mullion-v"></div><div class="mullion-h"></div></div>
         <div class="sill"></div>
-        <div class="city-chip"><span id="cityChipText">—</span></div>
-        <div class="status-chip"><div class="status-dot" id="statusDot"></div><span id="statusChipText">—</span></div>
+        <div class="city-chip"><span id="cityChipText">Hyderabad</span></div>
+        <div class="status-chip"><div class="status-dot" id="statusDot"></div><span id="statusChipText">On corridor</span></div>
       </div>
     </div>
     <div class="updatecopy">
-      <h2 id="copyHeadline">—</h2>
-      <p id="copySub">—</p>
+      <h2 id="copyHeadline">Your parcel is moving through Hyderabad.</h2>
+      <p id="copySub">On the corridor now, tracking right on schedule.</p>
     </div>
-    <div class="motif-note"><span id="motifText"></span></div>
-    <div class="exception-banner" id="exceptionBanner" style="display:none;"></div>
+    <div class="motif-note"><span id="motifText">Charminar — four minarets, one arch</span></div>
     <div class="timeline" id="timeline"></div>
-    <div class="route-card" id="routeCard" style="display:none;">
-      <div class="route-pt"><div class="route-tag">From</div><div class="route-city" id="routeFrom">—</div></div>
-      <span class="route-arrow">→</span>
-      <div class="route-pt"><div class="route-tag">To</div><div class="route-city" id="routeTo">—</div></div>
-    </div>
-    <div class="pod-wrap" id="podWrap" style="display:none;">
-      <div class="pod-label">Delivery proof</div>
-      <img class="pod-img" id="podImg" src="" alt="Proof of delivery">
-    </div>
-    <a href="#" target="_blank" class="support-link" id="supportLink">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
-      Need help with this order?
-    </a>
   </div>
 </div>
 
-</div><!-- /track-content -->
-
-
-<footer>
-  <div class="footer-grid">
-    <div>
-      <span class="footer-brand-name">Patwadi</span>
-      <p class="footer-brand-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Book on WhatsApp.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Who we serve</h4>
-      <a href="students.html">Students</a>
-      <a href="business.html">Business shipping</a>
-      <a href="b2b.html">Enterprise</a>
-    </div>
-    <div class="footer-col">
-      <h4>Useful pages</h4>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="index.html#routes">Routes</a>
-      <a href="tracking.html">Track a parcel</a>
-      <a href="/posts/">Guides</a>
-      <a href="/docs/privacy-policy.html">Privacy Policy</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a>
-      <a href="mailto:admin@patwadi.com">admin@patwadi.com</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>2026 Patwadi Logistics LLP. Chandigarh, India.</span>
-    <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;font-weight:600;">+91 80918 89969</a>
-  </div>
-</footer>
-
 <script>
-document.addEventListener('click',function(e){
-  var menu=document.getElementById('mobileNav'),btn=document.querySelector('.nav-hamburger');
-  if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)) menu.classList.remove('open');
-});
-
 function rnd(a,b){ return a + Math.random()*(b-a); }
 /* ============ TIME OF DAY ============ */
 const TIMES = {
@@ -364,16 +269,20 @@ const CITY_SCENES = {
 
   'Mumbai':{ dot:'#D9A53E', motif:'Marine Drive lit at dusk — the city that never sleeps',
     skyline:(W,H)=>`<g><rect x="0" y="${H*0.86}" width="${W}" height="${H*0.14}" fill="#3E5C6B" opacity=".6"/>
+      <!-- dense Art Deco crescent, varying heights, curved cornices -->
       <rect x="${W*0.02}" y="${H*0.5}" width="${W*0.1}" height="${H*0.36}" rx="6" fill="#E8D9C4"/><rect x="${W*0.02}" y="${H*0.46}" width="${W*0.1}" height="${H*0.05}" rx="6" fill="#C9A876"/>
       <rect x="${W*0.13}" y="${H*0.4}" width="${W*0.11}" height="${H*0.46}" rx="7" fill="#F0DCC8"/><rect x="${W*0.13}" y="${H*0.36}" width="${W*0.11}" height="${H*0.05}" rx="7" fill="#D9B98F"/>
       <rect x="${W*0.25}" y="${H*0.48}" width="${W*0.1}" height="${H*0.38}" rx="6" fill="#E8C8B8"/>
+      <!-- Gateway of India, central, bold -->
       <rect x="${W*0.38}" y="${H*0.44}" width="${W*0.2}" height="${H*0.42}" fill="none" stroke="#C9A876" stroke-width="${W*0.038}"/>
       <rect x="${W*0.38}" y="${H*0.4}" width="${W*0.2}" height="${H*0.06}" fill="#C9A876"/>
       <rect x="${W*0.36}" y="${H*0.42}" width="${W*0.03}" height="${H*0.18}" fill="#C9A876"/><rect x="${W*0.61}" y="${H*0.42}" width="${W*0.03}" height="${H*0.18}" fill="#C9A876"/>
       <rect x="${W*0.6}" y="${H*0.46}" width="${W*0.1}" height="${H*0.4}" rx="6" fill="#F0DCC8"/><rect x="${W*0.6}" y="${H*0.42}" width="${W*0.1}" height="${H*0.05}" rx="6" fill="#D9B98F"/>
       <rect x="${W*0.71}" y="${H*0.36}" width="${W*0.11}" height="${H*0.5}" rx="7" fill="#E8D9C4"/><rect x="${W*0.71}" y="${H*0.32}" width="${W*0.11}" height="${H*0.05}" rx="7" fill="#C9A876"/>
       <rect x="${W*0.83}" y="${H*0.46}" width="${W*0.11}" height="${H*0.4}" rx="6" fill="#F0DCC8"/>
+      <!-- dense warm window lights -- the never-sleeps detail -->
       <g fill="#FFCB6B">${Array.from({length:24}).map(()=>{const x=rnd(0.05,0.92),y=rnd(0.46,0.82);return `<rect x="${W*x}" y="${H*y}" width="2.4" height="3" opacity="${rnd(0.5,0.95)}"/>`;}).join('')}</g>
+      <!-- Queen's Necklace -- curving string of lights along the bay -->
       <path d="M 0 ${H*0.88} Q ${W*0.5} ${H*0.94} ${W} ${H*0.88}" fill="none" stroke="#FFD98A" stroke-width="1.4" stroke-dasharray="2 4" opacity=".8"/>
       <ellipse cx="${W*0.06}" cy="${H*0.86}" rx="3" ry="6" fill="#3E8F5C"/><rect x="${W*0.058}" y="${H*0.86}" width="1.5" height="${H*0.1}" fill="#6B4A34"/></g>` },
 
@@ -386,10 +295,14 @@ const CITY_SCENES = {
 
   'Hyderabad':{ dot:'#8B9C8F', motif:'Charminar — four minarets, one grand arch',
     skyline:(W,H)=>`<g><rect x="0" y="${H*0.82}" width="${W}" height="${H*0.18}" fill="#C9B896"/>
+      <!-- Laad Bazaar awning row -->
       <g>${[0.1,0.18,0.26,0.7,0.78,0.86].map((x,i)=>`<rect x="${W*x}" y="${H*0.76}" width="${W*0.06}" height="${H*0.05}" fill="${['#C7491F','#3E8F7C','#D9A53E'][i%3]}"/>`).join('')}</g>
+      <!-- main base block with grand central arch -->
       <rect x="${W*0.3}" y="${H*0.46}" width="${W*0.4}" height="${H*0.36}" fill="#9DA68F"/>
       <path d="M ${W*0.42} ${H*0.82} L ${W*0.42} ${H*0.58} Q ${W*0.5} ${H*0.44} ${W*0.58} ${H*0.58} L ${W*0.58} ${H*0.82} Z" fill="#7D8870"/>
+      <!-- clock detail -->
       <circle cx="${W*0.5}" cy="${H*0.5}" r="4" fill="#E8DEC4"/>
+      <!-- four corner minarets, clearly tapering, real onion domes -->
       ${[0.31,0.43,0.57,0.69].map(x=>`
         <path d="M ${W*x-4} ${H*0.46} L ${W*x-2.5} ${H*0.22} L ${W*x+2.5} ${H*0.22} L ${W*x+4} ${H*0.46} Z" fill="#9DA68F"/>
         <path d="M ${W*x-3} ${H*0.22} Q ${W*x} ${H*0.13} ${W*x+3} ${H*0.22} Q ${W*x} ${H*0.18} ${W*x-3} ${H*0.22} Z" fill="#7D8870"/>
@@ -414,6 +327,7 @@ const CITY_SCENES = {
 
   'Madurai':{ dot:'#D9456E', motif:'Meenakshi Temple — one soaring, densely carved tower',
     skyline:(W,H)=>`<g><rect x="0" y="${H*0.84}" width="${W}" height="${H*0.16}" fill="#D98B5C"/>
+      <!-- continuous tapering gopuram, 6 tiers, no gaps -->
       <rect x="${W*0.34}" y="${H*0.74}" width="${W*0.32}" height="${H*0.1}" fill="#D9456E"/>
       <rect x="${W*0.36}" y="${H*0.64}" width="${W*0.28}" height="${H*0.1}" fill="#3E8F7C"/>
       <rect x="${W*0.385}" y="${H*0.55}" width="${W*0.23}" height="${H*0.09}" fill="#D9A53E"/>
@@ -422,6 +336,7 @@ const CITY_SCENES = {
       <rect x="${W*0.46}" y="${H*0.34}" width="${W*0.08}" height="${H*0.06}" fill="#D9A53E"/>
       <path d="M ${W*0.46} ${H*0.34} Q ${W*0.5} ${H*0.27} ${W*0.54} ${H*0.34} Z" fill="#3E8F7C"/>
       <circle cx="${W*0.5}" cy="${H*0.26}" r="2.4" fill="#D9A53E"/>
+      <!-- dense painted figure dots, packed across every tier -->
       <g opacity=".9">${Array.from({length:5}).flatMap((_,row)=>Array.from({length:7-row}).map((__,c)=>{
         const tierY=[0.78,0.68,0.59,0.51,0.44][row], tierW=[0.3,0.26,0.21,0.16,0.11][row], tierX=[0.35,0.37,0.395,0.42,0.445][row];
         const x=tierX+ (c+0.5)*(tierW/(7-row));
@@ -434,8 +349,10 @@ const CITY_SCENES = {
       <path d="M ${W*0.22} ${H*0.38} Q ${W*0.5} ${H*0.27} ${W*0.78} ${H*0.4}" stroke="#2E5C66" stroke-width="1.3" fill="none"/>
       <rect x="${W*0.46}" y="${H*0.34}" width="10" height="7" rx="1.5" fill="#E8D9C4" stroke="#2E5C66" stroke-width="0.8"/>
       <line x1="${W*0.49}" y1="${H*0.34}" x2="${W*0.49}" y2="${H*0.3}" stroke="#2E5C66" stroke-width="1"/>
+      <!-- submarine, bold and solid -->
       <rect x="${W*0.1}" y="${H*0.78}" width="${W*0.28}" height="${H*0.1}" rx="${H*0.05}" fill="#5C6068"/>
       <rect x="${W*0.2}" y="${H*0.71}" width="${W*0.06}" height="${H*0.08}" rx="2" fill="#5C6068"/>
+      <!-- port crane, bold -->
       <rect x="${W*0.82}" y="${H*0.52}" width="3" height="${H*0.3}" fill="#4A4640"/>
       <path d="M ${W*0.82} ${H*0.54} L ${W*0.94} ${H*0.46}" stroke="#4A4640" stroke-width="2.5" stroke-linecap="round"/>
       <line x1="${W*0.91}" y1="${H*0.48}" x2="${W*0.91}" y2="${H*0.6}" stroke="#4A4640" stroke-width="1"/>
@@ -480,15 +397,19 @@ const CITY_SCENES = {
 
   'Bhubaneswar':{ dot:'#9C7456', motif:'Kalinga shikhara — the curved beehive tower',
     skyline:(W,H)=>`<g><rect x="0" y="${H*0.82}" width="${W}" height="${H*0.18}" fill="#D98B5C"/>
+      <!-- jagamohana porch, lower, pyramidal -->
       <rect x="${W*0.2}" y="${H*0.66}" width="${W*0.18}" height="${H*0.16}" fill="#B08560"/>
       <polygon points="${W*0.19},${H*0.66} ${W*0.29},${H*0.52} ${W*0.39},${H*0.66}" fill="#9C7456"/>
+      <!-- main shikhara: true Kalinga bulge-and-taper -->
       <path d="M ${W*0.42} ${H*0.82} Q ${W*0.37} ${H*0.6} ${W*0.42} ${H*0.46} Q ${W*0.46} ${H*0.3} ${W*0.5} ${H*0.24}
                Q ${W*0.54} ${H*0.3} ${W*0.58} ${H*0.46} Q ${W*0.63} ${H*0.6} ${W*0.58} ${H*0.82} Z" fill="#9C7456"/>
+      <!-- carved horizontal banding -->
       <g stroke="#7D5C40" stroke-width="1" opacity=".6">
         <path d="M ${W*0.4} ${H*0.7} Q ${W*0.5} ${H*0.66} ${W*0.6} ${H*0.7}" fill="none"/>
         <path d="M ${W*0.4} ${H*0.58} Q ${W*0.5} ${H*0.54} ${W*0.6} ${H*0.58}" fill="none"/>
         <path d="M ${W*0.41} ${H*0.46} Q ${W*0.5} ${H*0.43} ${W*0.59} ${H*0.46}" fill="none"/>
       </g>
+      <!-- amalaka disc + kalasha finial -->
       <ellipse cx="${W*0.5}" cy="${H*0.24}" rx="${W*0.05}" ry="3" fill="#D9A53E"/>
       <circle cx="${W*0.5}" cy="${H*0.18}" r="3" fill="#D9A53E"/><rect x="${W*0.5-1}" y="${H*0.13}" width="2" height="${H*0.05}" fill="#D9A53E"/></g>` },
 
@@ -496,6 +417,7 @@ const CITY_SCENES = {
     skyline:(W,H)=>`<g><rect x="0" y="${H*0.88}" width="${W}" height="${H*0.12}" fill="#4A7B9C" opacity=".5"/>
       <ellipse cx="${W*0.5}" cy="${H*0.78}" rx="${W*0.26}" ry="${H*0.2}" fill="#B8714A"/>
       <ellipse cx="${W*0.5}" cy="${H*0.78}" rx="${W*0.26}" ry="${H*0.2}" fill="none" stroke="#9C5C3C" stroke-width="1" opacity=".4"/>
+      <!-- the real spiral, wrapping the dome surface -->
       <path d="M ${W*0.5} ${H*0.6} Q ${W*0.76} ${H*0.66} ${W*0.74} ${H*0.78} Q ${W*0.72} ${H*0.9} ${W*0.5} ${H*0.92}
                M ${W*0.5} ${H*0.6} Q ${W*0.24} ${H*0.66} ${W*0.26} ${H*0.78} Q ${W*0.28} ${H*0.9} ${W*0.5} ${H*0.92}"
             stroke="#9C5C3C" stroke-width="1.4" fill="none" opacity=".7"/>
@@ -599,215 +521,94 @@ const STATE_SCENES = {
       <g fill="#3E6B3C" opacity=".6">${Array.from({length:6}).map((_,i)=>`<ellipse cx="${W*(0.04+i*0.04)}" cy="${H*0.86}" rx="6" ry="3"/>`).join('')}</g></g>` },
 };
 
+/* ============ LOCATIONS resolver ============ */
+const LOCATIONS = [
+  {city:'Delhi'},{city:'Jaipur'},{city:'Jodhpur'},{city:'Udaipur'},{city:'Amritsar'},
+  {city:'Chandigarh'},{city:'Mohali',aliasOf:'Chandigarh'},
+  {city:'Mumbai'},{city:'Pune'},{city:'Hyderabad'},{city:'Bengaluru'},
+  {city:'Chennai'},{city:'Madurai'},{city:'Visakhapatnam'},{city:'Kochi'},{city:'Mysuru'},
+  {city:'Kolkata'},{city:'Varanasi'},{city:'Lucknow'},{city:'Bhubaneswar'},{city:'Patna'},
+  {city:'Guwahati'},{city:'Panaji'},{city:'Nagpur'},
+  {city:'Manali', state:'Himachal Pradesh'},{city:'Mandi', state:'Himachal Pradesh'},{city:'Shimla', state:'Himachal Pradesh'},
+  {city:'Ludhiana', state:'Punjab'},{city:'Gurugram', state:'Haryana'},
+  {city:'Srinagar', state:'Jammu and Kashmir'},{city:'Jodhpur Rural', city2:'Bikaner', state:'Rajasthan'},
+  {city:'Surat', state:'Gujarat'},{city:'Coimbatore', state:'Tamil Nadu'},
+  {city:'Kanpur', state:'Uttar Pradesh'},{city:'Gaya', state:'Bihar'},
+  {city:'Cuttack', state:'Odisha'},{city:'Dibrugarh', state:'Assam'},
+];
 
-/* ============ LIVE DATA WIRING ============ */
-
-// No keys needed — this edge function has verify_jwt = false and is
-// invoked with no auth headers at all, exactly as documented in
-// docs/web-tracking-integration-brief.md §8.
-const EDGE_FUNCTION_URL = 'https://wvxyaqqlqwbbpkgvrali.supabase.co/functions/v1/public-track-parcel';
-
-const TRACKING_CODE_RE = /^P\d{9}[A-Z]{2}$/;
-
-const CUSTOMER_LABELS = {
-  created:'Booked', pickup_confirmed:'Picked up', in_transit:'In transit',
-  out_for_delivery:'Out for delivery', delivered:'Delivered'
-};
-const STAGE_ORDER = ['created','pickup_confirmed','in_transit','out_for_delivery','delivered'];
-
-// Build a city → state lookup from the same corridor knowledge the old
-// LOCATIONS array encoded, so any city name the API returns that isn't a
-// CITY_SCENES entry can still fall back to its correct state scenery.
-const CITY_TO_STATE = {
-  Manali:'Himachal Pradesh', Mandi:'Himachal Pradesh', Shimla:'Himachal Pradesh',
-  Ludhiana:'Punjab', Jalandhar:'Punjab', Amritsar:'Punjab',
-  Gurugram:'Haryana', Panipat:'Haryana', Ambala:'Haryana',
-  Srinagar:'Jammu and Kashmir', Jammu:'Jammu and Kashmir',
-  Bikaner:'Rajasthan', Jaipur:'Rajasthan', Jodhpur:'Rajasthan', Udaipur:'Rajasthan',
-  Surat:'Gujarat', Ahmedabad:'Gujarat',
-  Coimbatore:'Tamil Nadu', Chennai:'Tamil Nadu', Madurai:'Tamil Nadu',
-  Kanpur:'Uttar Pradesh', Lucknow:'Uttar Pradesh', Varanasi:'Uttar Pradesh',
-  Gaya:'Bihar', Patna:'Bihar',
-  Cuttack:'Odisha', Bhubaneswar:'Odisha',
-  Dibrugarh:'Assam', Guwahati:'Assam',
-  Mumbai:'Maharashtra', Pune:'Maharashtra', Nagpur:'Maharashtra',
-  Hyderabad:'Telangana & Andhra Pradesh', Visakhapatnam:'Telangana & Andhra Pradesh',
-  Bengaluru:'Karnataka', Mysuru:'Karnataka',
-  Kochi:'Kerala', Kolkata:'West Bengal', Chandigarh:'Punjab',
-};
-
-function resolveSceneForCity(cityName){
-  const clean = (cityName || '').trim();
-  if (CITY_SCENES[clean]) return { kind:'city', name:clean, scene:CITY_SCENES[clean] };
-  const state = CITY_TO_STATE[clean];
-  if (state && STATE_SCENES[state]) return { kind:'state', name:state, scene:STATE_SCENES[state] };
-  // Last-resort neutral fallback so the page never breaks on an unmapped city
-  return { kind:'state', name:'India', scene:{ dot:'#9C8B72', motif:'On the move across India',
-    skyline:(W,H)=>`<g><rect x="0" y="${H*0.74}" width="${W}" height="${H*0.26}" fill="#C9B896"/></g>` } };
+function resolveScene(loc){
+  if (loc.aliasOf) return { kind:'city', name:loc.aliasOf, scene:CITY_SCENES[loc.aliasOf] };
+  if (CITY_SCENES[loc.city]) return { kind:'city', name:loc.city, scene:CITY_SCENES[loc.city] };
+  return { kind:'state', name:loc.state, scene:STATE_SCENES[loc.state] };
 }
 
-function getTimeOfDay(){
-  const h = new Date().getHours();
-  if (h >= 5 && h < 12) return 'morning';
-  if (h >= 12 && h < 16) return 'afternoon';
-  if (h >= 16 && h < 20) return 'evening';
-  return 'night';
-}
+const TIME_ORDER = ['morning','afternoon','evening','night'];
+const TIMELINE = ['Booked','Picked up','On corridor','Reached city','Out for delivery','Delivered'];
+let curTime='afternoon', curLocIdx=9; // default Hyderabad
 
-const winEl = document.getElementById('window');
-let sceneA = mk(), sceneB = mk(), aActive = true;
-function mk(){ const d = document.createElement('div'); d.className = 'scene'; winEl.prepend(d); return d; }
+const timeSwitch=document.getElementById('timeSwitch');
+TIME_ORDER.forEach(key=>{ const t=TIMES[key]; const b=document.createElement('button');
+  b.innerHTML=t.icon+t.label; b.dataset.key=key; b.onclick=()=>{curTime=key;render();}; timeSwitch.appendChild(b); });
 
-function buildSVG(W, H, timeKey, resolved){
-  const t = TIMES[timeKey];
+const locSwitch=document.getElementById('locSwitch');
+LOCATIONS.forEach((loc,i)=>{ const r=resolveScene(loc); const b=document.createElement('button');
+  b.innerHTML=`<span class="city-dot" style="background:${r.scene.dot}"></span>${loc.city}`;
+  b.dataset.idx=i; b.onclick=()=>{curLocIdx=i;render();}; locSwitch.appendChild(b); });
+
+const winEl=document.getElementById('window');
+let sceneA=mk(), sceneB=mk(), aActive=true;
+function mk(){ const d=document.createElement('div'); d.className='scene'; winEl.prepend(d); return d; }
+
+function buildSVG(W,H,timeKey,resolved){
+  const t=TIMES[timeKey];
   return `<svg width="100%" height="100%" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">
     <defs>${t.sky()}</defs><rect width="${W}" height="${H}" fill="url(#sky)"/>
     ${t.starOpacity>0?Array.from({length:14}).map(()=>{const x=(Math.random()*W).toFixed(1),y=(Math.random()*H*0.5).toFixed(1),r=(Math.random()*1.1+.3).toFixed(2);return `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff" opacity="${(Math.random()*.5+.2)*t.starOpacity}"/>`;}).join(''):''}
     ${t.celestial(W,H)}${resolved.scene.skyline(W,H)}<rect width="${W}" height="${H}" fill="${t.tint}"/></svg>`;
 }
 
-function showMsg(text, kind){
-  const el = document.getElementById('lookupMsg');
-  el.textContent = text;
-  el.className = 'lookup-msg show ' + kind;
+function render(){
+  const t=TIMES[curTime], loc=LOCATIONS[curLocIdx], resolved=resolveScene(loc);
+  const W=340,H=250;
+  const incoming=aActive?sceneB:sceneA, outgoing=aActive?sceneA:sceneB;
+  incoming.innerHTML=buildSVG(W,H,curTime,resolved); incoming.classList.add('show'); outgoing.classList.remove('show'); aActive=!aActive;
+
+  document.getElementById('statusDot').style.background=t.chipColor;
+  document.getElementById('statusChipText').textContent=t.statusText;
+  document.getElementById('cityChipText').textContent=loc.city;
+  document.getElementById('motifText').textContent=resolved.scene.motif;
+  document.getElementById('toporder').textContent=`Order #PW2241 · ${loc.city}`;
+
+  const headlines={morning:`Your parcel is out for morning delivery in ${loc.city}.`,afternoon:`Your parcel is moving through ${loc.city}.`,evening:`Your parcel reached ${loc.city} this evening.`,night:`Your parcel is resting safely in ${loc.city} tonight.`};
+  const subs={morning:"A delivery partner has it now — it'll reach your door within today's window.",afternoon:'On the corridor now, tracking right on schedule.',evening:"It's checked in for the night corridor handoff — moving again within hours.",night:'It moves again tomorrow morning — no action needed from you.'};
+  document.getElementById('copyHeadline').textContent=headlines[curTime];
+  document.getElementById('copySub').textContent=subs[curTime];
+
+  [...timeSwitch.children].forEach(b=>b.classList.toggle('active',b.dataset.key===curTime));
+  [...locSwitch.children].forEach(b=>b.classList.toggle('active',Number(b.dataset.idx)===curLocIdx));
+
+  const badge=document.getElementById('resolveBadge');
+  badge.innerHTML = resolved.kind==='city'
+    ? `<span class="resolve-tag city">City scene</span> Showing <b>${resolved.name}</b> — its own landmark`
+    : `<span class="resolve-tag state">State default</span> <b>${loc.city}</b> falls back to <b>${resolved.name}</b>`;
+
+  const activeIdx={morning:4,afternoon:3,evening:3,night:3}[curTime];
+  const tl=document.getElementById('timeline'); tl.innerHTML='';
+  TIMELINE.forEach((label,i)=>{
+    const isDone=i<activeIdx, isCurrent=i===activeIdx;
+    const row=document.createElement('div'); row.className='stamp'+(isDone||isCurrent?' active':'');
+    row.innerHTML=`<div class="stamp-rail"><div class="stamp-icon ${isDone?'done':isCurrent?'current':''}">${isDone?'✓':''}</div>${i<TIMELINE.length-1?`<div class="stamp-thread ${isDone?'done':''}"></div>`:''}</div>
+      <div class="stamp-body"><div class="stamp-title">${label}</div><div class="stamp-time">${isDone?'Completed':isCurrent?'In progress':'Pending'}</div></div>`;
+    tl.appendChild(row);
+  });
 }
-function clearMsg(){
-  const el = document.getElementById('lookupMsg');
-  el.className = 'lookup-msg';
-}
+render();
 
-async function doSearch(){
-  const raw = document.getElementById('codeInput').value.trim().toUpperCase();
-  clearMsg();
-
-  if (!TRACKING_CODE_RE.test(raw)){
-    showMsg('That doesn\'t look like a valid tracking code. Format: P262006001DC', 'error');
-    return;
-  }
-
-  const btn = document.getElementById('searchBtn');
-  btn.disabled = true;
-  showMsg('Looking up your parcel…', 'loading');
-
-  try {
-    const res = await fetch(EDGE_FUNCTION_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ tracking_code: raw }),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok){
-      showMsg(data.error || 'We couldn\'t find a parcel with that code.', 'error');
-      document.getElementById('idleState').style.display = 'block';
-      document.getElementById('phoneCard').style.display = 'none';
-      return;
-    }
-
-    clearMsg();
-    renderResult(data);
-  } catch (err){
-    console.error(err);
-    showMsg('Something went wrong reaching our tracking service. Please try again.', 'error');
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-function renderResult(data){
-  document.getElementById('idleState').style.display = 'none';
-  document.getElementById('phoneCard').style.display = 'block';
-
-  const timeKey = getTimeOfDay();
-  const resolved = resolveSceneForCity(data.tracking_city);
-
-  const incoming = aActive ? sceneB : sceneA, outgoing = aActive ? sceneA : sceneB;
-  incoming.innerHTML = buildSVG(340, 250, timeKey, resolved);
-  incoming.classList.add('show'); outgoing.classList.remove('show'); aActive = !aActive;
-
-  document.getElementById('statusDot').style.background = TIMES[timeKey].chipColor;
-  document.getElementById('statusChipText').textContent = TIMES[timeKey].statusText;
-  document.getElementById('cityChipText').textContent = data.tracking_city || resolved.name;
-  document.getElementById('motifText').textContent = resolved.scene.motif;
-  document.getElementById('toporder').textContent = data.tracking_code;
-
-  const isException = data.state === 'blocked_exception';
-  const banner = document.getElementById('exceptionBanner');
-  if (isException){
-    banner.style.display = 'block';
-    banner.textContent = data.blocked_message || data.label || "There's a delay with this parcel.";
-  } else {
-    banner.style.display = 'none';
-  }
-
-  const cityName = data.tracking_city || 'transit';
-  const HEADLINES = {
-    created: `Your parcel is booked and waiting for pickup in ${cityName}.`,
-    pickup_confirmed: `Your parcel was picked up in ${cityName}.`,
-    in_transit: `Your parcel is moving through ${cityName}.`,
-    out_for_delivery: `Your parcel is out for delivery in ${cityName}.`,
-    delivered: `Your parcel was delivered in ${cityName}.`,
-  };
-  document.getElementById('copyHeadline').textContent = isException
-    ? `We've flagged an issue with your parcel in ${cityName}.`
-    : (HEADLINES[data.state] || `Your parcel is on its way — currently at the ${cityName} stage.`);
-  document.getElementById('copySub').textContent = isException
-    ? 'Our team is already on it — message support below for the latest.'
-    : (data.last_updated_at ? `Last updated ${new Date(data.last_updated_at).toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'})}` : '');
-
-  // Route card
-  if (data.origin_city || data.destination_city){
-    document.getElementById('routeCard').style.display = 'flex';
-    document.getElementById('routeFrom').textContent = data.origin_city || '—';
-    document.getElementById('routeTo').textContent = data.destination_city || '—';
-  }
-
-  // 5-stage timeline (hidden during a blocked exception — the banner takes its place)
-  const tl = document.getElementById('timeline');
-  tl.innerHTML = '';
-  if (!isException){
-    const activeIdx = typeof data.stage_index === 'number' ? data.stage_index : STAGE_ORDER.indexOf(data.state);
-    STAGE_ORDER.forEach((stageKey, i) => {
-      const isDone = i < activeIdx, isCurrent = i === activeIdx;
-      const row = document.createElement('div');
-      row.className = 'stamp' + (isDone || isCurrent ? ' active' : '');
-      const stageDate = data.stage_dates && data.stage_dates[stageKey];
-      const dateText = stageDate ? new Date(stageDate).toLocaleDateString('en-IN',{day:'numeric',month:'short'}) : (isDone ? 'Completed' : isCurrent ? 'In progress' : 'Pending');
-      row.innerHTML = `<div class="stamp-rail"><div class="stamp-icon ${isDone?'done':isCurrent?'current':''}">${isDone?'✓':''}</div>${i<STAGE_ORDER.length-1?`<div class="stamp-thread ${isDone?'done':''}"></div>`:''}</div>
-        <div class="stamp-body"><div class="stamp-title">${CUSTOMER_LABELS[stageKey]}</div><div class="stamp-time">${dateText}</div></div>`;
-      tl.appendChild(row);
-    });
-  }
-
-  // Proof of delivery
-  const podWrap = document.getElementById('podWrap');
-  if (data.pod_url){
-    podWrap.style.display = 'block';
-    document.getElementById('podImg').src = data.pod_url;
-  } else {
-    podWrap.style.display = 'none';
-  }
-
-  // Support link — prefilled with code + current stage for context
-  const supportMsg = encodeURIComponent(`Hi Patwadi, I need help with my order ${data.tracking_code} (currently: ${data.label}).`);
-  document.getElementById('supportLink').href = `https://wa.me/918091889969?text=${supportMsg}`;
-}
-
-document.getElementById('searchBtn').addEventListener('click', doSearch);
-document.getElementById('codeInput').addEventListener('keydown', function(e){
-  if (e.key === 'Enter') doSearch();
-});
-
-// Auto-load from ?code= — this is what makes tracking.html?code=P262006001DC
-// links from WhatsApp notifications work without the customer typing anything.
-(function autoLoadFromUrl(){
-  const codeFromUrl = new URLSearchParams(window.location.search).get('code');
-  if (codeFromUrl){
-    document.getElementById('codeInput').value = codeFromUrl.trim().toUpperCase();
-    doSearch();
-  }
-})();
+// Mobile nav
+const navToggle=document.getElementById('navToggle');
+const navMobile=document.getElementById('navMobile');
+if(navToggle){navToggle.addEventListener('click',()=>{navMobile.classList.toggle('open');navToggle.setAttribute('aria-expanded',navMobile.classList.contains('open'));});}
 
 </script>
 </body>
