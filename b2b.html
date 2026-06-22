@@ -5,342 +5,278 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enterprise Logistics - Patwadi</title>
   <meta name="description" content="Patwadi enterprise corridor logistics — dedicated planning, SLA-backed dispatch, and key account management for high-volume intercity shippers.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    :root{--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F5EDE0;--green-wa:#25D366;--orange:#F05A1A;--orange-dk:#D44D14;--blue:#1D4ED8;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+
+    /* ── NAV ── */
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background 0.15s;}
+    .nav-links a:hover,.nav-links a.active{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--orange);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background 0.15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+    .nav-mobile-menu.open{display:flex;}
+    .nav-mobile-menu a{display:block;padding:10px 12px;font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+
+    /* ── LAYOUT ── */
+    .hero{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:68px 24px 52px;text-align:center;}
+    .hero-content h1{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px;}
+    .hero-content p{font-size:0.96rem;color:rgba(255,255,255,0.72);line-height:1.75;max-width:520px;margin:0 auto 28px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--orange);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+    .btn:hover{background:var(--orange-dk);}
+    .section{padding:60px 24px;}
+    .section-alt{background:var(--surface);}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:16px;}
 
     /* ── PILLARS ── */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1px;
-      background: var(--neutral-200);
-      border: 1px solid var(--neutral-200);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: var(--spacing-2xl);
-    }
-    .pillar {
-      background: #fff;
-      padding: 32px 28px;
-    }
-    .pillar-num {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--neutral-400);
-      margin-bottom: 16px;
-    }
-    .pillar h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--neutral-900);
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-    }
-    .pillar p {
-      font-size: 0.875rem;
-      color: var(--neutral-500);
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .pillar ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .pillar ul li {
-      font-size: 0.82rem;
-      color: var(--neutral-600, #4b5563);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.5;
-    }
-    .pillar ul li::before {
-      content: '→';
-      color: var(--primary-blue);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
+    .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:48px;}
+    .pillar{background:#fff;padding:32px 28px;}
+    .pillar-num{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:16px;}
+    .pillar h3{font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em;}
+    .pillar p{font-size:0.875rem;color:var(--mid);line-height:1.75;margin-bottom:16px;}
+    .pillar ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:7px;}
+    .pillar ul li{font-size:0.82rem;color:#4b5563;display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+    .pillar ul li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;}
 
-    /* ── WHO IT'S FOR ── */
-    .fit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-bottom: var(--spacing-2xl);
-    }
-    .fit-card {
-      background: var(--neutral-50, #f9fafb);
-      border: 1px solid var(--neutral-200);
-      border-radius: 10px;
-      padding: 20px;
-      font-size: 0.875rem;
-    }
-    .fit-card-icon { font-size: 1.4rem; margin-bottom: 10px; line-height: 1; }
-    .fit-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 4px; }
-    .fit-card p  { color: var(--neutral-500); line-height: 1.6; font-size: 0.82rem; }
+    /* ── FIT GRID ── */
+    .fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:48px;}
+    .fit-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;font-size:0.875rem;}
+    .fit-card-icon{font-size:1.4rem;margin-bottom:10px;line-height:1;}
+    .fit-card h4{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+    .fit-card p{color:var(--mid);line-height:1.6;font-size:0.82rem;}
 
     /* ── FORM ── */
-    .b2b-form-wrap {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-md);
-    }
-    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+    .b2b-form-wrap{max-width:640px;margin:0 auto;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .form-group{display:flex;flex-direction:column;gap:5px;}
+    .form-group label{font-size:0.78rem;font-weight:600;color:#374151;}
+    .form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:0.85rem;outline:none;font-family:inherit;transition:border-color 0.15s;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange);}
+    @media(max-width:560px){.form-row{grid-template-columns:1fr;}}
 
     /* ── QUOTE BAND ── */
-    .quote-band {
-      background: var(--neutral-900);
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      margin-bottom: var(--spacing-2xl);
+    .quote-band{background:#1A1108;border-radius:12px;padding:40px;text-align:center;margin-bottom:48px;}
+    .quote-band h2{color:#fff;margin-bottom:8px;font-size:1.3rem;font-weight:800;letter-spacing:-0.02em;}
+    .quote-band p{color:#64748B;margin-bottom:0;max-width:500px;margin-left:auto;margin-right:auto;font-size:0.9rem;line-height:1.7;}
+
+    /* ── FOOTER ── */
+    footer{background:#1A1108;color:var(--ghost);padding:28px 24px;}
+    .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:32px;}
+    .footer-col h3{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+    .footer-col a{display:block;font-size:0.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color 0.15s;}
+    .footer-col a:hover{color:#fff;}
+    .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #2A1F18;padding-top:18px;font-size:0.78rem;color:#475569;text-align:center;}
+
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:20px;}
+      .section{padding:40px 20px;}
     }
-    .quote-band h2 { color: #fff; margin-bottom: 8px; }
-    .quote-band p  { color: var(--neutral-400); margin-bottom: 0; max-width: 500px; margin-left: auto; margin-right: auto; }
+    @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+  
+    /* ── DROPDOWN NAV ── */
+    .has-dropdown{position:relative;}
+    .dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.10);z-index:300;list-style:none;}
+    .has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block;}
+    .dropdown li a{display:block;padding:8px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;white-space:nowrap;}
+    .dropdown li a:hover,.dropdown li a.active{background:#F1F5F9;color:var(--ink);}
+    .has-dropdown:has(.active)>a{color:var(--ink);background:#F1F5F9;}
+    .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
+    .nav-mobile-menu a.mobile-sub{padding-left:24px;}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <nav class="nav">
-      <a href="index.html" class="logo">Patwadi</a>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="students.html">Students</a></li>
-        <li><a href="business.html">Business</a></li>
-        <li><a href="index.html#routes">Routes</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="tracking.html">Track</a></li>
-        <li><a href="drivers.html">Join Us</a></li>
-        <li><a href="/posts/">Guides</a></li>
-      </ul>
-      <div class="mobile-toggle">
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-        <span class="hamburger"></span>
-      </div>
-    </nav>
-  </header>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">
+      Patwadi
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="students.html">For Students</a></li>
+          <li><a href="business.html">For Business</a></li>
+        </ul>
+      </li>
+      <li><a href="tracking.html">Track</a></li>
+      <li class="has-dropdown">
+        <a href="how-it-works.html">About &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="index.html#routes">Routes</a></li>
+        </ul>
+      </li>
+      <li><a href="drivers.html">Join Us</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="#contact-sales" class="nav-cta">Talk to our team</a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="mNav">
+    <a href="index.html">Home</a>
+    <span class="mobile-section-label">Services</span>
+    <a href="students.html" class="mobile-sub">For Students</a>
+    <a href="business.html" class="mobile-sub">For Business</a>
+    <a href="tracking.html">Track</a>
+    <span class="mobile-section-label">About</span>
+    <a href="how-it-works.html" class="mobile-sub">How It Works</a>
+    <a href="index.html#routes" class="mobile-sub">Routes</a>
+    <a href="drivers.html">Join Us</a>
+    <a href="/posts/">Guides</a>
+    <a href="#contact-sales" class="nav-cta-m">Talk to our team</a>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero" style="min-height: 44vh;">
-    <div class="hero-content">
-      <h1>Enterprise corridor logistics</h1>
-      <p>Dedicated planning, written SLAs, and a single point of contact — for organisations that ship intercity on a regular basis.</p>
-      <a href="#contact-sales" class="btn">Talk to our team</a>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Enterprise corridor logistics</h1>
+    <p>Dedicated planning, written SLAs, and a single point of contact — for organisations that ship intercity on a regular basis.</p>
+    <a href="#contact-sales" class="btn">Talk to our team</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What enterprise includes</h2>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Dedicated corridor planning</h3>
+        <p>We map your routes, lock in dispatch windows that fit your operations, and maintain reserved capacity so your shipments are never displaced by ad-hoc bookings.</p>
+        <ul>
+          <li>Origin–destination mapping for all active corridors</li>
+          <li>Fixed dispatch windows aligned to your schedule</li>
+          <li>Reserved capacity on primary routes</li>
+          <li>Route performance reporting monthly</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>SLA-backed dispatch</h3>
+        <p>Agreed timelines per corridor, in writing. Every shipment is tracked at each handoff. If a milestone is missed, your account manager is notified automatically — not you.</p>
+        <ul>
+          <li>Written SLA per corridor agreed upfront</li>
+          <li>Milestone tracking: collected → in transit → arrived</li>
+          <li>Automatic escalation on SLA breach</li>
+          <li>Monthly OTIF reporting</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Key account manager</h3>
+        <p>One person who knows your corridors, your team, and your priorities. Direct WhatsApp access — no ticket queues, no call centres, no re-explaining context every time.</p>
+        <ul>
+          <li>Single named contact for your account</li>
+          <li>Direct WhatsApp and phone access</li>
+          <li>Monthly volume and performance review</li>
+          <li>Consolidated monthly billing and reporting</li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-  <!-- Three pillars -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">What enterprise includes</h2>
-
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <h3>Dedicated corridor planning</h3>
-          <p>We map your routes, lock in dispatch windows that fit your operations, and maintain reserved capacity so your shipments are never displaced by ad-hoc bookings.</p>
-          <ul>
-            <li>Origin–destination mapping for all active corridors</li>
-            <li>Fixed dispatch windows aligned to your schedule</li>
-            <li>Reserved capacity on primary routes</li>
-            <li>Route performance reporting monthly</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <h3>SLA-backed dispatch</h3>
-          <p>Agreed timelines per corridor, in writing. Every shipment is tracked at each handoff. If a milestone is missed, your account manager is notified automatically — not you.</p>
-          <ul>
-            <li>Written SLA per corridor agreed upfront</li>
-            <li>Milestone tracking: collected → in transit → arrived</li>
-            <li>Automatic escalation on SLA breach</li>
-            <li>Monthly OTIF reporting</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <h3>Key account manager</h3>
-          <p>One person who knows your corridors, your team, and your priorities. Direct WhatsApp access — no ticket queues, no call centres, no re-explaining context every time.</p>
-          <ul>
-            <li>Single named contact for your account</li>
-            <li>Direct WhatsApp and phone access</li>
-            <li>Monthly volume and performance review</li>
-            <li>Consolidated monthly billing and reporting</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Who it's for -->
-      <h2 class="section-title">Who this is for</h2>
-      <div class="fit-grid">
-        <div class="fit-card">
-          <div class="fit-card-icon">🏭</div>
-          <h4>Manufacturers &amp; distributors</h4>
-          <p>Regular intercity restocking between production sites, warehouses, and retail points.</p>
-        </div>
-        <div class="fit-card">
-          <div class="fit-card-icon">🏫</div>
-          <h4>Educational institutions</h4>
-          <p>Bulk student moves at semester start and end, coordinated pickups and deliveries.</p>
-        </div>
-        <div class="fit-card">
-          <div class="fit-card-icon">🛒</div>
-          <h4>Retail chains</h4>
-          <p>Stock replenishment across store locations in different cities on a predictable schedule.</p>
-        </div>
-        <div class="fit-card">
-          <div class="fit-card-icon">🏥</div>
-          <h4>Healthcare &amp; pharma</h4>
-          <p>Non-cold-chain medical supplies, samples, and documents moved between facilities.</p>
-        </div>
-        <div class="fit-card">
-          <div class="fit-card-icon">🚌</div>
-          <h4>Transport operators</h4>
-          <p>Bus and fleet operators looking to monetise idle cargo capacity through Patwadi's network.</p>
-        </div>
-      </div>
-
-      <!-- Pricing note -->
-      <div class="quote-band">
-        <h2>No standard pricing — every account is quoted</h2>
-        <p>Enterprise pricing depends on your corridors, volume, frequency, and SLA requirements. We don't publish tiers because the right rate for you isn't the same as for someone else.</p>
-      </div>
-
+    <h2 class="section-title">Who this is for</h2>
+    <div class="fit-grid">
+      <div class="fit-card"><div class="fit-card-icon">🏭</div><h4>Manufacturers &amp; distributors</h4><p>Regular intercity restocking between production sites, warehouses, and retail points.</p></div>
+      <div class="fit-card"><div class="fit-card-icon">🏫</div><h4>Educational institutions</h4><p>Bulk student moves at semester start and end, coordinated pickups and deliveries.</p></div>
+      <div class="fit-card"><div class="fit-card-icon">🛒</div><h4>Retail chains</h4><p>Stock replenishment across store locations in different cities on a predictable schedule.</p></div>
+      <div class="fit-card"><div class="fit-card-icon">🏥</div><h4>Healthcare &amp; pharma</h4><p>Non-cold-chain medical supplies, samples, and documents moved between facilities.</p></div>
+      <div class="fit-card"><div class="fit-card-icon">🚌</div><h4>Transport operators</h4><p>Bus and fleet operators looking to monetise idle cargo capacity through Patwadi's network.</p></div>
     </div>
-  </section>
 
-  <!-- Contact sales form -->
-  <section class="section" style="background: var(--neutral-50, #f9fafb);" id="contact-sales">
-    <div class="container">
-      <h2 class="section-title">Talk to our team</h2>
-      <p style="text-align:center; color:var(--neutral-500); margin-bottom: var(--spacing-2xl); max-width:520px; margin-left:auto; margin-right:auto;">Tell us about your corridors and volume. We'll get back within 1 business day with a tailored proposal.</p>
+    <div class="quote-band">
+      <h2>No standard pricing — every account is quoted</h2>
+      <p>Enterprise pricing depends on your corridors, volume, frequency, and SLA requirements. We don't publish tiers because the right rate for you isn't the same as for someone else.</p>
+    </div>
 
-      <div class="b2b-form-wrap">
-        <form id="b2bForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your name</label>
-              <input type="text" required placeholder="Rahul Sharma">
-            </div>
-            <div class="form-group">
-              <label>Company name</label>
-              <input type="text" required placeholder="Acme Distributors">
-            </div>
-          </div>
+  </div>
+</section>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Phone / WhatsApp</label>
-              <input type="tel" required placeholder="+91 98765 43210">
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" required placeholder="rahul@acme.com">
-            </div>
-          </div>
+<section class="section section-alt" id="contact-sales">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Talk to our team</h2>
+    <p style="text-align:center;color:var(--mid);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;font-size:0.9rem;line-height:1.7;">Tell us about your corridors and volume. We'll get back within 1 business day with a tailored proposal.</p>
 
+    <div class="b2b-form-wrap">
+      <form id="b2bForm">
+        <div class="form-row" style="margin-bottom:14px;">
+          <div class="form-group"><label>Your name</label><input type="text" required placeholder="Rahul Sharma"></div>
+          <div class="form-group"><label>Company name</label><input type="text" required placeholder="Acme Distributors"></div>
+        </div>
+        <div class="form-row" style="margin-bottom:14px;">
+          <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" required placeholder="+91 98765 43210"></div>
+          <div class="form-group"><label>Email</label><input type="email" required placeholder="rahul@acme.com"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label>Primary corridors (origin → destination)</label>
+          <input type="text" placeholder="e.g. Chandigarh → Mandi, Delhi → Shimla">
+        </div>
+        <div class="form-row" style="margin-bottom:14px;">
           <div class="form-group">
-            <label>Primary corridors (origin → destination)</label>
-            <input type="text" placeholder="e.g. Chandigarh → Mandi, Delhi → Shimla">
+            <label>Estimated monthly volume</label>
+            <select><option value="">Select range</option><option>10 – 50 shipments / month</option><option>50 – 200 shipments / month</option><option>200 – 500 shipments / month</option><option>500+ shipments / month</option></select>
           </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Estimated monthly volume</label>
-              <select>
-                <option value="">Select range</option>
-                <option>10 – 50 shipments / month</option>
-                <option>50 – 200 shipments / month</option>
-                <option>200 – 500 shipments / month</option>
-                <option>500+ shipments / month</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Typical item type</label>
-              <select>
-                <option value="">Select type</option>
-                <option>Cartons / boxes</option>
-                <option>Documents</option>
-                <option>Mixed goods</option>
-                <option>Garments / fabric</option>
-                <option>Electronics</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
           <div class="form-group">
-            <label>Anything else we should know?</label>
-            <textarea rows="4" placeholder="Special requirements, current logistics setup, SLA expectations..."></textarea>
+            <label>Typical item type</label>
+            <select><option value="">Select type</option><option>Cartons / boxes</option><option>Documents</option><option>Mixed goods</option><option>Garments / fabric</option><option>Electronics</option><option>Other</option></select>
           </div>
-
-          <button type="submit" class="btn" style="width:100%;">Submit enquiry</button>
-          <p style="text-align:center; font-size:0.78rem; color:var(--neutral-400); margin-top:12px;">We respond within 1 business day. Prefer WhatsApp? <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20discuss%20an%20enterprise%20account." target="_blank" style="color:var(--primary-blue); font-weight:600;">Message us directly →</a></p>
-        </form>
-      </div>
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+          <label>Anything else we should know?</label>
+          <textarea rows="4" placeholder="Special requirements, current logistics setup, SLA expectations..."></textarea>
+        </div>
+        <button type="submit" style="width:100%;padding:14px;background:var(--orange);color:#fff;font-weight:700;font-size:0.9rem;border:none;border-radius:9px;cursor:pointer;font-family:inherit;transition:background 0.15s;" onmouseover="this.style.background='var(--orange-dk)'" onmouseout="this.style.background='var(--orange)'">Submit enquiry</button>
+        <p style="text-align:center;font-size:0.78rem;color:var(--ghost);margin-top:12px;">We respond within 1 business day. Prefer WhatsApp? <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20discuss%20an%20enterprise%20account." target="_blank" style="color:var(--orange);font-weight:600;">Message us directly →</a></p>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content container">
-      <div class="footer-section">
-        <h3>Who we serve</h3>
-        <a href="students.html">Students</a>
-        <a href="business.html">Business shipping</a>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="tracking.html">Track Parcel</a>
-      </div>
-      <div class="footer-section">
-        <h3>Company</h3>
-        <a href="b2b.html">Enterprise</a>
-        <a href="https://wa.me/918091889969">WhatsApp</a>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a>
-        <a href="mailto:admin@patwadi.com">admin@patwadi.com</a>
-      </div>
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <a href="/docs/privacy-policy.html">Privacy Policy</a>
-        <a href="#">Terms</a>
-        <a href="#">Compliance</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p>
-    </div>
-  </footer>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col"><h3>Who we serve</h3><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="how-it-works.html">How It Works</a><a href="tracking.html">Track Parcel</a></div>
+    <div class="footer-col"><h3>Company</h3><a href="b2b.html">Enterprise</a><a href="https://wa.me/918091889969" target="_blank">WhatsApp</a><a href="#">About</a><a href="#">Careers</a></div>
+    <div class="footer-col"><h3>Contact</h3><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp us</a><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></div>
+    <div class="footer-col"><h3>Legal</h3><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="#">Terms</a><a href="#">Compliance</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p></div>
+</footer>
 
-  <script src="assets/js/main.js"></script>
-  <script>
-    document.getElementById('b2bForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.innerHTML = `<div style="text-align:center; padding:40px 0;">
-        <div style="font-size:2rem; margin-bottom:16px;">✅</div>
-        <h3 style="margin-bottom:8px;">Enquiry received</h3>
-        <p style="color:var(--neutral-500);">We'll be in touch within 1 business day. You can also reach us directly on WhatsApp at <a href="https://wa.me/918091889969" target="_blank" style="color:var(--primary-blue); font-weight:600;">+91 80918 89969</a>.</p>
-      </div>`;
-    });
-  </script>
+<script>
+  document.getElementById('b2bForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.innerHTML = `<div style="text-align:center;padding:40px 0;">
+      <div style="font-size:2rem;margin-bottom:16px;">✅</div>
+      <h3 style="margin-bottom:8px;color:#1A1108;">Enquiry received</h3>
+      <p style="color:#475569;">We'll be in touch within 1 business day. You can also reach us directly on WhatsApp at <a href="https://wa.me/918091889969" target="_blank" style="color:var(--orange);font-weight:600;">+91 80918 89969</a>.</p>
+    </div>`;
+  });
+  document.querySelector('.nav-hamburger').addEventListener('click', () => document.getElementById('mNav').classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mNav'), btn = document.querySelector('.nav-hamburger');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) menu.classList.remove('open');
+  });
+</script>
 </body>
 </html>
