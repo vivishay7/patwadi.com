@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works - Patwadi</title>
   <meta name="description" content="Book intercity delivery in minutes — select your route, pay online, we collect and deliver. Track every step on patwadi.com.">
-  <link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-trasnp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F5EDE0;--orange:#F05A1A;--orange-dk:#D44D14;--blue:#1D4ED8;}
+    :root{--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#E8D5B8;--warm-bg:#FDF2E9;--orange:#F05A1A;--orange-dk:#D44D14;--blue:#1D4ED8;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
-    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--warm-bg);-webkit-font-smoothing:antialiased;}
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
     .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
@@ -59,7 +59,7 @@
     .timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:2px;background:var(--border);}
     .tl-step{display:flex;gap:32px;align-items:flex-start;padding-bottom:52px;position:relative;}
     .tl-step:last-child{padding-bottom:0;}
-    .tl-num{width:80px;height:80px;border-radius:50%;background:#2A1F18;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:rgba(255,255,255,0.25);flex-shrink:0;position:relative;z-index:1;border:3px solid #F5EDE0;box-shadow:0 0 0 2px #2A1F18;letter-spacing:-0.03em;}
+    .tl-num{width:80px;height:80px;border-radius:50%;background:#2A1F18;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:rgba(255,255,255,0.25);flex-shrink:0;position:relative;z-index:1;border:3px solid #E8D5B8;box-shadow:0 0 0 2px #2A1F18;letter-spacing:-0.03em;}
     .tl-num.active{background:var(--orange);box-shadow:0 0 0 2px var(--orange);color:#fff;}
     .tl-content{padding-top:16px;flex:1;}
     .tl-label{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:4px;}
@@ -122,7 +122,7 @@
 <nav class="nav-bar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">
+      <img src="/assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'">
       Patwadi
     </a>
     <ul class="nav-links">
@@ -212,7 +212,7 @@
           <div class="tl-body">Our last-mile agent arrives within your selected window and performs a verified handoff &mdash; every parcel is logged with a code and photo at collection. You receive a collection confirmation immediately. From there, your parcel moves through our 4-step custody chain.</div>
           <div class="custody-box">
             <div class="custody-steps">
-              <span style="color:#F5EDE0;">You</span>
+              <span style="color:#E8D5B8;">You</span>
               <span class="custody-arrow">&rarr;</span>
               <span>Last-mile agent</span>
               <span class="custody-arrow">&rarr;</span>
@@ -220,7 +220,7 @@
               <span class="custody-arrow">&rarr;</span>
               <span>Destination agent</span>
               <span class="custody-arrow">&rarr;</span>
-              <span style="color:#F5EDE0;">Recipient</span>
+              <span style="color:#E8D5B8;">Recipient</span>
             </div>
             <div class="custody-desc"><strong>Verified at every handoff.</strong> Code and photo confirmation at each of the four custody transfers. Nobody handles your parcel without a logged record.</div>
           </div>
