@@ -5,27 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partner Onboarding · Patwadi</title>
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;}
+    :root{--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F5EDE0;--orange:#F05A1A;--orange-dk:#D44D14;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;min-height:100vh;}
-
-    /* NAV — logo only */
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 24px;}
     .nav-inner{max-width:760px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;}
-    .nav-badge{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#EFF6FF;color:var(--blue);border:1px solid #BFDBFE;padding:3px 10px;border-radius:4px;}
-
-    /* HERO */
-    .page-header{background:linear-gradient(135deg,#0F172A 0%,#1a2040 100%);padding:48px 24px 40px;text-align:center;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;}
+    .nav-badge{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#FFF7ED;color:var(--orange);border:1px solid #FED7AA;padding:3px 10px;border-radius:4px;}
+    .page-header{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:48px 24px 40px;text-align:center;}
     .page-header h1{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-0.02em;margin-bottom:8px;}
     .page-header p{font-size:0.88rem;color:rgba(255,255,255,0.6);max-width:520px;margin:0 auto;line-height:1.65;}
-
-    /* FORM */
     .form-section{padding:48px 24px 64px;}
     .form-container{max-width:720px;margin:0 auto;}
     .form-notice{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-size:0.82rem;color:var(--mid);line-height:1.6;margin-bottom:28px;}
@@ -36,142 +31,68 @@
     .form-group.full{grid-column:1/-1;}
     .form-group label{font-size:0.78rem;font-weight:600;color:#374151;}
     .form-group input,.form-group select,.form-group textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.88rem;outline:none;font-family:inherit;transition:border-color 0.15s;background:#fff;}
-    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue);}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange);}
     .form-group textarea{resize:vertical;min-height:90px;}
     .section-divider{grid-column:1/-1;border-top:1px solid var(--border);padding-top:20px;margin-top:8px;}
     .section-divider span{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ghost);}
-    .submit-btn{grid-column:1/-1;padding:14px;background:var(--blue);color:#fff;font-weight:700;font-size:0.95rem;border:none;border-radius:9px;cursor:pointer;font-family:inherit;transition:background 0.15s;margin-top:8px;}
-    .submit-btn:hover{background:var(--blue-dk);}
+    .submit-btn{grid-column:1/-1;padding:14px;background:var(--orange);color:#fff;font-weight:700;font-size:0.95rem;border:none;border-radius:9px;cursor:pointer;font-family:inherit;transition:background 0.15s;margin-top:8px;}
+    .submit-btn:hover{background:var(--orange-dk);}
     .form-footer-note{grid-column:1/-1;font-size:0.78rem;color:var(--ghost);text-align:center;line-height:1.6;}
-
-    /* FOOTER */
     footer{background:var(--ink);padding:16px 24px;text-align:center;}
     footer p{font-size:0.75rem;color:#475569;}
   </style>
 </head>
 <body>
-
 <nav class="nav-bar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Patwadi</a>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">
+      Patwadi
+    </a>
     <span class="nav-badge">Partner Onboarding</span>
   </div>
 </nav>
-
 <div class="page-header">
   <h1>Partner Onboarding</h1>
   <p>This form is shared only via direct link. Complete your KYC, asset, and payout details to activate your corridor.</p>
 </div>
-
 <section class="form-section">
   <div class="form-container">
-
-    <div class="form-notice">
-      <strong>Internal document.</strong> This page is not publicly indexed. Fill in accurate details — our team validates every submission within 24 hours before activating any corridor or route assignment.
-    </div>
-
+    <div class="form-notice"><strong>Internal document.</strong> This page is not publicly indexed. Fill in accurate details — our team validates every submission within 24 hours before activating any corridor or route assignment.</div>
     <form id="onboardingForm">
       <div class="form-grid">
-
-        <!-- IDENTITY -->
-        <div class="form-group full">
-          <div class="section-divider"><span>Identity</span></div>
-        </div>
-        <div class="form-group">
-          <label>Full legal name / entity name</label>
-          <input type="text" required placeholder="As per government ID">
-        </div>
-        <div class="form-group">
-          <label>Registered phone</label>
-          <input type="tel" id="phone" required placeholder="10-digit mobile">
-        </div>
-        <div class="form-group">
-          <label>Registered email</label>
-          <input type="email" required placeholder="you@example.com">
-        </div>
-        <div class="form-group">
-          <label>Partner role</label>
-          <select required>
-            <option value="" disabled selected>Select role</option>
-            <option value="rider">Last-Mile Rider</option>
-            <option value="fleet">Fleet / Capacity Provider</option>
-            <option value="corridor">Corridor Operator</option>
-          </select>
-        </div>
-
-        <!-- KYC -->
-        <div class="form-group full">
-          <div class="section-divider"><span>Compliance & KYC</span></div>
-        </div>
-        <div class="form-group">
-          <label>Government ID (Aadhaar / GST / CIN)</label>
-          <input type="text" required placeholder="ID number">
-        </div>
-        <div class="form-group">
-          <label>Any licences or permits held</label>
-          <input type="text" placeholder="e.g. Commercial Vehicle Permit, GST Reg.">
-        </div>
-        <div class="form-group full">
-          <label>Compliance notes</label>
-          <textarea placeholder="Any relevant compliance details, existing partnerships, or declared conflicts of interest."></textarea>
-        </div>
-
-        <!-- OPERATIONS -->
-        <div class="form-group full">
-          <div class="section-divider"><span>Operational Details</span></div>
-        </div>
-        <div class="form-group full">
-          <label>Primary operating corridors</label>
-          <input type="text" required placeholder="e.g. Chandigarh ↔ Mandi, Delhi ↔ Shimla">
-        </div>
-        <div class="form-group full">
-          <label>Asset &amp; capacity details</label>
-          <textarea required placeholder="Number of vehicles or riders, vehicle type, daily parcel capacity, shift availability."></textarea>
-        </div>
-
-        <!-- PAYOUT -->
-        <div class="form-group full">
-          <div class="section-divider"><span>Payout Preference</span></div>
-        </div>
-        <div class="form-group">
-          <label>Payout method</label>
-          <select required>
-            <option value="" disabled selected>Select method</option>
-            <option value="upi">UPI</option>
-            <option value="bank">Bank Transfer</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>UPI ID or bank account number</label>
-          <input type="text" placeholder="UPI ID / Account number">
-        </div>
-
+        <div class="form-group full"><div class="section-divider"><span>Identity</span></div></div>
+        <div class="form-group"><label>Full legal name / entity name</label><input type="text" required placeholder="As per government ID"></div>
+        <div class="form-group"><label>Registered phone</label><input type="tel" id="phone" required placeholder="10-digit mobile"></div>
+        <div class="form-group"><label>Registered email</label><input type="email" required placeholder="you@example.com"></div>
+        <div class="form-group"><label>Partner role</label><select required><option value="" disabled selected>Select role</option><option value="rider">Last-Mile Rider</option><option value="fleet">Fleet / Capacity Provider</option><option value="corridor">Corridor Operator</option></select></div>
+        <div class="form-group full"><div class="section-divider"><span>Compliance &amp; KYC</span></div></div>
+        <div class="form-group"><label>Government ID (Aadhaar / GST / CIN)</label><input type="text" required placeholder="ID number"></div>
+        <div class="form-group"><label>Any licences or permits held</label><input type="text" placeholder="e.g. Commercial Vehicle Permit, GST Reg."></div>
+        <div class="form-group full"><label>Compliance notes</label><textarea placeholder="Any relevant compliance details, existing partnerships, or declared conflicts of interest."></textarea></div>
+        <div class="form-group full"><div class="section-divider"><span>Operational Details</span></div></div>
+        <div class="form-group full"><label>Primary operating corridors</label><input type="text" required placeholder="e.g. Chandigarh ↔ Mandi, Delhi ↔ Shimla"></div>
+        <div class="form-group full"><label>Asset &amp; capacity details</label><textarea required placeholder="Number of vehicles or riders, vehicle type, daily parcel capacity, shift availability."></textarea></div>
+        <div class="form-group full"><div class="section-divider"><span>Payout Preference</span></div></div>
+        <div class="form-group"><label>Payout method</label><select required><option value="" disabled selected>Select method</option><option value="upi">UPI</option><option value="bank">Bank Transfer</option></select></div>
+        <div class="form-group"><label>UPI ID or bank account number</label><input type="text" placeholder="UPI ID / Account number"></div>
         <button type="submit" class="submit-btn">Submit onboarding details</button>
         <p class="form-footer-note">Our team validates submissions within 24 hours and activates corridors only after verification. For questions, reply directly to your onboarding message.</p>
-
       </div>
     </form>
-
   </div>
 </section>
-
-<footer>
-  <p>© 2026 Patwadi Logistics LLP. Internal use only.</p>
-</footer>
-
+<footer><p>&copy; 2026 Patwadi Logistics LLP. Internal use only.</p></footer>
 <script>
-  document.getElementById('phone').addEventListener('input', function(){
-    this.value = this.value.replace(/\D/g,'').slice(0,10);
-  });
+  document.getElementById('phone').addEventListener('input', function(){ this.value = this.value.replace(/\D/g,'').slice(0,10); });
   document.getElementById('onboardingForm').addEventListener('submit', function(e){
     e.preventDefault();
     this.innerHTML = `<div style="text-align:center;padding:60px 0;">
       <div style="font-size:2.4rem;margin-bottom:16px;">✅</div>
-      <h3 style="font-size:1.1rem;font-weight:700;color:#0F172A;margin-bottom:8px;">Submission received</h3>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#1A1108;margin-bottom:8px;">Submission received</h3>
       <p style="font-size:0.88rem;color:#475569;max-width:400px;margin:0 auto;line-height:1.65;">Our team will validate your details and be in touch within 24 hours. Do not submit again.</p>
     </div>`;
   });
 </script>
-
 </body>
 </html>
