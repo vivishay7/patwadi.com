@@ -30,7 +30,14 @@
 }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
-    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--warm-bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    body{
+  font-family:'Inter',-apple-system,sans-serif;
+  font-size:15px;
+  color:var(--ink);
+  background:var(--page-bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+};}
     /* ── NAV ── */
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
