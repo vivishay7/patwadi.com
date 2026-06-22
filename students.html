@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Move-Out, Patwadi</title>
   <meta name="description" content="Send suitcases, cartons, bedding and graduation packs home from hostel or campus. WhatsApp booking, city to city, track every step.">
+  <link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --blue:#1D4ED8; --blue-dk:#1E3A8A; --ink:#0F172A; --mid:#475569; --ghost:#94A3B8; --border:#E2E8F0; --surface:#F8FAFF; --green-wa:#25D366; }
+    :root { --blue:#1D4ED8; --blue-dk:#2A1A10; --ink:#1A1108; --mid:#475569; --ghost:#94A3B8; --border:#E2E8F0; --surface:#F5EDE0; --green-wa:#25D366; --orange:#F05A1A; --orange-dk:#D44D14; }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-    .nav-logo{font-size:1.3rem;font-weight:800;color:var(--blue);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;flex-shrink:0;}
     .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
     .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background 0.15s;}
     .nav-links a:hover,.nav-links a.active{background:#F1F5F9;color:var(--ink);}
-    .nav-cta{background:var(--blue);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;}
+    .nav-cta{background:var(--orange);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background 0.15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
     .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
     .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
     .nav-mobile-menu.open{display:flex;}
     .nav-mobile-menu a{display:block;padding:10px 12px;font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
-    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--blue);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
-    .hero{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:68px 24px 52px;text-align:center;position:relative;overflow:hidden;}
+    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+    .hero{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:68px 24px 52px;text-align:center;position:relative;overflow:hidden;}
     .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");}
     .eyebrow-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:5px 14px;border-radius:20px;margin-bottom:20px;font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.85);letter-spacing:0.1em;text-transform:uppercase;}
     .hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;margin-bottom:16px;max-width:640px;margin-left:auto;margin-right:auto;}
@@ -43,28 +46,27 @@
     .section{padding:60px 24px;}
     .section-alt{background:var(--surface);}
     .container{max-width:1100px;margin:0 auto;}
-    .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+    .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
     .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:12px;}
     .section-sub{font-size:0.88rem;color:#64748b;line-height:1.7;margin-bottom:32px;max-width:520px;}
     .item-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
     .item-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 20px;transition:border-color 0.2s;}
-    .item-card:hover{border-color:var(--blue);}
-    .item-icon{font-size:1.6rem;margin-bottom:10px;}
+    .item-card:hover{border-color:var(--orange);}
     .item-title{font-size:0.92rem;font-weight:700;color:var(--ink);margin-bottom:5px;}
     .item-desc{font-size:0.8rem;color:var(--mid);line-height:1.65;margin-bottom:10px;}
-    .item-tag{display:inline-block;font-size:0.68rem;font-weight:600;padding:3px 9px;border-radius:4px;background:#EFF6FF;color:var(--blue);border:1px solid #BFDBFE;}
+    .item-tag{display:inline-block;font-size:0.68rem;font-weight:600;padding:3px 9px;border-radius:4px;background:#FFF7ED;color:var(--orange);border:1px solid #FED7AA;}
     .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
     .q-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px;}
-    .q-card.featured{border-color:var(--blue);border-width:2px;background:#F0F7FF;}
-    .q-badge{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--blue);color:#fff;padding:3px 10px;border-radius:4px;margin-bottom:10px;}
+    .q-card.featured{border-color:var(--orange);border-width:2px;background:#FFF7ED;}
+    .q-badge{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--orange);color:#fff;padding:3px 10px;border-radius:4px;margin-bottom:10px;}
     .q-title{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
     .q-body{font-size:0.82rem;color:var(--mid);line-height:1.65;}
     .lane-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
     .lane-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:border-color 0.15s,box-shadow 0.15s;}
-    .lane-card:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(29,78,216,0.1);}
+    .lane-card:hover{border-color:var(--orange);box-shadow:0 2px 12px rgba(240,90,26,0.10);}
     .lane-pair{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:3px;}
     .lane-meta{font-size:0.7rem;color:#64748b;}
-    .lane-cta{font-size:0.72rem;font-weight:700;color:var(--blue);white-space:nowrap;flex-shrink:0;margin-left:12px;}
+    .lane-cta{font-size:0.72rem;font-weight:700;color:var(--orange);white-space:nowrap;flex-shrink:0;margin-left:12px;}
     .cluster-label{font-size:0.68rem;font-weight:700;color:var(--ghost);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;margin-top:24px;display:block;}
     .cluster-label:first-child{margin-top:0;}
     .checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
@@ -78,7 +80,7 @@
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
     .steps::before{content:'';position:absolute;top:20px;left:12.5%;right:12.5%;height:2px;background:var(--border);}
     .step{text-align:center;position:relative;z-index:1;}
-    .step-num{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-size:0.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue);}
+    .step-num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;font-size:0.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:3px solid #fff;box-shadow:0 0 0 2px var(--orange);}
     .step-title{font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
     .step-body{font-size:0.78rem;color:var(--mid);line-height:1.6;}
     .cta-band{background:var(--ink);border-radius:14px;padding:36px 40px;text-align:center;}
@@ -86,7 +88,7 @@
     .cta-band p{color:#64748b;font-size:0.875rem;margin-bottom:20px;}
     .cta-band .reassurance{font-size:0.78rem;color:#64748b;margin-top:12px;}
     .urgency-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:14px 18px;font-size:0.82rem;color:#92400E;line-height:1.65;margin-top:16px;}
-    .route-caveat{background:#F0F7FF;border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;font-size:0.8rem;color:#1D4ED8;margin-top:12px;line-height:1.6;}
+    .route-caveat{background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:12px 16px;font-size:0.8rem;color:#9A3412;margin-top:12px;line-height:1.6;}
     footer{background:var(--ink);color:var(--ghost);padding:28px 24px;}
     .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #1E293B;padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.78rem;color:#475569;}
     .footer-bottom a{color:#64748b;text-decoration:none;margin:0 10px;}
@@ -96,28 +98,62 @@
       .hero h1{font-size:1.8rem;}.item-grid{grid-template-columns:1fr;}.quote-grid{grid-template-columns:1fr;}.lane-grid{grid-template-columns:1fr;}.checklist-grid{grid-template-columns:1fr;}.steps{grid-template-columns:1fr 1fr;}.steps::before{display:none;}.ts-stat{width:50%;border-right:none;border-bottom:1px solid var(--border);}.ts-stat:nth-child(odd){border-right:1px solid var(--border);}.section{padding:40px 20px;}.cta-band{padding:28px 20px;}.hero-btns{flex-direction:column;align-items:center;}.btn-wa,.btn-outline{width:100%;justify-content:center;}
     }
     @media(max-width:480px){.steps{grid-template-columns:1fr;}.ts-stat{width:100%;border-right:none!important;}}
+  
+    /* ── DROPDOWN NAV ── */
+    .has-dropdown{position:relative;}
+    .dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.10);z-index:300;list-style:none;}
+    .has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block;}
+    .dropdown li a{display:block;padding:8px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;white-space:nowrap;}
+    .dropdown li a:hover,.dropdown li a.active{background:#F1F5F9;color:var(--ink);}
+    .has-dropdown:has(.active)>a{color:var(--ink);background:#F1F5F9;}
+    .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
+    .nav-mobile-menu a.mobile-sub{padding-left:24px;}
   </style>
 </head>
 <body>
 <nav class="nav-bar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Patwadi</a>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">
+      Patwadi
+    </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="students.html" class="active">Students</a></li>
-      <li><a href="business.html">Business</a></li>
-      <li><a href="index.html#routes">Routes</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="students.html" class="active">For Students</a></li>
+          <li><a href="business.html">For Business</a></li>
+        </ul>
+      </li>
+      <li><a href="tracking.html">Track</a></li>
+      <li class="has-dropdown">
+        <a href="how-it-works.html">About &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="index.html#routes">Routes</a></li>
+        </ul>
+      </li>
       <li><a href="drivers.html">Join Us</a></li>
       <li><a href="/posts/">Guides</a></li>
     </ul>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta" aria-label="Book on WhatsApp">Book move-out</a>
-    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta">Book move-out</a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" onclick="document.getElementById('mNav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav-mobile-menu" id="mNav">
-    <a href="index.html">Home</a><a href="students.html">Students</a><a href="business.html">Business</a><a href="index.html#routes">Routes</a><a href="drivers.html">Join Us</a><a href="/posts/">Guides</a>
-    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta-m" aria-label="Book on WhatsApp">Book move-out on WhatsApp</a>
+    <a href="index.html">Home</a>
+    <span class="mobile-section-label">Services</span>
+    <a href="students.html" class="mobile-sub">For Students</a>
+    <a href="business.html" class="mobile-sub">For Business</a>
+    <a href="tracking.html">Track</a>
+    <span class="mobile-section-label">About</span>
+    <a href="how-it-works.html" class="mobile-sub">How It Works</a>
+    <a href="index.html#routes" class="mobile-sub">Routes</a>
+    <a href="drivers.html">Join Us</a>
+    <a href="/posts/">Guides</a>
+    <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book" target="_blank" class="nav-cta-m">Book move-out</a>
   </div>
 </nav>
 
@@ -137,9 +173,8 @@
 <div class="trust-strip">
   <div class="trust-strip-inner">
     <div class="ts-stat"><span class="ts-num" style="color:#16a34a;">48 hr</span><span class="ts-lbl">hold at destination where available</span></div>
-    <div class="ts-stat"><span class="ts-num" style="color:#1D4ED8;">WhatsApp</span><span class="ts-lbl">tracking on every shipment</span></div>
-    <div class="ts-stat"><span class="ts-num" style="color:#0F172A;">Route</span><span class="ts-lbl">confirmed before dispatch</span></div>
-    <div class="ts-stat"><span class="ts-num" style="color:#0F172A;">Parents</span><span class="ts-lbl">can get tracking updates too</span></div>
+    <div class="ts-stat"><span class="ts-num" style="color:var(--orange);">WhatsApp</span><span class="ts-lbl">tracking on every shipment</span></div>
+    <div class="ts-stat"><span class="ts-num" style="color:var(--ink);">Route</span><span class="ts-lbl">confirmed before dispatch</span></div>
   </div>
 </div>
 
@@ -175,8 +210,8 @@
         <div class="q-body">Best for move-out weeks. Suitcases, cartons, bedding, and books in one booking. Quote confirmed by route and item mix.</div>
       </div>
       <div class="q-card">
-        <div class="q-title">Family tracking</div>
-        <div class="q-body">Parents can receive WhatsApp updates too. Tell us at booking and we'll add a contact number for notifications.</div>
+        <div class="q-title">Track on WhatsApp</div>
+        <div class="q-body">Three automatic updates as your parcel moves: Collected, In Transit, and Arrived. No tracking number needed — updates come straight to your WhatsApp.</div>
       </div>
     </div>
     <div class="urgency-box">Book at least 48 hours before your move date. Semester-end slots fill up fast, especially May and November. Don't leave it to the morning of.</div>
@@ -204,7 +239,7 @@
       <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20student%20booking%20inquiry%3A%20Bangalore%20to%20Hyderabad" target="_blank" class="lane-card" aria-label="Book Bangalore to Hyderabad student route on WhatsApp"><div><div class="lane-pair">Bangalore to Hyderabad</div><div class="lane-meta">24 to 48 hours. Suitcases, cartons.</div></div><span class="lane-cta">Book this route</span></a>
       <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20student%20booking%20inquiry%3A%20Kochi%20to%20Chennai" target="_blank" class="lane-card" aria-label="Book Kochi to Chennai student route on WhatsApp"><div><div class="lane-pair">Kochi to Chennai</div><div class="lane-meta">24 to 48 hours. Luggage, cartons.</div></div><span class="lane-cta">Book this route</span></a>
     </div>
-    <div class="route-caveat">Don't see your route? Message us the city pair and move date. We'll confirm availability on WhatsApp. <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20and%20want%20to%20check%20if%20my%20route%20is%20available" target="_blank" style="font-weight:700;color:#1D4ED8;" aria-label="Check student route on WhatsApp">Check my route</a></div>
+    <div class="route-caveat">Don't see your route? Message us the city pair and move date. We'll confirm availability on WhatsApp. <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20and%20want%20to%20check%20if%20my%20route%20is%20available" target="_blank" style="font-weight:700;color:var(--orange);" aria-label="Check student route on WhatsApp">Check my route</a></div>
   </div>
 </section>
 
@@ -247,7 +282,7 @@
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-title">Message us</div><div class="step-body">Route, move date, what you're sending. We confirm availability and quote within a few hours.</div></div>
       <div class="step"><div class="step-num">2</div><div class="step-title">Pack and drop</div><div class="step-body">Pack your items. We'll guide you to the nearest collection point.</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-title">Track on WhatsApp</div><div class="step-body">Collected. In transit. Arrived. Three updates. Parents can follow along too.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Track on WhatsApp</div><div class="step-body">Collected. In transit. Arrived. Three updates, no guesswork.</div></div>
       <div class="step"><div class="step-num">4</div><div class="step-title">Collect at destination</div><div class="step-body">Agent holds your items where available. Pick up when you arrive.</div></div>
     </div>
   </div>
@@ -259,7 +294,6 @@
       <h2>Ready to send your room home?</h2>
       <p>Tell us your route, item count, and move date. We'll confirm availability, timing, and quote on WhatsApp.</p>
       <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27m%20a%20student%20moving%20out%20and%20want%20to%20book%20a%20shipment" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#25D366;color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;" aria-label="Book on WhatsApp">Book on WhatsApp</a>
-      <p class="reassurance">Parents can receive tracking updates too.</p>
     </div>
   </div>
 </section>
