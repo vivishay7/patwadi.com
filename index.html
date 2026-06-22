@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patwadi, City to city cargo</title>
   <meta name="description" content="Send bags, boxes, cartons and luggage city to city across North, South and West India. Book online, verified custody, live tracking.">
-  <link rel="icon" type="image/png" href="assets/images/patwadi-logo-trasnp.png">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-trasnp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F5EDE0;--green-wa:#25D366;--orange:#F05A1A;--orange-dk:#D44D14;--warm-bg:#FDF2E9;}
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#E8D5B8;--green-wa:#25D366;--orange:#F05A1A;--orange-dk:#D44D14;--warm-bg:#FDF2E9;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
-    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--warm-bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
     /* ── NAV ── */
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
@@ -237,12 +237,25 @@
       .footer-grid{grid-template-columns:1fr;}
       .coverage-grid-wrap{display:none!important;}
     }
+    @media(max-width:640px){
+      /* Book card header: stack title above tabs instead of side-by-side */
+      .book-card-header{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 14px 10px;}
+      .book-card-title{font-size:0.68rem;}
+      /* Tabs: scroll horizontally so Graduation isn't clipped */
+      .ship-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%;scrollbar-width:none;}
+      .ship-tabs::-webkit-scrollbar{display:none;}
+      .ship-tab{flex-shrink:0;padding:5px 12px;}
+      /* Trust chips: tighter gap, clean wrap without orphan separators */
+      .hw-trust-chips{gap:10px 18px;}
+      /* Slim down form padding on small phones */
+      .book-body{padding:12px 14px 12px;}
+    }
   </style>
 </head>
 <body>
 <nav class="nav-bar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.style.display='none'">Patwadi</a>
+    <a href="index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'">Patwadi</a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li class="has-dropdown"><a href="services.html">Services &#9660;</a>
@@ -287,9 +300,7 @@
     <p class="hw-sub">Choose your delivery window. Hold parcels safely for up to 7&nbsp;days. City-to-city in 24&ndash;48&nbsp;hours.</p>
     <div class="hw-trust-chips">
       <div class="hw-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.6 9.7 8 11 4.4-1.3 8-6 8-11V6l-8-4z" stroke="#F05A1A" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#F05A1A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified 4-step custody</div>
-      <span style="color:#DBC9B8;">|</span>
       <div class="hw-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#F05A1A" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="#F05A1A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>24&ndash;48hr intercity</div>
-      <span style="color:#DBC9B8;">|</span>
       <div class="hw-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#F05A1A" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#F05A1A" stroke-width="1.8" stroke-linecap="round"/></svg>Safe hold up to 7&nbsp;days</div>
     </div>
   </div>
@@ -395,9 +406,9 @@
     <div class="hw-right">
       <div class="hw-photo-area">
         <div class="hw-photo">
-          <img src="assets/images/hero-lifestyle.jpg" alt="Relaxed woman at home" loading="eager" onerror="this.style.display='none'">
+          <img src="assets/images/hero-lifestyle.jpg" alt="Relaxed woman at home" loading="eager" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'">
           <div class="hw-box" aria-hidden="true">
-            <span class="hw-box-icon"><img src="assets/images/patwadi-logo-trasnp.png" alt="" onerror="this.style.display='none'"></span>patwadi
+            <span class="hw-box-icon"><img src="/assets/images/patwadi-logo-trasnp.png" alt="" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"></span>patwadi
           </div>
         </div>
         <div class="hw-postit" aria-hidden="true">
@@ -407,12 +418,12 @@
         </div>
       </div>
       <div class="hw-polaroids" role="list" aria-label="What people send on Patwadi">
-        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><img src="assets/images/polaroid-mithai.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#127822;</span></div><div class="hw-pol-cap">Ghar ki mithai <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><img src="assets/images/polaroid-notes.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#128218;</span></div><div class="hw-pol-cap">Exam notes <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><img src="assets/images/polaroid-gift.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#127873;</span></div><div class="hw-pol-cap">Birthday love</div></div>
-        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><img src="assets/images/polaroid-achar.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#129335;</span></div><div class="hw-pol-cap">Ghar ka achar <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><img src="assets/images/polaroid-business.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#128230;</span></div><div class="hw-pol-cap">Small biz, big dreams <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><img src="assets/images/polaroid-charger.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span style="font-size:1.5rem;">&#128268;</span></div><div class="hw-pol-cap">The charger, saviour <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><img src="assets/images/polaroid-mithai.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#127822;</span></div><div class="hw-pol-cap">Ghar ki mithai <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><img src="assets/images/polaroid-notes.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#128218;</span></div><div class="hw-pol-cap">Exam notes <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><img src="assets/images/polaroid-gift.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#127873;</span></div><div class="hw-pol-cap">Birthday love</div></div>
+        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><img src="assets/images/polaroid-achar.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#129335;</span></div><div class="hw-pol-cap">Ghar ka achar <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><img src="assets/images/polaroid-business.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#128230;</span></div><div class="hw-pol-cap">Small biz, big dreams <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><img src="assets/images/polaroid-charger.jpg" alt="" loading="lazy" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'"><span style="font-size:1.5rem;">&#128268;</span></div><div class="hw-pol-cap">The charger, saviour <span class="hrt">&hearts;</span></div></div>
       </div>
       <div class="hw-slots" aria-label="Available delivery windows">
         <div class="hw-slot-grid">
@@ -454,28 +465,6 @@
       <div class="router-card"><div class="router-title">Moving out?</div><div class="router-body">Send suitcases, bedding, books, cartons, and graduation packs through active city corridors.</div><a href="students.html" class="router-cta">Student move-out</a></div>
       <div class="router-card"><div class="router-title">Shipping for your shop?</div><div class="router-body">Move cartons and stock across repeat lanes with route confirmation and GST invoice support.</div><a href="business.html" class="router-cta">Business shipping</a></div>
       <div class="router-card"><div class="router-title">Need more information?</div><div class="router-body">See how the 4-step custody chain works, dispatch times, and what you can and can't send.</div><a href="how-it-works.html" class="router-cta">How it works</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- STUDENT SPLIT -->
-<section class="section section-alt">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;" class="split-grid">
-      <div>
-        <p class="eyebrow" style="text-align:left;">For students</p>
-        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2;">Moving out of hostel or PG?</h2>
-        <p style="font-size:0.95rem;color:#475569;line-height:1.75;margin-bottom:14px;">Send your stuff home before you leave. Suitcases, bedding, books, cartons, and graduation packs move through active city corridors with live tracking.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="students.html" style="display:inline-flex;align-items:center;gap:6px;padding:11px 20px;background:var(--orange);color:#fff;font-weight:700;font-size:0.85rem;border-radius:8px;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='var(--orange-dk)'" onmouseout="this.style.background='var(--orange)'">See student options</a>
-          <a href="#book" style="display:inline-flex;align-items:center;gap:6px;padding:11px 20px;background:#fff;color:var(--orange);font-weight:700;font-size:0.85rem;border-radius:8px;text-decoration:none;border:1.5px solid var(--orange);">Book Now</a>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;">
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;"><div style="font-weight:700;color:var(--ink);margin-bottom:4px;font-size:0.92rem;">Hostel luggage</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Suitcases, trolleys, duffel bags. Drop at collection point. Hold at destination.</div></div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;"><div style="font-weight:700;color:var(--ink);margin-bottom:4px;font-size:0.92rem;">Books, bedding and cartons</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Carton boxes up to 20 kg, rolled bedding, kitchen items. Pack it, book it, track it.</div></div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;"><div style="font-weight:700;color:var(--ink);margin-bottom:4px;font-size:0.92rem;">Graduation pack</div><div style="font-size:0.8rem;color:#475569;line-height:1.6;">Send up to 5 items in one booking. Quote confirmed before dispatch.</div></div>
-      </div>
     </div>
   </div>
 </section>
