@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core commercial pages -->
+  <!-- Core business and entity pages -->
   <url>
     <loc>https://patwadi.com/</loc>
     <lastmod>2026-07-04</lastmod>
@@ -13,57 +13,121 @@
     <loc>https://patwadi.com/services.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/tracking.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/business.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/students.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.84</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/b2b.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/how-it-works.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+
+  <!-- Main regional acquisition pages -->
+  <url>
+    <loc>https://patwadi.com/posts/courier-service-himachal-pradesh.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.86</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/best-courier-service-himachal-pradesh.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/same-day-courier-himachal-local-businesses.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.83</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/shop-to-shop-courier-himachal.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/kangra-same-day-courier-service.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.81</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/hotel-homestay-parcel-delivery-himachal.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Utility and trust pages -->
   <url>
-    <loc>https://patwadi.com/how-it-works.html</loc>
+    <loc>https://patwadi.com/posts/chandigarh-to-himachal-parcel-delivery-guide.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.79</priority>
+  </url>
+
+  <!-- Route authority and comparison content -->
+  <url>
+    <loc>https://patwadi.com/posts/manali-to-keylong-jispa-parcel-delivery.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/keylong-jispa-lahaul-parcel-delivery.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
-    <loc>https://patwadi.com/tracking.html</loc>
+    <loc>https://patwadi.com/posts/patwadi-vs-safexpress-b2b-freight-himachal-pradesh.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.72</priority>
   </url>
 
   <url>
-    <loc>https://patwadi.com/drivers.html</loc>
+    <loc>https://patwadi.com/posts/patwadi-vs-india-post-delhivery-hrtc-himachal-pradesh.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/partner-onboarding.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Guides hub -->
@@ -71,79 +135,22 @@
     <loc>https://patwadi.com/posts/</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.68</priority>
   </url>
 
-  <!-- High-priority Himachal service and route guides -->
+  <!-- Supply-side pages -->
   <url>
-    <loc>https://patwadi.com/posts/courier-service-himachal-pradesh.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.98</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/same-day-courier-himachal-local-businesses.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/kangra-same-day-courier-service.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/shop-to-shop-courier-himachal.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/hotel-homestay-parcel-delivery-himachal.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/keylong-jispa-lahaul-parcel-delivery.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/manali-to-keylong-jispa-parcel-delivery.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://patwadi.com/posts/chandigarh-to-himachal-parcel-delivery-guide.html</loc>
+    <loc>https://patwadi.com/drivers.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Comparison / decision guides -->
-  <url>
-    <loc>https://patwadi.com/posts/patwadi-vs-india-post-delhivery-hrtc-himachal-pradesh.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.58</priority>
   </url>
 
   <url>
-    <loc>https://patwadi.com/posts/patwadi-vs-safexpress-b2b-freight-himachal-pradesh.html</loc>
+    <loc>https://patwadi.com/partner-onboarding.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.55</priority>
   </url>
 
   <!-- Policy / legal pages -->
@@ -151,21 +158,21 @@
     <loc>https://patwadi.com/docs/shipping-policy.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.45</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/docs/privacy-policy.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.35</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/docs/terms-of-service.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.35</priority>
   </url>
 
 </urlset>
