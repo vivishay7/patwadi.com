@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core pages -->
+  <!-- Core commercial pages -->
   <url>
     <loc>https://patwadi.com/</loc>
     <lastmod>2026-07-04</lastmod>
@@ -37,6 +37,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Utility and trust pages -->
   <url>
     <loc>https://patwadi.com/how-it-works.html</loc>
     <lastmod>2026-07-04</lastmod>
@@ -48,21 +49,21 @@
     <loc>https://patwadi.com/tracking.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/drivers.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.65</priority>
   </url>
 
   <url>
     <loc>https://patwadi.com/partner-onboarding.html</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Guides hub -->
