@@ -3,8 +3,8 @@ name: Apply booking SEO patch
 on:
   workflow_dispatch:
   push:
-    paths:
-      - '.github/workflows/apply-booking-seo-patch.yml'
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -21,27 +21,13 @@ jobs:
           python <<'PY'
           from pathlib import Path
           import re
-          from datetime import datetime
 
           root = Path('.')
 
-          # --- index.html: invisible SEO/entity signals only; H1 and visible hero copy stay intact ---
           index_path = root / 'index.html'
           index = index_path.read_text(encoding='utf-8')
-
-          index = re.sub(
-              r'<title>.*?</title>',
-              '<title>Patwadi | Book Intercity Parcel, Luggage & Cargo Delivery</title>',
-              index,
-              count=1,
-              flags=re.S,
-          )
-          index = re.sub(
-              r'<meta name="description" content="[^"]*">',
-              '<meta name="description" content="Book intercity parcel delivery, luggage shipping, carton movement and business cargo with Patwadi across active regional routes in India.">',
-              index,
-              count=1,
-          )
+          index = re.sub(r'<title>.*?</title>', '<title>Patwadi | Book Intercity Parcel, Luggage & Cargo Delivery</title>', index, count=1, flags=re.S)
+          index = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Book intercity parcel delivery, luggage shipping, carton movement and business cargo with Patwadi across active regional routes in India.">', index, count=1)
 
           canonical = '  <link rel="canonical" href="https://patwadi.com/">\n'
           if re.search(r'<link rel="canonical"[^>]*>', index):
@@ -92,25 +78,12 @@ jobs:
 '''
           if 'https://patwadi.com/#booking-service' not in index:
               index = index.replace('  <style>\n', jsonld + '  <style>\n', 1)
-
           index_path.write_text(index, encoding='utf-8')
 
-          # --- tracking.html: clarify utility intent and link commercial booking intent back to homepage ---
           tracking_path = root / 'tracking.html'
           tracking = tracking_path.read_text(encoding='utf-8')
-          tracking = re.sub(
-              r'<title>.*?</title>',
-              '<title>Track Your Existing Patwadi Parcel | Shipment Tracking</title>',
-              tracking,
-              count=1,
-              flags=re.S,
-          )
-          tracking = re.sub(
-              r'<meta name="description" content="[^"]*">',
-              '<meta name="description" content="Track an existing Patwadi parcel or shipment by tracking code. To book a new intercity parcel, luggage or cargo delivery, visit the Patwadi booking page.">',
-              tracking,
-              count=1,
-          )
+          tracking = re.sub(r'<title>.*?</title>', '<title>Track Your Existing Patwadi Parcel | Shipment Tracking</title>', tracking, count=1, flags=re.S)
+          tracking = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Track an existing Patwadi parcel or shipment by tracking code. To book a new intercity parcel, luggage or cargo delivery, visit the Patwadi booking page.">', tracking, count=1)
 
           crosslink_css = '''
   .booking-crosslink{width:100%;max-width:520px;margin:0 auto 22px;padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center;}
@@ -128,10 +101,8 @@ jobs:
 '''
           if 'Book intercity parcel delivery with Patwadi' not in tracking:
               tracking = tracking.replace('<div class="track-content">\n', '<div class="track-content">\n' + crosslink_html, 1)
-
           tracking_path.write_text(tracking, encoding='utf-8')
 
-          # --- posts/*.html: internal anchor signal to homepage booking destination ---
           booking_block = '''
 <section class="booking-link-block" style="margin:32px 0;padding:18px 20px;border:1px solid var(--border,#E2E8F0);border-radius:14px;background:#FFF7ED;">
   <h2 style="font-size:1.05rem;line-height:1.3;margin:0 0 8px;color:var(--ink,#0F172A);">Ready to send a parcel?</h2>
@@ -140,27 +111,27 @@ jobs:
 </section>
 '''
           post_count = 0
-          for post_path in sorted((root / 'posts').glob('*.html')):
-              if post_path.name == 'index.html':
-                  continue
-              html = post_path.read_text(encoding='utf-8')
-              if 'booking-link-block' in html or 'Book parcel delivery with Patwadi' in html:
-                  continue
-              if '</article>' in html:
-                  html = html.replace('</article>', booking_block + '\n</article>', 1)
-              elif '<footer' in html:
-                  html = html.replace('<footer', booking_block + '\n<footer', 1)
-              else:
-                  html = html.replace('</body>', booking_block + '\n</body>', 1)
-              post_path.write_text(html, encoding='utf-8')
-              post_count += 1
+          posts_dir = root / 'posts'
+          if posts_dir.exists():
+              for post_path in sorted(posts_dir.glob('*.html')):
+                  if post_path.name == 'index.html':
+                      continue
+                  html = post_path.read_text(encoding='utf-8')
+                  if 'booking-link-block' in html or 'Book parcel delivery with Patwadi' in html:
+                      continue
+                  if '</article>' in html:
+                      html = html.replace('</article>', booking_block + '\n</article>', 1)
+                  elif '<footer' in html:
+                      html = html.replace('<footer', booking_block + '\n<footer', 1)
+                  else:
+                      html = html.replace('</body>', booking_block + '\n</body>', 1)
+                  post_path.write_text(html, encoding='utf-8')
+                  post_count += 1
+          print(f'Applied booking SEO patch. Posts updated: {post_count}')
 
-          # Self-delete this one-time workflow so the repo does not keep a patch bot around.
           workflow_path = root / '.github' / 'workflows' / 'apply-booking-seo-patch.yml'
           if workflow_path.exists():
               workflow_path.unlink()
-
-          print(f'Applied booking SEO patch. Posts updated: {post_count}')
           PY
 
       - name: Commit patch
