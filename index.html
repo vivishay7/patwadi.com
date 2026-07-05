@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patwadi | Book Intercity Parcel, Luggage &amp; Cargo Delivery</title>
   <meta name="description" content="Book intercity parcel delivery, luggage shipping, carton movement and business cargo across regional routes. Delivery within 24-72 hours on serviced intercity.">
-
   <link rel="canonical" href="https://patwadi.com/">
   <script type="application/ld+json">
   {
@@ -61,7 +60,6 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--page-bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-    /* ── NAV — border-top gives visual lift from browser chrome, matching services.html ── */
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
     .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
@@ -86,7 +84,6 @@
     .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
     .nav-mobile-menu a.mobile-sub{padding-left:24px;}
     .nav-mobile-menu .nav-cta-mobile{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
-    /* ── HERO ── */
     .hero-warm{background:linear-gradient(180deg,#FFF8F1 0%,#FFF3E8 100%);padding:52px 24px 0;overflow:hidden;}
     .hero-warm .hw-container{max-width:1200px;margin:0 auto;}
     .hw-headline{text-align:center;margin-bottom:40px;}
@@ -507,7 +504,8 @@
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">North India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Punjab, Haryana, Delhi, HP, J and K, Chandigarh, Uttarakhand</div><div style="font-size:0.72rem;color:#64748b;">Same-day plains. 48-hour hills. 72&ndash;96hr J and K.</div></div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">South India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Tamil Nadu, Karnataka, AP, Telangana, Kerala</div><div style="font-size:0.72rem;color:#64748b;">24&ndash;48 hours on active intercity corridors.</div></div>
-        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">West India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Gujarat, Maharashtra</div><div style="font-size:0.72rem;color:#64748b;">48-hour intercity. GSRTC and private operators.</div></div>
+        <!-- FIX 5: GSRTC removed -->
+        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">West India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Gujarat, Maharashtra</div><div style="font-size:0.72rem;color:#64748b;">48-hour intercity. Private and regional operators.</div></div>
         <div class="route-caveat">Routes and windows vary by corridor. Use the booking form above to check your route.</div>
       </div>
     </div>
@@ -540,7 +538,8 @@
       <div class="step-card"><div class="step-num">2</div><div class="step-title">Pack your items</div><div class="step-body">Secure packing. Declare fragile. Label clearly. We add a tracking label at collection.</div></div>
       <div class="step-card"><div class="step-num">3</div><div class="step-title">We collect and verify</div><div class="step-body">Agent arrives in your window. Code and photo handoff. Collection receipt issued.</div></div>
       <div class="step-card"><div class="step-num">4</div><div class="step-title">Track your shipment</div><div class="step-body">Collected &rarr; In Transit &rarr; Arrived. Track live on patwadi.com/track.</div></div>
-      <div class="step-card"><div class="step-num">5</div><div class="step-title">Collect at destination</div><div class="step-body">Agent holds for 48hrs. Collect at your convenience.</div></div>
+      <!-- FIX 4: 48hrs → up to 7 days -->
+      <div class="step-card"><div class="step-num">5</div><div class="step-title">Collect at destination</div><div class="step-body">We hold your parcel for up to 7 days. Collect at your convenience.</div></div>
     </div>
   </div>
 </section>
@@ -587,7 +586,8 @@
   <div class="footer-grid">
     <div><span class="footer-brand-name">Patwadi</span><p class="footer-brand-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Verified custody at every step.</p></div>
     <div class="footer-col"><h4>Who we serve</h4><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="b2b.html">Enterprise</a></div>
-    <div class="footer-col"><h4>Useful pages</h4><a href="courier-service-himachal-pradesh.html">Courier in Himachal</a><a href="how-it-works.html">How It Works</a><a href="index.html#routes">Routes</a><a href="tracking.html">Track a parcel</a><a href="/posts/">Guides</a><a href="/docs/privacy-policy.html">Privacy Policy</a></div>
+    <!-- FIX 3: Terms and Shipping added to /docs/ paths -->
+    <div class="footer-col"><h4>Useful pages</h4><a href="courier-service-himachal-pradesh.html">Courier in Himachal</a><a href="how-it-works.html">How It Works</a><a href="index.html#routes">Routes</a><a href="tracking.html">Track a parcel</a><a href="/posts/">Guides</a><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="/docs/terms-of-service.html">Terms of Service</a><a href="/docs/shipping-policy.html">Shipping Policy</a></div>
     <div class="footer-col"><h4>Contact</h4><a href="mailto:admin@patwadi.com">admin@patwadi.com</a><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a></div>
   </div>
   <div class="footer-bottom"><span>2026 Patwadi Logistics LLP. Chandigarh, India.</span><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;font-weight:600;">+91 80918 89969</a></div>
@@ -596,15 +596,12 @@
 <script>
 function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');}
 document.addEventListener('click',function(e){const m=document.getElementById('mobileNav'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});
-
 document.querySelectorAll('.ship-tab').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.ship-tab').forEach(b=>b.classList.remove('active'));this.classList.add('active');const t=document.getElementById('shipType');if(t)t.value=this.dataset.type;});});
-
 const regions={Punjab:['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala'],Chandigarh:['Chandigarh','Mohali','Panchkula','Zirakpur'],Haryana:['Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad'],Delhi:['Delhi','Noida','Ghaziabad'],HP:['Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur'],JK:['Jammu','Katra','Udhampur','Srinagar'],Uttarakhand:['Dehradun'],Gujarat:['Ahmedabad','Surat','Vadodara','Rajkot'],Maharashtra:['Mumbai','Pune'],TamilNadu:['Chennai','Coimbatore','Madurai','Trichy','Salem','Tirunelveli','Vellore'],Karnataka:['Bangalore','Mysore','Hosur'],AndhraTelangana:['Hyderabad','Tirupati','Vijayawada','Visakhapatnam'],Kerala:['Kochi','Thiruvananthapuram']};
 const regionLabels={Punjab:'Punjab',Chandigarh:'Chandigarh and Belt',Haryana:'Haryana',Delhi:'Delhi NCR',HP:'Himachal Pradesh',JK:'Jammu and Kashmir',Uttarakhand:'Uttarakhand',Gujarat:'Gujarat',Maharashtra:'Maharashtra',TamilNadu:'Tamil Nadu',Karnataka:'Karnataka',AndhraTelangana:'Andhra and Telangana',Kerala:'Kerala'};
 const corridors={Punjab:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Chandigarh:['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],Haryana:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Delhi:['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],HP:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],JK:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Uttarakhand:['Chandigarh','Haryana','Delhi','JK','Uttarakhand'],Gujarat:['Gujarat','Maharashtra'],Maharashtra:['Gujarat','Maharashtra'],TamilNadu:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],Karnataka:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],AndhraTelangana:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],Kerala:['TamilNadu','Karnataka','AndhraTelangana','Kerala']};
 const regionKeys=Object.keys(regions);const cityRegion={};Object.entries(regions).forEach(([r,cs])=>cs.forEach(c=>cityRegion[c]=r));
 const dispatchBand={Jalandhar:'Same-day',Ludhiana:'Same-day',Amritsar:'Same-day',Pathankot:'Same-day',Phagwara:'Same-day',Hoshiarpur:'Same-day',Kapurthala:'Same-day',Batala:'Same-day',Chandigarh:'Same-day',Mohali:'Same-day',Panchkula:'Same-day',Zirakpur:'Same-day',Ambala:'Same-day',Panipat:'Same-day',Karnal:'Same-day',Sonipat:'Same-day',Rohtak:'Same-day',Gurugram:'Same-day',Faridabad:'Same-day',Delhi:'Same-day',Noida:'Same-day',Ghaziabad:'Same-day',Shimla:'48hr',Mandi:'48hr',Manali:'48hr',Dharamshala:'48hr',Kullu:'48hr',Bilaspur:'48hr',Solan:'48hr',Kangra:'48hr',Palampur:'48hr',Jammu:'72hr',Katra:'72hr',Udhampur:'72hr',Srinagar:'96hr',Dehradun:'48hr',Ahmedabad:'48hr',Surat:'48hr',Vadodara:'48hr',Rajkot:'48hr',Mumbai:'48hr',Pune:'48hr',Chennai:'24hr',Coimbatore:'24hr',Madurai:'24hr',Trichy:'24hr',Salem:'24hr',Tirunelveli:'24hr',Vellore:'24hr',Bangalore:'24hr',Mysore:'24hr',Hosur:'24hr',Hyderabad:'24hr',Tirupati:'24hr',Vijayawada:'24hr',Visakhapatnam:'48hr',Kochi:'24hr',Thiruvananthapuram:'48hr'};
-
 function populateState(sel,regs){sel.innerHTML='<option value="">Select state / region</option>';(regs||regionKeys).forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=regionLabels[r];sel.appendChild(o);});sel.disabled=false;}
 function populateCity(sel,reg,excl){sel.innerHTML='<option value="">Select city</option>';(regions[reg]||[]).forEach(c=>{if(c===excl)return;const o=document.createElement('option');o.value=o.textContent=c;sel.appendChild(o);});if(regions[reg]?.length===1&&regions[reg][0]!==excl)sel.value=regions[reg][0];sel.disabled=false;}
 const fS=document.getElementById('fromState'),fC=document.getElementById('fromCity'),tS=document.getElementById('toState'),tC=document.getElementById('toCity');
@@ -615,7 +612,6 @@ tS.addEventListener('change',function(){tC.innerHTML='<option value="">Select ci
 tC.addEventListener('change',function(){const dt=document.getElementById('dispatchText');if(dt)dt.textContent=this.value?dispatchBand[this.value]||'48hr'+' dispatch to '+this.value:'';resetResult();});
 function resetResult(){const r=document.getElementById('bookResult');r.innerHTML="Fill in your route and item details above.";r.style.color='#94A3B8';}
 document.getElementById('pickupDate').min=new Date().toISOString().split('T')[0];
-
 const maxDims={carton:[60,45,40,20],suitcase:[75,50,30,25],duffel:[65,35,35,20],trek:[80,40,30,18],other:[100,80,60,30]};
 const dimLabels={carton:{cm:'60x45x40 cm, 20 kg',in:'23.6x17.7x15.7 in, 44 lbs',name:'Carton / Box'},suitcase:{cm:'75x50x30 cm, 25 kg',in:'29.5x19.7x11.8 in, 55 lbs',name:'Suitcase'},duffel:{cm:'65x35x35 cm, 20 kg',in:'25.6x13.8x13.8 in, 44 lbs',name:'Duffel bag'},trek:{cm:'80x40x30 cm, 18 kg',in:'31.5x15.7x11.8 in, 40 lbs',name:'Trek bag'},other:{cm:'100x80x60 cm, 30 kg',in:'39.4x31.5x23.6 in, 66 lbs',name:'Other'}};
 let shipUnits=1;
@@ -643,7 +639,6 @@ function calcVWT(){
 }
 function updateDimHint(){const pt=document.getElementById('pkgType').value,du=document.getElementById('dimUnit').value,el=document.getElementById('dimLimitText');if(!el)return;const d=dimLabels[pt]||dimLabels.other;el.textContent='Max for '+d.name+': '+d[du];}
 updateDimHint();
-
 document.getElementById('bookForm').addEventListener('submit',function(e){
   e.preventDefault();
   const from=fC.value,to=tC.value,date=document.getElementById('pickupDate').value,gst=document.getElementById('needGst').checked,res=document.getElementById('bookResult');
@@ -657,13 +652,10 @@ document.getElementById('bookForm').addEventListener('submit',function(e){
   res.innerHTML=`<span style="color:var(--ink);font-weight:600;">Route: ${from} \u2192 ${to}. ${band} dispatch.</span> <a href="${url}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--orange);color:#fff;font-weight:700;font-size:0.78rem;padding:5px 14px;border-radius:6px;text-decoration:none;margin-left:8px;">Confirm booking \u2192</a>`;
   window.open(url,'_blank');
 });
-
 (function(){const cities=['Jalandhar','Ludhiana','Amritsar','Chandigarh','Mohali','Panchkula','Ambala','Panipat','Gurugram','Delhi','Noida','Shimla','Mandi','Manali','Dharamshala','Jammu','Srinagar','Dehradun','Ahmedabad','Surat','Mumbai','Pune','Chennai','Coimbatore','Madurai','Trichy','Salem','Bangalore','Mysore','Hyderabad','Tirupati','Vijayawada','Kochi'];const sep='<span style="display:inline-block;width:2px;height:10px;background:rgba(255,255,255,0.2);margin:0 14px;vertical-align:middle;border-radius:1px;"></span>';const html=cities.map(c=>`<span style="display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-family:monospace;"><span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;flex-shrink:0;"></span><span style="font-weight:600;color:#fff;">${c}</span></span>${sep}`).join('');const t=document.getElementById('ticker');t.innerHTML=html+html;let pos=0;const w=()=>t.scrollWidth/2;function tick(){if(!t.parentElement._paused){pos-=0.45;if(Math.abs(pos)>=w())pos=0;t.style.transform=`translateX(${pos}px)`;}requestAnimationFrame(tick);}requestAnimationFrame(tick);t.parentElement.addEventListener('mouseenter',()=>t.parentElement._paused=true);t.parentElement.addEventListener('mouseleave',()=>t.parentElement._paused=false);})();
-
 function buildGrid(tbodyId,rowRegs,colRegs){const tbody=document.getElementById(tbodyId);if(!tbody)return;rowRegs.forEach(fr=>{const tr=document.createElement('tr');const th=document.createElement('td');th.textContent=regionLabels[fr];tr.appendChild(th);colRegs.forEach(to=>{const td=document.createElement('td');if(fr===to)td.innerHTML='<span style="color:#CBD5E1;">-</span>';else if(corridors[fr]?.includes(to))td.innerHTML='<span style="color:#16a34a;font-weight:700;">Y</span>';else td.innerHTML='<span style="color:#E2E8F0;">N</span>';tr.appendChild(td);});tbody.appendChild(tr);});}
 buildGrid('corridorGridNorth',['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand']);
 buildGrid('corridorGridSouth',['TamilNadu','Karnataka','AndhraTelangana','Kerala'],['TamilNadu','Karnataka','AndhraTelangana','Kerala']);
-
 const lanesGrids=document.querySelectorAll('.lanes-outer-grid');function fixLanes(){lanesGrids.forEach(g=>{g.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr 1fr';});}fixLanes();window.addEventListener('resize',fixLanes);
 </script>
 </body>
