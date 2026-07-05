@@ -118,11 +118,11 @@
   </style>
 </head>
 <body>
-
 <nav class="nav-bar">
   <div class="nav-inner">
+    <!-- FIX: typo patwadi-logo-trasnp → patwadi-logo-transp -->
     <a href="index.html" class="nav-logo">
-      <img src="/assets/images/patwadi-logo-trasnp.png" alt="Patwadi" class="nav-logo-img" onerror="this.outerHTML='<span class=nav-logo-mark aria-hidden=true>P</span>'">
+      <img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img" onerror="this.outerHTML='<span aria-hidden=true>P</span>'">
       Patwadi
     </a>
     <ul class="nav-links">
@@ -145,7 +145,8 @@
       <li><a href="drivers.html">Join Us</a></li>
       <li><a href="/posts/">Guides</a></li>
     </ul>
-    <a href="index.html#route-checker" class="nav-cta">Book Now</a>
+    <!-- FIX: #route-checker → #book (matches actual anchor ID on index.html) -->
+    <a href="index.html#book" class="nav-cta">Book Now</a>
     <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -161,21 +162,20 @@
     <a href="index.html#routes" class="mobile-sub">Routes</a>
     <a href="drivers.html">Join Us</a>
     <a href="/posts/">Guides</a>
-    <a href="index.html#route-checker" class="nav-cta-m">Book Now</a>
+    <a href="index.html#book" class="nav-cta-m">Book Now</a>
   </div>
 </nav>
 
 <section class="hero">
   <h1>How Patwadi Works</h1>
   <p>Select your route, book your slot, pay online — we handle collection, transit, and delivery with verified custody at every step.</p>
-  <a href="index.html#route-checker" class="hero-cta">Book Now &rarr;</a>
+  <a href="index.html#book" class="hero-cta">Book Now &rarr;</a>
 </section>
 
 <section class="section">
   <div class="container">
     <h2 class="section-title">Your shipment, step by step</h2>
     <div class="timeline">
-
       <div class="tl-step">
         <div class="tl-num active">01</div>
         <div class="tl-content">
@@ -189,7 +189,6 @@
           </div>
         </div>
       </div>
-
       <div class="tl-step">
         <div class="tl-num">02</div>
         <div class="tl-content">
@@ -203,7 +202,6 @@
           </div>
         </div>
       </div>
-
       <div class="tl-step">
         <div class="tl-num">03</div>
         <div class="tl-content">
@@ -231,7 +229,6 @@
           </div>
         </div>
       </div>
-
       <div class="tl-step">
         <div class="tl-num">04</div>
         <div class="tl-content">
@@ -249,21 +246,20 @@
           </div>
         </div>
       </div>
-
+      <!-- FIX 4: 48hr → up to 7 days throughout Step 5 -->
       <div class="tl-step">
         <div class="tl-num">05</div>
         <div class="tl-content">
           <div class="tl-label">Step 5</div>
           <div class="tl-title">Collect at destination</div>
-          <div class="tl-body">Once your parcel arrives, you receive an "Arrived" notification with the agent's contact and address. No rush &mdash; your parcel is held securely for up to 48 hours at no extra charge. Collect at your convenience.<br><br>Doorstep delivery is available on select business routes. Contact us at booking to confirm availability for your corridor.</div>
+          <div class="tl-body">Once your parcel arrives, you receive an "Arrived" notification with the agent's contact and address. No rush &mdash; your parcel is held securely for up to 7 days at no extra charge. Collect at your convenience.<br><br>Doorstep delivery is available on select business routes. Contact us at booking to confirm availability for your corridor.</div>
           <div class="chips">
-            <span class="chip green">48hr hold, no extra charge</span>
+            <span class="chip green">Hold up to 7 days &middot; no extra charge</span>
             <span class="chip">Agent contact shared on arrival</span>
             <span class="chip">Doorstep available on select routes</span>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -287,9 +283,10 @@
     <h2 class="section-title">Frequently asked questions</h2>
     <div class="faq-list">
 
+      <!-- FIX 7: "No account setup required" — accurately describes WhatsApp booking path; clarifies app tracking -->
       <div class="faq-item">
         <button class="faq-question">How do I book a shipment?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq-answer">Use the route checker on patwadi.com to select your corridor, item type, and preferred collection date. Pick your time window, then pay via Razorpay (UPI, cards, net banking) to confirm your slot. You will receive a booking confirmation and tracking code immediately. No account setup required for your first booking.</div>
+        <div class="faq-answer">Use the route checker on patwadi.com to select your corridor, item type, and preferred collection date. Pick your time window, then pay via Razorpay (UPI, cards, net banking) to confirm your slot. You will receive a booking confirmation and tracking code immediately.<br><br>Website bookings proceed through WhatsApp &mdash; no app account needed to book. To track your parcel in real time and receive milestone notifications, download the Patwadi app. Creating an account takes under a minute.</div>
       </div>
 
       <div class="faq-item">
@@ -312,9 +309,10 @@
         <div class="faq-answer">Book at least <strong>48 hours before your preferred collection date</strong>. During peak periods &mdash; semester end in May and November, festival windows &mdash; book 3&ndash;5 days in advance. Same-day slots are subject to capacity on your corridor and are not guaranteed.</div>
       </div>
 
+      <!-- FIX 4: 48 hours → 7 days in the delivery FAQ -->
       <div class="faq-item">
         <button class="faq-question">Do you deliver to my door, or do I collect?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq-answer">Our standard service is <strong>agent-hold at destination</strong> &mdash; your parcel arrives at our local agent and you collect within 48 hours at your convenience. The agent's address and contact are sent with your "Arrived" notification.<br><br>Doorstep delivery is available on select business routes. Confirm at booking for your corridor.</div>
+        <div class="faq-answer">Our standard service is <strong>agent-hold at destination</strong> &mdash; your parcel arrives at our local agent and you collect within 7 days at your convenience. The agent's address and contact are sent with your "Arrived" notification.<br><br>Doorstep delivery is available on select business routes. Confirm at booking for your corridor.</div>
       </div>
 
       <div class="faq-item">
@@ -322,9 +320,10 @@
         <div class="faq-answer">Contact us within <strong>48 hours of the scheduled delivery date</strong> with your booking reference, photos of any damage, and a brief description of contents and value. We investigate all claims within 3 business days. Because every handoff is logged, we can trace exactly where an issue occurred. Damage to undeclared fragile items is not covered.</div>
       </div>
 
+      <!-- FIX 6: 30% removed; language aligned with refund policy (partial charge, contact us) -->
       <div class="faq-item">
         <button class="faq-question">Can I cancel or reschedule?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="faq-answer"><ul><li><strong>Before pickup is initiated</strong> &mdash; free cancellation, full refund.</li><li><strong>After pickup is initiated</strong> (agent en route or parcel collected but not yet dispatched) &mdash; 30% reverse delivery charge applies.</li><li><strong>Once dispatched to transit</strong> &mdash; no cancellations accepted. The shipment will proceed to destination.</li></ul>To cancel or reschedule, contact us immediately with your booking reference.</div>
+        <div class="faq-answer"><ul><li><strong>Before pickup is initiated</strong> &mdash; free cancellation, full refund.</li><li><strong>After pickup is initiated</strong> (agent en route or parcel collected but not yet dispatched) &mdash; a partial reverse delivery charge applies. Contact us with your booking reference for the amount applicable to your corridor.</li><li><strong>Once dispatched to transit</strong> &mdash; no cancellations accepted. The shipment will proceed to destination.</li></ul>To cancel or reschedule, contact us immediately with your booking reference.</div>
       </div>
 
       <div class="faq-item">
@@ -342,7 +341,7 @@
       <h2>Ready to send something?</h2>
       <p>Select your route, book your slot, and we handle the rest.</p>
       <div class="cta-btns">
-        <a href="index.html#route-checker" class="btn">Book Now &rarr;</a>
+        <a href="index.html#book" class="btn">Book Now &rarr;</a>
         <a href="tracking.html" class="btn btn-outline">Track a parcel</a>
       </div>
     </div>
@@ -354,7 +353,8 @@
     <div class="footer-section"><h3>Who we serve</h3><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="how-it-works.html">How It Works</a><a href="tracking.html">Track a parcel</a></div>
     <div class="footer-section"><h3>Contact</h3><a href="mailto:admin@patwadi.com">admin@patwadi.com</a><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a></div>
     <div class="footer-section"><h3>Company</h3><a href="b2b.html">Enterprise</a><a href="drivers.html">Join Us</a><a href="/posts/">Guides</a></div>
-    <div class="footer-section"><h3>Legal</h3><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="/docs/terms-of-service.html">Terms</a><a href="/docs/shipping-policy.html">Shipping Policy</a></div>
+    <!-- Legal links already correctly pointing to /docs/ — kept as is -->
+    <div class="footer-section"><h3>Legal</h3><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="/docs/terms-of-service.html">Terms of Service</a><a href="/docs/shipping-policy.html">Shipping Policy</a></div>
   </div>
   <div class="footer-bottom"><p>&copy; 2026 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p></div>
 </footer>
