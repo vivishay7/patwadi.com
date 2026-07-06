@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Semester Move-Out Problem Is a Logistics Problem · Patwadi</title>
+  <meta name="description" content="A sharper framework for semester move-out: what to ship ahead, what to carry, what to discard, and why waiting until the last exam is usually the expensive choice.">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#F05A1A;--orange-dk:#D44D14;--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E8DED2;--page-bg:#FFF8F1;--warm-bg:#FFF3E8;--surface:#F8EFE4;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;scroll-behavior:smooth;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--page-bg);-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--orange);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;transition:background .15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .art-hero{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:52px 24px 44px;}
+    .art-hero-inner{max-width:720px;margin:0 auto;}
+    .art-cat{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:4px;background:var(--orange);color:#fff;margin-bottom:18px;}
+    .art-h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.03em;margin-bottom:14px;}
+    .art-meta{font-size:0.78rem;color:rgba(255,255,255,.45);display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+    .art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.25);display:inline-block;}
+    .art-wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px;}
+    .art-body{font-size:1rem;line-height:1.85;color:#374151;}
+    .art-body p{margin-bottom:1.4em;}
+    .art-body h2{font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin:2.2em 0 .7em;padding-bottom:.5em;border-bottom:2px solid var(--border);}
+    .art-body h3{font-size:1rem;font-weight:700;color:var(--ink);margin:1.6em 0 .5em;}
+    .art-body strong{font-weight:700;color:var(--ink);}
+    .art-body ul{margin:0 0 1.4em 1.2em;display:flex;flex-direction:column;gap:.5em;}
+    .art-body li{line-height:1.7;}
+    .art-callout{background:var(--warm-bg);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:2em 0;font-size:.9rem;color:var(--ink);line-height:1.7;}
+    .art-callout strong{display:block;margin-bottom:4px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);}
+    .three-pile{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:1.8em 0;}
+    .pile{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;}
+    .pile-head{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+    .pile-body{font-size:.82rem;color:var(--mid);line-height:1.65;}
+    .related{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px;}
+    .related-inner{max-width:720px;margin:0 auto;}
+    .related-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:18px;}
+    .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+    .related-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:border-color .15s,transform .15s;}
+    .related-card:hover{border-color:var(--orange);transform:translateY(-1px);}
+    .related-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+    .related-title{font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.35;}
+    footer{background:var(--ink);color:#64748b;padding:28px 24px;font-size:.82rem;text-align:center;}
+    footer a{color:#64748b;text-decoration:none;margin:0 8px;}
+    footer a:hover{color:#fff;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.three-pile{grid-template-columns:1fr;}.related-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/how-it-works.html">How It Works</a></li>
+      <li><a href="/index.html#routes">Routes</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="/index.html#book" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('navMob').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="navMob">
+    <a href="/index.html">Home</a><a href="/how-it-works.html">How It Works</a><a href="/index.html#routes">Routes</a><a href="/posts/">Guides</a>
+    <a href="/index.html#book" style="margin-top:8px;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;">Book Now</a>
+  </div>
+</nav>
+
+<div class="art-hero">
+  <div class="art-hero-inner">
+    <span class="art-cat">Students</span>
+    <h1 class="art-h1">The semester move-out problem is not a packing problem. It is a logistics problem.</h1>
+    <div class="art-meta">
+      <span>6 min read</span>
+      <span class="art-meta-dot"></span>
+      <span>Student corridors</span>
+      <span class="art-meta-dot"></span>
+      <span>Updated June 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="art-wrap">
+  <div class="art-body">
+
+    <p>Every semester ends with the same small crisis. A student arrives on campus with two bags and leaves with a private inventory problem: winter clothes, bedding, books, shoes, half a kitchen, and a carton of things that were absolutely essential in August and mysteriously useless by May.</p>
+
+    <p>The mistake is treating this as a packing challenge. It is not. It is a timing and capacity challenge. Trains have luggage limits. Flights punish extra weight. Parents do not enjoy receiving frantic calls from platforms. And the last week of term is when everyone suddenly discovers that logistics exists.</p>
+
+    <p>The useful question is not “How do I fit everything?” It is: what should move before you do?</p>
+
+    <h2>The three-pile rule</h2>
+
+    <p>Before opening a suitcase, divide the room into three categories. This is less sentimental than packing, which is why it works.</p>
+
+    <div class="three-pile">
+      <div class="pile">
+        <div class="pile-head">Send ahead</div>
+        <div class="pile-body">Anything useful at home but useless on the journey: bedding, out-of-season clothes, heavy books, spare shoes, small appliances, and the second bag you do not want to drag across a railway platform.</div>
+      </div>
+      <div class="pile">
+        <div class="pile-head">Carry</div>
+        <div class="pile-body">Laptop, chargers, medications, documents, phone, wallet, one change of clothes, and anything you would panic about losing access to for 48 hours.</div>
+      </div>
+      <div class="pile">
+        <div class="pile-head">Leave or ditch</div>
+        <div class="pile-body">The dead weight: expired snacks, half-used toiletries, old notebooks, broken organizers, and anything whose replacement cost is lower than the trouble of moving it.</div>
+      </div>
+    </div>
+
+    <p>Most students do this backwards. They start with the suitcase, discover the overflow, then look for a courier in panic. The better sequence is to ship the “send ahead” pile first, then pack the carry pile around what remains.</p>
+
+    <p>This is where Patwadi fits. Things you do not need during the journey can leave before you do. A parcel moving quietly through the corridor is preferable to a student negotiating luggage space with a train coach, a bus conductor, or an airline counter.</p>
+
+    <h2>Packing is risk management</h2>
+
+    <p>Parcel damage usually begins before pickup. Not because anyone intended harm, but because a carton was treated like a suitcase. It is not one. A suitcase is designed to be handled. A carton must be made handleable.</p>
+
+    <p>Four rules matter more than most packing advice:</p>
+
+    <ul>
+      <li><strong>Seal every seam.</strong> Do not just tape the top flap. Tape the base, edges, corners, and side joins. Cartons fail where pressure concentrates.</li>
+      <li><strong>Split books early.</strong> Books look harmless until a single carton becomes a 20 kg brick. Two moderate cartons are better than one heroic one.</li>
+      <li><strong>Compress clothes, not fragile items.</strong> Vacuum bags are useful for clothes near a weight limit. They are not protection for glass, frames, or electronics.</li>
+      <li><strong>Declare fragile items at booking.</strong> A fragile declaration after pickup is not a declaration. It is a post-mortem.</li>
+    </ul>
+
+    <div class="art-callout">
+      <strong>Packaging at pickup</strong>
+      If you do not have bubble wrap or a suitable mailer, you can request packaging while booking. Bubble mailers, bubble wrap, and small boxes are available at ₹10 each and can be provided by the agent at pickup.
+    </div>
+
+    <h2>The expensive day is obvious. Students still choose it.</h2>
+
+    <p>The day exams end is not a clever day to book. It is the day everyone else also books. Demand spikes exactly when patience, availability, and room cleanliness are all at their lowest.</p>
+
+    <p>For May and November move-outs, book 5 to 7 days in advance. The longer the intercity leg, the more this matters. Cross-state routes fill faster because they depend on fewer reliable linehaul windows. Shorter plains routes usually have more flexibility, but not enough to justify waiting until the room is already half-empty.</p>
+
+    <div class="art-callout">
+      <strong>Book before the last paper</strong>
+      The practical move is simple: book the week before your final exam, schedule pickup for the last week, and let the parcel start moving while you finish the semester.
+    </div>
+
+    <h2>The handoff is the audit trail</h2>
+
+    <p>Choose an evening or night pickup window if possible. Students are more likely to be in the room, less likely to be rushing, and less likely to discover a missing tape roll at the worst possible time.</p>
+
+    <p>At pickup, the agent verifies the parcel with a code and photo, then gives a collection confirmation. Keep it. That confirmation is not administrative clutter. It is the record of what entered the network.</p>
+
+    <p>After collection, the parcel can be tracked on patwadi.com or through the app. Status updates appear at key points: Collected, In Transit, and Arrived. At destination, the parcel is held with the destination agent for up to 7 days, so collection does not have to happen the minute you return.</p>
+
+    <h2>Some things should never be optimized</h2>
+
+    <p>The temptation at semester-end is to ship anything that does not fit. Resist it. Convenience has limits, and some items should stay with you.</p>
+
+    <ul>
+      <li><strong>Medications:</strong> carry them. A 48-hour delay is minor for clothes and unacceptable for medicine.</li>
+      <li><strong>Cash, jewellery, and original documents:</strong> these are not accepted on Patwadi corridors.</li>
+      <li><strong>Electronics above ₹5,000 declared value:</strong> capped during the pilot period. Contact us before booking anything above this value.</li>
+      <li><strong>Fresh food or dairy:</strong> do not send it. Dry food in sealed packaging is fine; fresh food is not.</li>
+    </ul>
+
+    <p>The full prohibited items list is <a href="/posts/prohibited-items-full-list/" style="color:var(--orange);font-weight:600;">here</a> if you are unsure about a specific item.</p>
+
+    <p>The broader point is simple. Semester move-out does not become stressful because students own too much. It becomes stressful because everything is forced to move on the same day. Separate the parcel from the passenger, and the problem becomes much smaller.</p>
+
+  </div>
+</div>
+
+<div class="related">
+  <div class="related-inner">
+    <div class="related-label">More guides</div>
+    <div class="related-grid">
+      <a href="/posts/delhi-to-manali-shipping-guide/" class="related-card">
+        <div class="related-cat">Himachal Pradesh</div>
+        <div class="related-title">The Delhi to Manali corridor: timings, packing, and what changes by season</div>
+      </a>
+      <a href="/posts/gst-invoice-intercity-shipments/" class="related-card">
+        <div class="related-cat">Business</div>
+        <div class="related-title">GST invoices for intercity shipments: what you need at booking</div>
+      </a>
+      <a href="/posts/prohibited-items-full-list/" class="related-card">
+        <div class="related-cat">Packing</div>
+        <div class="related-title">What you cannot send — and what is fine with the right declaration</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="/index.html">Home</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/posts/">All guides</a>
+  <a href="/docs/privacy-policy.html">Privacy Policy</a>
+  <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a>
+  <div style="margin-top:14px;color:#475569;">&copy; 2026 Patwadi Logistics LLP. Chandigarh, India.</div>
+</footer>
+<script>document.addEventListener('click',function(e){const m=document.getElementById('navMob'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});</script>
+</body>
+</html>
