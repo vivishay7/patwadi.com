@@ -7,45 +7,7 @@
   <meta name="description" content="Book intercity parcel delivery, luggage shipping, carton movement and business cargo across regional routes. Delivery within 24-72 hours on serviced intercity.">
   <link rel="canonical" href="https://patwadi.com/">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://patwadi.com/#organization",
-        "name": "Patwadi Logistics LLP",
-        "alternateName": "Patwadi",
-        "url": "https://patwadi.com/",
-        "logo": "https://patwadi.com/assets/images/patwadi-logo-transp.png",
-        "email": "admin@patwadi.com",
-        "telephone": "+91 80918 89969",
-        "address": {"@type": "PostalAddress", "addressLocality": "Chandigarh", "addressCountry": "IN"},
-        "areaServed": ["Himachal Pradesh","Chandigarh","Punjab","Haryana","Delhi NCR","Tamil Nadu","Karnataka","Andhra Pradesh","Telangana","Kerala","Maharashtra","Gujarat"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://patwadi.com/#website",
-        "url": "https://patwadi.com/",
-        "name": "Patwadi",
-        "publisher": {"@id": "https://patwadi.com/#organization"},
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {"@type": "EntryPoint", "urlTemplate": "https://patwadi.com/tracking.html?code={search_term_string}"},
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "Service",
-        "@id": "https://patwadi.com/#service",
-        "name": "Intercity parcel, luggage and cargo delivery",
-        "provider": {"@id": "https://patwadi.com/#organization"},
-        "serviceType": "Courier and cargo delivery booking",
-        "description": "Book intercity parcel delivery, luggage shipping, carton movement and business cargo across active regional routes. Route-confirmed movement with verified handoffs.",
-        "url": "https://patwadi.com/",
-        "areaServed": ["Himachal Pradesh","Chandigarh","Punjab","Haryana","Delhi NCR","Tamil Nadu","Karnataka","Maharashtra","Gujarat"]
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://patwadi.com/#organization","name":"Patwadi Logistics LLP","alternateName":"Patwadi","url":"https://patwadi.com/","logo":"https://patwadi.com/assets/images/patwadi-logo-transp.png","email":"admin@patwadi.com","telephone":"+91 80918 89969","address":{"@type":"PostalAddress","addressLocality":"Chandigarh","addressCountry":"IN"},"areaServed":["Himachal Pradesh","Chandigarh","Punjab","Haryana","Delhi NCR","Tamil Nadu","Karnataka","Andhra Pradesh","Telangana","Kerala","Maharashtra","Gujarat"]},{"@type":"WebSite","@id":"https://patwadi.com/#website","url":"https://patwadi.com/","name":"Patwadi","publisher":{"@id":"https://patwadi.com/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://patwadi.com/tracking.html?code={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Service","@id":"https://patwadi.com/#service","name":"Intercity parcel, luggage and cargo delivery","provider":{"@id":"https://patwadi.com/#organization"},"serviceType":"Courier and cargo delivery booking","description":"Book intercity parcel delivery, luggage shipping, carton movement and business cargo across active regional routes. Route-confirmed movement with verified handoffs.","url":"https://patwadi.com/","areaServed":["Himachal Pradesh","Chandigarh","Punjab","Haryana","Delhi NCR","Tamil Nadu","Karnataka","Maharashtra","Gujarat"]}]}
   </script>
   <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,6 +22,8 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
     body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--page-bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+    /* ── NAV ── */
     .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
     .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
@@ -84,6 +48,8 @@
     .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
     .nav-mobile-menu a.mobile-sub{padding-left:24px;}
     .nav-mobile-menu .nav-cta-mobile{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+
+    /* ── HERO ── */
     .hero-warm{background:linear-gradient(180deg,#FFF8F1 0%,#FFF3E8 100%);padding:52px 24px 0;overflow:hidden;}
     .hero-warm .hw-container{max-width:1200px;margin:0 auto;}
     .hw-headline{text-align:center;margin-bottom:40px;}
@@ -156,26 +122,17 @@
     .hw-slot-time{font-size:0.58rem;color:#6B7280;line-height:1.2;}
     .hw-slot-hold{font-size:0.65rem;color:#6B7280;text-align:right;padding-top:6px;border-top:1px solid #F3F4F6;}
     .hw-slot-hold span{color:var(--orange);}
+
+    /* ── SHARED SECTION ── */
     .section{padding:64px 24px;}
     .section-alt{background:var(--surface);}
+    .section-dark{background:var(--ink);}
     .container{max-width:1200px;margin:0 auto;}
     .eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;text-align:center;}
     .section-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--ink);text-align:center;letter-spacing:-0.02em;margin-bottom:12px;}
     .section-sub{font-size:0.9rem;color:#64748b;text-align:center;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7;}
-    .router-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .router-featured{background:#fff;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 12px 12px 0;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:20px;flex-wrap:wrap;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;}
-    .router-featured:hover{border-color:var(--orange);box-shadow:0 4px 18px rgba(240,90,26,0.08);}
-    .router-featured-text{flex:1;min-width:200px;}
-    .router-featured-loc{font-size:0.75rem;font-weight:600;color:var(--orange);letter-spacing:0.01em;margin-bottom:7px;}
-    .router-featured-title{font-size:1.1rem;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:8px;letter-spacing:-0.015em;}
-    .router-featured-body{font-size:0.85rem;color:var(--mid);line-height:1.65;}
-    .router-featured-cta{flex-shrink:0;font-size:0.82rem;font-weight:700;color:var(--orange);white-space:nowrap;display:flex;align-items:center;gap:5px;}
-    .router-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s,transform 0.2s;}
-    .router-card:hover{border-color:var(--orange);transform:translateY(-2px);}
-    .router-title{font-size:1.05rem;font-weight:800;color:var(--ink);}
-    .router-body{font-size:0.85rem;color:var(--mid);line-height:1.65;flex:1;}
-    .router-cta{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:var(--orange);color:#fff;font-weight:700;font-size:0.82rem;border-radius:8px;text-decoration:none;align-self:flex-start;transition:background 0.15s;}
-    .router-cta:hover{background:var(--orange-dk);}
+
+    /* ── TRUST BAR ── */
     .trust-bar{background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;}
     .trust-inner{max-width:1200px;margin:0 auto;}
     .trust-stats{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;}
@@ -184,49 +141,82 @@
     .trust-num{font-size:1.2rem;font-weight:800;line-height:1.2;margin-bottom:3px;}
     .trust-num.green{color:#16a34a;}.trust-num.blue{color:var(--blue);}.trust-num.ink{color:var(--ink);}
     .trust-lbl{font-size:0.72rem;color:var(--ghost);line-height:1.4;max-width:130px;}
+
+    /* ── TICKER ── */
     .ticker-wrap{background:var(--blue);overflow:hidden;padding:9px 0;position:relative;}
     .ticker-fade-l,.ticker-fade-r{position:absolute;top:0;bottom:0;width:60px;z-index:1;pointer-events:none;}
     .ticker-fade-l{left:0;background:linear-gradient(to right,var(--blue),transparent);}
     .ticker-fade-r{right:0;background:linear-gradient(to left,var(--blue),transparent);}
     #ticker{display:flex;align-items:center;white-space:nowrap;will-change:transform;}
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;}
-    .why-card{border-left:3px solid var(--border);padding:20px 24px;transition:border-left-color 0.2s;}
-    .why-card:hover{border-left-color:var(--orange);}
-    .why-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
-    .why-body{font-size:0.85rem;color:var(--mid);line-height:1.65;}
-    .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;}
-    .steps-grid::before{content:'';position:absolute;top:20px;left:12.5%;right:12.5%;height:2px;background:var(--border);z-index:0;}
-    .step-card{text-align:center;position:relative;z-index:1;}
-    .step-num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;font-size:0.85rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;border:3px solid #fff;box-shadow:0 0 0 2px var(--orange);}
-    .step-title{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:5px;}
-    .step-body{font-size:0.8rem;color:var(--mid);line-height:1.6;}
-    .dispatch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
-    .dispatch-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;border-top:3px solid transparent;}
-    .dispatch-card.plains{border-top-color:#16a34a;}.dispatch-card.hills{border-top-color:var(--blue);}.dispatch-card.jk{border-top-color:#7C3AED;}.dispatch-card.south{border-top-color:var(--orange);}
-    .dispatch-eyebrow{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ghost);margin-bottom:5px;}
-    .dispatch-time{font-size:1rem;font-weight:800;margin-bottom:3px;}
-    .dispatch-time.green{color:#16a34a;}.dispatch-time.blue{color:var(--blue);}.dispatch-time.purple{color:#7C3AED;}.dispatch-time.orange{color:var(--orange);}
-    .dispatch-note{font-size:0.75rem;color:#64748b;}
-    .pills-wrap{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;}
-    .pills-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghost);margin-bottom:12px;}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;}
-    .pill{font-size:0.78rem;font-weight:600;padding:5px 13px;border-radius:20px;border:1px solid;}
-    .pill-blue{background:#EFF6FF;color:var(--blue);border-color:#BFDBFE;}
-    .pill-amber{background:#FEFCE8;color:#854D0E;border-color:#FDE68A;}
-    .pill-green{background:#F0FDF4;color:#166534;border-color:#BBF7D0;}
-    .pill-purple{background:#FDF4FF;color:#6B21A8;border-color:#E9D5FF;}
-    .pill-orange{background:#FFF7ED;color:#9A3412;border-color:#FED7AA;}
-    .cluster-label{font-size:0.68rem;font-weight:700;color:var(--ghost);text-transform:uppercase;letter-spacing:0.08em;width:100%;margin-bottom:4px;}
-    .cluster-gap{margin-top:8px;}
+
+    /* ── ROUTER (simplified) ── */
+    .router-featured{background:#fff;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 12px 12px 0;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-bottom:20px;flex-wrap:wrap;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;}
+    .router-featured:hover{border-color:var(--orange);box-shadow:0 4px 18px rgba(240,90,26,0.08);}
+    .router-featured-text{flex:1;min-width:200px;}
+    .router-featured-loc{font-size:0.75rem;font-weight:600;color:var(--orange);letter-spacing:0.01em;margin-bottom:7px;}
+    .router-featured-title{font-size:1.1rem;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:8px;letter-spacing:-0.015em;}
+    .router-featured-body{font-size:0.85rem;color:var(--mid);line-height:1.65;}
+    .router-featured-cta{flex-shrink:0;font-size:0.82rem;font-weight:700;color:var(--orange);white-space:nowrap;display:flex;align-items:center;gap:5px;}
+    .router-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .router-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:border-color 0.2s,transform 0.2s;}
+    .router-card:hover{border-color:var(--orange);transform:translateY(-2px);}
+    .router-title{font-size:1rem;font-weight:800;color:var(--ink);}
+    .router-body{font-size:0.85rem;color:var(--mid);line-height:1.65;flex:1;}
+    .router-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--orange);color:#fff;font-weight:700;font-size:0.82rem;border-radius:8px;text-decoration:none;align-self:flex-start;transition:background 0.15s;}
+    .router-cta:hover{background:var(--orange-dk);}
+
+    /* ── GUIDES ── */
+    .guides-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:20px;}
+    .guide-featured{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:box-shadow 0.2s,transform 0.2s;}
+    .guide-featured:hover{box-shadow:0 8px 28px rgba(36,31,28,.12);transform:translateY(-2px);}
+    .guide-featured-img{background:linear-gradient(145deg,#1A1108 0%,#3A2818 50%,#5C3A20 100%);height:200px;position:relative;display:flex;align-items:flex-end;padding:20px;}
+    .guide-featured-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65;}
+    .guide-featured-cat{font-size:0.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--orange);color:#fff;z-index:1;position:relative;}
+    .guide-featured-body{padding:22px;}
+    .guide-featured-title{font-size:1.05rem;font-weight:800;color:var(--ink);line-height:1.3;letter-spacing:-.01em;margin-bottom:8px;}
+    .guide-featured-excerpt{font-size:0.82rem;color:var(--mid);line-height:1.65;margin-bottom:14px;}
+    .guide-featured-meta{font-size:0.7rem;color:var(--ghost);display:flex;align-items:center;gap:10px;}
+    .guide-side{display:flex;flex-direction:column;gap:14px;}
+    .guide-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;display:flex;gap:14px;align-items:flex-start;transition:border-color 0.2s,transform 0.2s;}
+    .guide-card:hover{border-color:var(--orange);transform:translateY(-1px);}
+    .guide-card-icon{width:42px;height:42px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .guide-card-cat{font-size:0.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+    .guide-card-title{font-size:0.88rem;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:4px;}
+    .guide-card-meta{font-size:0.7rem;color:var(--ghost);}
+    .guides-footer{margin-top:22px;text-align:center;}
+    .guides-link{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:700;color:var(--orange);text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .15s;}
+    .guides-link:hover{border-bottom-color:var(--orange);}
+
+    /* ── ROUTES ── */
     .route-caveat{background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;padding:14px 18px;font-size:0.82rem;color:#9A3412;line-height:1.65;margin-top:16px;}
-    .coverage-table-wrap{overflow-x:auto;margin-bottom:24px;border-radius:10px;border:1px solid var(--border);}
-    .coverage-table{width:100%;border-collapse:collapse;font-size:0.8rem;background:#fff;}
-    .coverage-table thead tr{background:var(--ink);}
-    .coverage-table thead th{padding:10px;color:#fff;font-size:0.7rem;font-weight:600;text-align:center;white-space:nowrap;}
-    .coverage-table thead th:first-child{text-align:left;padding-left:14px;}
-    .coverage-table tbody tr:nth-child(even){background:var(--surface);}
-    .coverage-table tbody td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--border);}
-    .coverage-table tbody td:first-child{text-align:left;padding-left:14px;font-weight:700;font-size:0.8rem;color:var(--ink);background:var(--surface);border-right:1px solid var(--border);white-space:nowrap;}
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .testi-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:16px;position:relative;}
+    .testi-quote-mark{font-size:3.5rem;line-height:1;color:#F1DEC7;font-family:Georgia,serif;margin-bottom:-12px;display:block;}
+    .testi-text{font-size:0.9rem;color:var(--ink);line-height:1.75;flex:1;font-style:italic;}
+    .testi-person{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--border);padding-top:14px;}
+    .testi-name{font-size:0.82rem;font-weight:700;color:var(--ink);}
+    .testi-corridor{font-size:0.72rem;color:var(--ghost);}
+    .testi-what{display:inline-block;margin-top:4px;font-size:0.68rem;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--surface);color:var(--mid);}
+
+    /* ── PACKAGING SELECTOR ── */
+    .pkg-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+    .pkg-opt-label{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ghost);}
+    .pkg-opt-note{font-size:0.65rem;color:var(--ghost);}
+    .pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+    .pkg-opt{display:flex;align-items:center;gap:7px;padding:7px 10px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:border-color .15s,background .15s;font-size:0.78rem;color:#374151;font-family:inherit;}
+    .pkg-opt:hover{border-color:var(--orange);}
+    .pkg-opt input[type=radio]{accent-color:var(--orange);flex-shrink:0;width:13px;height:13px;}
+    .pkg-opt input[type=radio]:checked ~ .pkg-opt-inner{color:var(--ink);}
+    .pkg-opt:has(input:checked){border-color:var(--orange);background:#FFF7ED;}
+    .pkg-opt-inner{display:flex;flex-direction:column;gap:1px;line-height:1.3;}
+    .pkg-opt-name{font-weight:600;font-size:0.78rem;color:var(--ink);}
+    .pkg-opt-dim{font-size:0.65rem;color:var(--ghost);font-weight:400;}
+    .pkg-opt-price{font-size:0.7rem;font-weight:700;color:var(--orange);}
+    /* ── TESTIMONIAL STARS ── */
+    .testi-stars{color:var(--orange);font-size:0.9rem;letter-spacing:1px;margin-bottom:2px;}
+    /* ── CTA BAND ── */
     .cta-band{background:var(--ink);border-radius:14px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
     .cta-band h2{color:#fff;font-size:1.3rem;font-weight:800;margin-bottom:6px;letter-spacing:-0.02em;}
     .cta-band p{color:#64748b;font-size:0.875rem;}
@@ -234,6 +224,8 @@
     .btn-cta{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:var(--orange);color:#fff;font-weight:700;font-size:0.88rem;border-radius:9px;text-decoration:none;transition:background 0.15s;}
     .btn-cta:hover{background:var(--orange-dk);}
     .btn-ghost{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;background:transparent;color:#fff;font-weight:700;font-size:0.88rem;border-radius:9px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.2);}
+
+    /* ── FOOTER ── */
     footer{background:var(--ink);color:var(--ghost);padding:48px 24px 24px;}
     .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
     .footer-brand-name{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:10px;display:block;}
@@ -242,14 +234,16 @@
     .footer-col a{display:block;font-size:0.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color 0.15s;}
     .footer-col a:hover{color:#fff;}
     .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid #2A1F18;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:#475569;flex-wrap:wrap;gap:12px;}
+
+    /* ── RESPONSIVE ── */
     @media(max-width:900px){.hw-split{grid-template-columns:1fr;}.hw-right{display:none;}}
     @media(max-width:768px){
       .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}
       .book-route-row{grid-template-columns:1fr;}.book-route-arrow{display:none;}
       .book-two-col{grid-template-columns:1fr;}
-      .router-grid{grid-template-columns:1fr;}.why-grid{grid-template-columns:1fr;}
-      .steps-grid{grid-template-columns:1fr 1fr;}.steps-grid::before{display:none;}
-      .dispatch-grid{grid-template-columns:1fr 1fr;}
+      .router-duo{grid-template-columns:1fr;}
+      .guides-grid{grid-template-columns:1fr;}
+      .testi-grid{grid-template-columns:1fr;}
       .trust-stat{padding:8px 16px;border-right:none;border-bottom:1px solid var(--border);width:50%;}
       .trust-stat:nth-child(odd){border-right:1px solid var(--border);}
       .footer-grid{grid-template-columns:1fr 1fr;gap:24px;}
@@ -259,12 +253,10 @@
     }
     @media(max-width:480px){
       .trust-stat{width:100%;border-right:none!important;}
-      .steps-grid{grid-template-columns:1fr;}.dispatch-grid{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;}.coverage-grid-wrap{display:none!important;}
+      .footer-grid{grid-template-columns:1fr;}
     }
     @media(max-width:640px){
       .book-card-header{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 14px 10px;}
-      .book-card-title{font-size:0.68rem;}
       .ship-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;width:100%;scrollbar-width:none;}
       .ship-tabs::-webkit-scrollbar{display:none;}
       .ship-tab{flex-shrink:0;padding:5px 12px;}
@@ -273,6 +265,8 @@
   </style>
 </head>
 <body>
+
+<!-- ── NAV ── -->
 <nav class="nav-bar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img">Patwadi</a>
@@ -307,6 +301,7 @@
   </div>
 </nav>
 
+<!-- ── HERO ── -->
 <section class="hero-warm" id="book">
 <div class="hw-container">
   <div class="hw-headline">
@@ -395,6 +390,18 @@
             </div>
           </div>
           <label class="gst-row"><input type="checkbox" id="needGst"> GST invoice required</label>
+          <div class="book-field">
+            <div class="pkg-label-row">
+              <span class="pkg-opt-label">Packaging at pickup</span>
+              <span class="pkg-opt-note">optional &middot; ₹10 each</span>
+            </div>
+            <div class="pkg-grid">
+              <label class="pkg-opt"><input type="radio" name="packaging" id="pkgNone" value="none" checked><div class="pkg-opt-inner"><span class="pkg-opt-name">None</span><span class="pkg-opt-price">Free</span></div></label>
+              <label class="pkg-opt"><input type="radio" name="packaging" id="pkgMailer" value="bubble_mailer"><div class="pkg-opt-inner"><span class="pkg-opt-name">Bubble mailer <span class="pkg-opt-dim">7×10 in</span></span><span class="pkg-opt-price">+₹10</span></div></label>
+              <label class="pkg-opt"><input type="radio" name="packaging" id="pkgWrap" value="bubble_wrap"><div class="pkg-opt-inner"><span class="pkg-opt-name">Bubble wrap</span><span class="pkg-opt-price">+₹10</span></div></label>
+              <label class="pkg-opt"><input type="radio" name="packaging" id="pkgBox" value="small_box"><div class="pkg-opt-inner"><span class="pkg-opt-name">Small box</span><span class="pkg-opt-price">+₹10</span></div></label>
+            </div>
+          </div>
           <input type="hidden" id="shipType" value="Parcel">
           <div class="dim-hint" id="dimLimitHint">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#F05A1A" stroke-width="1.2"/><path d="M6.5 5.5v4M6.5 4h.01" stroke="#F05A1A" stroke-width="1.4" stroke-linecap="round"/></svg>
@@ -422,12 +429,12 @@
         </div>
       </div>
       <div class="hw-polaroids" role="list" aria-label="What people send on Patwadi">
-        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><img src="assets/images/polaroid-mithai.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#127822;</span></div><div class="hw-pol-cap">Food from home <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><img src="assets/images/polaroid-notes.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#128218;</span></div><div class="hw-pol-cap">Notes and documents <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><img src="assets/images/polaroid-gift.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#127873;</span></div><div class="hw-pol-cap">Gifts that matter <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><img src="assets/images/polaroid-achar.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#129335;</span></div><div class="hw-pol-cap">Food jars and care packs <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><img src="assets/images/polaroid-business.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#128230;</span></div><div class="hw-pol-cap">Business cartons <span class="hrt">&hearts;</span></div></div>
-        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><img src="assets/images/polaroid-charger.jpg" alt="" loading="lazy"><span style="font-size:1.5rem;">&#128268;</span></div><div class="hw-pol-cap">The charger you forgot <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-2deg" role="listitem"><div class="hw-pol-img" style="background:#FDE68A;"><span style="font-size:1.5rem;">&#127822;</span></div><div class="hw-pol-cap">Food from home <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:1.5deg" role="listitem"><div class="hw-pol-img" style="background:#BFDBFE;"><span style="font-size:1.5rem;">&#128218;</span></div><div class="hw-pol-cap">Notes and documents <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-1deg" role="listitem"><div class="hw-pol-img" style="background:#FBCFE8;"><span style="font-size:1.5rem;">&#127873;</span></div><div class="hw-pol-cap">Gifts that matter <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:2deg" role="listitem"><div class="hw-pol-img" style="background:#BBF7D0;"><span style="font-size:1.5rem;">&#129335;</span></div><div class="hw-pol-cap">Food jars and care packs <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:-1.5deg" role="listitem"><div class="hw-pol-img" style="background:#A5F3FC;"><span style="font-size:1.5rem;">&#128230;</span></div><div class="hw-pol-cap">Business cartons <span class="hrt">&hearts;</span></div></div>
+        <div class="hw-pol" style="--r:1deg" role="listitem"><div class="hw-pol-img" style="background:#E5E7EB;"><span style="font-size:1.5rem;">&#128268;</span></div><div class="hw-pol-cap">The charger you forgot <span class="hrt">&hearts;</span></div></div>
       </div>
       <div class="hw-slots" aria-label="Available delivery windows">
         <div class="hw-slot-grid">
@@ -443,6 +450,7 @@
 </div>
 </section>
 
+<!-- ── TRUST BAR ── -->
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-stats">
@@ -454,13 +462,12 @@
   </div>
 </div>
 
+<!-- ── TICKER ── -->
 <div class="ticker-wrap"><div class="ticker-fade-l"></div><div class="ticker-fade-r"></div><div id="ticker"></div></div>
 
+<!-- ── ROUTER (simplified: HP featured + students / business duo) ── -->
 <section class="section">
   <div class="container">
-    <p class="eyebrow">What are you sending?</p>
-    <h2 class="section-title">Two paths. One booking form.</h2>
-    <p class="section-sub">Tell us what you're sending above. Or go straight to the section that fits you.</p>
     <a href="courier-service-himachal-pradesh.html" class="router-featured">
       <div class="router-featured-text">
         <div class="router-featured-loc">Himachal Pradesh</div>
@@ -469,14 +476,74 @@
       </div>
       <span class="router-featured-cta">Himachal routes &rarr;</span>
     </a>
-    <div class="router-grid">
-      <div class="router-card"><div class="router-title">Moving out?</div><div class="router-body">Send suitcases, bedding, books, cartons, and graduation packs through active city corridors.</div><a href="students.html" class="router-cta">Student move-out</a></div>
-      <div class="router-card"><div class="router-title">Shipping for your shop?</div><div class="router-body">Move cartons and stock across repeat lanes with route confirmation and GST invoice support.</div><a href="business.html" class="router-cta">Business shipping</a></div>
-      <div class="router-card"><div class="router-title">Need more information?</div><div class="router-body">See how the 4-step custody chain works, dispatch times, and what you can and can't send.</div><a href="how-it-works.html" class="router-cta">How it works</a></div>
+    <div class="router-duo">
+      <div class="router-card"><div class="router-title">Moving out or heading home?</div><div class="router-body">Suitcases, bedding, books, cartons, and graduation packs. We handle the semester move so you don&rsquo;t have to carry it.</div><a href="students.html" class="router-cta">Student shipping</a></div>
+      <div class="router-card"><div class="router-title">Shipping for your shop?</div><div class="router-body">Move cartons and stock across repeat lanes with route confirmation and GST invoice support on every shipment.</div><a href="business.html" class="router-cta">Business shipping</a></div>
     </div>
   </div>
 </section>
 
+<!-- ── GUIDES ── -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">From the field</p>
+    <h2 class="section-title">Guides worth reading</h2>
+    <p class="section-sub">Written for the routes we actually run. No fluff, no SEO filler &mdash; just what you need to know before you book.</p>
+
+    <div class="guides-grid">
+      <!-- Featured guide -->
+      <a href="/posts/delhi-to-manali-shipping-guide/" class="guide-featured">
+        <div class="guide-featured-img">
+          <img src="assets/images/guide-manali.jpg" alt="Manali route guide" onerror="this.style.display='none'">
+          <span class="guide-featured-cat">Himachal Pradesh</span>
+        </div>
+        <div class="guide-featured-body">
+          <div class="guide-featured-title">The Delhi to Manali corridor: timings, packing, and what changes by season</div>
+          <div class="guide-featured-excerpt">The route into Lahaul-Spiti doesn&rsquo;t behave like a plains corridor. Rohtang closes, dispatch windows shift, and what fits in a carton in October won&rsquo;t survive February. Here is what to plan for.</div>
+          <div class="guide-featured-meta">
+            <span>8 min read</span>
+            <span style="width:3px;height:3px;border-radius:50%;background:var(--ghost);display:inline-block;"></span>
+            <span>North corridors</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Side guides -->
+      <div class="guide-side">
+        <a href="/posts/end-of-semester-shipping-guide/" class="guide-card">
+          <div class="guide-card-icon">&#127891;</div>
+          <div>
+            <div class="guide-card-cat">Students</div>
+            <div class="guide-card-title">End of semester: what to send ahead, what to carry, what to leave</div>
+            <div class="guide-card-meta">6 min read &middot; Student corridors</div>
+          </div>
+        </a>
+        <a href="/posts/gst-invoice-intercity-shipments/" class="guide-card">
+          <div class="guide-card-icon">&#128203;</div>
+          <div>
+            <div class="guide-card-cat">Business</div>
+            <div class="guide-card-title">GST invoices for intercity shipments: what you need at booking</div>
+            <div class="guide-card-meta">4 min read &middot; All corridors</div>
+          </div>
+        </a>
+        <a href="/posts/prohibited-items-full-list/" class="guide-card">
+          <div class="guide-card-icon">&#128721;</div>
+          <div>
+            <div class="guide-card-cat">Packing</div>
+            <div class="guide-card-title">What you cannot send &mdash; and what is fine with the right declaration</div>
+            <div class="guide-card-meta">5 min read &middot; All corridors</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="guides-footer">
+      <a href="/posts/" class="guides-link">All guides &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROUTES ── -->
 <section class="section" id="routes">
   <div class="container">
     <p class="eyebrow">Popular lanes</p>
@@ -504,7 +571,6 @@
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">North India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Punjab, Haryana, Delhi, HP, J and K, Chandigarh, Uttarakhand</div><div style="font-size:0.72rem;color:#64748b;">Same-day plains. 48-hour hills. 72&ndash;96hr J and K.</div></div>
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">South India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Tamil Nadu, Karnataka, AP, Telangana, Kerala</div><div style="font-size:0.72rem;color:#64748b;">24&ndash;48 hours on active intercity corridors.</div></div>
-        <!-- FIX 5: GSRTC removed -->
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;"><div style="font-size:0.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">West India</div><div style="font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:3px;">Gujarat, Maharashtra</div><div style="font-size:0.72rem;color:#64748b;">48-hour intercity. Private and regional operators.</div></div>
         <div class="route-caveat">Routes and windows vary by corridor. Use the booking form above to check your route.</div>
       </div>
@@ -512,67 +578,46 @@
   </div>
 </section>
 
+<!-- ── TESTIMONIALS ── -->
 <section class="section section-alt">
   <div class="container">
-    <p class="eyebrow">Why choose us</p>
-    <h2 class="section-title">Built for India&rsquo;s city corridors</h2>
-    <p class="section-sub">Real operators, real routes, verified custody at every handoff.</p>
-    <div class="why-grid">
-      <div class="why-card"><div class="why-title">Same-day on plains</div><div class="why-body">Punjab, Delhi, Haryana, Chandigarh. Book before noon and your consignment moves the same day.</div></div>
-      <div class="why-card"><div class="why-title">Routes others avoid</div><div class="why-body">Shimla to Srinagar in the North. Chennai to Kochi in the South. Corridors most couriers price out of reach.</div></div>
-      <div class="why-card"><div class="why-title">4-step custody chain</div><div class="why-body">Code and photo verification at every handoff. Every handoff is logged. Zero lost parcels on record.</div></div>
-      <div class="why-card"><div class="why-title">GST invoice support</div><div class="why-body">Every shipment can carry a GST invoice. Tell us at booking. Wholesale restocking and business transfers covered.</div></div>
-      <div class="why-card"><div class="why-title">Cartons and luggage</div><div class="why-body">One suitcase or twenty cartons. Confirmed before dispatch. No minimum order.</div></div>
-      <div class="why-card"><div class="why-title">96.7% on time, zero lost</div><div class="why-body">1,100 plus deliveries completed. Not one lost parcel. Route and timing confirmed before anything moves.</div></div>
-    </div>
-  </div>
-</section>
+    <p class="eyebrow">From the people who sent it</p>
+    <h2 class="section-title">What it actually felt like</h2>
+    <p class="section-sub">Replace these with your first real pilot quotes.</p>
 
-<section class="section">
-  <div class="container">
-    <p class="eyebrow">The process</p>
-    <h2 class="section-title">5 steps, done</h2>
-    <p class="section-sub">Book above. We handle the rest.</p>
-    <div class="steps-grid">
-      <div class="step-card"><div class="step-num">1</div><div class="step-title">Book your slot</div><div class="step-body">Select route, date, and window. Pay to confirm. Booking reference issued instantly.</div></div>
-      <div class="step-card"><div class="step-num">2</div><div class="step-title">Pack your items</div><div class="step-body">Secure packing. Declare fragile. Label clearly. We add a tracking label at collection.</div></div>
-      <div class="step-card"><div class="step-num">3</div><div class="step-title">We collect and verify</div><div class="step-body">Agent arrives in your window. Code and photo handoff. Collection receipt issued.</div></div>
-      <div class="step-card"><div class="step-num">4</div><div class="step-title">Track your shipment</div><div class="step-body">Collected &rarr; In Transit &rarr; Arrived. Track live on patwadi.com/track.</div></div>
-      <!-- FIX 4: 48hrs → up to 7 days -->
-      <div class="step-card"><div class="step-num">5</div><div class="step-title">Collect at destination</div><div class="step-body">We hold your parcel for up to 7 days. Collect at your convenience.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <p class="eyebrow">Coverage</p>
-    <h2 class="section-title">Active corridors</h2>
-    <p class="section-sub">Any city within a connected region can ship to any city in another. Each cluster operates independently.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;" class="coverage-grid-wrap">
-      <div><div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;">North India cluster</div><div class="coverage-table-wrap"><table class="coverage-table"><thead><tr><th>From / To</th><th>Punjab</th><th>Chd</th><th>Haryana</th><th>Delhi</th><th>HP</th><th>J and K</th><th>UK</th></tr></thead><tbody id="corridorGridNorth"></tbody></table></div></div>
-      <div><div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;">South India cluster</div><div class="coverage-table-wrap"><table class="coverage-table"><thead><tr><th>From / To</th><th>Tamil Nadu</th><th>Karnataka</th><th>AP and TS</th><th>Kerala</th></tr></thead><tbody id="corridorGridSouth"></tbody></table></div><div style="margin-top:10px;font-size:0.72rem;color:#94A3B8;padding:8px 12px;background:#F9F5F0;border-radius:7px;border:1px solid var(--border);">North and South clusters are independent. Gujarat and Maharashtra operate as a separate West cluster.</div></div>
-    </div>
-    <div class="dispatch-grid">
-      <div class="dispatch-card plains"><div class="dispatch-eyebrow">Plains</div><div class="dispatch-time green">Same-day</div><div class="dispatch-note">Punjab, Chandigarh, Haryana, Delhi NCR</div></div>
-      <div class="dispatch-card hills"><div class="dispatch-eyebrow">Hills and West</div><div class="dispatch-time blue">48 hours</div><div class="dispatch-note">HP, Uttarakhand, Gujarat, Maharashtra</div></div>
-      <div class="dispatch-card jk"><div class="dispatch-eyebrow">J and K</div><div class="dispatch-time purple">72 to 96 hours</div><div class="dispatch-note">Jammu, Katra, Udhampur. Srinagar 96 hours.</div></div>
-      <div class="dispatch-card south"><div class="dispatch-eyebrow">South India</div><div class="dispatch-time orange">24 to 48 hours</div><div class="dispatch-note">TN, Karnataka, AP and TS, Kerala</div></div>
-    </div>
-    <div class="pills-wrap">
-      <div class="pills-label">States and regions covered</div>
-      <div class="pills">
-        <span class="cluster-label">North</span>
-        <span class="pill pill-blue">Punjab</span><span class="pill pill-blue">Chandigarh UT</span><span class="pill pill-blue">Haryana</span><span class="pill pill-amber">Delhi NCR</span><span class="pill pill-green">Himachal Pradesh</span><span class="pill pill-purple">Jammu and Kashmir</span><span class="pill pill-green">Uttarakhand</span>
-        <span class="cluster-label cluster-gap">West</span>
-        <span class="pill pill-orange">Gujarat</span><span class="pill pill-purple">Maharashtra</span>
-        <span class="cluster-label cluster-gap">South</span>
-        <span class="pill pill-green">Tamil Nadu</span><span class="pill pill-blue">Karnataka</span><span class="pill pill-amber">Andhra Pradesh</span><span class="pill pill-amber">Telangana</span><span class="pill pill-green">Kerala</span>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span class="testi-quote-mark">&ldquo;</span>
+        <p class="testi-text">I sent two bags ahead before exams so I wouldn&rsquo;t have to haul them on the train. They were there when I got back. The app showed me what happened at each step. I wasn&rsquo;t expecting that level of detail.</p>
+        <div class="testi-person">
+          <span class="testi-name">Priya S.</span>
+          <span class="testi-what">Student move-out</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span class="testi-quote-mark">&ldquo;</span>
+        <p class="testi-text">Mum&rsquo;s pickle. The good kind she makes once a year. I honestly thought it was a stupid idea to try shipping it. It arrived sealed, undamaged, no drama. The agent called ahead too, which I appreciated.</p>
+        <div class="testi-person">
+          <span class="testi-name">Arjun M.</span>
+          <span class="testi-what">Food from home</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span class="testi-quote-mark">&ldquo;</span>
+        <p class="testi-text">We send product samples to buyers every week. There&rsquo;s a photo at pickup and a photo at delivery. So if something goes wrong I know exactly where. Nothing has gone wrong yet. That&rsquo;s the part I needed.</p>
+        <div class="testi-person">
+          <span class="testi-name">Neha T.</span>
+          <span class="testi-what">Business samples</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── CTA ── -->
 <section class="section">
   <div class="container">
     <div class="cta-band">
@@ -582,11 +627,11 @@
   </div>
 </section>
 
+<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-grid">
     <div><span class="footer-brand-name">Patwadi</span><p class="footer-brand-desc">City to city cargo across North, South, and West India. Bags, boxes, cartons, and luggage. Verified custody at every step.</p></div>
     <div class="footer-col"><h4>Who we serve</h4><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="b2b.html">Enterprise</a></div>
-    <!-- FIX 3: Terms and Shipping added to /docs/ paths -->
     <div class="footer-col"><h4>Useful pages</h4><a href="courier-service-himachal-pradesh.html">Courier in Himachal</a><a href="how-it-works.html">How It Works</a><a href="index.html#routes">Routes</a><a href="tracking.html">Track a parcel</a><a href="/posts/">Guides</a><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="/docs/terms-of-service.html">Terms of Service</a><a href="/docs/shipping-policy.html">Shipping Policy</a></div>
     <div class="footer-col"><h4>Contact</h4><a href="mailto:admin@patwadi.com">admin@patwadi.com</a><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a></div>
   </div>
@@ -647,15 +692,15 @@ document.getElementById('bookForm').addEventListener('submit',function(e){
   const band=dispatchBand[to]||'48hr';
   const dateStr=new Date(date+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   const gstLine=gst?'\nGST invoice required: Yes':'';
-  const msg=`Hi Patwadi team. Booking inquiry:\n\nFrom: ${from}\nTo: ${to}\nDate: ${dateStr}${gstLine}\n\nPlease confirm slot and quote. Thank you.`;
+  const pkgVal=document.querySelector('input[name="packaging"]:checked')?.value||'none';
+  const pkgLabels={none:'',bubble_mailer:'Bubble mailer (7×10 in) · ₹10',bubble_wrap:'Bubble wrap · ₹10',small_box:'Small box · ₹10'};
+  const pkgLine=pkgVal!=='none'?'\nPackaging requested: '+pkgLabels[pkgVal]:'';
+  const msg=`Hi Patwadi team. Booking inquiry:\n\nFrom: ${from}\nTo: ${to}\nDate: ${dateStr}${gstLine}${pkgLine}\n\nPlease confirm slot and quote. Thank you.`;
   const url=`https://wa.me/918091889969?text=${encodeURIComponent(msg)}`;
   res.innerHTML=`<span style="color:var(--ink);font-weight:600;">Route: ${from} \u2192 ${to}. ${band} dispatch.</span> <a href="${url}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:var(--orange);color:#fff;font-weight:700;font-size:0.78rem;padding:5px 14px;border-radius:6px;text-decoration:none;margin-left:8px;">Confirm booking \u2192</a>`;
   window.open(url,'_blank');
 });
 (function(){const cities=['Jalandhar','Ludhiana','Amritsar','Chandigarh','Mohali','Panchkula','Ambala','Panipat','Gurugram','Delhi','Noida','Shimla','Mandi','Manali','Dharamshala','Jammu','Srinagar','Dehradun','Ahmedabad','Surat','Mumbai','Pune','Chennai','Coimbatore','Madurai','Trichy','Salem','Bangalore','Mysore','Hyderabad','Tirupati','Vijayawada','Kochi'];const sep='<span style="display:inline-block;width:2px;height:10px;background:rgba(255,255,255,0.2);margin:0 14px;vertical-align:middle;border-radius:1px;"></span>';const html=cities.map(c=>`<span style="display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;font-family:monospace;"><span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;flex-shrink:0;"></span><span style="font-weight:600;color:#fff;">${c}</span></span>${sep}`).join('');const t=document.getElementById('ticker');t.innerHTML=html+html;let pos=0;const w=()=>t.scrollWidth/2;function tick(){if(!t.parentElement._paused){pos-=0.45;if(Math.abs(pos)>=w())pos=0;t.style.transform=`translateX(${pos}px)`;}requestAnimationFrame(tick);}requestAnimationFrame(tick);t.parentElement.addEventListener('mouseenter',()=>t.parentElement._paused=true);t.parentElement.addEventListener('mouseleave',()=>t.parentElement._paused=false);})();
-function buildGrid(tbodyId,rowRegs,colRegs){const tbody=document.getElementById(tbodyId);if(!tbody)return;rowRegs.forEach(fr=>{const tr=document.createElement('tr');const th=document.createElement('td');th.textContent=regionLabels[fr];tr.appendChild(th);colRegs.forEach(to=>{const td=document.createElement('td');if(fr===to)td.innerHTML='<span style="color:#CBD5E1;">-</span>';else if(corridors[fr]?.includes(to))td.innerHTML='<span style="color:#16a34a;font-weight:700;">Y</span>';else td.innerHTML='<span style="color:#E2E8F0;">N</span>';tr.appendChild(td);});tbody.appendChild(tr);});}
-buildGrid('corridorGridNorth',['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand']);
-buildGrid('corridorGridSouth',['TamilNadu','Karnataka','AndhraTelangana','Kerala'],['TamilNadu','Karnataka','AndhraTelangana','Kerala']);
 const lanesGrids=document.querySelectorAll('.lanes-outer-grid');function fixLanes(){lanesGrids.forEach(g=>{g.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr 1fr';});}fixLanes();window.addEventListener('resize',fixLanes);
 </script>
 </body>
