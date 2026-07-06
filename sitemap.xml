@@ -101,7 +101,28 @@
     <priority>0.79</priority>
   </url>
 
-  <!-- Route authority and comparison content -->
+  <!-- Route authority, travel, student, and compliance guides -->
+  <url>
+    <loc>https://patwadi.com/posts/delhi-to-manali-shipping-guide.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/end-of-semester-shipping-guide.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.77</priority>
+  </url>
+
+  <url>
+    <loc>https://patwadi.com/posts/gst-invoice-intercity-shipments.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.74</priority>
+  </url>
+
   <url>
     <loc>https://patwadi.com/posts/manali-to-keylong-jispa-parcel-delivery.html</loc>
     <lastmod>2026-07-04</lastmod>
@@ -176,4 +197,3 @@
   </url>
 
 </urlset>
-
