@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Invoices for Intercity Shipments: What You Need at Booking · Patwadi</title>
+  <meta name="description" content="When your Patwadi shipment needs a GST invoice, when it doesn't, and how to request one in thirty seconds at booking.">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--orange:#F05A1A;--orange-dk:#D44D14;--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E8DED2;--page-bg:#FFF8F1;--warm-bg:#FFF3E8;--surface:#F8EFE4;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;scroll-behavior:smooth;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--page-bg);-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--orange);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;transition:background .15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .art-hero{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:52px 24px 44px;}
+    .art-hero-inner{max-width:720px;margin:0 auto;}
+    .art-cat{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:4px;background:var(--orange);color:#fff;margin-bottom:18px;}
+    .art-h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.03em;margin-bottom:14px;}
+    .art-meta{font-size:0.78rem;color:rgba(255,255,255,.45);display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+    .art-meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.25);display:inline-block;}
+    .art-wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px;}
+    .art-body{font-size:1rem;line-height:1.85;color:#374151;}
+    .art-body p{margin-bottom:1.4em;}
+    .art-body h2{font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin:2.2em 0 .7em;padding-bottom:.5em;border-bottom:2px solid var(--border);}
+    .art-body h3{font-size:1rem;font-weight:700;color:var(--ink);margin:1.6em 0 .5em;}
+    .art-body strong{font-weight:700;color:var(--ink);}
+    .art-body ul{margin:0 0 1.4em 1.2em;display:flex;flex-direction:column;gap:.5em;}
+    .art-body li{line-height:1.7;}
+    .art-callout{background:var(--warm-bg);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:2em 0;font-size:.9rem;color:var(--ink);line-height:1.7;}
+    .art-callout strong{display:block;margin-bottom:4px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);}
+    .yn-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.8em 0;}
+    .yn-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;}
+    .yn-head{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+    .yn-head.yes{color:#16a34a;}.yn-head.no{color:#94A3B8;}
+    .yn-body{font-size:.82rem;color:var(--mid);line-height:1.65;display:flex;flex-direction:column;gap:5px;}
+    .related{background:var(--surface);border-top:1px solid var(--border);padding:48px 24px;}
+    .related-inner{max-width:720px;margin:0 auto;}
+    .related-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:18px;}
+    .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+    .related-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;display:block;transition:border-color .15s,transform .15s;}
+    .related-card:hover{border-color:var(--orange);transform:translateY(-1px);}
+    .related-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+    .related-title{font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.35;}
+    footer{background:var(--ink);color:#64748b;padding:28px 24px;font-size:.82rem;text-align:center;}
+    footer a{color:#64748b;text-decoration:none;margin:0 8px;}
+    footer a:hover{color:#fff;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.yn-grid{grid-template-columns:1fr;}.related-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/how-it-works.html">How It Works</a></li>
+      <li><a href="/index.html#routes">Routes</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="/index.html#book" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('navMob').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="navMob">
+    <a href="/index.html">Home</a><a href="/how-it-works.html">How It Works</a><a href="/index.html#routes">Routes</a><a href="/posts/">Guides</a>
+    <a href="/index.html#book" style="margin-top:8px;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;">Book Now</a>
+  </div>
+</nav>
+
+<div class="art-hero">
+  <div class="art-hero-inner">
+    <span class="art-cat">Business</span>
+    <h1 class="art-h1">GST invoices for intercity shipments: what you need at booking</h1>
+    <div class="art-meta">
+      <span>4 min read</span>
+      <span class="art-meta-dot"></span>
+      <span>All corridors</span>
+      <span class="art-meta-dot"></span>
+      <span>Updated June 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="art-wrap">
+  <div class="art-body">
+
+    <p>Most personal shipments don't need a GST invoice. If you're sending semester luggage, a gift, or food from home — skip this guide.</p>
+
+    <p>If you're shipping business goods, samples, or anything where you'll need a paper trail for a tax filing, read on.</p>
+
+    <h2>Do you need one?</h2>
+
+    <div class="yn-grid">
+      <div class="yn-box">
+        <div class="yn-head yes">You need it if you're shipping</div>
+        <div class="yn-body">
+          <span>Stock between your business locations</span>
+          <span>Product samples to buyers</span>
+          <span>Business documents for a commercial transaction</span>
+          <span>Goods where you'll claim the freight cost as a business expense</span>
+        </div>
+      </div>
+      <div class="yn-box">
+        <div class="yn-head no">You don't need it for</div>
+        <div class="yn-body">
+          <span>Personal parcels or gifts</span>
+          <span>Student luggage</span>
+          <span>Food from home</span>
+          <span>Anything declared as personal effects</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>What Patwadi's invoice includes</h2>
+
+    <p>When you request a GST invoice at booking, we generate a document that includes:</p>
+
+    <ul>
+      <li>Our GSTIN</li>
+      <li>Your booking reference number</li>
+      <li>Declared goods category and value</li>
+      <li>Origin city and destination city</li>
+      <li>The freight charge and applicable tax</li>
+    </ul>
+
+    <p>This is your logistics expense record — a record of what you paid us to move something. <strong>It does not replace your own sales invoice</strong> if you're moving stock between your business's locations. You'll still need to issue that separately under your own GSTIN for the goods themselves.</p>
+
+    <h2>How to request one</h2>
+
+    <p>Select "GST invoice required" in the booking form when you fill in your route and details. When our team confirms your slot via WhatsApp, they'll ask for your GSTIN if you want it included on the invoice. That exchange takes about thirty seconds.</p>
+
+    <div class="art-callout">
+      <strong>Declare at booking, not after</strong>
+      The invoice is generated against your booking record. If you request it after your parcel has already moved, it's harder to generate correctly. Tick the box when you book.
+    </div>
+
+    <h2>A word on declared value</h2>
+
+    <p>Your declared value is separate from the GST invoice. It affects the liability cap on your shipment — the maximum we can pay out in a damage or loss claim — not the invoice amount.</p>
+
+    <p>For the pilot period:</p>
+    <ul>
+      <li><strong>General goods:</strong> ₹10,000 declared value cap</li>
+      <li><strong>Electronics:</strong> ₹5,000 declared value cap</li>
+    </ul>
+
+    <p>If your shipment is worth significantly more than these caps, contact us before booking. We'll discuss what's possible on your specific corridor and whether additional coverage makes sense.</p>
+
+    <h2>Common scenarios</h2>
+
+    <h3>Moving stock between your own locations</h3>
+    <p>You have a manufacturing unit in one city and a retail outlet in another. You ship goods between them regularly. You need a Patwadi GST invoice for the freight. You'll also need your own stock transfer documentation for the goods — that's separate from us.</p>
+
+    <h3>Sending samples to a buyer</h3>
+    <p>The buyer needs to see what the goods look like. You ship samples. The Patwadi invoice covers the freight cost, which you can expense. The buyer may or may not need an invoice from you for the samples themselves depending on their accounting setup — that's between you and the buyer.</p>
+
+    <h3>Documents for a commercial transaction</h3>
+    <p>Physical documents that need to move between cities. If they're originals — passports, property deeds, wills — we can't ship those (see the prohibited items guide). If they're business documents, contracts, signed agreements — these ship fine; request the invoice at booking.</p>
+
+  </div>
+</div>
+
+<div class="related">
+  <div class="related-inner">
+    <div class="related-label">More guides</div>
+    <div class="related-grid">
+      <a href="/posts/delhi-to-manali-shipping-guide/" class="related-card">
+        <div class="related-cat">Himachal Pradesh</div>
+        <div class="related-title">The Delhi to Manali corridor: timings, packing, and what changes by season</div>
+      </a>
+      <a href="/posts/end-of-semester-shipping-guide/" class="related-card">
+        <div class="related-cat">Students</div>
+        <div class="related-title">End of semester: what to send ahead, what to carry, what to leave</div>
+      </a>
+      <a href="/posts/prohibited-items-full-list/" class="related-card">
+        <div class="related-cat">Packing</div>
+        <div class="related-title">What you cannot send — and what is fine with the right declaration</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="/index.html">Home</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/posts/">All guides</a>
+  <a href="/docs/privacy-policy.html">Privacy Policy</a>
+  <a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a>
+  <div style="margin-top:14px;color:#475569;">&copy; 2026 Patwadi Logistics LLP. Chandigarh, India.</div>
+</footer>
+<script>document.addEventListener('click',function(e){const m=document.getElementById('navMob'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});</script>
+</body>
+</html>
