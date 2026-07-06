@@ -353,11 +353,11 @@
             <div class="book-field">
               <div class="book-label">Package type</div>
               <select id="pkgType" class="book-select" onchange="calcVWT();updateDimHint()" aria-label="Package type">
-                <option value="carton">Carton / Box</option>
-                <option value="suitcase">Suitcase / Trolley</option>
-                <option value="duffel">Duffel / Sports bag</option>
-                <option value="trek">Trek / Gear bag</option>
-                <option value="other">Other</option>
+                <option value="letter">Letter / Documents</option>
+                <option value="small_parcel">Small parcel</option>
+                <option value="medium_parcel">Medium parcel</option>
+                <option value="carton">Large parcel / Carton</option>
+                <option value="other">Extra large — contact us</option>
               </select>
             </div>
           </div>
@@ -405,7 +405,7 @@
           <input type="hidden" id="shipType" value="Parcel">
           <div class="dim-hint" id="dimLimitHint">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#F05A1A" stroke-width="1.2"/><path d="M6.5 5.5v4M6.5 4h.01" stroke="#F05A1A" stroke-width="1.4" stroke-linecap="round"/></svg>
-            <span id="dimLimitText">Max for Carton / Box: 60&times;45&times;40 cm, 20 kg</span>
+            <span id="dimLimitText">Max for Letter / Documents: 35&times;25&times;2 cm, 0.5 kg</span>
           </div>
           <div class="vwt-result" id="vwtResult">Enter dimensions and weight to see chargeable weight</div>
           <form id="bookForm"><button type="submit" class="book-submit">Book Now &rarr;</button></form>
@@ -641,7 +641,22 @@
 <script>
 function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');}
 document.addEventListener('click',function(e){const m=document.getElementById('mobileNav'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});
-document.querySelectorAll('.ship-tab').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.ship-tab').forEach(b=>b.classList.remove('active'));this.classList.add('active');const t=document.getElementById('shipType');if(t)t.value=this.dataset.type;});});
+const TAB_PACKAGES={
+  Parcel:[{value:'letter',label:'Letter / Documents'},{value:'small_parcel',label:'Small parcel'},{value:'medium_parcel',label:'Medium parcel'},{value:'carton',label:'Large parcel / Carton'},{value:'other',label:'Extra large — contact us'}],
+  Luggage:[{value:'suitcase',label:'Suitcase / Trolley'},{value:'duffel',label:'Duffel / Sports bag'},{value:'trek',label:'Trek / Gear bag'},{value:'carton',label:'Carton / Box'}],
+  Business:[{value:'carton',label:'Carton / Box'},{value:'other',label:'Other — contact us for custom'}],
+  Graduation:[{value:'carton',label:'Carton / Box (semester)'},{value:'suitcase',label:'Suitcase / Trolley'},{value:'duffel',label:'Duffel / Sports bag'},{value:'trek',label:'Trek / Gear bag'}]
+};
+function updatePkgTypeForTab(tabType){
+  const sel=document.getElementById('pkgType');
+  if(!sel)return;
+  const opts=TAB_PACKAGES[tabType]||TAB_PACKAGES.Parcel;
+  sel.innerHTML='';
+  opts.forEach(o=>{const el=document.createElement('option');el.value=o.value;el.textContent=o.label;sel.appendChild(el);});
+  sel.value=opts[0].value;
+  calcVWT();updateDimHint();
+}
+document.querySelectorAll('.ship-tab').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.ship-tab').forEach(b=>b.classList.remove('active'));this.classList.add('active');const t=document.getElementById('shipType');if(t)t.value=this.dataset.type;updatePkgTypeForTab(this.dataset.type);});});
 const regions={Punjab:['Jalandhar','Ludhiana','Amritsar','Pathankot','Phagwara','Hoshiarpur','Kapurthala','Batala'],Chandigarh:['Chandigarh','Mohali','Panchkula','Zirakpur'],Haryana:['Ambala','Panipat','Karnal','Sonipat','Rohtak','Gurugram','Faridabad'],Delhi:['Delhi','Noida','Ghaziabad'],HP:['Shimla','Mandi','Manali','Dharamshala','Kullu','Bilaspur','Solan','Kangra','Palampur'],JK:['Jammu','Katra','Udhampur','Srinagar'],Uttarakhand:['Dehradun'],Gujarat:['Ahmedabad','Surat','Vadodara','Rajkot'],Maharashtra:['Mumbai','Pune'],TamilNadu:['Chennai','Coimbatore','Madurai','Trichy','Salem','Tirunelveli','Vellore'],Karnataka:['Bangalore','Mysore','Hosur'],AndhraTelangana:['Hyderabad','Tirupati','Vijayawada','Visakhapatnam'],Kerala:['Kochi','Thiruvananthapuram']};
 const regionLabels={Punjab:'Punjab',Chandigarh:'Chandigarh and Belt',Haryana:'Haryana',Delhi:'Delhi NCR',HP:'Himachal Pradesh',JK:'Jammu and Kashmir',Uttarakhand:'Uttarakhand',Gujarat:'Gujarat',Maharashtra:'Maharashtra',TamilNadu:'Tamil Nadu',Karnataka:'Karnataka',AndhraTelangana:'Andhra and Telangana',Kerala:'Kerala'};
 const corridors={Punjab:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Chandigarh:['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],Haryana:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Delhi:['Punjab','Chandigarh','Haryana','Delhi','HP','JK','Uttarakhand'],HP:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],JK:['Punjab','Chandigarh','Haryana','Delhi','HP','JK'],Uttarakhand:['Chandigarh','Haryana','Delhi','JK','Uttarakhand'],Gujarat:['Gujarat','Maharashtra'],Maharashtra:['Gujarat','Maharashtra'],TamilNadu:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],Karnataka:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],AndhraTelangana:['TamilNadu','Karnataka','AndhraTelangana','Kerala'],Kerala:['TamilNadu','Karnataka','AndhraTelangana','Kerala']};
@@ -657,8 +672,8 @@ tS.addEventListener('change',function(){tC.innerHTML='<option value="">Select ci
 tC.addEventListener('change',function(){const dt=document.getElementById('dispatchText');if(dt)dt.textContent=this.value?dispatchBand[this.value]||'48hr'+' dispatch to '+this.value:'';resetResult();});
 function resetResult(){const r=document.getElementById('bookResult');r.innerHTML="Fill in your route and item details above.";r.style.color='#94A3B8';}
 document.getElementById('pickupDate').min=new Date().toISOString().split('T')[0];
-const maxDims={carton:[60,45,40,20],suitcase:[75,50,30,25],duffel:[65,35,35,20],trek:[80,40,30,18],other:[100,80,60,30]};
-const dimLabels={carton:{cm:'60x45x40 cm, 20 kg',in:'23.6x17.7x15.7 in, 44 lbs',name:'Carton / Box'},suitcase:{cm:'75x50x30 cm, 25 kg',in:'29.5x19.7x11.8 in, 55 lbs',name:'Suitcase'},duffel:{cm:'65x35x35 cm, 20 kg',in:'25.6x13.8x13.8 in, 44 lbs',name:'Duffel bag'},trek:{cm:'80x40x30 cm, 18 kg',in:'31.5x15.7x11.8 in, 40 lbs',name:'Trek bag'},other:{cm:'100x80x60 cm, 30 kg',in:'39.4x31.5x23.6 in, 66 lbs',name:'Other'}};
+const maxDims={letter:[35,25,2,0.5],small_parcel:[35,25,15,5],medium_parcel:[50,35,25,10],carton:[60,45,40,20],suitcase:[75,50,30,25],duffel:[65,35,35,20],trek:[80,40,30,18],other:[100,80,60,30]};
+const dimLabels={letter:{cm:'35x25x2 cm, 0.5 kg',in:'13.8x9.8x0.8 in, 1.1 lbs',name:'Letter / Documents'},small_parcel:{cm:'35x25x15 cm, 5 kg',in:'13.8x9.8x5.9 in, 11 lbs',name:'Small parcel'},medium_parcel:{cm:'50x35x25 cm, 10 kg',in:'19.7x13.8x9.8 in, 22 lbs',name:'Medium parcel'},carton:{cm:'60x45x40 cm, 20 kg',in:'23.6x17.7x15.7 in, 44 lbs',name:'Large parcel / Carton'},suitcase:{cm:'75x50x30 cm, 25 kg',in:'29.5x19.7x11.8 in, 55 lbs',name:'Suitcase'},duffel:{cm:'65x35x35 cm, 20 kg',in:'25.6x13.8x13.8 in, 44 lbs',name:'Duffel bag'},trek:{cm:'80x40x30 cm, 18 kg',in:'31.5x15.7x11.8 in, 40 lbs',name:'Trek bag'},other:{cm:'100x80x60 cm, 30 kg',in:'39.4x31.5x23.6 in, 66 lbs',name:'Other'}};
 let shipUnits=1;
 function changeUnits(d){shipUnits=Math.max(1,Math.min(99,shipUnits+d));document.getElementById('unitCount').textContent=shipUnits;calcVWT();}
 function calcVWT(){
