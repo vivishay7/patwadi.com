@@ -1,94 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patwadi Refunds, Cancellations &amp; Claims</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refunds, Cancellations &amp; Claims · Patwadi</title>
+  <meta name="description" content="Patwadi cancellation and refund policy, damage and loss claims, and what to do if something goes wrong with your shipment.">
+  <link rel="canonical" href="https://patwadi.com/docs/refunds-policy.html">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1 { color: #FF3A22; }
-    h2 { margin-top: 1.5rem; }
-    a { color: #FF3A22; }
+    :root{--orange:#F05A1A;--orange-dk:#D44D14;--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E8DED2;--page-bg:#FFF8F1;--warm-bg:#FFF3E8;--surface:#F8EFE4;--blue:#1D4ED8;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;scroll-behavior:smooth;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--page-bg);-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--orange);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;transition:background .15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .ph{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:40px 24px 36px;}
+    .ph-inner{max-width:900px;margin:0 auto;}
+    .ph h1{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:10px;}
+    .ph p{font-size:.88rem;color:rgba(255,255,255,.55);max-width:520px;line-height:1.7;}
+    .ph-meta{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:10px;}
+    .quick-wrap{max-width:900px;margin:0 auto;padding:40px 24px 0;}
+    .quick-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px;}
+    .quick-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px;}
+    .quick-card.green{border-top:3px solid #16a34a;}
+    .quick-card.amber{border-top:3px solid #d97706;}
+    .quick-card.red{border-top:3px solid #dc2626;}
+    .quick-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ghost);margin-bottom:2px;}
+    .quick-status{font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:4px;}
+    .quick-status.green{color:#16a34a;}
+    .quick-status.amber{color:#d97706;}
+    .quick-status.red{color:#dc2626;}
+    .quick-body{font-size:.8rem;color:var(--mid);line-height:1.6;}
+    .content-wrap{max-width:900px;margin:0 auto;padding:0 24px 80px;}
+    .content-section{margin-bottom:52px;}
+    .section-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+    .section-h2{font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:18px;}
+    .tier-table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+    .tier-table th{text-align:left;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ghost);padding:10px 14px;border-bottom:2px solid var(--border);background:var(--surface);}
+    .tier-table td{padding:14px;border-bottom:1px solid var(--border);font-size:.85rem;color:var(--mid);vertical-align:top;line-height:1.6;}
+    .tier-table td:first-child{font-weight:600;color:var(--ink);width:34%;}
+    .tier-table tr:last-child td{border-bottom:none;}
+    .tier-note{font-size:.75rem;color:var(--ghost);margin-top:8px;line-height:1.6;}
+    .steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+    .step{display:flex;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border);align-items:flex-start;}
+    .step:last-child{border-bottom:none;}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+    .step-body{flex:1;}
+    .step-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+    .step-desc{font-size:.8rem;color:var(--mid);line-height:1.65;}
+    .caps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+    .cap-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;}
+    .cap-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ghost);margin-bottom:6px;}
+    .cap-amount{font-size:1.2rem;font-weight:800;color:var(--ink);}
+    .cap-desc{font-size:.75rem;color:var(--mid);margin-top:4px;line-height:1.5;}
+    .callout{background:var(--warm-bg);border:1px solid #FED7AA;border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:20px;font-size:.82rem;color:var(--ink);line-height:1.7;}
+    .callout strong{font-weight:700;display:block;margin-bottom:3px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);}
+    .not-covered{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;}
+    .not-covered ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .not-covered li{display:flex;gap:10px;font-size:.82rem;color:var(--mid);line-height:1.6;}
+    .not-covered li::before{content:'✕';color:#dc2626;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:3px;}
+    .contact-band{background:var(--ink);border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+    .contact-band h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:4px;}
+    .contact-band p{color:#64748b;font-size:.82rem;}
+    .contact-btns{display:flex;gap:10px;flex-wrap:wrap;}
+    .btn-wa{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:#25D366;color:#fff;font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;}
+    .btn-email{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;background:transparent;color:#fff;font-weight:700;font-size:.82rem;border-radius:8px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);}
+    footer{background:var(--ink);color:#64748b;padding:28px 24px;font-size:.82rem;text-align:center;margin-top:0;}
+    footer a{color:#64748b;text-decoration:none;margin:0 8px;}
+    footer a:hover{color:#fff;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.quick-grid{grid-template-columns:1fr;}.caps-grid{grid-template-columns:1fr;}.contact-band{flex-direction:column;text-align:center;}.contact-btns{justify-content:center;}}
   </style>
 </head>
 <body>
-  <h1>Refunds, Cancellations &amp; Claims</h1>
-  <p><strong>Effective:</strong> 14 June 2026</p>
-  <p>
-    This page explains what happens if you need to cancel a booking, your parcel is delayed, or something goes
-    wrong in transit. It aligns with our <a href="terms.html">Terms of Service</a> and
-    <a href="shipping.html">Shipping Policy</a>.
-  </p>
-
-  <h2>Cancellations</h2>
-  <p>All bookings are prepaid. Refunds go back to your original payment method within <strong>5&ndash;7 business days</strong>.</p>
-  <ul>
-    <li><strong>Before pickup:</strong> If your parcel has not yet been collected, you receive a <strong>full refund</strong>.</li>
-    <li><strong>After pickup, before linehaul:</strong> If your parcel has been picked up but has not yet been handed to the linehaul conductor, you receive a <strong>50% refund</strong>. We arrange return of your parcel.</li>
-    <li><strong>Once your parcel is in linehaul transit:</strong> Cancellation is not available. Your parcel will continue to the destination city on your corridor. If Patwadi is unable to complete delivery due to an operational failure on our side, we will refund you in full.</li>
-  </ul>
-  <p>To cancel, contact us on WhatsApp with your order ID.</p>
-
-  <h2>Delays</h2>
-  <p>
-    If the recipient is not available, your delivery partner will make <strong>two attempts at no extra charge</strong>.
-    The second attempt is made within <strong>24 hours</strong> of the first.
-  </p>
-  <p>
-    If both attempts fail, your parcel is held at <strong>&#8377;100 per day</strong>, starting immediately after the
-    second attempt. There is no grace period. We hold parcels for up to <strong>7 days</strong>. After that, we begin
-    a return to you. <strong>Return freight</strong> is charged at the same rate as your original booking.
-  </p>
-  <p>
-    While we investigate a serious delay or routing problem, your tracking may show
-    &ldquo;Delivery exception &mdash; our team is resolving it.&rdquo; We will keep you updated by WhatsApp.
-  </p>
-
-  <h2>Damage</h2>
-  <p>You must report damage within <strong>48 hours</strong> of delivery.</p>
-  <p>
-    When you claim, send us your order ID and clear photos of the damage. We compare your photos against our custody
-    record &mdash; photos taken at every handoff and at delivery &mdash; to determine when damage occurred.
-  </p>
-  <p>
-    Compensation is limited to the <strong>lesser of your declared value or &#8377;5,000</strong>. This cap applies
-    until cargo insurance is in place. We do not cover indirect loss, business loss, or sentimental value.
-  </p>
-  <p>
-    Fragile items must be properly packed. If you shipped with packaging we flagged as inadequate, our liability for
-    packaging-related damage is reduced.
-  </p>
-
-  <h2>Lost Parcels</h2>
-  <p>
-    A parcel is considered <strong>overdue</strong> if it has not been delivered within <strong>48 hours</strong> of
-    the expected arrival time for your corridor.
-  </p>
-  <p>
-    If your parcel is overdue, contact us immediately. We trace the custody record and work to recover your parcel.
-    If it cannot be recovered, compensation is limited to the <strong>lesser of your declared value or &#8377;5,000</strong>,
-    plus a <strong>refund of your freight charges</strong>.
-  </p>
-  <p>Always declare an accurate value at booking. Undervalued parcels may receive less compensation.</p>
-
-  <h2>How to Claim</h2>
-  <p>For cancellations, damage, lost parcels, delivery problems, or any refund request:</p>
-  <p>
-    <strong>WhatsApp: <a href="https://wa.me/918091889969">+91 80918 89969</a></strong><br />
-    Include your <strong>order ID</strong> and a short description. For damage claims, attach photos.
-  </p>
-  <p>
-    Support hours: <strong>8am&ndash;10pm IST, daily.</strong> We aim to respond within 2 hours during support hours,
-    and within 30 minutes for active in-transit exceptions.
-  </p>
-  <p>Email: <a href="mailto:support@patwadi.com">support@patwadi.com</a></p>
-
-  <h2>Legal</h2>
-  <p>
-    <a href="privacy-policy.html">Privacy Policy</a> &middot;
-    <a href="terms.html">Terms of Service</a> &middot;
-    <a href="shipping.html">Shipping Policy</a>
-  </p>
-  <p><em>Patwadi Logistics LLP</em></p>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/how-it-works.html">How It Works</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <a href="/index.html#book" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" onclick="document.getElementById('mNav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="mNav">
+    <a href="/index.html">Home</a><a href="/how-it-works.html">How It Works</a><a href="/posts/">Guides</a>
+    <a href="/index.html#book" style="margin-top:8px;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;">Book Now</a>
+  </div>
+</nav>
+<div class="ph">
+  <div class="ph-inner">
+    <h1>Refunds, Cancellations &amp; Claims</h1>
+    <p>When you need to cancel a booking, request a refund, or report a problem with your shipment &mdash; this page covers all three.</p>
+    <p class="ph-meta">Effective: 14 June 2026 &nbsp;&middot;&nbsp; Patwadi Logistics LLP</p>
+  </div>
+</div>
+<div class="quick-wrap">
+  <div class="quick-grid">
+    <div class="quick-card green">
+      <div class="quick-eyebrow">Before pickup</div>
+      <div class="quick-status green">Full refund</div>
+      <div class="quick-body">Cancel any time before the agent arrives. Full refund to your original payment method within 5&ndash;7 business days.</div>
+    </div>
+    <div class="quick-card amber">
+      <div class="quick-eyebrow">After pickup, before dispatch</div>
+      <div class="quick-status amber">50% refund</div>
+      <div class="quick-body">Agent has collected your parcel but it has not left the city yet. Return delivery is arranged. Contact us immediately.</div>
+    </div>
+    <div class="quick-card red">
+      <div class="quick-eyebrow">Once in linehaul transit</div>
+      <div class="quick-status red">No cancellation</div>
+      <div class="quick-body">Parcel is moving between cities. We cannot reverse a linehaul mid-journey. Your parcel continues to destination.</div>
+    </div>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="content-section">
+    <div class="section-eyebrow">Cancellations</div>
+    <h2 class="section-h2">Cancellation policy</h2>
+    <table class="tier-table">
+      <thead><tr><th>Stage</th><th>Refund</th><th>How to cancel</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Before pickup (agent not yet en route)</td>
+          <td>100% of the booking amount, excluding payment gateway fees</td>
+          <td>WhatsApp us with your booking reference. Same-day processing.</td>
+        </tr>
+        <tr>
+          <td>After pickup — agent en route or parcel collected, not yet dispatched to linehaul</td>
+          <td>50% refund. We arrange return of your parcel. Return delivery is included.</td>
+          <td>WhatsApp us immediately. The sooner you contact us, the more we can recover.</td>
+        </tr>
+        <tr>
+          <td>Once dispatched to linehaul transit</td>
+          <td>No refund. Shipment continues to destination. If Patwadi fails to complete delivery due to an operational error on our side, you receive a full refund.</td>
+          <td>Cancellation not available. Contact us if there is a genuine emergency and we will advise.</td>
+        </tr>
+        <tr>
+          <td>Rescheduling (change of date)</td>
+          <td>No charge if rescheduled at least 24 hours before the original collection window</td>
+          <td>WhatsApp us with your booking reference and preferred new date.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <strong>How to cancel</strong>
+      WhatsApp us at <a href="https://wa.me/918091889969" style="color:var(--orange);font-weight:600;">+91 80918 89969</a> with your booking reference and the reason. Do not simply not answer the door — this counts as a failed delivery attempt, not a cancellation, and different charges apply.
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-eyebrow">Refunds</div>
+    <h2 class="section-h2">How refunds work</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Contact us with your order ID</div><div class="step-desc">WhatsApp or email with your booking reference, the reason for the refund request, and any supporting information. Do this within 48 hours of the event that triggered the request.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">We verify the custody record</div><div class="step-desc">We check handoff timestamps and photos at each custody step. For cancellations this is straightforward. For damage or loss claims, the custody evidence determines where responsibility sits.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Decision within 3 business days</div><div class="step-desc">We send you a written decision via WhatsApp or email. If a refund is approved, we initiate it immediately.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Refund to original payment method</div><div class="step-desc">Approved refunds return to the original payment method (UPI, card, or net banking) within 5&ndash;7 business days from approval. Exact timeline depends on your bank.</div></div></div>
+    </div>
+    <p class="tier-note" style="margin-top:16px;">We do not issue refunds in cash. All refunds go to the original payment method only.</p>
+  </div>
+  <div class="content-section">
+    <div class="section-eyebrow">Delays &amp; holding</div>
+    <h2 class="section-h2">What happens if delivery cannot be completed</h2>
+    <p style="font-size:.85rem;color:var(--mid);line-height:1.7;margin-bottom:16px;">If the recipient is unavailable, your delivery partner makes <strong>two attempts at no extra charge</strong>. The second attempt is within 24 hours of the first.</p>
+    <p style="font-size:.85rem;color:var(--mid);line-height:1.7;margin-bottom:16px;">After two failed attempts, your parcel is held for up to <strong>7 days</strong> at <strong>&#8377;100 per day</strong>, starting immediately after the second failed attempt. After the 7-day hold, we begin return to sender at the same rate as the original booking.</p>
+    <div class="callout">
+      <strong>Tracking exceptions</strong>
+      While we investigate a serious delay, your tracking may show &ldquo;Delivery exception &mdash; our team is resolving it.&rdquo; We will update you by WhatsApp while the investigation is open.
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-eyebrow">Claims</div>
+    <h2 class="section-h2">Damage and lost parcels</h2>
+    <div class="callout">
+      <strong>48-hour time limit</strong>
+      All damage and loss claims must be raised within <strong>48 hours of delivery</strong>. For overdue parcels, contact us as soon as the parcel is late. Claims raised after this window cannot be accepted.
+    </div>
+    <h3 style="font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:12px;">Compensation caps</h3>
+    <div class="caps-grid">
+      <div class="cap-card">
+        <div class="cap-label">General goods</div>
+        <div class="cap-amount">Up to &#8377;5,000</div>
+        <div class="cap-desc">Declared value, capped at &#8377;5,000. Clothing, books, household items, documents, care packages.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-label">Electronics</div>
+        <div class="cap-amount">Up to &#8377;5,000</div>
+        <div class="cap-desc">Declared value, capped at &#8377;5,000. Phones, tablets, chargers, accessories.</div>
+      </div>
+    </div>
+    <p style="font-size:.82rem;color:var(--mid);line-height:1.7;margin-bottom:20px;">These caps apply to declared value, not purchase price. Always declare an accurate value at booking &mdash; undervalued parcels may receive less compensation. If your parcel is worth more than the cap, contact us before booking.</p>
+    <h3 style="font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:12px;">What to include in a damage or loss claim</h3>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Your booking reference (order ID)</div><div class="step-desc">The reference from your booking confirmation. Format: PW followed by digits.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Photos of the damage (damage claims)</div><div class="step-desc">Clear photographs of the damaged item and packaging as received. Take these before unpacking fully.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Contents description and declared value</div><div class="step-desc">Brief description of what was in the parcel and the declared value. A receipt or invoice helps for higher-value items.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Description of what went wrong</div><div class="step-desc">What you received, how it differed from what was sent, any relevant context.</div></div></div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="section-eyebrow">Exclusions</div>
+    <h2 class="section-h2">What we do not cover</h2>
+    <div class="not-covered">
+      <ul>
+        <li>Items not declared at booking — undeclared fragile items are not covered for damage</li>
+        <li>Items on the prohibited items list — these are not eligible for claims</li>
+        <li>Damage from inadequate packaging you applied before the agent arrived</li>
+        <li>Claims raised more than 48 hours after delivery or the scheduled delivery date</li>
+        <li>Value above the declared caps (&#8377;5,000 for general goods and electronics)</li>
+        <li>Cash, gold, jewellery, or original legal documents — these are prohibited items</li>
+        <li>Consequential or business loss arising from a delay or non-delivery</li>
+        <li>Natural disaster, extreme weather, or force majeure events beyond Patwadi&rsquo;s control</li>
+      </ul>
+    </div>
+  </div>
+  <div class="contact-band">
+    <div>
+      <h3>Need to raise a cancellation or claim?</h3>
+      <p>WhatsApp is the fastest channel. Have your booking reference ready.</p>
+    </div>
+    <div class="contact-btns">
+      <a href="https://wa.me/918091889969" target="_blank" class="btn-wa">&#x1F4AC; WhatsApp us</a>
+      <a href="mailto:admin@patwadi.com" class="btn-email">admin@patwadi.com</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <a href="/index.html">Home</a>
+  <a href="/how-it-works.html">How It Works</a>
+  <a href="/docs/privacy-policy.html">Privacy Policy</a>
+  <a href="/docs/terms-of-service.html">Terms of Service</a>
+  <a href="/docs/shipping-policy.html">Shipping Policy</a>
+  <div style="margin-top:14px;color:#475569;">&copy; 2026 Patwadi Logistics LLP. Chandigarh, India.</div>
+</footer>
+<script>document.addEventListener('click',function(e){const m=document.getElementById('mNav'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});</script>
 </body>
 </html>
