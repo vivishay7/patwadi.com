@@ -1,195 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patwadi Operator Agreement (Pilot)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operator Agreement · Patwadi</title>
+  <meta name="description" content="Patwadi Logistics LLP operator and last-mile partner agreement — roles, custody responsibilities, earnings, and conduct.">
+  <link rel="canonical" href="https://patwadi.com/docs/operator-agreement.html">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
-    h1 { color: #FF3A22; }
-    h2 { margin-top: 1.5rem; }
-    a { color: #FF3A22; }
+    :root{--blue:#1D4ED8;--blue-dk:#1E3A8A;--ink:#0F172A;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#F8FAFF;--orange:#F05A1A;--warm:#FFF8F1;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-top:3px solid var(--orange);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background .15s;}
+    .nav-links a:hover{background:#F1F5F9;color:var(--ink);}
+    .nav-cta{background:var(--orange);color:#fff;font-size:.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;transition:background .15s;}
+    .nav-cta:hover{background:#D44D14;}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mob{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+    .nav-mob.open{display:flex;}
+    .nav-mob a{display:block;padding:10px 12px;font-size:.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .nav-mob a:hover{background:#F1F5F9;}
+    .ph{background:linear-gradient(135deg,#0F172A 0%,#1E3A8A 100%);padding:26px 24px 20px;}
+    .ph-inner{max-width:960px;margin:0 auto;}
+    .ph h1{font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px;}
+    .ph p{font-size:.71rem;color:rgba(255,255,255,.45);}
+    .tab-bar{position:sticky;top:60px;z-index:100;background:#fff;border-bottom:1px solid var(--border);}
+    .tab-inner{max-width:960px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;scrollbar-width:none;}
+    .tab-inner::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;padding:10px 13px;font-size:.73rem;font-weight:500;color:var(--mid);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap;font-family:inherit;}
+    .tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600;}
+    .mob-nav{display:none;padding:10px 20px;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:60px;z-index:100;}
+    .mob-nav select{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:.82rem;color:var(--ink);background:#fff;font-family:inherit;}
+    .pol-wrap{max-width:760px;margin:0 auto;padding:26px 24px 80px;}
+    .pol-sec{display:none;}
+    .pol-sec.active{display:block;}
+    .sec-intro{font-size:.77rem;color:var(--mid);line-height:1.85;text-align:justify;margin-bottom:16px;}
+    .plain-box{background:var(--warm);border:1px solid #FED7AA;border-radius:10px;padding:18px 22px;margin-bottom:20px;}
+    .plain-box h3{font-size:.82rem;font-weight:700;color:#9A3412;margin-bottom:10px;letter-spacing:.02em;}
+    .plain-box ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+    .plain-box li{font-size:.82rem;color:var(--ink);line-height:1.65;display:flex;gap:8px;}
+    .plain-box li::before{content:'→';color:var(--orange);flex-shrink:0;font-weight:700;}
+    .acc{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+    .acc details summary{display:flex;justify-content:space-between;align-items:center;padding:11px 15px;cursor:pointer;list-style:none;gap:12px;background:#fff;transition:background .12s;}
+    .acc details summary::-webkit-details-marker{display:none;}
+    .acc details summary:hover{background:var(--surface);}
+    .acc-q{font-size:.77rem;font-weight:600;color:var(--ink);line-height:1.4;}
+    .chev{width:13px;height:13px;flex-shrink:0;color:var(--ghost);transition:transform .18s;}
+    .acc details[open] .chev{transform:rotate(180deg);}
+    .acc details[open] summary{border-bottom:1px solid var(--border);background:var(--surface);}
+    .acc details[open] .acc-q{color:var(--blue);}
+    .acc-body{padding:13px 15px;font-size:.76rem;color:var(--mid);line-height:1.85;text-align:justify;}
+    .acc-body p{margin-bottom:8px;}
+    .acc-body p:last-child{margin-bottom:0;}
+    .acc-body ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:5px;margin-top:6px;}
+    .acc-body li{display:flex;align-items:flex-start;gap:8px;font-size:.76rem;}
+    .acc-body li::before{content:'';display:block;width:3px;height:3px;background:var(--ghost);border-radius:50%;flex-shrink:0;margin-top:8px;}
+    .acc-body li strong{color:var(--ink);font-weight:600;}
+    .ccard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-top:12px;}
+    .crow{display:flex;gap:12px;align-items:flex-start;font-size:.76rem;padding:3px 0;}
+    .clbl{font-weight:600;color:var(--ink);min-width:120px;flex-shrink:0;}
+    .cval{color:var(--mid);}
+    footer{background:var(--ink);color:var(--ghost);padding:28px 24px;font-size:.82rem;text-align:center;}
+    footer a{color:#64748b;text-decoration:none;margin:0 8px;}
+    footer a:hover{color:#fff;}
+    @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.tab-bar{display:none;}.mob-nav{display:block;}.pol-wrap{padding:20px 18px 60px;}}
   </style>
 </head>
 <body>
-  <!-- DRAFT: lawyer review pending -->
-
-  <h1>Patwadi Operator Agreement (Pilot)</h1>
-  <p><strong>Between:</strong> Patwadi Logistics LLP (&ldquo;Patwadi&rdquo;)</p>
-  <p><strong>And:</strong> [Operator legal name] (&ldquo;Operator&rdquo;)</p>
-  <p><strong>Role:</strong> [ ] Local pickup partner (LMP) &nbsp; [ ] Linehaul conductor</p>
-  <p><strong>Effective date:</strong> [to be filled]</p>
-
-  <p>
-    This agreement governs the Operator&rsquo;s participation in the Patwadi intercity parcel courier network
-    during the closed pilot phase.
-  </p>
-
-  <h2>1. Scope of Services</h2>
-  <p>
-    The Operator agrees to handle parcels on the Patwadi network in accordance with this agreement,
-    the Patwadi app workflows, and instructions issued by Patwadi operations.
-  </p>
-  <p>
-    <strong>LMP operators</strong> may perform customer pickup, transfer to linehaul, receive from linehaul,
-    and final delivery to the customer, as assigned in the app.
-  </p>
-  <p>
-    <strong>Linehaul operators</strong> may create and operate intercity trips, accept parcel custody at boarding,
-    transport parcels on assigned corridors, and transfer custody at arrival, as recorded in the app.
-  </p>
-  <p>
-    The Operator must use the Patwadi app for all custody confirmations (handoff code + photo).
-    WhatsApp or verbal confirmations do not replace app-recorded custody.
-  </p>
-  <p>
-    <strong>Corridor scope.</strong> The Operator is authorised to handle parcels only on corridors explicitly
-    assigned to them by Patwadi. Assigned corridors are recorded in the Patwadi system and may be updated by
-    Patwadi at any time with reasonable notice. Handling parcels on unassigned corridors is outside the scope
-    of this agreement.
-  </p>
-
-  <h2>2. Independent Contractor Status and Third-Party Liability</h2>
-  <p>
-    The Operator is an independent contractor and not an employee, agent, partner, or joint venturer of
-    Patwadi Logistics LLP. Patwadi does not control or direct the route, schedule, speed, vehicle choice,
-    or manner of transport used by the Operator. The Operator uses their own means and equipment to perform
-    services under this agreement.
-  </p>
-  <p>
-    The Operator is solely responsible for any third-party claims, accidents, personal injuries, property damage,
-    or liabilities arising from their transport activities, including but not limited to incidents involving the
-    bus or vehicle on which parcels are being transported.
-  </p>
-  <p>
-    The Operator shall indemnify, defend, and hold harmless Patwadi Logistics LLP, its directors, and employees
-    against any claims, damages, losses, or expenses (including legal fees) arising from the Operator&rsquo;s
-    transport activities or breach of this agreement.
-  </p>
-
-  <h2>3. Custody Obligations</h2>
-  <p>
-    The Operator is responsible for parcels while they are in the Operator&rsquo;s custody on the Patwadi network.
-    Custody must be recorded in the Patwadi app at every handoff using the issued verification code and a clear
-    photo of the parcel at the point of transfer.
-  </p>
-  <ul>
-    <li>The Operator must not leave a parcel unattended in an unsecured location.</li>
-    <li>The Operator must not hand a parcel to any person who cannot provide the correct verification code for that handoff step.</li>
-    <li>Custody begins when the Operator acknowledges a handoff code and completes a custody confirmation (code + photo) in the app.</li>
-    <li>Custody ends when the Operator successfully transfers the parcel to the next party in the chain via the same process.</li>
-    <li>If a custody event shows the Operator accepted a parcel, the Operator is accountable until the next custody event is recorded.</li>
-    <li>The absence of a valid outgoing handoff record (code + photo) will be treated as a custody failure.</li>
-    <li>The Operator may not complete a handoff without the physical parcel present.</li>
-    <li>Manufacturing or falsifying a handoff record (including using a photo from a previous delivery) is grounds for immediate termination and recovery of losses.</li>
-  </ul>
-  <p>
-    <strong>Fragile items.</strong> The Operator may refuse pickup of any item that appears inadequately packaged.
-    If the Operator accepts a fragile item with packaging they have noted as inadequate (recorded via the app&rsquo;s
-    packaging acknowledgment), Patwadi&rsquo;s liability for damage from packaging failure is reduced accordingly.
-  </p>
-
-  <h2>4. Prohibited Items and Refusal</h2>
-  <p>
-    The Operator must not accept parcels containing prohibited items as defined in Patwadi&rsquo;s
-    <a href="shipping.html">Shipping Policy</a>. If the Operator identifies or reasonably suspects a prohibited item,
-    they must refuse custody and notify Patwadi support immediately. Accepting a known prohibited item is a
-    material breach of this agreement.
-  </p>
-
-  <h2>5. Payment Terms</h2>
-  <ul>
-    <li>Patwadi will settle earnings <strong>weekly, every Monday</strong>, for parcels with a completed <code>lmp_to_customer</code> custody event in the prior 7 days.</li>
-    <li>Settlement is made to the UPI ID or bank account on file in the Operator&rsquo;s KYC record.</li>
-    <li>During the pilot phase: no earnings reserve is held.</li>
-    <li>Earnings rates and corridor-specific fees are communicated separately by Patwadi operations and may be updated with reasonable notice during the pilot.</li>
-  </ul>
-  <p>Patwadi reserves the right to withhold or deduct from settlement when:</p>
-  <ul>
-    <li>A customer dispute or chargeback is under investigation for a delivery the Operator completed.</li>
-    <li>A parcel was lost or damaged while in the Operator&rsquo;s custody, pending investigation.</li>
-    <li>A custody failure (missing handoff record, falsified proof) is identified.</li>
-    <li>The Operator is found to have accepted a prohibited item.</li>
-  </ul>
-  <p>
-    Deductions will not exceed the Operator&rsquo;s earnings for two consecutive settlement periods.
-    Patwadi will notify the Operator of any deduction and its reason within 24 hours of the settlement date.
-  </p>
-
-  <h2>6. Onboarding, KYC, and Account Status</h2>
-  <p>
-    The Operator completes KYC via the Patwadi website before activation. Patwadi admin approves the Operator
-    before operational access is granted. The Operator must keep payment and emergency contact details accurate.
-  </p>
-  <p>
-    Patwadi may suspend or terminate Operator access if <code>approval_status</code> is not approved,
-    if <code>operator_status</code> is suspended or inactive, or if the Operator breaches this agreement.
-  </p>
-
-  <h2>7. Data and Privacy</h2>
-  <p>
-    The Operator may access customer parcel and address information only as needed to perform assigned services.
-    The Operator must not copy, share, or retain customer data outside the Patwadi app except as required by law.
-  </p>
-  <p>
-    Location data may be collected during active trips for custody verification and safety. The Operator consents
-    to this collection while performing services on the network.
-  </p>
-  <p>
-    <strong>Account security.</strong> The Operator&rsquo;s Patwadi account is personal and non-transferable.
-    The Operator may not share login credentials, handoff codes, or account access with any other person.
-    Custody actions performed under the Operator&rsquo;s account are attributed to the Operator regardless of who
-    physically performed them. Account sharing is grounds for immediate termination.
-  </p>
-
-  <h2>8. Confidentiality</h2>
-  <p>
-    The Operator must not disclose non-public Patwadi business information, pricing, or operational procedures
-    to third parties without Patwadi&rsquo;s written consent.
-  </p>
-
-  <h2>9. Term and Termination</h2>
-  <p>
-    This agreement begins on the effective date and continues until terminated. Either party may terminate with
-    7 days&rsquo; written notice during the pilot phase. Patwadi may terminate immediately for material breach,
-    custody failure, falsified records, prohibited item acceptance, or account sharing.
-  </p>
-  <p>
-    Upon termination, the Operator must complete or safely transfer any parcels still in their custody.
-  </p>
-
-  <h2>10. Fraud, Suspension, and Account Enforcement</h2>
-  <p>
-    Patwadi may suspend or terminate Operator access immediately if fraud, falsified custody records, account sharing,
-    prohibited-item acceptance, or repeated custody failures are identified. During investigation, payouts may be
-    withheld per Section 5. Patwadi will notify the Operator of the reason for suspension when practicable.
-  </p>
-
-  <h2>11. Governing Law</h2>
-  <p>
-    This agreement is governed by the laws of India. Disputes will first be addressed through Patwadi operations
-    support. If unresolved, disputes are subject to arbitration under Indian law in [city to be confirmed by lawyer].
-  </p>
-
-  <h2>12. Entire Agreement</h2>
-  <p>
-    This document, together with Patwadi&rsquo;s published
-    <a href="shipping.html">Shipping Policy</a> and any written corridor or rate schedules issued by Patwadi,
-    constitutes the agreement between the parties for the pilot phase.
-  </p>
-
-  <h2>Contact</h2>
-  <p>
-    <a href="mailto:support@patwadi.com">support@patwadi.com</a> or WhatsApp:
-    <a href="https://wa.me/918091889969">+91 80918 89969</a>
-  </p>
-
-  <h2>Legal</h2>
-  <p>
-    <a href="privacy-policy.html">Privacy Policy</a> &middot;
-    <a href="terms.html">Terms of Service</a> &middot;
-    <a href="shipping.html">Shipping Policy</a> &middot;
-    <a href="refunds-policy.html">Refunds &amp; Claims</a>
-  </p>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo"><img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img">Patwadi</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/how-it-works.html">How It Works</a></li>
+      <li><a href="/drivers.html">Join Us</a></li>
+    </ul>
+    <a href="/index.html#book" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" onclick="document.getElementById('mNav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mob" id="mNav">
+    <a href="/index.html">Home</a><a href="/how-it-works.html">How It Works</a><a href="/drivers.html">Join Us</a>
+  </div>
+</nav>
+<div class="ph"><div class="ph-inner">
+  <h1>Operator Agreement</h1>
+  <p>Patwadi Logistics LLP &nbsp;&middot;&nbsp; Effective date: upon operator approval in-app &nbsp;&middot;&nbsp; Version 1.0 (Pilot)</p>
+</div></div>
+<div class="tab-bar"><div class="tab-inner">
+  <button class="tab-btn active" data-tab="overview" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" data-tab="relationship" onclick="showTab('relationship')">Relationship</button>
+  <button class="tab-btn" data-tab="role" onclick="showTab('role')">Role &amp; Corridor</button>
+  <button class="tab-btn" data-tab="custody" onclick="showTab('custody')">Custody Duties</button>
+  <button class="tab-btn" data-tab="conduct" onclick="showTab('conduct')">Conduct</button>
+  <button class="tab-btn" data-tab="earnings" onclick="showTab('earnings')">Earnings</button>
+  <button class="tab-btn" data-tab="suspension" onclick="showTab('suspension')">Suspension</button>
+  <button class="tab-btn" data-tab="liability" onclick="showTab('liability')">Liability</button>
+  <button class="tab-btn" data-tab="legal" onclick="showTab('legal')">Legal</button>
+</div></div>
+<div class="mob-nav">
+  <select onchange="showTab(this.value)">
+    <option value="overview">Overview</option>
+    <option value="relationship">Relationship</option>
+    <option value="role">Role &amp; Corridor</option>
+    <option value="custody">Custody Duties</option>
+    <option value="conduct">Conduct</option>
+    <option value="earnings">Earnings</option>
+    <option value="suspension">Suspension</option>
+    <option value="liability">Liability</option>
+    <option value="legal">Legal</option>
+  </select>
+</div>
+<div class="pol-wrap">
+  <div id="overview" class="pol-sec active">
+    <p class="sec-intro">This agreement governs the relationship between Patwadi Logistics LLP ("Patwadi") and you, as an approved operator (Last-Mile Partner or Linehaul Conductor) on the Patwadi network. By completing the in-app agreement acceptance, you confirm you have read and agree to these terms.</p>
+    <div class="plain-box">
+      <h3>In plain language — what you're agreeing to</h3>
+      <ul>
+        <li>You are an independent service provider, not an employee of Patwadi.</li>
+        <li>You are assigned to specific corridors and handle parcels only within those corridors.</li>
+        <li>Every parcel handoff requires a verified code and a photo — no exceptions.</li>
+        <li>You are responsible for the parcel while it is in your custody.</li>
+        <li>You are paid per completed delivery leg, on weekly settlement.</li>
+        <li>Refusing a prohibited item is not only your right — it is your obligation.</li>
+        <li>Mishandling, fraud, or custody failure will result in suspension and payout deductions.</li>
+      </ul>
+    </div>
+    <div class="acc"><details open><summary><span class="acc-q">Who does this agreement apply to?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>This agreement applies to all operators approved on the Patwadi platform, including:</p><ul><li><strong>Last-Mile Partners (LMPs)</strong> — responsible for collection from the sender and delivery to the recipient in their assigned city or zone.</li><li><strong>Linehaul Conductors</strong> — responsible for carrying parcels between cities on a confirmed route.</li></ul><p>Where a specific clause applies to only one operator type, it is labelled accordingly. All other clauses apply to both.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">How is acceptance recorded?</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Your acceptance of this agreement is recorded in the Patwadi database at the moment you complete the in-app agreement screen. The timestamp of acceptance (<code>operator_agreement_accepted_at</code>) is stored against your operator profile and cannot be modified after the fact. This constitutes a valid digital acceptance under the Information Technology Act, 2000.</p></div>
+    </details></div>
+  </div>
+  <div id="relationship" class="pol-sec">
+    <p class="sec-intro">Operators on the Patwadi network are independent service providers, not employees, agents, or partners of Patwadi Logistics LLP.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Independent contractor status</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You are engaged as an independent contractor. Nothing in this agreement creates, or is intended to create, a relationship of employer-employee, principal-agent, partnership, or joint venture between you and Patwadi Logistics LLP.</p><p>As an independent contractor, you are responsible for:</p><ul><li>Your own income tax filings and compliance obligations under the Income Tax Act, 1961</li><li>Any GST registration and filings if your annual receipts from Patwadi and other parties exceed the applicable threshold</li><li>Any insurance you choose to carry for yourself or your vehicle</li></ul><p>Patwadi does not deduct TDS at source except where required by applicable law for payments made to contractors above the threshold prescribed under Section 194C of the Income Tax Act.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">No exclusivity</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi does not require exclusivity. You may work with other platforms or carry out other economic activities, provided doing so does not create a conflict of interest and does not compromise your custody obligations while parcels are in your care.</p><p>You may not, while active on a Patwadi trip, carry parcels for any third party outside the Patwadi booking record.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">KYC and identity verification</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Activation on the Patwadi platform is conditional on satisfactory completion of Know Your Operator (KYO) verification, which includes:</p><ul><li>Submission of a valid government-issued photo identity document (Aadhaar card, driving licence, or voter card)</li><li>A live selfie matched to the identity document</li><li>Confirmation of your assigned corridor or city zone</li><li>Provision of a valid bank account or UPI handle for settlement</li></ul><p>You warrant that all information submitted during verification is accurate and complete. You must inform Patwadi within 7 days of any change to your identity documents, banking details, or contact information. False or incomplete KYC is grounds for immediate suspension and forfeiture of any outstanding settlement amounts.</p></div>
+    </details></div>
+  </div>
+  <div id="role" class="pol-sec">
+    <p class="sec-intro">Your activation on the Patwadi network is tied to a specific role and one or more assigned corridors. You may not act outside these assignments without written approval from Patwadi.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Last-Mile Partner (LMP) — role definition</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>As an LMP, your responsibilities include:</p><ul><li>Collecting parcels from the sender at the agreed time window</li><li>Verifying the parcel and the sender's identity using the in-app handoff code and photo</li><li>Transporting the parcel safely to the designated transit point or linehaul handoff location</li><li>At the destination end: collecting from the linehaul conductor and delivering to the recipient or holding for recipient collection up to 7 days</li><li>Completing every handoff in the app before the parcel changes hands</li></ul></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Linehaul Conductor — role definition</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>As a Linehaul Conductor, your responsibilities include:</p><ul><li>Accepting parcel handoff from the origin LMP using the in-app code and photo</li><li>Carrying the parcel on your designated bus route to the destination city</li><li>Handing over to the destination LMP using the in-app code and photo</li><li>Ensuring the parcel is not transferred to any person who is not a verified Patwadi operator on the same booking</li></ul><p>Linehaul conductors operate on confirmed trip records. You may not commence a trip without an active trip record in the app.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Corridor assignment and changes</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Your active corridors are recorded in the Patwadi system under your operator profile. You will only receive parcel assignments for corridors in your approved list.</p><p>To add, change, or remove a corridor, contact Patwadi admin via the support channel. Corridor changes take effect after admin approval — not upon request.</p><p>Operating on an unapproved corridor will result in the trip being flagged, the booking being reassigned, and potential suspension of your account.</p></div>
+    </details></div>
+  </div>
+  <div id="custody" class="pol-sec">
+    <p class="sec-intro">The Patwadi custody chain is the operational and legal backbone of every shipment. Your custody duties are non-negotiable and apply to every parcel, without exception.</p>
+    <div class="acc"><details open><summary><span class="acc-q">The four-step custody chain</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Every parcel on the Patwadi network moves through four verified handoff points:</p><ul><li><strong>Step 1:</strong> Sender → LMP (collection)</li><li><strong>Step 2:</strong> LMP → Linehaul Conductor (transit handoff)</li><li><strong>Step 3:</strong> Linehaul Conductor → Destination LMP (delivery handoff)</li><li><strong>Step 4:</strong> Destination LMP → Recipient (delivery)</li></ul><p>Each step requires a unique 4-digit code entered in the app and a photograph uploaded at the point of handoff. A handoff is not complete until both elements are confirmed in the system. The confirmed timestamp and photograph constitute an immutable custody record.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Your obligations at every handoff</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul><li>Complete the in-app verification before the parcel changes hands. Never hand over a parcel without receiving the code from the next party in the chain.</li><li>Photograph the parcel clearly — the label, the condition of packaging, and the handoff context must be visible.</li><li>Inspect the parcel visually at collection. If packaging is compromised, note the condition in the app before accepting. Accepting a damaged parcel without noting it makes you liable for that damage.</li><li>Never leave a parcel unattended. The parcel is your custody from the moment you accept the code until the next party accepts.</li></ul></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Refusing a handoff</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You have the right — and the obligation — to refuse a handoff when: the parcel visibly contains a prohibited item; the packaging is severely compromised; the code provided does not match the in-app code; or you have reasonable grounds to believe the parcel contains hazardous material.</p><p>In all refusal cases, report the incident to Patwadi admin via WhatsApp immediately, before leaving the location.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Storage — LMP destination hold</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Where a delivery attempt fails, make a second attempt within the window communicated by Patwadi admin. After two failed attempts, the parcel enters a storage hold of up to 7 days. You are responsible for maintaining the parcel in safe, dry, secure conditions during the hold. If the recipient does not collect within 7 days, the parcel is returned to sender. Return trip compensation is payable per the rate schedule.</p></div>
+    </details></div>
+  </div>
+  <div id="conduct" class="pol-sec">
+    <p class="sec-intro">Operators represent Patwadi in every interaction with senders and recipients. Conduct that damages Patwadi's reputation or harms customers is grounds for immediate suspension.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Standards of conduct</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><ul><li>Arrive within the booked time window. If delayed, notify Patwadi admin — not the customer directly.</li><li>Handle parcels with care. No dropping, stacking heavy items on fragile ones, or exposing parcels to rain or excessive heat.</li><li>Do not open any parcel under any circumstance.</li><li>Do not request or accept payment from senders or recipients. All payments are processed by Patwadi. Cash collected outside this is fraud and grounds for immediate termination.</li><li>Do not share your app login credentials. Your account is tied to your verified identity.</li><li>Do not disclose the pickup or delivery addresses of any customer to any third party.</li></ul></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Privacy obligations</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Customer personal data (names, addresses, phone numbers) is provided solely to complete your assigned delivery. You must not use it for any other purpose, contact customers outside the current booking, share it with third parties, or retain it after delivery.</p><p>Violations may constitute an offence under the Digital Personal Data Protection Act, 2023 and the IT Act, 2000, in addition to being grounds for immediate termination.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Vehicle and safety standards (Linehaul)</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>For Linehaul Conductors: parcels must be stored in a designated, secure area during transit, not mixed with personal baggage or unsecured cargo, not accessible to passengers during transit, and protected from extreme temperature, moisture, or rough handling. Any loss or damage from unsafe storage during linehaul transit is your liability.</p></div>
+    </details></div>
+  </div>
+  <div id="earnings" class="pol-sec">
+    <p class="sec-intro">Operators are paid per completed delivery leg on a weekly settlement cycle. Rates, deductions, and settlement mechanics are set out below.</p>
+    <div class="acc"><details open><summary><span class="acc-q">How earnings are calculated</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Your earnings per completed trip leg are calculated based on the rate schedule communicated at onboarding. Rates may include:</p><ul><li><strong>Pickup fee:</strong> per collection (LMP at origin)</li><li><strong>Delivery fee:</strong> per successful delivery (LMP at destination)</li><li><strong>Linehaul rate:</strong> per corridor leg, per parcel or per trip</li><li><strong>Storage compensation:</strong> per day during approved hold period</li><li><strong>Return trip compensation:</strong> per return-to-sender leg</li></ul></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Settlement cycle</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Settlement is processed weekly, covering all completed delivery legs from Monday to Sunday of the prior week. Payment is initiated every Monday and reaches your registered bank account or UPI handle within 24 to 48 hours depending on your bank.</p><p>A completed leg means: the full custody chain for that leg has been verified in the app (code + photo at both ends), and no dispute has been raised. Legs under active dispute are held until resolved.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Deductions</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi may deduct amounts from your settlement for: confirmed loss or damage during your leg where custody evidence does not establish third-party liability; incomplete handoff records resulting in a customer dispute; prohibited item handling; or fraudulent cash collection from customers.</p><p>All deductions are communicated in writing before being applied. You have 48 hours to raise a dispute. Deductions are capped at two settlement periods.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Rate changes</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi may revise the rate schedule at any time, with at least 7 days' notice via WhatsApp and in-app notification. Continuing to accept bookings after the effective date of a rate change constitutes acceptance. If you do not agree to the new rates, you may terminate before the effective date.</p></div>
+    </details></div>
+  </div>
+  <div id="suspension" class="pol-sec">
+    <p class="sec-intro">Patwadi may suspend or terminate an operator account for conduct that compromises the safety, integrity, or reliability of the network.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Immediate suspension grounds</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Your account may be suspended immediately, without prior notice, for: opening a parcel; accepting payment from a customer outside the Patwadi payment system; carrying a parcel on an unrecorded booking; providing false or fabricated custody photographs or codes; sharing app credentials; confirmed abusive behaviour toward a customer; operating on an unapproved corridor; or confirmed false KYC documents.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Suspension process — other grounds</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>For matters not listed as immediate grounds — repeated lateness, incomplete app records, multiple disputed legs — Patwadi will notify you of the issue and give you 7 days to respond before a suspension decision is made.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Appeal</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>A suspended operator may appeal within 7 days of suspension notice. Include the grounds for appeal and any supporting evidence. Patwadi will respond within 7 business days. Reinstatement is at Patwadi's sole discretion. During suspension, no new bookings are assigned, but settlement for completed pre-suspension legs proceeds on the normal cycle.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Termination</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Either party may terminate this agreement at any time by giving 7 days' written notice. Patwadi may terminate without notice for the grounds listed under immediate suspension above.</p><p>Upon termination: no new bookings will be assigned; any parcels in active custody must be handed over to the next operator or returned to Patwadi admin; outstanding settlement for completed verified legs will be paid on the next settlement cycle after termination, less any deductions.</p></div>
+    </details></div>
+  </div>
+  <div id="liability" class="pol-sec">
+    <p class="sec-intro">Liability between Patwadi and operators is limited to the custody leg and the conditions described below.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Your liability as an operator</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You are responsible for the safe custody of any parcel from the point you accept the handoff code to the point the next party in the chain accepts it. If a parcel is lost or damaged during your leg and the custody evidence does not establish that the cause arose outside your control, you may be liable for the declared value of the parcel, subject to the caps in the Patwadi <a href="/docs/shipping-policy.html">Shipping Policy</a>.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Patwadi's liability to you</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi's liability to you is limited to payment of amounts due under the rate schedule for verified completed legs. Patwadi is not liable for losses from your own conduct or negligence; changes to corridor availability or booking volume; system downtime; or external events beyond Patwadi's control.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Indemnity</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>You agree to indemnify and hold harmless Patwadi Logistics LLP, its directors, employees, and agents from any claim, loss, or liability arising from: your breach of this agreement; your negligence or misconduct during a delivery leg; your violation of any applicable law; or any third-party claim arising from your actions while carrying Patwadi parcels.</p></div>
+    </details></div>
+  </div>
+  <div id="legal" class="pol-sec">
+    <p class="sec-intro">Governing law, updates, and contact details for this agreement.</p>
+    <div class="acc"><details open><summary><span class="acc-q">Governing law and jurisdiction</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>This agreement is governed by the laws of India. Any dispute arising from or in connection with this agreement shall be subject to the exclusive jurisdiction of the competent courts at Chandigarh, Punjab, India.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Changes to this agreement</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body"><p>Patwadi may update this agreement from time to time. Material changes will be communicated with at least 14 days' notice via WhatsApp and in-app notification. Continuing to accept bookings after the effective date constitutes acceptance. If you do not agree, you may terminate before the effective date.</p></div>
+    </details></div>
+    <div class="acc"><details><summary><span class="acc-q">Contact</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="acc-body">
+        <div class="ccard">
+          <div class="crow"><span class="clbl">Operator support</span><span class="cval">WhatsApp: <a href="https://wa.me/918091889969">+91 80918 89969</a></span></div>
+          <div class="crow"><span class="clbl">Email</span><span class="cval"><a href="mailto:admin@patwadi.com">admin@patwadi.com</a></span></div>
+          <div class="crow"><span class="clbl">Support hours</span><span class="cval">8 AM – 10 PM IST, daily</span></div>
+        </div>
+      </div>
+    </details></div>
+  </div>
+</div>
+<footer>
+  <a href="/index.html">Home</a>
+  <a href="/docs/privacy-policy.html">Privacy Policy</a>
+  <a href="/docs/terms-of-service.html">Customer Terms</a>
+  <a href="/docs/shipping-policy.html">Shipping Policy</a>
+  <a href="/docs/refunds-policy.html">Refunds &amp; Claims</a>
+  <div style="margin-top:14px;color:#475569;">&copy; 2026 Patwadi Logistics LLP. Chandigarh, India.</div>
+</footer>
+<script>
+function showTab(id){document.querySelectorAll('.pol-sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));const sec=document.getElementById(id);if(sec)sec.classList.add('active');const btn=document.querySelector('[data-tab="'+id+'"]');if(btn)btn.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+document.addEventListener('click',function(e){const m=document.getElementById('mNav'),b=document.querySelector('.nav-hamburger');if(m&&b&&!m.contains(e.target)&&!b.contains(e.target))m.classList.remove('open');});
+</script>
 </body>
 </html>
