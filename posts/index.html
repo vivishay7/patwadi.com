@@ -71,9 +71,15 @@ body{font-family:"Inter",-apple-system,sans-serif;font-size:15px;color:var(--ink
 .gc-desc{font-size:0.88rem;color:var(--ghost);margin:0 0 18px;flex-grow:1;line-height:1.65;}
 .gc-meta{font-size:0.75rem;color:var(--ghost);border-top:1px solid var(--border);padding-top:12px;display:flex;justify-content:space-between;align-items:center;}
 .gc-arrow{color:var(--blue);font-weight:700;}
-.cluster-divider{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:12px 0 2px;}
+.cluster-divider{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin:16px 0 4px;}
 .cluster-divider span{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ghost);white-space:nowrap;}
 .cluster-divider hr{flex:1;height:1px;background:var(--border);border:none;}
+.featured-guide{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:12px;padding:20px 24px;margin:20px 0 4px;text-decoration:none;color:inherit;transition:border-color 0.15s,transform 0.15s;flex-wrap:wrap;}
+.featured-guide:hover{border-color:var(--orange);transform:translateY(-2px);}
+.fg-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+.fg-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.3;}
+.fg-desc{font-size:0.84rem;color:var(--mid);line-height:1.6;margin:0;}
+.fg-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:var(--orange);color:#fff;font-weight:700;font-size:0.82rem;border-radius:8px;white-space:nowrap;}
 .cta-band{background:var(--ink);border-radius:14px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
 .cta-band h2{color:#fff;font-size:1.15rem;font-weight:800;margin-bottom:6px;letter-spacing:-0.02em;}
 .cta-band p{color:#64748b;font-size:0.875rem;margin:0;}
@@ -139,132 +145,125 @@ footer{background:var(--ink);color:var(--ghost);padding:48px 24px 24px;}
     <button class="filter-btn" data-filter="b2b" type="button">For Business</button>
   </div>
 
-  <div class="guide-grid" id="guideGrid">
-
-    <!-- ── BUYING GUIDES ──────────────────────────────────────── -->
-    <div class="cluster-divider"><span>Buying guides</span><hr></div>
-
-    <a class="guide-card" data-category="b2c" href="best-courier-service-himachal-pradesh.html" style="border-color:#BFDBFE;background:#F8FBFF;">
-      <span class="gc-tag guide">Buying Guide &middot; Himachal Pradesh</span>
-      <h2 class="gc-title">Best Courier Service in Himachal? What to Look for Before Sending</h2>
-      <p class="gc-desc">The best courier for any Himachal route depends on the parcel type, delivery window, and how much local coordination the shipment needs. A practical evaluation framework before you book.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 8 min</span><span class="gc-arrow">Read &rarr;</span></div>
+  <a class="featured-guide" href="best-courier-service-himachal-pradesh.html">
+      <div>
+        <div class="fg-tag">Buying guide &middot; Himachal Pradesh</div>
+        <div class="fg-title">Best Courier Service in Himachal? What to Look for Before Sending</div>
+        <p class="fg-desc">The right courier depends on the route, parcel type, and how much local coordination is needed. A practical evaluation framework &mdash; including honest takes on India Post, DTDC, and HRTC informal cargo.</p>
+      </div>
+      <span class="fg-cta">Read guide &rarr;</span>
     </a>
 
-    <!-- ── SAME-DAY & LOCAL DELIVERY ──────────────────────────── -->
-    <div class="cluster-divider"><span>Same-day &amp; local delivery in Himachal</span><hr></div>
+    <div class="guide-grid" id="guideGrid">
 
-    <a class="guide-card" data-category="b2c" href="same-day-courier-himachal-local-businesses.html">
-      <span class="gc-tag b2c">Guide &middot; Himachal Pradesh</span>
-      <h2 class="gc-title">Same-Day Courier in Himachal for Local Businesses</h2>
-      <p class="gc-desc">Same-day and 1-day parcel coordination for Himachal businesses across active bus-linked corridors. Landmark handoffs, WhatsApp confirmation, local delivery where available.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <!-- ── HIMACHAL DELIVERY ─────────────────────────────────── -->
+      <div class="cluster-divider"><span>Himachal delivery &amp; local service</span><hr></div>
 
-    <a class="guide-card" data-category="b2c" href="kangra-same-day-courier-service.html">
-      <span class="gc-tag b2c">Guide &middot; Kangra District</span>
-      <h2 class="gc-title">Same-Day Courier in Kangra for Local Businesses</h2>
-      <p class="gc-desc">Kangra, Dharamshala, McLeod Ganj, and Palampur within 40km of each other. The dense HRTC network makes same-day delivery operationally real on active routes.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="same-day-courier-himachal-local-businesses.html">
+        <span class="gc-tag b2c">Guide &middot; Himachal Pradesh</span>
+        <h2 class="gc-title">Same-Day Courier in Himachal for Local Businesses</h2>
+        <p class="gc-desc">Same-day and 1-day parcel coordination across active bus-linked Himachal corridors. Landmark handoffs, WhatsApp confirmation, local delivery where available.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="hotel-homestay-parcel-delivery-himachal.html">
-      <span class="gc-tag b2c">Guide &middot; Hospitality &amp; Himachal</span>
-      <h2 class="gc-title">Hotel &amp; Homestay Parcel Delivery in Himachal Pradesh</h2>
-      <p class="gc-desc">Returning forgotten guest items, moving small supplies between properties, and coordinating hospitality parcels without the friction of standard courier networks.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="kangra-same-day-courier-service.html">
+        <span class="gc-tag b2c">Guide &middot; Kangra District</span>
+        <h2 class="gc-title">Same-Day Courier in Kangra for Local Businesses</h2>
+        <p class="gc-desc">Kangra, Dharamshala, McLeod Ganj and Palampur sit within 40km of each other. The dense HRTC network makes same-day delivery operationally real on active routes.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2b" href="shop-to-shop-courier-himachal.html">
-      <span class="gc-tag b2b">Guide &middot; Local Business</span>
-      <h2 class="gc-title">Shop-to-Shop Courier in Himachal for Local Businesses</h2>
-      <p class="gc-desc">Retailers, clinics, offices and service businesses sending cartons, documents and customer orders between HP towns. Route-confirmed, same-day or 1-day where active.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="hotel-homestay-parcel-delivery-himachal.html">
+        <span class="gc-tag b2c">Guide &middot; Hospitality</span>
+        <h2 class="gc-title">Hotel &amp; Homestay Parcel Delivery in Himachal</h2>
+        <p class="gc-desc">Returning forgotten guest items and moving small supplies between properties. Coordinated before the parcel leaves, not after it gets lost.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <!-- ── DEEP HILL ROUTES ───────────────────────────────────── -->
-    <div class="cluster-divider"><span>Deep hill routes &amp; Lahaul</span><hr></div>
+      <a class="guide-card" data-category="b2b" href="shop-to-shop-courier-himachal.html">
+        <span class="gc-tag b2b">Guide &middot; Local Business</span>
+        <h2 class="gc-title">Shop-to-Shop Courier in Himachal</h2>
+        <p class="gc-desc">Retailers, clinics, offices and service businesses sending cartons, documents and customer orders between HP towns. Route-confirmed, same-day or 1-day where active.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="keylong-jispa-lahaul-parcel-delivery.html">
-      <span class="gc-tag guide">Guide &middot; Lahaul, Keylong &amp; Jispa</span>
-      <h2 class="gc-title">Parcel Delivery to Keylong, Jispa &amp; Lahaul</h2>
-      <p class="gc-desc">Road-aware coordination for the Atal Tunnel corridor. Year-round accessible since 2020, but delivery windows depend on road status, weather, and local handoff availability.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 7 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="keylong-jispa-lahaul-parcel-delivery.html">
+        <span class="gc-tag guide">Guide &middot; Lahaul &amp; Keylong</span>
+        <h2 class="gc-title">Parcel Delivery to Keylong, Jispa &amp; Lahaul</h2>
+        <p class="gc-desc">Road-aware coordination for the Atal Tunnel corridor. Year-round accessible since 2020 &mdash; but delivery windows still depend on road status, weather, and handoff availability.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 7 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="manali-to-keylong-jispa-parcel-delivery.html">
-      <span class="gc-tag b2c">Guide &middot; Manali &amp; Lahaul Corridor</span>
-      <h2 class="gc-title">Parcel Delivery from Manali to Keylong and Jispa</h2>
-      <p class="gc-desc">Manali is the last commercial hub before the Atal Tunnel. Hotels, travellers and businesses send forward from here. Route confirmed before anything leaves Manali.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="manali-to-keylong-jispa-parcel-delivery.html">
+        <span class="gc-tag b2c">Guide &middot; Manali Gateway</span>
+        <h2 class="gc-title">From Manali to Keylong and Jispa</h2>
+        <p class="gc-desc">Manali is the last commercial hub before the tunnel. Hotels, travellers and businesses send forward from here. Route confirmed before anything leaves Manali.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <!-- ── FROM CHANDIGARH & DELHI ─────────────────────────────── -->
-    <div class="cluster-divider"><span>From Chandigarh &amp; Delhi into Himachal</span><hr></div>
+      <!-- ── FROM CHANDIGARH & DELHI ─────────────────────────── -->
+      <div class="cluster-divider"><span>From Chandigarh &amp; Delhi into Himachal</span><hr></div>
 
-    <a class="guide-card" data-category="b2c" href="chandigarh-to-himachal-parcel-delivery-guide.html" style="border-color:#BFDBFE;background:#F8FBFF;">
-      <span class="gc-tag guide">Pillar Guide &middot; Chandigarh &amp; Himachal</span>
-      <h2 class="gc-title">Chandigarh to Himachal Parcel Delivery: What Actually Works</h2>
-      <p class="gc-desc">Luggage, cartons, documents and care packages from Chandigarh into Shimla, Mandi, Kullu, Manali, Dharamshala and Solan. What to use, when, and why.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="chandigarh-to-himachal-parcel-delivery-guide.html" style="border-color:#BFDBFE;background:#F8FBFF;">
+        <span class="gc-tag guide">Pillar Guide</span>
+        <h2 class="gc-title">Chandigarh to Himachal Parcel Delivery: What Actually Works</h2>
+        <p class="gc-desc">Luggage, cartons, documents and care packages from Chandigarh into Shimla, Mandi, Kullu, Manali, Dharamshala and Solan. What to use, when, and why.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="delhi-to-manali-shipping-guide.html">
-      <span class="gc-tag b2c">Guide &middot; Delhi to Manali</span>
-      <h2 class="gc-title">Delhi to Manali Shipping Guide</h2>
-      <p class="gc-desc">Sending parcels, luggage and cartons from Delhi to Manali via the Chandigarh corridor. Route options, realistic delivery windows, and what to confirm before dispatch.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="delhi-to-manali-shipping-guide.html">
+        <span class="gc-tag b2c">Guide &middot; Delhi to Manali</span>
+        <h2 class="gc-title">Delhi to Manali Shipping Guide</h2>
+        <p class="gc-desc">Sending parcels, luggage and cartons from Delhi to Manali via the Chandigarh corridor. Route options, realistic windows, and what to confirm before dispatch.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="student-luggage-chandigarh-to-himachal.html">
-      <span class="gc-tag b2c">Students &middot; Chandigarh &amp; Himachal</span>
-      <h2 class="gc-title">Student Luggage Delivery from Chandigarh to Himachal</h2>
-      <p class="gc-desc">Suitcases, bedding, books and move-out bags between Chandigarh and Himachal college towns. Parents can book remotely. Route confirmed before dispatch.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="student-luggage-chandigarh-to-himachal.html">
+        <span class="gc-tag b2c">Students &middot; Chandigarh</span>
+        <h2 class="gc-title">Student Luggage Delivery from Chandigarh to Himachal</h2>
+        <p class="gc-desc">Suitcases, bedding, books and move-out bags between Chandigarh and HP college towns. Parents can book remotely. Route confirmed before dispatch.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="end-of-semester-shipping-guide.html">
-      <span class="gc-tag b2c">Students &middot; End of Semester</span>
-      <h2 class="gc-title">End of Semester Student Shipping Guide</h2>
-      <p class="gc-desc">Sending luggage, books, bedding and equipment home or to your next destination at the end of term. What to pack, what to declare, and how to book without making the trip yourself.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2c" href="end-of-semester-shipping-guide.html">
+        <span class="gc-tag b2c">Students &middot; End of Semester</span>
+        <h2 class="gc-title">End of Semester Student Shipping Guide</h2>
+        <p class="gc-desc">Sending luggage, books, bedding and equipment home at the end of term. What to pack, what to declare, and how to book without making the trip yourself.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2b" href="business-cartons-chandigarh-to-himachal.html">
-      <span class="gc-tag b2b">Business &middot; Chandigarh &amp; Himachal</span>
-      <h2 class="gc-title">Business Carton Delivery from Chandigarh to Himachal</h2>
-      <p class="gc-desc">Small businesses, hotels, suppliers and retailers moving cartons and stock into Himachal Pradesh without a 3PL contract or minimum volume commitment.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2b" href="business-cartons-chandigarh-to-himachal.html">
+        <span class="gc-tag b2b">Business &middot; Chandigarh</span>
+        <h2 class="gc-title">Business Carton Delivery from Chandigarh to Himachal</h2>
+        <p class="gc-desc">Small businesses, hotels, suppliers and retailers moving cartons and stock into HP without a 3PL contract or minimum volume commitment. GST invoice available.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 5 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <!-- ── BUSINESS & OPERATIONS ──────────────────────────────── -->
-    <div class="cluster-divider"><span>Business &amp; operations</span><hr></div>
+      <a class="guide-card" data-category="b2b" href="gst-invoice-intercity-shipments.html">
+        <span class="gc-tag b2b">Business &amp; GST</span>
+        <h2 class="gc-title">GST Invoice for Intercity Shipments</h2>
+        <p class="gc-desc">When a GST invoice is required for intercity cargo, what to declare at booking, and how Patwadi supports GST invoice needs across active corridors.</p>
+        <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 4 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2b" href="gst-invoice-intercity-shipments.html">
-      <span class="gc-tag b2b">Guide &middot; Business &amp; GST</span>
-      <h2 class="gc-title">GST Invoice for Intercity Shipments</h2>
-      <p class="gc-desc">When a GST invoice is required for intercity cargo, what to declare at booking, and how Patwadi supports GST invoice needs for business shipments across active corridors.</p>
-      <div class="gc-meta"><span>Updated 4 Jul 2026 &middot; 4 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <!-- ── COMPARISONS ─────────────────────────────────────── -->
+      <div class="cluster-divider"><span>Comparisons</span><hr></div>
 
-    <!-- ── COMPARISONS ─────────────────────────────────────────── -->
-    <div class="cluster-divider"><span>Comparisons</span><hr></div>
+      <a class="guide-card" data-category="b2c" href="patwadi-vs-india-post-delhivery-hrtc-himachal-pradesh.html">
+        <span class="gc-tag b2c">B2C &middot; Himachal Pradesh</span>
+        <h2 class="gc-title">Patwadi vs India Post, Delhivery &amp; HRTC Bus Cargo</h2>
+        <p class="gc-desc">Four ways to send a parcel, suitcase or carton from Delhi, Chandigarh or Punjab into Himachal Pradesh &mdash; compared on cost, speed, tracking and reach.</p>
+        <div class="gc-meta"><span>Updated 9 Jun 2026 &middot; 7 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2c" href="patwadi-vs-india-post-delhivery-hrtc-himachal-pradesh.html">
-      <span class="gc-tag b2c">B2C &middot; Himachal Pradesh</span>
-      <h2 class="gc-title">Patwadi vs India Post, Delhivery &amp; HRTC Bus Cargo</h2>
-      <p class="gc-desc">Four ways to send a parcel, suitcase or carton from Delhi, Chandigarh or Punjab into Himachal Pradesh &mdash; compared on cost, speed, tracking and reach.</p>
-      <div class="gc-meta"><span>Updated 9 Jun 2026 &middot; 7 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
+      <a class="guide-card" data-category="b2b" href="patwadi-vs-safexpress-b2b-freight-himachal-pradesh.html">
+        <span class="gc-tag b2b">B2B &middot; Himachal Pradesh</span>
+        <h2 class="gc-title">Patwadi vs Safexpress: B2B Freight to Himachal Pradesh</h2>
+        <p class="gc-desc">Safexpress runs the scheduled surface-express backbone for HP supply chains. Here is how Patwadi fits underneath it, and when each makes sense.</p>
+        <div class="gc-meta"><span>Updated 9 Jun 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
+      </a>
 
-    <a class="guide-card" data-category="b2b" href="patwadi-vs-safexpress-b2b-freight-himachal-pradesh.html">
-      <span class="gc-tag b2b">B2B &middot; Himachal Pradesh</span>
-      <h2 class="gc-title">Patwadi vs Safexpress: B2B Freight to Himachal Pradesh</h2>
-      <p class="gc-desc">Safexpress runs the scheduled surface-express backbone for HP supply chains. Here is how Patwadi fits underneath it, and when each makes sense.</p>
-      <div class="gc-meta"><span>Updated 9 Jun 2026 &middot; 6 min</span><span class="gc-arrow">Read &rarr;</span></div>
-    </a>
-
-  </div><!-- /guide-grid -->
+    </div><!-- /guide-grid -->
 
   <div class="cta-band">
     <div>
