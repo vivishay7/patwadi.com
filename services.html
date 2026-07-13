@@ -83,6 +83,11 @@
     .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #2A1F18;padding-top:18px;font-size:0.78rem;color:#475569;text-align:center;}
     @media(max-width:768px){.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.service-row{grid-template-columns:1fr;}.footer-content{grid-template-columns:1fr 1fr;}.seg-cta{padding:28px 20px;flex-direction:column;}.section{padding:40px 20px;}}
     @media(max-width:480px){.footer-content{grid-template-columns:1fr;}}
+  
+  /* ── MOBILE NAV PATCH: touch targets + menu scrollability ── */
+  .nav-hamburger{width:44px;height:44px;padding:0;display:none;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
+  .nav-mobile-menu,.nav-mob{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+  .nav-mobile-menu a,.nav-mob a{min-height:44px;display:flex;align-items:center;padding:11px 12px;}
   </style>
 </head>
 <body>
@@ -102,7 +107,7 @@
       <li><a href="/posts/">Guides</a></li>
     </ul>
     <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta">Check route on WhatsApp</a>
-    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mNav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile-menu" id="mNav">
     <a href="index.html">Home</a>
@@ -215,7 +220,9 @@
     document.getElementById('seg-' + id).classList.add('active');
     if (btn) btn.classList.add('active');
   }
-  document.addEventListener('click', function(e) {
+  function toggleNav(){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(!m||!b)return;var open=m.classList.toggle("open");b.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(m){m.classList.remove("open");document.body.style.overflow="";}if(b)b.setAttribute("aria-expanded","false");}});
+document.addEventListener('click', function(e) {
     const menu = document.getElementById('mNav'), btn = document.querySelector('.nav-hamburger');
     if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) menu.classList.remove('open');
   });
