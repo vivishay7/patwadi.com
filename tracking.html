@@ -146,7 +146,12 @@
   .support-link{display:flex;align-items:center;justify-content:center;gap:7px;margin:16px 22px 18px;padding:11px;background:#F1E7D8;border-radius:10px;font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;}
   .support-link svg{width:15px;height:15px;flex-shrink:0;color:#25D366;}
 
-</style>
+
+  /* ── MOBILE NAV PATCH: touch targets + menu scrollability ── */
+  .nav-hamburger{width:44px;height:44px;padding:0;display:none;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
+  .nav-mobile-menu,.nav-mob{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+  .nav-mobile-menu a,.nav-mob a{min-height:44px;display:flex;align-items:center;padding:11px 12px;}
+  </style>
 </head>
 <body>
 
@@ -164,9 +169,7 @@
       <li><a href="posts/">Guides</a></li>
     </ul>
     <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20to%20check%20a%20route" target="_blank" class="nav-cta" aria-label="Check route on WhatsApp">Check route on WhatsApp</a>
-    <button class="nav-hamburger" aria-label="Open menu" onclick="document.getElementById('mobileNav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile-menu" id="mobileNav">
     <a href="index.html">Home</a>
@@ -276,6 +279,8 @@
 </footer>
 
 <script>
+function toggleNav(){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(!m||!b)return;var open=m.classList.toggle("open");b.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(m){m.classList.remove("open");document.body.style.overflow="";}if(b)b.setAttribute("aria-expanded","false");}});
 document.addEventListener('click',function(e){
   var menu=document.getElementById('mobileNav'),btn=document.querySelector('.nav-hamburger');
   if(menu&&btn&&!menu.contains(e.target)&&!btn.contains(e.target)) menu.classList.remove('open');
