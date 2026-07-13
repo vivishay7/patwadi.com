@@ -41,6 +41,11 @@
     .form-footer-note{grid-column:1/-1;font-size:0.78rem;color:var(--ghost);text-align:center;line-height:1.6;}
     footer{background:var(--ink);padding:16px 24px;text-align:center;}
     footer p{font-size:0.75rem;color:#475569;}
+  
+  /* ── MOBILE NAV PATCH: touch targets + menu scrollability ── */
+  .nav-hamburger{width:44px;height:44px;padding:0;display:none;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
+  .nav-mobile-menu,.nav-mob{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+  .nav-mobile-menu a,.nav-mob a{min-height:44px;display:flex;align-items:center;padding:11px 12px;}
   </style>
 </head>
 <body>
