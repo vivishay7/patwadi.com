@@ -3,2278 +3,380 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>How It Works | Patwadi</title>
-  <meta
-    name="description"
-    content="Book intercity delivery in minutes. Select your route, pay online, and track each verified handoff with Patwadi."
-  >
-
-  <link
-    rel="icon"
-    type="image/png"
-    href="/assets/images/patwadi-logo-transp.png"
-  >
-
+  <title>How It Works - Patwadi</title>
+  <meta name="description" content="Book intercity delivery in minutes — select your route, pay online, we collect and deliver. Track every step on patwadi.com.">
+  <link rel="icon" type="image/png" href="/assets/images/patwadi-logo-transp.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink: #1a1108;
-      --mid: #475569;
-      --ghost: #94a3b8;
-      --border: #e4d8ca;
-
-      --page-bg: #fff8f1;
-      --warm-bg: #fdf2e9;
-      --surface: #ead7ba;
-      --surface-light: #f7eadb;
-      --white: #ffffff;
-
-      --orange: #f05a1a;
-      --orange-dk: #d44d14;
-      --blue: #1d4ed8;
-      --green: #16a34a;
-
-      --content-width: 1100px;
-      --reading-width: 780px;
-
-      --shadow-sm: 0 2px 12px rgba(42, 26, 16, 0.06);
-      --shadow-md: 0 12px 36px rgba(42, 26, 16, 0.10);
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-
-    body {
-      min-width: 320px;
-      overflow-x: hidden;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 15px;
-      color: var(--ink);
-      background: var(--page-bg);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a,
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    body.mobile-menu-open {
-      overflow: hidden;
-    }
-
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
-
-    .nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.98);
-      border-top: 3px solid var(--orange);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(14px);
-    }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-      color: var(--ink);
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      text-decoration: none;
-    }
-
-    .nav-logo-img {
-      width: 30px;
-      height: 30px;
-      flex-shrink: 0;
-      object-fit: contain;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-      gap: 2px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 7px 12px;
-      border-radius: 7px;
-      color: var(--mid);
-      font-size: 0.82rem;
-      font-weight: 500;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        color 0.15s ease,
-        background 0.15s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--ink);
-      background: #f1f5f9;
-    }
-
-    .has-dropdown {
-      position: relative;
-    }
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 7px);
-      left: 50%;
-      z-index: 300;
-      min-width: 175px;
-      padding: 6px;
-      transform: translateX(-50%);
-      list-style: none;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .has-dropdown:hover .dropdown,
-    .has-dropdown:focus-within .dropdown {
-      display: block;
-    }
-
-    .dropdown li a {
-      padding: 9px 12px;
-      border-radius: 7px;
-      font-size: 0.82rem;
-    }
-
-    .has-dropdown:has(.active) > a {
-      color: var(--ink);
-      background: #f1f5f9;
-    }
-
-    .nav-cta {
-      flex-shrink: 0;
-      padding: 9px 17px;
-      border-radius: 8px;
-      color: var(--white);
-      background: var(--orange);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--orange-dk);
-      transform: translateY(-1px);
-    }
-
-    .nav-hamburger {
-      display: none;
-      width: 44px;
-      height: 44px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      flex-shrink: 0;
-      cursor: pointer;
-      background: transparent;
-      border: 0;
-      border-radius: 8px;
-    }
-
-    .nav-hamburger:hover {
-      background: #f8fafc;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
-
-    .nav-hamburger[aria-expanded="true"] span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-hamburger[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-hamburger[aria-expanded="true"] span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .nav-mobile-menu {
-      display: none;
-      position: absolute;
-      top: 57px;
-      left: 0;
-      right: 0;
-      z-index: 199;
-      max-height: calc(100dvh - 57px);
-      overflow-y: auto;
-      padding: 14px 20px 20px;
-      flex-direction: column;
-      gap: 3px;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      overscroll-behavior: contain;
-    }
-
-    .nav-mobile-menu.open {
-      display: flex;
-    }
-
-    .nav-mobile-menu a {
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 8px;
-      color: var(--mid);
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .nav-mobile-menu a:hover,
-    .nav-mobile-menu a.active {
-      color: var(--ink);
-      background: #f1f5f9;
-    }
-
-    .mobile-section-label {
-      display: block;
-      padding: 13px 12px 4px;
-      color: var(--ghost);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav-mobile-menu a.mobile-sub {
-      padding-left: 24px;
-    }
-
-    .nav-mobile-menu .nav-cta-m {
-      justify-content: center;
-      margin-top: 10px;
-      color: var(--white);
-      background: var(--orange);
-      font-weight: 700;
-    }
-
-    .nav-mobile-menu .nav-cta-m:hover {
-      color: var(--white);
-      background: var(--orange-dk);
-    }
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 72px 24px 68px;
-      text-align: center;
-      background:
-        radial-gradient(
-          circle at 50% -20%,
-          rgba(240, 90, 26, 0.24),
-          transparent 45%
-        ),
-        linear-gradient(135deg, #1a1108 0%, #2a1a10 100%);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      bottom: -150px;
-      width: 360px;
-      height: 360px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 50%;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      margin-bottom: 13px;
-      color: #ff9569;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      margin-bottom: 16px;
-      color: var(--white);
-      font-size: clamp(2.25rem, 5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-    }
-
-    .hero p {
-      max-width: 590px;
-      margin: 0 auto 30px;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .hero-cta {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 13px 28px;
-      border-radius: 10px;
-      color: var(--white);
-      background: var(--orange);
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-    }
-
-    .hero-cta:hover {
-      background: var(--orange-dk);
-      transform: translateY(-2px);
-    }
-
-    /* =========================================================
-       SHARED SECTIONS
-    ========================================================= */
-
-    .section {
-      padding: 64px 24px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--content-width);
-      margin: 0 auto;
-    }
-
-    .reading-container {
-      width: 100%;
-      max-width: var(--reading-width);
-      margin: 0 auto;
-    }
-
-    .section-heading {
-      margin-bottom: 34px;
-    }
-
-    .section-heading.center {
-      text-align: center;
-    }
-
-    .section-eyebrow {
-      margin-bottom: 9px;
-      color: var(--orange);
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      color: var(--ink);
-      font-size: clamp(1.6rem, 3vw, 2.15rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.035em;
-    }
-
-    .section-dek {
-      max-width: 650px;
-      margin-top: 12px;
-      color: var(--mid);
-      font-size: 0.94rem;
-      line-height: 1.75;
-    }
-
-    .section-heading.center .section-dek {
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .btn {
-      min-height: 46px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      color: var(--white);
-      background: var(--orange);
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-    }
-
-    .btn:hover {
-      background: var(--orange-dk);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      color: var(--white);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1.5px solid rgba(255, 255, 255, 0.24);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    /* =========================================================
-       TIMELINE
-    ========================================================= */
-
-    .process-section {
-      background: var(--page-bg);
-    }
-
-    .timeline {
-      position: relative;
-      max-width: 830px;
-      margin: 0 auto;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      bottom: 4px;
-      left: 40px;
-      width: 2px;
-      background: #dfd2c4;
-    }
-
-    .tl-step {
-      position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 32px;
-      padding-bottom: 54px;
-    }
-
-    .tl-step:last-child {
-      padding-bottom: 0;
-    }
-
-    .tl-num {
-      position: relative;
-      z-index: 1;
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: rgba(255, 255, 255, 0.4);
-      background: #2a1f18;
-      border: 3px solid var(--page-bg);
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px #2a1f18;
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .tl-num.active {
-      color: var(--white);
-      background: var(--orange);
-      box-shadow: 0 0 0 2px var(--orange);
-    }
-
-    .tl-content {
-      min-width: 0;
-      flex: 1;
-      padding-top: 15px;
-    }
-
-    .tl-label {
-      margin-bottom: 5px;
-      color: var(--ghost);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .tl-title {
-      margin-bottom: 10px;
-      color: var(--ink);
-      font-size: 1.28rem;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-    }
-
-    .tl-body {
-      margin-bottom: 14px;
-      color: #4b5563;
-      font-size: 0.91rem;
-      line-height: 1.8;
-    }
-
-    .tl-body a {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 10px;
-    }
-
-    .chip {
-      padding: 5px 11px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: #374151;
-      background: #f5f1ec;
-      font-size: 0.74rem;
-      font-weight: 600;
-    }
-
-    .chip.green {
-      color: #166534;
-      background: #f0fdf4;
-      border-color: #bbf7d0;
-    }
-
-    .chip.warm {
-      color: #9a3412;
-      background: #fff7ed;
-      border-color: #fed7aa;
-    }
-
-    .chip.blue {
-      color: #1e40af;
-      background: #eff6ff;
-      border-color: #bfdbfe;
-    }
-
-    .custody-box {
-      margin-top: 15px;
-      padding: 20px 22px;
-      border-radius: 11px;
-      background: #1a1108;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .custody-steps {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 9px;
-      color: #a88c6d;
-      font-size: 0.72rem;
-    }
-
-    .custody-arrow {
-      color: #644c3a;
-    }
-
-    .custody-desc {
-      color: rgba(255, 255, 255, 0.67);
-      font-size: 0.82rem;
-      line-height: 1.65;
-    }
-
-    .custody-desc strong {
-      color: var(--white);
-    }
-
-    .tracking-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      margin-top: 15px;
-    }
-
-    .tracking-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: #374151;
-      font-size: 0.875rem;
-      line-height: 1.55;
-    }
-
-    .tracking-dot {
-      width: 10px;
-      height: 10px;
-      margin-top: 5px;
-      flex-shrink: 0;
-      border-radius: 50%;
-    }
-
-    /* =========================================================
-       DISPATCH SECTION
-    ========================================================= */
-
-    .dispatch-section {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          180deg,
-          #ecdabc 0%,
-          #e7d1ae 100%
-        );
-      border-top: 1px solid #dcc5a3;
-      border-bottom: 1px solid #dcc5a3;
-    }
-
-    .dispatch-section::before {
-      content: "";
-      position: absolute;
-      top: -140px;
-      right: -80px;
-      width: 380px;
-      height: 380px;
-      background: rgba(255, 255, 255, 0.16);
-      border-radius: 50%;
-    }
-
-    .dispatch-wrap {
-      position: relative;
-      z-index: 1;
-      max-width: var(--reading-width);
-      margin: 0 auto;
-    }
-
-    .dispatch-box {
-      width: 100%;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(212, 193, 165, 0.95);
-      border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .dispatch-row {
-      min-height: 52px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 24px;
-      padding: 13px 18px;
-      border-bottom: 1px solid #e7ddcf;
-      font-size: 0.86rem;
-    }
-
-    .dispatch-row:last-child {
-      border-bottom: none;
-    }
-
-    .dispatch-route {
-      min-width: 0;
-      color: #374151;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    .dispatch-time {
-      color: var(--ink);
-      font-size: 0.8rem;
-      font-weight: 750;
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    .dispatch-note {
-      margin-top: 12px;
-      color: #6f7886;
-      font-size: 0.81rem;
-      line-height: 1.6;
-    }
-
-    /* =========================================================
-       FAQ SECTION
-    ========================================================= */
-
-    .faq-section {
-      background: var(--page-bg);
-    }
-
-    .faq-list {
-      max-width: var(--reading-width);
-      margin: 0 auto;
-      border-top: 1px solid var(--border);
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .faq-question {
-      width: 100%;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 2px;
-      cursor: pointer;
-      color: var(--ink);
-      background: transparent;
-      border: 0;
-      font-family: inherit;
-      font-size: 0.97rem;
-      font-weight: 650;
-      line-height: 1.5;
-      text-align: left;
-      transition: color 0.15s ease;
-    }
-
-    .faq-question:hover,
-    .faq-question:focus-visible {
-      color: var(--orange);
-    }
-
-    .faq-question:focus-visible {
-      outline: 2px solid var(--orange);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-
-    .faq-chevron {
-      width: 19px;
-      height: 19px;
-      flex-shrink: 0;
-      color: var(--ghost);
-      transition:
-        transform 0.22s ease,
-        color 0.15s ease;
-    }
-
-    .faq-item.open .faq-chevron {
-      color: var(--orange);
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      color: #4b5563;
-      font-size: 0.9rem;
-      line-height: 1.78;
-      transition:
-        max-height 0.32s ease,
-        padding-bottom 0.32s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 1400px;
-      padding-bottom: 21px;
-    }
-
-    .faq-answer ul {
-      margin: 10px 0 0 21px;
-    }
-
-    .faq-answer li {
-      margin-bottom: 6px;
-    }
-
-    .faq-answer a {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    .table-scroll {
-      width: 100%;
-      overflow-x: auto;
-      margin: 12px 0 10px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--white);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .size-table {
-      width: 100%;
-      min-width: 620px;
-      border-collapse: collapse;
-      font-size: 0.875rem;
-    }
-
-    .size-table th {
-      padding: 10px 12px;
-      color: var(--ghost);
-      background: #f9f5f0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-align: left;
-      text-transform: uppercase;
-    }
-
-    .size-table td {
-      padding: 11px 12px;
-      color: #374151;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .size-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .size-table td:first-child {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .mono {
-      color: var(--orange);
-      font-family: "Courier New", monospace;
-      font-size: 0.82rem;
-      white-space: nowrap;
-    }
-
-    /* =========================================================
-       FINAL CTA
-    ========================================================= */
-
-    .final-cta-section {
-      padding-top: 52px;
-      background: var(--page-bg);
-    }
-
-    .cta-band {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 46px 30px;
-      text-align: center;
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(240, 90, 26, 0.17),
-          transparent 52%
-        ),
-        #1a1108;
-      border-radius: 16px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .cta-band h2 {
-      margin-bottom: 9px;
-      color: var(--white);
-      font-size: clamp(1.45rem, 3vw, 2rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .cta-band p {
-      margin-bottom: 25px;
-      color: #94a3b8;
-      font-size: 0.91rem;
-      line-height: 1.65;
-    }
-
-    .cta-btns {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-      margin-top: 64px;
-      padding: 42px 24px 28px;
-      color: #64748b;
-      background: #1a1108;
-    }
-
-    .footer-content {
-      max-width: var(--content-width);
-      margin: 0 auto 34px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 30px;
-    }
-
-    .footer-section h3 {
-      margin-bottom: 14px;
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-    }
-
-    .footer-section a {
-      display: block;
-      width: fit-content;
-      margin-bottom: 9px;
-      color: #8290a3;
-      font-size: 0.82rem;
-      line-height: 1.45;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--white);
-    }
-
-    .footer-bottom {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding-top: 20px;
-      color: #536174;
-      border-top: 1px solid #2a1f18;
-      font-size: 0.77rem;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media (max-width: 900px) {
-      .nav-inner {
-        padding-right: 18px;
-        padding-left: 18px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-hamburger {
-        display: flex;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 58px 20px 54px;
-      }
-
-      .section {
-        padding: 50px 20px;
-      }
-
-      .section-heading {
-        margin-bottom: 28px;
-      }
-
-      .timeline::before {
-        left: 28px;
-      }
-
-      .tl-step {
-        gap: 20px;
-        padding-bottom: 46px;
-      }
-
-      .tl-num {
-        width: 56px;
-        height: 56px;
-        font-size: 0.96rem;
-      }
-
-      .tl-content {
-        padding-top: 7px;
-      }
-
-      .tl-title {
-        font-size: 1.15rem;
-      }
-
-      .dispatch-row {
-        grid-template-columns: 1fr;
-        gap: 3px;
-        padding: 13px 15px;
-      }
-
-      .dispatch-time {
-        color: var(--orange);
-        text-align: left;
-        white-space: normal;
-      }
-
-      .faq-question {
-        min-height: 58px;
-        padding: 16px 0;
-        font-size: 0.93rem;
-      }
-
-      .cta-band {
-        padding: 38px 22px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .nav-inner {
-        padding-right: 14px;
-        padding-left: 14px;
-      }
-
-      .nav-logo {
-        font-size: 1.18rem;
-      }
-
-      .hero h1 {
-        font-size: 2.25rem;
-      }
-
-      .hero p {
-        font-size: 0.92rem;
-      }
-
-      .section {
-        padding-right: 17px;
-        padding-left: 17px;
-      }
-
-      .tl-step {
-        gap: 15px;
-      }
-
-      .timeline::before {
-        left: 23px;
-      }
-
-      .tl-num {
-        width: 46px;
-        height: 46px;
-        border-width: 2px;
-        font-size: 0.82rem;
-      }
-
-      .tl-content {
-        padding-top: 3px;
-      }
-
-      .tl-label {
-        font-size: 0.63rem;
-      }
-
-      .tl-title {
-        font-size: 1.07rem;
-      }
-
-      .tl-body {
-        font-size: 0.87rem;
-        line-height: 1.72;
-      }
-
-      .custody-box {
-        padding: 17px;
-      }
-
-      .custody-steps {
-        line-height: 1.7;
-      }
-
-      .chip {
-        font-size: 0.69rem;
-      }
-
-      .cta-btns {
-        flex-direction: column;
-      }
-
-      .cta-btns .btn {
-        width: 100%;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-    }
+    :root{--ink:#1A1108;--mid:#475569;--ghost:#94A3B8;--border:#E2E8F0;--surface:#E8D5B8;--warm-bg:#FDF2E9;--orange:#F05A1A;--orange-dk:#D44D14;--blue:#1D4ED8;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',-apple-system,sans-serif;font-size:15px;color:var(--ink);background:var(--warm-bg);-webkit-font-smoothing:antialiased;}
+    .nav-bar{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .nav-logo{display:flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;flex-shrink:0;}
+    .nav-logo-img{height:30px;width:30px;object-fit:contain;flex-shrink:0;}
+    .nav-links{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+    .nav-links a{display:block;padding:6px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;transition:background 0.15s;}
+    .nav-links a:hover,.nav-links a.active{background:#F1F5F9;color:var(--ink);}
+    .has-dropdown{position:relative;}
+    .dropdown{display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:10px;padding:6px;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.10);z-index:300;list-style:none;}
+    .has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block;}
+    .dropdown li a{display:block;padding:8px 12px;font-size:0.82rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:6px;white-space:nowrap;}
+    .dropdown li a:hover,.dropdown li a.active{background:#F1F5F9;color:var(--ink);}
+    .has-dropdown:has(.active)>a{color:var(--ink);background:#F1F5F9;}
+    .nav-cta{background:var(--orange);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background 0.15s;}
+    .nav-cta:hover{background:var(--orange-dk);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;}
+    .nav-mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:4px;z-index:199;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+    .nav-mobile-menu.open{display:flex;}
+    .nav-mobile-menu a{display:block;padding:10px 12px;font-size:0.9rem;font-weight:500;color:var(--mid);text-decoration:none;border-radius:8px;}
+    .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
+    .nav-mobile-menu a.mobile-sub{padding-left:24px;}
+    .nav-mobile-menu .nav-cta-m{margin-top:8px;display:block;text-align:center;padding:12px;background:var(--orange);color:#fff;font-weight:700;border-radius:8px;text-decoration:none;font-size:0.88rem;}
+    .hero{background:linear-gradient(135deg,#1A1108 0%,#2A1A10 100%);padding:64px 24px 52px;text-align:center;}
+    .hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;letter-spacing:-0.03em;margin-bottom:14px;}
+    .hero p{font-size:0.96rem;color:rgba(255,255,255,0.72);max-width:520px;margin:0 auto 28px;line-height:1.75;}
+    .hero-cta{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--orange);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+    .hero-cta:hover{background:var(--orange-dk);}
+    .section{padding:60px 24px;}
+    .section-alt{background:var(--surface);}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:var(--orange);color:#fff;font-weight:700;font-size:0.9rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+    .btn:hover{background:var(--orange-dk);}
+    .btn-outline{background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.25);color:#fff;}
+    .btn-outline:hover{background:rgba(255,255,255,0.2);}
+    footer{background:#1A1108;color:#64748b;padding:28px 24px;}
+    .footer-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:32px;}
+    .footer-section h3{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;}
+    .footer-section a{display:block;font-size:0.82rem;color:#64748b;text-decoration:none;margin-bottom:8px;transition:color 0.15s;}
+    .footer-section a:hover{color:#fff;}
+    .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #2A1F18;padding-top:18px;font-size:0.78rem;color:#475569;text-align:center;}
+    .timeline{position:relative;max-width:780px;margin:0 auto;}
+    .timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:2px;background:var(--border);}
+    .tl-step{display:flex;gap:32px;align-items:flex-start;padding-bottom:52px;position:relative;}
+    .tl-step:last-child{padding-bottom:0;}
+    .tl-num{width:80px;height:80px;border-radius:50%;background:#2A1F18;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:rgba(255,255,255,0.25);flex-shrink:0;position:relative;z-index:1;border:3px solid #E8D5B8;box-shadow:0 0 0 2px #2A1F18;letter-spacing:-0.03em;}
+    .tl-num.active{background:var(--orange);box-shadow:0 0 0 2px var(--orange);color:#fff;}
+    .tl-content{padding-top:16px;flex:1;}
+    .tl-label{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);margin-bottom:4px;}
+    .tl-title{font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em;}
+    .tl-body{font-size:0.9rem;color:#4b5563;line-height:1.8;margin-bottom:14px;}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+    .chip{font-size:0.75rem;font-weight:600;padding:4px 11px;border-radius:4px;background:#F1F0EE;color:#374151;border:1px solid var(--border);}
+    .chip.green{background:#f0fdf4;color:#166534;border-color:#bbf7d0;}
+    .chip.warm{background:#FFF7ED;color:#9A3412;border-color:#FED7AA;}
+    .chip.blue{background:#eff6ff;color:#1e40af;border-color:#bfdbfe;}
+    .dispatch-box{background:#F9F5F0;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:14px;}
+    .dispatch-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;font-size:0.85rem;border-bottom:1px solid var(--border);}
+    .dispatch-row:last-child{border-bottom:none;}
+    .dispatch-route{font-weight:500;color:#374151;}
+    .dispatch-time{font-weight:700;color:var(--ink);font-size:0.8rem;}
+    .tracking-steps{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+    .tracking-step{display:flex;align-items:center;gap:12px;font-size:0.875rem;color:#374151;}
+    .tracking-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .custody-box{background:#1A1108;border-radius:10px;padding:18px 22px;margin-top:14px;}
+    .custody-steps{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#9B7A5A;flex-wrap:wrap;margin-bottom:8px;}
+    .custody-arrow{color:#4B3A28;}
+    .custody-desc{font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.6;}
+    .custody-desc strong{color:#fff;}
+    .faq-list{max-width:780px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-item:first-child{border-top:1px solid var(--border);}
+    .faq-question{width:100%;background:none;border:none;padding:20px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:inherit;font-size:1rem;font-weight:600;color:var(--ink);text-align:left;gap:16px;transition:color 0.15s;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-chevron{width:20px;height:20px;flex-shrink:0;transition:transform 0.2s;color:var(--ghost);}
+    .faq-item.open .faq-chevron{transform:rotate(180deg);}
+    .faq-answer{overflow:hidden;max-height:0;transition:max-height 0.3s ease;font-size:0.9rem;color:#4b5563;line-height:1.75;}
+    .faq-item.open .faq-answer{max-height:800px;padding-bottom:20px;}
+    .faq-answer ul{margin:8px 0 0 20px;}
+    .faq-answer li{margin-bottom:4px;}
+    .size-table{width:100%;border-collapse:collapse;font-size:0.875rem;margin-top:10px;}
+    .size-table th{text-align:left;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ghost);padding:8px 12px;border-bottom:1px solid var(--border);background:#F9F5F0;}
+    .size-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:#374151;}
+    .size-table tr:last-child td{border-bottom:none;}
+    .size-table td:first-child{font-weight:600;color:var(--ink);}
+    .mono{font-family:'Courier New',monospace;font-size:0.82rem;color:var(--orange);}
+    .cta-band{background:#1A1108;border-radius:12px;padding:40px;text-align:center;margin-top:48px;}
+    .cta-band h2{color:#fff;margin-bottom:8px;font-size:1.25rem;font-weight:800;letter-spacing:-0.02em;}
+    .cta-band p{color:#64748b;margin-bottom:24px;font-size:0.9rem;}
+    .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}
+      .footer-content{grid-template-columns:1fr 1fr;gap:20px;}
+      .section{padding:40px 20px;}
+      .timeline::before{left:28px;}
+      .tl-num{width:56px;height:56px;font-size:1rem;}
+      .tl-step{gap:20px;}
+      .dispatch-row{flex-direction:column;align-items:flex-start;gap:2px;}
+      .cta-btns{flex-direction:column;align-items:center;}
+    }
+    @media(max-width:480px){.footer-content{grid-template-columns:1fr;}}
+  
+  /* ── MOBILE NAV PATCH: touch targets + menu scrollability ── */
+  .nav-hamburger{width:44px;height:44px;padding:0;display:none;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
+  .nav-mobile-menu,.nav-mob{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+  .nav-mobile-menu a,.nav-mob a{min-height:44px;display:flex;align-items:center;padding:11px 12px;}
   </style>
 </head>
-
 <body>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <!-- FIX: typo patwadi-logo-trasnp → patwadi-logo-transp -->
+    <a href="index.html" class="nav-logo">
+      <img src="/assets/images/patwadi-logo-transp.png" alt="Patwadi" class="nav-logo-img" onerror="this.outerHTML='<span aria-hidden=true>P</span>'">
+      Patwadi
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="students.html">For Students</a></li>
+          <li><a href="business.html">For Business</a></li>
+        </ul>
+      </li>
+      <li><a href="tracking.html">Track</a></li>
+      <li class="has-dropdown">
+        <a href="how-it-works.html" class="active">About &#9660;</a>
+        <ul class="dropdown">
+          <li><a href="how-it-works.html" class="active">How It Works</a></li>
+          <li><a href="index.html#routes">Routes</a></li>
+        </ul>
+      </li>
+      <li><a href="drivers.html">Join Us</a></li>
+      <li><a href="/posts/">Guides</a></li>
+    </ul>
+    <!-- FIX: #route-checker → #book (matches actual anchor ID on index.html) -->
+    <a href="index.html#book" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav-mobile-menu" id="mNav">
+    <a href="index.html">Home</a>
+    <span class="mobile-section-label">Services</span>
+    <a href="students.html" class="mobile-sub">For Students</a>
+    <a href="business.html" class="mobile-sub">For Business</a>
+    <a href="tracking.html">Track</a>
+    <span class="mobile-section-label">About</span>
+    <a href="how-it-works.html" class="mobile-sub">How It Works</a>
+    <a href="index.html#routes" class="mobile-sub">Routes</a>
+    <a href="drivers.html">Join Us</a>
+    <a href="/posts/">Guides</a>
+    <a href="index.html#book" class="nav-cta-m">Book Now</a>
+  </div>
+</nav>
 
-  <nav class="nav-bar">
-    <div class="nav-inner">
+<section class="hero">
+  <h1>How Patwadi Works</h1>
+  <p>Select your route, book your slot, pay online — we handle collection, transit, and delivery with verified custody at every step.</p>
+  <a href="index.html#book" class="hero-cta">Book Now &rarr;</a>
+</section>
 
-      <a href="/" class="nav-logo">
-        <img
-          src="/assets/images/patwadi-logo-transp.png"
-          alt="Patwadi"
-          class="nav-logo-img"
-          onerror="this.style.display='none'"
-        >
-        <span>Patwadi</span>
-      </a>
-
-      <ul class="nav-links">
-        <li>
-          <a href="/">Home</a>
-        </li>
-
-        <li class="has-dropdown">
-          <a href="/services.html">
-            Services &#9660;
-          </a>
-
-          <ul class="dropdown">
-            <li>
-              <a href="/students.html">For Students</a>
-            </li>
-            <li>
-              <a href="/business.html">For Business</a>
-            </li>
-            <li>
-              <a href="/posts/courier-service-himachal-pradesh.html">
-                Himachal Courier
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="/tracking.html">Track</a>
-        </li>
-
-        <li class="has-dropdown">
-          <a href="/how-it-works.html" class="active">
-            About &#9660;
-          </a>
-
-          <ul class="dropdown">
-            <li>
-              <a href="/how-it-works.html" class="active">
-                How It Works
-              </a>
-            </li>
-            <li>
-              <a href="/#routes">Routes</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="/drivers.html">Join Us</a>
-        </li>
-
-        <li>
-          <a href="/posts/">Guides</a>
-        </li>
-      </ul>
-
-      <a href="/#book" class="nav-cta">
-        Book Now
-      </a>
-
-      <button
-        class="nav-hamburger"
-        id="navToggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="mNav"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Your shipment, step by step</h2>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-num active">01</div>
+        <div class="tl-content">
+          <div class="tl-label">Step 1</div>
+          <div class="tl-title">Book your slot</div>
+          <div class="tl-body">Use the route checker on patwadi.com to select your corridor, item type, and preferred collection date. Pick your time window &mdash; morning, afternoon, evening, or night. Pay via Razorpay to confirm your slot instantly.<br><br>You will receive a booking confirmation with your unique tracking code. That is all you need.</div>
+          <div class="chips">
+            <span class="chip blue">Route checker on patwadi.com</span>
+            <span class="chip green">Instant booking reference</span>
+            <span class="chip">UPI, cards, net banking</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">02</div>
+        <div class="tl-content">
+          <div class="tl-label">Step 2</div>
+          <div class="tl-title">Pack your items</div>
+          <div class="tl-body">Pack securely in a carton, bag, or suitcase. Fragile items must be declared at booking and bubble-wrapped before handoff. Label clearly with the recipient's name, phone number, and city. We add a Patwadi tracking label at collection.</div>
+          <div class="chips">
+            <span class="chip warm">Declare fragile items at booking</span>
+            <span class="chip">Label with recipient details</span>
+            <span class="chip">Tracking label added at pickup</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">03</div>
+        <div class="tl-content">
+          <div class="tl-label">Step 3</div>
+          <div class="tl-title">We collect and verify</div>
+          <div class="tl-body">Our last-mile agent arrives within your selected window and performs a verified handoff &mdash; every parcel is logged with a code and photo at collection. You receive a collection confirmation immediately. From there, your parcel moves through our 4-step custody chain.</div>
+          <div class="custody-box">
+            <div class="custody-steps">
+              <span style="color:#E8D5B8;">You</span>
+              <span class="custody-arrow">&rarr;</span>
+              <span>Last-mile agent</span>
+              <span class="custody-arrow">&rarr;</span>
+              <span>Line-haul transit</span>
+              <span class="custody-arrow">&rarr;</span>
+              <span>Destination agent</span>
+              <span class="custody-arrow">&rarr;</span>
+              <span style="color:#E8D5B8;">Recipient</span>
+            </div>
+            <div class="custody-desc"><strong>Verified at every handoff.</strong> Code and photo confirmation at each of the four custody transfers. Nobody handles your parcel without a logged record.</div>
+          </div>
+          <div class="chips" style="margin-top:12px;">
+            <span class="chip green">Collection receipt issued</span>
+            <span class="chip">Verified handoff</span>
+            <span class="chip">4-step custody chain</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">04</div>
+        <div class="tl-content">
+          <div class="tl-label">Step 4</div>
+          <div class="tl-title">Track your shipment</div>
+          <div class="tl-body">Use your booking reference on <a href="tracking.html" style="color:var(--orange);font-weight:600;">patwadi.com/track</a> to see exactly where your parcel is. Automatic milestone notifications keep you updated throughout.</div>
+          <div class="tracking-steps">
+            <div class="tracking-step"><div class="tracking-dot" style="background:#22c55e;"></div><span><strong>Collected</strong> &mdash; picked up and logged by our agent</span></div>
+            <div class="tracking-step"><div class="tracking-dot" style="background:var(--blue);"></div><span><strong>In transit</strong> &mdash; moving through the corridor to destination</span></div>
+            <div class="tracking-step"><div class="tracking-dot" style="background:var(--orange);"></div><span><strong>Arrived</strong> &mdash; at destination agent, ready for collection</span></div>
+          </div>
+          <div class="chips" style="margin-top:12px;">
+            <span class="chip blue">Live tracking on patwadi.com</span>
+            <span class="chip green">Automatic milestone notifications</span>
+          </div>
+        </div>
+      </div>
+      <!-- FIX 4: 48hr → up to 7 days throughout Step 5 -->
+      <div class="tl-step">
+        <div class="tl-num">05</div>
+        <div class="tl-content">
+          <div class="tl-label">Step 5</div>
+          <div class="tl-title">Collect at destination</div>
+          <div class="tl-body">Once your parcel arrives, you receive an "Arrived" notification with the agent's contact and address. No rush &mdash; your parcel is held securely for up to 7 days at no extra charge. Collect at your convenience.<br><br>Doorstep delivery is available on select business routes. Contact us at booking to confirm availability for your corridor.</div>
+          <div class="chips">
+            <span class="chip green">Hold up to 7 days &middot; no extra charge</span>
+            <span class="chip">Agent contact shared on arrival</span>
+            <span class="chip">Doorstep available on select routes</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div
-      class="nav-mobile-menu"
-      id="mNav"
-      aria-hidden="true"
-    >
-      <a href="/">Home</a>
-
-      <span class="mobile-section-label">Services</span>
-
-      <a href="/students.html" class="mobile-sub">
-        For Students
-      </a>
-
-      <a href="/business.html" class="mobile-sub">
-        For Business
-      </a>
-
-      <a
-        href="/posts/courier-service-himachal-pradesh.html"
-        class="mobile-sub"
-      >
-        Himachal Courier
-      </a>
-
-      <a href="/tracking.html">
-        Track
-      </a>
-
-      <span class="mobile-section-label">About</span>
-
-      <a
-        href="/how-it-works.html"
-        class="mobile-sub active"
-      >
-        How It Works
-      </a>
-
-      <a href="/#routes" class="mobile-sub">
-        Routes
-      </a>
-
-      <a href="/drivers.html">
-        Join Us
-      </a>
-
-      <a href="/posts/">
-        Guides
-      </a>
-
-      <a href="/#book" class="nav-cta-m">
-        Book Now
-      </a>
+<section class="section" style="background:var(--surface);">
+  <div class="container">
+    <h2 class="section-title">Dispatch times by corridor</h2>
+    <div class="dispatch-box" style="max-width:680px;">
+      <div class="dispatch-row"><span class="dispatch-route">Delhi, Chandigarh and Punjab corridors</span><span class="dispatch-time">Same-day dispatch</span></div>
+      <div class="dispatch-row"><span class="dispatch-route">Himachal Pradesh (Mandi, Shimla, Manali, Dharamshala)</span><span class="dispatch-time">48hr dispatch</span></div>
+      <div class="dispatch-row"><span class="dispatch-route">Uttarakhand (Dehradun)</span><span class="dispatch-time">48hr dispatch</span></div>
+      <div class="dispatch-row"><span class="dispatch-route">Jammu and Kashmir routes</span><span class="dispatch-time">72hr dispatch</span></div>
+      <div class="dispatch-row"><span class="dispatch-route">South India corridors (TN, Karnataka, AP, TS, Kerala)</span><span class="dispatch-time">24&ndash;48hr dispatch</span></div>
     </div>
-  </nav>
-
-  <main>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          From booking to handoff
-        </div>
-
-        <h1>
-          How Patwadi works
-        </h1>
-
-        <p>
-          Select your route, book your slot and pay online. We coordinate
-          collection, corridor transit and destination handoff, with a logged
-          custody record throughout the journey.
-        </p>
-
-        <a href="/#book" class="hero-cta">
-          Book Now &rarr;
-        </a>
-      </div>
-    </section>
-
-    <section class="section process-section">
-      <div class="container">
-
-        <div class="section-heading center">
-          <div class="section-eyebrow">
-            The process
-          </div>
-
-          <h2 class="section-title">
-            Your shipment, step by step
-          </h2>
-
-          <p class="section-dek">
-            A clear booking flow, verified handoffs and practical updates from
-            collection to destination.
-          </p>
-        </div>
-
-        <div class="timeline">
-
-          <article class="tl-step">
-            <div class="tl-num active">
-              01
-            </div>
-
-            <div class="tl-content">
-              <div class="tl-label">
-                Step 1
-              </div>
-
-              <h3 class="tl-title">
-                Book your slot
-              </h3>
-
-              <p class="tl-body">
-                Use the route checker on patwadi.com to select your corridor,
-                item type and preferred collection date. Pick your time window
-                — morning, afternoon, evening or night. Pay via Razorpay to
-                confirm your slot.
-                <br><br>
-                You will receive a booking confirmation with your unique
-                tracking code.
-              </p>
-
-              <div class="chips">
-                <span class="chip blue">
-                  Route checker on patwadi.com
-                </span>
-
-                <span class="chip green">
-                  Booking reference
-                </span>
-
-                <span class="chip">
-                  UPI, cards and net banking
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="tl-step">
-            <div class="tl-num">
-              02
-            </div>
-
-            <div class="tl-content">
-              <div class="tl-label">
-                Step 2
-              </div>
-
-              <h3 class="tl-title">
-                Pack your items
-              </h3>
-
-              <p class="tl-body">
-                Pack securely in a carton, bag or suitcase. Fragile items must
-                be declared at booking and bubble-wrapped before handoff.
-                Label the parcel clearly with the recipient's name, phone
-                number and city. We add a Patwadi tracking label at collection.
-              </p>
-
-              <div class="chips">
-                <span class="chip warm">
-                  Declare fragile items
-                </span>
-
-                <span class="chip">
-                  Add recipient details
-                </span>
-
-                <span class="chip">
-                  Tracking label at pickup
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="tl-step">
-            <div class="tl-num">
-              03
-            </div>
-
-            <div class="tl-content">
-              <div class="tl-label">
-                Step 3
-              </div>
-
-              <h3 class="tl-title">
-                We collect and verify
-              </h3>
-
-              <p class="tl-body">
-                Our last-mile agent arrives within the confirmed collection
-                window. The parcel is logged with a code and collection photo,
-                and you receive confirmation once the handoff is complete.
-              </p>
-
-              <div class="custody-box">
-                <div class="custody-steps">
-                  <span style="color:#ead7ba;">You</span>
-                  <span class="custody-arrow">&rarr;</span>
-                  <span>Pickup agent</span>
-                  <span class="custody-arrow">&rarr;</span>
-                  <span>Line-haul transit</span>
-                  <span class="custody-arrow">&rarr;</span>
-                  <span>Destination agent</span>
-                  <span class="custody-arrow">&rarr;</span>
-                  <span style="color:#ead7ba;">Recipient</span>
-                </div>
-
-                <p class="custody-desc">
-                  <strong>Verified at every handoff.</strong>
-                  Collection and transfer records help Patwadi trace who
-                  received the parcel and when each movement occurred.
-                </p>
-              </div>
-
-              <div class="chips">
-                <span class="chip green">
-                  Collection receipt
-                </span>
-
-                <span class="chip">
-                  Verified handoff
-                </span>
-
-                <span class="chip">
-                  Custody record
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="tl-step">
-            <div class="tl-num">
-              04
-            </div>
-
-            <div class="tl-content">
-              <div class="tl-label">
-                Step 4
-              </div>
-
-              <h3 class="tl-title">
-                Track your shipment
-              </h3>
-
-              <p class="tl-body">
-                Enter your booking reference on
-                <a href="/tracking.html">the Patwadi tracking page</a>
-                to view the latest recorded shipment milestone.
-                Notifications keep you updated as the parcel moves.
-              </p>
-
-              <div class="tracking-steps">
-
-                <div class="tracking-step">
-                  <div
-                    class="tracking-dot"
-                    style="background:#22c55e;"
-                  ></div>
-
-                  <span>
-                    <strong>Collected</strong>
-                    — picked up and logged by the agent
-                  </span>
-                </div>
-
-                <div class="tracking-step">
-                  <div
-                    class="tracking-dot"
-                    style="background:var(--blue);"
-                  ></div>
-
-                  <span>
-                    <strong>In transit</strong>
-                    — moving along the confirmed corridor
-                  </span>
-                </div>
-
-                <div class="tracking-step">
-                  <div
-                    class="tracking-dot"
-                    style="background:var(--orange);"
-                  ></div>
-
-                  <span>
-                    <strong>Arrived</strong>
-                    — received at the destination handoff point
-                  </span>
-                </div>
-
-              </div>
-
-              <div class="chips">
-                <span class="chip blue">
-                  Milestone tracking
-                </span>
-
-                <span class="chip green">
-                  Automatic notifications
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="tl-step">
-            <div class="tl-num">
-              05
-            </div>
-
-            <div class="tl-content">
-              <div class="tl-label">
-                Step 5
-              </div>
-
-              <h3 class="tl-title">
-                Collect at destination
-              </h3>
-
-              <p class="tl-body">
-                Once your parcel arrives, you receive an arrival notification
-                with the destination agent's contact information and handoff
-                instructions.
-                <br><br>
-                Eligible shipments may be held securely for up to seven days.
-                Doorstep delivery is available on selected routes and must be
-                confirmed when booking.
-              </p>
-
-              <div class="chips">
-                <span class="chip green">
-                  Hold up to 7 days
-                </span>
-
-                <span class="chip">
-                  Agent details on arrival
-                </span>
-
-                <span class="chip">
-                  Doorstep on selected routes
-                </span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section dispatch-section">
-      <div class="dispatch-wrap">
-
-        <div class="section-heading">
-          <div class="section-eyebrow">
-            Route planning
-          </div>
-
-          <h2 class="section-title">
-            Dispatch times by corridor
-          </h2>
-
-          <p class="section-dek">
-            These are typical dispatch windows. Final timing depends on the
-            selected route, booking cutoff and confirmed operating capacity.
-          </p>
-        </div>
-
-        <div class="dispatch-box">
-
-          <div class="dispatch-row">
-            <span class="dispatch-route">
-              Delhi, Chandigarh and Punjab corridors
-            </span>
-            <span class="dispatch-time">
-              Same-day dispatch
-            </span>
-          </div>
-
-          <div class="dispatch-row">
-            <span class="dispatch-route">
-              Himachal Pradesh — Mandi, Shimla, Manali and Dharamshala
-            </span>
-            <span class="dispatch-time">
-              Typically within 48hr
-            </span>
-          </div>
-
-          <div class="dispatch-row">
-            <span class="dispatch-route">
-              Uttarakhand — Dehradun
-            </span>
-            <span class="dispatch-time">
-              Typically within 48hr
-            </span>
-          </div>
-
-          <div class="dispatch-row">
-            <span class="dispatch-route">
-              Jammu and Kashmir routes
-            </span>
-            <span class="dispatch-time">
-              Typically within 72hr
-            </span>
-          </div>
-
-          <div class="dispatch-row">
-            <span class="dispatch-route">
-              South India — Tamil Nadu, Karnataka, Andhra Pradesh,
-              Telangana and Kerala
-            </span>
-            <span class="dispatch-time">
-              Typically within 24–48hr
-            </span>
-          </div>
-
-        </div>
-
-        <p class="dispatch-note">
-          Exact windows are confirmed during booking. Same-day dispatch on
-          plains corridors depends on capacity and the daily booking cutoff.
-        </p>
-      </div>
-    </section>
-
-    <section class="section faq-section">
-      <div class="reading-container">
-
-        <div class="section-heading">
-          <div class="section-eyebrow">
-            Need to know
-          </div>
-
-          <h2 class="section-title">
-            Frequently asked questions
-          </h2>
-
-          <p class="section-dek">
-            Booking, packing, tracking, collection and claims — explained
-            before you hand anything over.
-          </p>
-        </div>
-
-        <div class="faq-list">
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>How do I book a shipment?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Use the route checker on patwadi.com to select your corridor,
-              item type and preferred collection date. Pick your time window,
-              then pay through Razorpay using UPI, cards or net banking.
-              You will receive a booking confirmation and tracking reference.
-              <br><br>
-              Website enquiries may continue through WhatsApp where manual
-              route confirmation is required.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>What items can I not send?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              The following are prohibited:
-
-              <ul>
-                <li>
-                  <strong>Dangerous goods</strong>
-                  — flammables, explosives, fireworks and compressed gas
-                </li>
-
-                <li>
-                  <strong>Weapons and ammunition</strong>
-                  — firearms, airguns, prohibited blades and tasers
-                </li>
-
-                <li>
-                  <strong>Hazardous chemicals</strong>
-                  — acids, corrosives, pesticides, bleach and solvents
-                </li>
-
-                <li>
-                  <strong>Restricted batteries</strong>
-                  — including batteries beyond permitted limits
-                </li>
-
-                <li>
-                  <strong>Narcotics and controlled substances</strong>
-                </li>
-
-                <li>
-                  <strong>Improperly sealed liquids</strong>
-                </li>
-
-                <li>
-                  <strong>Perishable or refrigerated goods</strong>
-                </li>
-
-                <li>
-                  <strong>Live animals or plants</strong>
-                </li>
-
-                <li>
-                  <strong>Cash, jewellery and negotiable instruments</strong>
-                </li>
-
-                <li>
-                  <strong>Original high-risk legal documents</strong>
-                  such as passports and property deeds
-                </li>
-
-                <li>
-                  <strong>Undeclared fragile items</strong>
-                </li>
-              </ul>
-
-              Check the
-              <a href="/prohibited-items.html">prohibited-items guide</a>
-              or contact Patwadi before booking when uncertain.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>What are the size and weight limits?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              <div
-                class="table-scroll"
-                role="region"
-                aria-label="Parcel size and weight limits"
-                tabindex="0"
-              >
-                <table class="size-table">
-                  <thead>
-                    <tr>
-                      <th>Item type</th>
-                      <th>Maximum dimensions</th>
-                      <th>Maximum weight</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr>
-                      <td>Carton / semester box</td>
-                      <td class="mono">60 × 45 × 40 cm</td>
-                      <td>20 kg</td>
-                    </tr>
-
-                    <tr>
-                      <td>Large suitcase / trolley</td>
-                      <td class="mono">75 × 50 × 30 cm</td>
-                      <td>25 kg</td>
-                    </tr>
-
-                    <tr>
-                      <td>Duffel / sports bag</td>
-                      <td class="mono">65 × 35 × 35 cm</td>
-                      <td>20 kg</td>
-                    </tr>
-
-                    <tr>
-                      <td>Trek / gear bag</td>
-                      <td class="mono">80 × 40 × 30 cm</td>
-                      <td>18 kg</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              Cycles, mattresses and oversized items require a custom route and
-              price confirmation.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>How do I pay?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Payment is collected through Razorpay. Supported methods can
-              include UPI, cards and net banking. A booking is confirmed only
-              after the applicable payment has been completed. Cash on
-              delivery is not available.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>How far in advance do I need to book?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Book at least <strong>48 hours before</strong> your preferred
-              collection date where possible. During semester-end, festival
-              and peak travel periods, booking three to five days in advance
-              is safer. Same-day availability depends on corridor capacity.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>Do you deliver to my door, or do I collect?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Standard service may use a confirmed destination handoff point or
-              local agent. Eligible parcels can be held for collection for up
-              to seven days. Doorstep delivery is available only on selected
-              corridors and should be confirmed during booking.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>What happens if my parcel is damaged or lost?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Contact Patwadi within the applicable claim window with your
-              booking reference, photographs and a description of the contents
-              and declared value. Handoff records are reviewed to trace the
-              shipment. Damage to improperly packed or undeclared fragile items
-              may not be covered. See the current policy documents for complete
-              terms.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>Can I cancel or reschedule?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              <ul>
-                <li>
-                  <strong>Before pickup begins</strong>
-                  — cancellation may qualify for a full refund.
-                </li>
-
-                <li>
-                  <strong>After pickup begins</strong>
-                  — collection or reverse-movement charges may apply.
-                </li>
-
-                <li>
-                  <strong>After dispatch</strong>
-                  — cancellation is generally unavailable and the shipment
-                  proceeds to destination.
-                </li>
-              </ul>
-
-              Contact Patwadi immediately with the booking reference for the
-              route-specific outcome.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              <span>How do I track my parcel?</span>
-
-              <svg
-                class="faq-chevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                aria-hidden="true"
-              >
-                <path d="M6 9l6 6 6-6"></path>
-              </svg>
-            </button>
-
-            <div class="faq-answer">
-              Enter your booking reference on the
-              <a href="/tracking.html">Patwadi tracking page</a>.
-              You can view the latest recorded milestone, such as Collected,
-              In Transit or Arrived. Contact support when you need clarification
-              between updates.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section final-cta-section">
-      <div class="container">
-        <div class="cta-band">
-
-          <h2>
-            Ready to send something?
-          </h2>
-
-          <p>
-            Select your route, enter the shipment details and receive the next
-            available booking option.
-          </p>
-
-          <div class="cta-btns">
-            <a href="/#book" class="btn">
-              Book Now &rarr;
-            </a>
-
-            <a href="/tracking.html" class="btn btn-outline">
-              Track a parcel
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="footer-content">
-
-      <div class="footer-section">
-        <h3>Who we serve</h3>
-        <a href="/students.html">Students</a>
-        <a href="/business.html">Business shipping</a>
-        <a href="/how-it-works.html">How It Works</a>
-        <a href="/tracking.html">Track a parcel</a>
+    <p style="font-size:0.82rem;color:var(--ghost);margin-top:10px;">Exact window confirmed at booking. Plains corridors dispatch same-day if booked before noon.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-list">
+
+      <!-- FIX 7: "No account setup required" — accurately describes WhatsApp booking path; clarifies app tracking -->
+      <div class="faq-item">
+        <button class="faq-question">How do I book a shipment?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Use the route checker on patwadi.com to select your corridor, item type, and preferred collection date. Pick your time window, then pay via Razorpay (UPI, cards, net banking) to confirm your slot. You will receive a booking confirmation and tracking code immediately.<br><br>Website bookings proceed through WhatsApp &mdash; no app account needed to book. To track your parcel in real time and receive milestone notifications, download the Patwadi app. Creating an account takes under a minute.</div>
       </div>
 
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <a href="mailto:admin@patwadi.com">
-          admin@patwadi.com
-        </a>
-        <a
-          href="https://wa.me/918091889969"
-          target="_blank"
-          rel="noopener"
-          style="color:#25d366;"
-        >
-          WhatsApp support
-        </a>
+      <div class="faq-item">
+        <button class="faq-question">What items can I not send?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">The following are strictly prohibited:<ul><li><strong>Dangerous goods</strong> &mdash; flammables, explosives, fireworks, compressed gas cylinders</li><li><strong>Weapons and ammunition</strong> &mdash; firearms, airguns, knives, blades, tasers</li><li><strong>Hazardous chemicals</strong> &mdash; acids, corrosives, pesticides, bleach, solvents</li><li><strong>Lithium batteries</strong> &mdash; loose above 100Wh; power banks above 20,000mAh</li><li><strong>Narcotics and controlled substances</strong></li><li><strong>Liquids</strong> &mdash; oils, perfumes, beverages unless hermetically sealed and declared</li><li><strong>Perishables</strong> &mdash; fresh food, dairy, anything needing refrigeration</li><li><strong>Live animals or plants</strong></li><li><strong>Cash, gold, jewellery</strong> and high-value negotiable instruments</li><li><strong>Original legal documents</strong> &mdash; passports, property deeds, wills</li><li><strong>Fragile items without declaration</strong> &mdash; undeclared damage is not covered</li></ul>When in doubt, contact us before booking.</div>
       </div>
 
-      <div class="footer-section">
-        <h3>Company</h3>
-        <a href="/b2b.html">Enterprise</a>
-        <a href="/drivers.html">Join Us</a>
-        <a href="/posts/">Guides</a>
+      <div class="faq-item">
+        <button class="faq-question">What are the size and weight limits?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer"><div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="size-table"><thead><tr><th>Item type</th><th>Max dimensions (L x W x H)</th><th>Max weight</th></tr></thead><tbody><tr><td>Carton / semester box</td><td class="mono">60 x 45 x 40 cm</td><td>20 kg</td></tr><tr><td>Large suitcase / trolley</td><td class="mono">75 x 50 x 30 cm</td><td>25 kg</td></tr><tr><td>Duffel / sports bag</td><td class="mono">65 x 35 x 35 cm</td><td>20 kg</td></tr><tr><td>Trek / gear bag</td><td class="mono">80 x 40 x 30 cm</td><td>18 kg</td></tr></tbody></table></div>Cycles, mattresses, and oversized items require a custom quote. Contact us before booking.</div>
       </div>
 
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <a href="/docs/privacy-policy.html">
-          Privacy Policy
-        </a>
-        <a href="/docs/terms-of-service.html">
-          Terms of Service
-        </a>
-        <a href="/docs/shipping-policy.html">
-          Shipping Policy
-        </a>
+      <div class="faq-item">
+        <button class="faq-question">How do I pay?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Payment is collected at booking via <strong>Razorpay</strong> &mdash; UPI (GPay, PhonePe, Paytm), credit or debit cards, and net banking are all supported. Payment must be completed to confirm your slot. We do not accept cash, COD, or Buy Now Pay Later. You will receive a payment receipt immediately.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How far in advance do I need to book?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Book at least <strong>48 hours before your preferred collection date</strong>. During peak periods &mdash; semester end in May and November, festival windows &mdash; book 3&ndash;5 days in advance. Same-day slots are subject to capacity on your corridor and are not guaranteed.</div>
+      </div>
+
+      <!-- FIX 4: 48 hours → 7 days in the delivery FAQ -->
+      <div class="faq-item">
+        <button class="faq-question">Do you deliver to my door, or do I collect?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Our standard service is <strong>agent-hold at destination</strong> &mdash; your parcel arrives at our local agent and you collect within 7 days at your convenience. The agent's address and contact are sent with your "Arrived" notification.<br><br>Doorstep delivery is available on select business routes. Confirm at booking for your corridor.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">What happens if my parcel is damaged or lost?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Contact us within <strong>48 hours of the scheduled delivery date</strong> with your booking reference, photos of any damage, and a brief description of contents and value. We investigate all claims within 3 business days. Because every handoff is logged, we can trace exactly where an issue occurred. Damage to undeclared fragile items is not covered.</div>
+      </div>
+
+      <!-- FIX 6: 30% removed; language aligned with refund policy (partial charge, contact us) -->
+      <div class="faq-item">
+        <button class="faq-question">Can I cancel or reschedule?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer"><ul><li><strong>Before pickup is initiated</strong> &mdash; free cancellation, full refund.</li><li><strong>After pickup is initiated</strong> (agent en route or parcel collected but not yet dispatched) &mdash; a partial reverse delivery charge applies. Contact us with your booking reference for the amount applicable to your corridor.</li><li><strong>Once dispatched to transit</strong> &mdash; no cancellations accepted. The shipment will proceed to destination.</li></ul>To cancel or reschedule, contact us immediately with your booking reference.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How do I track my parcel?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-answer">Enter your booking reference on <a href="tracking.html" style="color:var(--orange);font-weight:600;">patwadi.com/track</a>. You will see your parcel's current status and location. Automatic notifications are sent at each milestone: Collected, In Transit, and Arrived. If you have a question between updates, contact our support team.</div>
       </div>
 
     </div>
+  </div>
+</section>
 
-    <div class="footer-bottom">
-      <p>
-        &copy; 2026 Patwadi Logistics LLP. All rights reserved.
-        | Chandigarh, India
-      </p>
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>Ready to send something?</h2>
+      <p>Select your route, book your slot, and we handle the rest.</p>
+      <div class="cta-btns">
+        <a href="index.html#book" class="btn">Book Now &rarr;</a>
+        <a href="tracking.html" class="btn btn-outline">Track a parcel</a>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const navToggle = document.getElementById("navToggle");
-    const mobileNav = document.getElementById("mNav");
+<footer>
+  <div class="footer-content">
+    <div class="footer-section"><h3>Who we serve</h3><a href="students.html">Students</a><a href="business.html">Business shipping</a><a href="how-it-works.html">How It Works</a><a href="tracking.html">Track a parcel</a></div>
+    <div class="footer-section"><h3>Contact</h3><a href="mailto:admin@patwadi.com">admin@patwadi.com</a><a href="https://wa.me/918091889969" target="_blank" style="color:#25D366;">WhatsApp support</a></div>
+    <div class="footer-section"><h3>Company</h3><a href="b2b.html">Enterprise</a><a href="drivers.html">Join Us</a><a href="/posts/">Guides</a></div>
+    <!-- Legal links already correctly pointing to /docs/ — kept as is -->
+    <div class="footer-section"><h3>Legal</h3><a href="/docs/privacy-policy.html">Privacy Policy</a><a href="/docs/terms-of-service.html">Terms of Service</a><a href="/docs/shipping-policy.html">Shipping Policy</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Patwadi Logistics LLP. All rights reserved. | Chandigarh, India</p></div>
+</footer>
 
-    function setMobileMenu(open) {
-      mobileNav.classList.toggle("open", open);
-      navToggle.setAttribute("aria-expanded", String(open));
-      mobileNav.setAttribute("aria-hidden", String(!open));
-      navToggle.setAttribute(
-        "aria-label",
-        open ? "Close navigation menu" : "Open navigation menu"
-      );
-      document.body.classList.toggle("mobile-menu-open", open);
-    }
-
-    navToggle.addEventListener("click", function () {
-      const isOpen = mobileNav.classList.contains("open");
-      setMobileMenu(!isOpen);
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item = this.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
-
-    document.addEventListener("click", function (event) {
-      const clickedInsideMenu = mobileNav.contains(event.target);
-      const clickedToggle = navToggle.contains(event.target);
-
-      if (
-        mobileNav.classList.contains("open") &&
-        !clickedInsideMenu &&
-        !clickedToggle
-      ) {
-        setMobileMenu(false);
-      }
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "Escape" &&
-        mobileNav.classList.contains("open")
-      ) {
-        setMobileMenu(false);
-        navToggle.focus();
-      }
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 900) {
-        setMobileMenu(false);
-      }
-    });
-
-    document.querySelectorAll(".nav-mobile-menu a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        setMobileMenu(false);
-      });
-    });
-
-    document.querySelectorAll(".faq-question").forEach(function (button) {
-      button.addEventListener("click", function () {
-        const currentItem = button.closest(".faq-item");
-        const wasOpen = currentItem.classList.contains("open");
-
-        document.querySelectorAll(".faq-item.open").forEach(function (item) {
-          item.classList.remove("open");
-
-          const itemButton = item.querySelector(".faq-question");
-
-          if (itemButton) {
-            itemButton.setAttribute("aria-expanded", "false");
-          }
-        });
-
-        if (!wasOpen) {
-          currentItem.classList.add("open");
-          button.setAttribute("aria-expanded", "true");
-        }
-      });
-    });
-  </script>
-
+  });
+  function toggleNav(){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(!m||!b)return;var open=m.classList.toggle("open");b.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(m){m.classList.remove("open");document.body.style.overflow="";}if(b)b.setAttribute("aria-expanded","false");}});
+document.addEventListener('click', function(e) {
+    const m = document.getElementById('mNav'), b = document.querySelector('.nav-hamburger');
+    if (m && b && !m.contains(e.target) && !b.contains(e.target)) m.classList.remove('open');
+  });
+</script>
 </body>
 </html>
