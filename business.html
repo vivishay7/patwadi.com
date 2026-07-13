@@ -100,6 +100,11 @@
     .has-dropdown:has(.active)>a{color:var(--ink);background:#F1F5F9;}
     .mobile-section-label{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ghost);padding:12px 12px 4px;display:block;}
     .nav-mobile-menu a.mobile-sub{padding-left:24px;}
+  
+  /* ── MOBILE NAV PATCH: touch targets + menu scrollability ── */
+  .nav-hamburger{width:44px;height:44px;padding:0;display:none;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0;}
+  .nav-mobile-menu,.nav-mob{max-height:calc(100dvh - 60px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
+  .nav-mobile-menu a,.nav-mob a{min-height:44px;display:flex;align-items:center;padding:11px 12px;}
   </style>
 </head>
 <body>
@@ -130,9 +135,7 @@
       <li><a href="/posts/">Guides</a></li>
     </ul>
     <a href="https://wa.me/918091889969?text=Hi%20Patwadi%2C%20I%27d%20like%20a%20business%20shipping%20quote" target="_blank" class="nav-cta">Get a quote</a>
-    <button class="nav-hamburger" aria-label="Open navigation menu" onclick="document.getElementById('mNav').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile-menu" id="mNav">
     <a href="index.html">Home</a>
@@ -306,6 +309,9 @@
     e.preventDefault();
     this.innerHTML=`<div style="text-align:center;padding:36px 20px;"><div style="font-size:2rem;margin-bottom:12px;">Done</div><h3 style="margin-bottom:8px;color:#0F172A;">Enquiry received</h3><p style="color:#475569;font-size:0.88rem;line-height:1.65;">We'll confirm a quote on WhatsApp within a few hours.<br>You can also reach us at <a href="https://wa.me/918091889969" target="_blank" style="color:var(--orange);font-weight:600;">+91 80918 89969</a>.</p></div>`;
   });
+
+function toggleNav(){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(!m||!b)return;var open=m.classList.toggle("open");b.setAttribute("aria-expanded",open);document.body.style.overflow=open?"hidden":"";}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("mobileNav")||document.getElementById("mNav");var b=document.querySelector(".nav-hamburger");if(m){m.classList.remove("open");document.body.style.overflow="";}if(b)b.setAttribute("aria-expanded","false");}});
 </script>
 </body>
 </html>
